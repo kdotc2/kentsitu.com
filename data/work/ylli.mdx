@@ -1,0 +1,219 @@
+---
+title: 'YLLI'
+date: '2022-05-18'
+draft: false
+summary: Lead the design for a food management app from zero to one. Launched beta version in the App Store.
+description: An inventory management app that organizes and keep track of food items.
+cover: /static/images/ylli/cover-photo.png
+layout: PostLayout
+---
+
+<TOCInline toc={props.toc} asDisclosure />
+
+## Overview
+
+The team consisted of seven people. I worked with a product manager, a branding designer, and four engineers. My role was Lead Product Designer. I designed, prototyped, and tested the screens. I collaborated with the team on research, implementation, and QA. We launched an early version of the app in the App Store. The project took ten months.
+
+## Problem
+
+Food waste is a growing global problem that continues to affect the environment. Food production exceeds consumption and edible food is often thrown away. This comes from forgetting about its existence or not knowing how to judge the expiration date of an item.
+
+## Goals
+
+First—organize and track food inventory. Second—make adding food items a less tedious process. Third—help users better understand food and spending habits.
+
+## Understand Food Waste
+
+The team and I kicked off our research by getting a better understanding of food waste. I spoke with six people about their food habits and also researched competitor products with the team.
+
+<div className="py-8">
+![Food waste stats](/static/images/ylli/chart1.png)
+  <div className="text-xs text-center">
+    Source:{' '}
+    <a href="https://essayzilla.org/wp-content/uploads/2020/12/20190403031440household_food_waste__3_.pdf#page=4">U.S. Household Food Waste: Awareness and Attitudes</a>
+  </div>
+</div>
+
+Consumers are by far, the biggest contributors of food waste. Below are some quotes that help explain how big of an issue it has become in the U.S.
+
+> ​​​​​ ​Food is the largest single source of waste in the U.S. More food ends up in landfills than plastic or paper (source: <a href="https://www.npr.org/sections/thesalt/2014/11/17/364172105/to-end-food-waste-change-needs-to-begin-at-home"> NPR </a>).
+
+> In 2018 EPA estimates that more than 63 million tons of wasted food was generated, and about 40 percent came from households (source: <a href="https://www.epa.gov/sustainable-management-food/food-too-good-waste-implementation-guide-and-toolkit#whyis"> United States Environmental Protection Agency </a>).
+
+> Experts have projected that reducing food losses by just 15 percent would provide enough food for more than 25 million Americans every year (source: <a href="https://www.usda.gov/media/press-releases/2015/09/16/usda-and-epa-join-private-sector-charitable-organizations-set"> U.S. Department of Agriculture </a>).
+
+<div className="py-8">
+![More food waste stats](/static/images/ylli/chart2.png)
+  <div className="text-xs text-center">
+    Source:{' '} <a href="https://www.nrdc.org/sites/default/files/wasted-2017-report.pdf#page=10">U.S. Household Food Waste: Awareness and Attitudes</a>
+  </div>
+</div>
+
+## Synthesize Findings & Explore Competitors' Features
+
+For the user interviews, I summarized the responses into four main categories. These insights were helpful in figuring out how users managed their items and budgeting. It also helped us with pain points prioritization.
+
+<div className="py-8">![More food waste stats](/static/images/ylli/insights.png)</div>
+
+The team narrowed down the competitors with a focus on five features. Those five features turned to two—food inventory management and budgeting. We agreed that these two features would offer more value than the other three. It also would be easier to implement.
+
+<div className="py-8">![Competitors and features](/static/images/ylli/competitors.png)</div>
+
+## Focus on Food Management & Budgeting
+
+After going through the competitor apps and findings with stakeholders, I put together a user flow. It focuses on users adding items through two options. And then moving items to different data categories to help with expense tracking. This is how we envisioned users using our app.
+
+<div className="py-8">![User flow](/static/images/ylli/user-flow.png)</div>
+
+I mocked up some Lo-Fi wireframes using the flow above. After several iterations, I made sure that both features had the necessary visual information for their main screen. The inventory screen had item cards with the following information—name, expiration date, and price. The expense report screen mapped out the different categories of spend.
+
+<div className="projectImageGrid">
+  <div className="imageProp">
+    ![Inventory screen](/static/images/ylli/wireframe1.png)
+  </div>
+  <div className="imageProp">
+    ![Item info screen](/static/images/ylli/wireframe2.png)
+  </div>
+  <div className="imageProp">
+    ![Swipe actions screen](/static/images/ylli/wireframe3.png)
+  </div>
+  <div className="imageProp">
+    ![Notifications screen](/static/images/ylli/wireframe4.png)
+  </div>
+  <div className="imageProp">
+    ![Report screen](/static/images/ylli/wireframe5.png)
+  </div>
+  <div className="imageProp">
+    ![Add item options screen](/static/images/ylli/wireframe6.png)
+  </div>
+  <div className="imageProp">
+    ![Search item screen](/static/images/ylli/wireframe7.png)
+  </div>
+  <div className="imageProp">
+    ![Edit info screen](/static/images/ylli/wireframe8.png)
+  </div>
+</div>
+
+## Test Ideas Using Early Prototype
+
+I converted the Lo-Fi wireframes into an early clickable prototype. I asked seven participants to complete a list of tasks and any suggestions they had. The participants completed most of the tasks with ease, except the swipe actions. Several of them recommended creating a tutorial to make it clearer. The swipe actions redesign got pushed back and will launch at a later date.
+
+<div className="flex justify-center py-10">
+  <Btn link="https://xd.adobe.com/view/faacdecc-f1ad-4e90-998d-de8240f5b4e8-afff/" text="Early Prototype" />
+</div>
+
+<div className="py-8">![User interviews](/static/images/ylli/user-interviews.png)</div>
+
+## Refine Designs & Continue Iterating
+
+After countless iterations, I put together a more complete prototype with some changes. First—the report screen now includes a category breakdown. Second—there's sorting and filters to help with search. Third—the add/edit item screen got revamped to include labels and optional fields.
+
+The category breakdown would give the user better insight into their spending habits. Sorting and filtering made it easier to prioritize and find items. The changes in the add/edit item was to make it more accessible and help speed up adding items.
+
+<div className="flex justify-center py-10">
+  <Btn link="https://xd.adobe.com/view/0b9e365e-d3bb-4054-8233-540514a59951-5ecd/" text="Updated Prototype" />
+</div>
+
+<div className="projectImageGrid">
+  <div className="imageProp">
+    ![Sort items filter screen](/static/images/ylli/screen1.png)
+  </div>
+  <div className="imageProp">
+    ![Category filters screen](/static/images/ylli/screen2.png)
+  </div>
+  <div className="imageProp">
+    ![Swipe actions screen](/static/images/ylli/screen3.png)
+  </div>
+  <div className="imageProp">
+    ![Edit info screen](/static/images/ylli/screen4.png)
+  </div>
+  <div className="imageProp">
+    ![Edit item category screen](/static/images/ylli/screen5.png)
+  </div>
+  <div className="imageProp">
+    ![Edit item expiration date screen](/static/images/ylli/screen6.png)
+  </div>
+  <div className="imageProp">
+    ![Edit item metric screen](/static/images/ylli/screen7.png)
+  </div>
+  <div className="imageProp">
+    ![Add item options screen](/static/images/ylli/screen8.png)
+  </div>
+  <div className="imageProp">
+    ![Scan receipt to add screen](/static/images/ylli/screen9.png)
+  </div>
+  <div className="imageProp">
+    ![Scanned items screen](/static/images/ylli/screen10.png)
+  </div>
+  <div className="imageProp">
+    ![Search to add screen](/static/images/ylli/screen11.png)
+  </div>
+  <div className="imageProp">
+    ![Expense report screen](/static/images/ylli/screen12.png)
+  </div>
+  <div className="imageProp">
+    ![Filters report screen](/static/images/ylli/screen13.png)
+  </div>
+  <div className="imageProp">
+    ![More info on total expenses screen](/static/images/ylli/screen14.png)
+  </div>
+  <div className="imageProp">
+    ![Finished/expired breakdown screen](/static/images/ylli/screen15.png)
+  </div>
+  <div className="imageProp">
+    ![Finished beverages breakdown screen](/static/images/ylli/screen16.png)
+  </div>
+</div>
+
+## Process
+
+The process was an iterative agile process. We went back to previous steps as we tested and gathered more feedback from stakeholders and users.
+
+<div className="py-8">![Process](/static/images/ylli/process.png)</div>
+
+## Implementation
+
+During implementation, there was a lot of back and forth between the teams on what and how to proceed. One of the core features that we delayed was the reminders feature. Feedback and discussions we had told us that the feature wasn't quite where we wanted.
+
+<div className="projectImageGrid">
+  <div className="imageProp">
+    ![Sort items filter screen](/static/images/ylli/screen17.png)
+  </div>
+  <div className="imageProp">
+    ![Category filters screen](/static/images/ylli/screen18.png)
+  </div>
+  <div className="imageProp">
+    ![Swipe actions screen](/static/images/ylli/screen19.png)
+  </div>
+  <div className="imageProp">
+    ![Edit info screen](/static/images/ylli/screen20.png)
+  </div>
+</div>
+
+We launched version 0.9, instead of version 1.0. We wanted feedback from a live product as soon as possible. We also wanted to spend some more time preparing delayed features and fixing bugs.
+
+## Next Steps & Reflection
+
+While the product is live in the App Store, there are still tasks that we need to complete. In hindsight, we should have waited a bit longer to complete some of these tasks. But we were on a time crunch and had to move up the timeline.
+
+Now that version 0.9 is live in the App Store, we can look for product market fit. We are also gathering feedback to help prioritize and add to our roadmap. Currently, we are continuing our implementation of the reminders feature. We are also rethinking the swipe actions and item card.
+
+Here are the key takeaways from this project:
+
+<div className="keyTakeaways">
+  <span className="font-semibold">The plan and roadmap is always adapting.</span> New and existing
+  features can get delayed to a later release date. Continue to communicate and stay updated with
+  what's happening.
+</div>
+
+<div className="keyTakeaways">
+  <span className="font-semibold">Designs fail and that is okay.</span> There is no such thing as a
+  perfect solution, things can and will break during testing. Don't see it as a failure, but rather
+  a lesson for the future.
+</div>
+
+<div className="keyTakeaways">
+  <span className="font-semibold">Change takes time.</span> Be persistent and continue building
+  rapport. Never stop advocating for the user. But understand that the business side of things can
+  slow things down.
+</div>

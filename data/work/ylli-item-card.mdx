@@ -1,0 +1,214 @@
+---
+title: 'YLLI Item Card'
+date: '2022-12-01'
+draft: false
+summary: Redesigned inventory item card, swipe feature, and designed a tutorial for new changes.
+description: Redesign item card, improve swipe feature, and design tutorial.
+cover: /static/images/ylli-item-card/cover-photo.png
+layout: PostLayout
+---
+
+<TOCInline toc={props.toc} asDisclosure />
+
+## Overview
+
+The team consisted of five people. I worked with a product manager, and three engineers. My role was Lead Product Designer. I lead the redesign by taking point on research, interaction design, and prototyping, and testing. I collaborated with the team on implementation. The changes are currently going through QA. The project took two and a half months.
+
+## Problem
+
+Users were struggling with the swipe feature. The card design didn't provide us with enough flexibility. It wasn't designed wide enough for us to implement future features on our roadmap.
+
+## Goals
+
+First—redesign the inventory item card to provide flexibility for our long-term roadmap. Second—make it easier to move items to expense report. Third—create a tutorial to guide users on the new changes.
+
+## Short-Term Tutorial Fix
+
+The current item card didn't offer a swipe experience that users expected. About 28% of users were moving items to the expense report. A lot of them had no clue that this feature existed. We implemented a short-term tutorial fix to guide users. This would give us some time to figure out a better long-term strategy.
+
+<div className="projectImageGrid">
+  <div className="imageProp">
+    ![Click to add items tutorial screen](/static/images/ylli-item-card/tutorial1.png)
+  </div>
+  <div className="imageProp">
+    ![Added first item tutorial screen](/static/images/ylli-item-card/tutorial2.png)
+  </div>
+  <div className="imageProp">
+    ![Swipe for more actions tutorial screen](/static/images/ylli-item-card/tutorial3.png)
+  </div>
+  <div className="imageProp">
+    ![Available options tutorial screen](/static/images/ylli-item-card/tutorial4.png)
+  </div>
+</div>
+
+The short-term fix was effective in that it increased the 28% number to about 53%. But there were still some complaints about the experience not being ideal. Here were some of the quotes from the users.
+
+> ​​​​​​The tutorial helped explain the feature better, but it's still hard to get the swipe options opened.
+
+> It's a bit buggy, where sometimes swiping doesn't always reveal the options. The options also need to be wider as misclicks happen way too often.
+
+> The tutorial was helpful, but the swiping didn't feel like a natural experience.
+
+## Focus On Native iOS
+
+The team agreed to focus on a more native iOS design. The feedback from the short-term fix and seeing iOS 15's new swipe actions made it an easy decision. The goal was to make the swiping experience more natural. And to widen the click box, so there would be less misclicks.
+
+<div className="py-8">
+<div className="md:mx-40">
+![Swipe actions](/static/images/ylli-item-card/swipe-docs.png)
+</div>
+  <div className="text-xs text-center">
+    Source:{' '}
+    <a href="https://essayzilla.org/wp-content/uploads/2020/12/20190403031440household_food_waste__3_.pdf#page=4">U.S. Household Food Waste: Awareness and Attitudes</a>
+  </div>
+</div>
+
+Through each iteration, we maintained the same design elements. The click box now has a wider click radius. The Finished and Expired actions are on opposite swipes with labels. The edit action now occurs by tapping the item card. The undo message was also updated to include a better explanation.
+
+<div className="projectImageGrid">
+  <div className="imageProp">
+    ![Concept 1 screen](/static/images/ylli-item-card/concept1.png)
+  </div>
+  <div className="imageProp">
+    ![Concept 2 screen](/static/images/ylli-item-card/concept2.png)
+  </div>
+  <div className="imageProp">
+    ![Final concept screen](/static/images/ylli-item-card/concept3.png)
+  </div>
+  <div className="imageProp">
+    ![Undo action screen](/static/images/ylli-item-card/concept4.png)
+  </div>
+</div>
+
+## Get Feedback & Design New Tutorial
+
+I put together a Hi-Fi prototype to get some internal feedback from several stakeholders. The general consensus among the stakeholders was that the new design was smoother. It also provided us more flexibility to add features from our roadmap.
+
+<div className="flex justify-center py-10">
+  <Btn link="https://xd.adobe.com/view/ec45e4a2-ebac-4499-a5d9-31a4c1c9d798-b916/" text="Hi-Fi Prototype" />
+</div>
+
+<div className="grid grid-cols-1 sm:grid-cols-2">
+  <div className="m-auto mx-4">
+    <h2 className="text-3xl text-[#59A4F5] font-medium">Item Card Updates</h2>
+    Swipe right to mark item as finished.<br />
+    Swipe left to mark item as expired.<br />
+    Tap card to open item info screen.<br />
+    Tap 'Delete Item' to delete card.<br />Tap 'Undo' to revert changes.
+  </div>
+  <div className="">
+
+  </div>
+</div>
+
+Before testing it with users, we still had one problem to tackle: the tutorial. From our previous testing, users struggled with a simple tutorial. So this time around, we decided to make it a bit more interactive with animation guides and overlays. I created a simple tapping and sliding animation using After Effects.
+
+<div className="grid grid-cols-1 py-8 sm:grid-cols-2">
+  <div className="mx-4 md:mx-1">
+    ![Tap animation](/static/images/ylli-item-card/tap-animation.gif)
+  </div>
+  <div className="mx-4 md:mx-1">
+    ![Swipe animation](/static/images/ylli-item-card/swipe-animation.gif)
+  </div>
+</div>
+
+<div className="projectImageGrid">
+  <div className="imageProp">
+    ![Beginning of tutorial screen](/static/images/ylli-item-card/screen1.png)
+  </div>
+  <div className="imageProp">
+    ![Search to add tutorial screen](/static/images/ylli-item-card/screen2.png)
+  </div>
+  <div className="imageProp">
+    ![Search for "orange" tutorial screen](/static/images/ylli-item-card/screen3.png)
+  </div>
+  <div className="imageProp">
+    ![Item added tutorial screen](/static/images/ylli-item-card/screen4.png)
+  </div>
+  <div className="imageProp">
+    ![Swipe right tutorial screen](/static/images/ylli-item-card/screen5.png)
+  </div>
+  <div className="imageProp">
+    ![Swipe left tutorial screen](/static/images/ylli-item-card/screen6.png)
+  </div>
+  <div className="imageProp">
+    ![Tap card tutorial screen](/static/images/ylli-item-card/screen7.png)
+  </div>
+  <div className="imageProp">
+    ![Delete card tutorial screen](/static/images/ylli-item-card/screen8.png)
+  </div>
+</div>
+
+## Test Prototype With Updated Tutorial
+
+I put the tutorial screens together, along with the animations, to create a tutorial prototype. Now it was time to test the Hi-Fi prototype without and with the tutorial. I asked 12 users to go through the changes. Half of the participants, in the prototype without a tutorial group struggled. They thought tapping the item card would give them the item marking options.
+
+<div className="md:mx-20 py-8">![Test results](/static/images/ylli-item-card/test-results.png)</div>
+
+Some of the participants mentioned that a skip button would be useful. The team discussed how existing users might want to skip the tutorial as well. So we decided to add a "Skip Tutorial" button to give users that option.
+
+
+<div className="flex justify-center py-10">
+  <Btn link="https://xd.adobe.com/view/0dc5a716-f8bb-4974-a846-1683ca4ccb72-5896/" text="Tutorial Prototype" />
+</div>
+
+<div className="grid grid-cols-1 sm:grid-cols-2 py-8">
+  <div className="m-auto mx-4">
+    <h2 className="text-3xl text-[#59A4F5] font-medium">Updated tutorial</h2>
+    Added swipe and tap animations.<br />
+    Added worded description for each step.
+  </div>
+  <div className="mx-20 items-center md:mx-20">
+
+  </div>
+</div>
+
+## Implementation
+
+During implementation, the team decided not to implement all the changes. First—instead of having users go through each step of the tutorial, we created a video to speed up some of the process. Second—due to timing, we didn't update the undo button and left it as it was in the previous design. Third—the delete button wasn't implemented in this iteration.
+
+Although the tutorial did change, we kept the interactive part of the new swipe actions. The team felt that delaying both the undo and delete was the right call as it wasn't high on our priorities.
+
+## Conclusion & Reflection
+
+After the change, we saw an increase in users moving items to the expense report. It started at 28%, and jumped to 53% after the short term tutorial fix. Then when we redesigned the item card and updated the tutorial, that number jumped to 72%. While the redesign looks successful early on, we still need to continue monitoring it.
+
+<div className="grid grid-cols-3 gap-24 text-center py-8">
+  <div className="py-10">
+    <div className="metricHeader text-[#59A4F5]">28%</div>
+    <p className="text-xs sm:text-base">
+      Old Design <br />
+      without tutorial
+    </p>
+  </div>
+  <div className="py-10">
+    <div className="metricHeader text-[#59A4F5]">53%</div>
+    <p className="text-xs sm:text-base">
+      Old Design with <br />
+      short-term tutorial
+    </p>
+  </div>
+  <div className="py-10">
+    <div className="metricHeader text-[#59A4F5]">72%</div>
+    <p className="text-xs sm:text-base">
+      New Design with <br />
+      updated tutorial
+    </p>
+  </div>
+</div>
+
+The redesign of the item card was a much needed task. The team was on the same page throughout the redesign until implementation. I thought the tutorial should have been more interactive, but we came up with a compromise. The steps of adding an item would be in video form, while the new swipe and delete feature would be interactive.
+
+The team agreed that delaying both the undo and delete feature was the right move. I thought priority should have been higher for the delete button. Users didn't have the option of deleting a duplicate or incorrect item. The compromise was to move these two features to the highest priority for the next iteration.
+
+Here are the key takeaways from this project:
+
+<div className="keyTakeaways">
+  <span className="font-semibold">Tradeoffs and disagreements will occur.</span> The goal is to get
+  on the same page through compromise. Then come up with the best path forward.
+</div>
+
+<div className="keyTakeaways">
+  <span className="font-semibold">It's okay if production doesn't match handoff.</span> Priorities
+  and designs are always shifting. Document the inconsistencies and advocate for them to get fixed.
+</div>
