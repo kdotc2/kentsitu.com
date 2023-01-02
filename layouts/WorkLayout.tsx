@@ -25,7 +25,7 @@ export default function WorkLayout({ initialDisplayPosts = [], pagination }: Pro
             Designing user experiences from the ground up.
           </h2>
         </div>
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-5">
           {displayPosts.map((post) => {
             const { slug, title, summary, cover } = post
             return (

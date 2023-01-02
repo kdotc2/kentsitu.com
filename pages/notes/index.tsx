@@ -6,10 +6,16 @@ import { allNotes } from 'contentlayer/generated'
 import type { Notes } from 'contentlayer/generated'
 import formatDate from '@/lib/utils/formatDate'
 import Link from 'next/link'
+import Masonry from 'react-masonry-css'
 
 export const getStaticProps = async () => {
   const posts = sortedNotesPost(allNotes) as Notes[]
   return { props: { posts } }
+}
+
+const breakpointColumnsObj = {
+  default: 2,
+  768: 1,
 }
 
 export default function Notes({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -23,7 +29,11 @@ export default function Notes({ posts }: InferGetStaticPropsType<typeof getStati
           </h1>
         </div>
         <div>
-          <div className="columns-2">
+          <Masonry
+            breakpointCols={breakpointColumnsObj}
+            className="my-masonry-grid"
+            columnClassName="my-masonry-grid_column"
+          >
             {posts.map((post) => {
               const { slug, date, title, summary } = post
               return (
@@ -43,7 +53,7 @@ export default function Notes({ posts }: InferGetStaticPropsType<typeof getStati
                 </Link>
               )
             })}
-          </div>
+          </Masonry>
         </div>
       </div>
     </>

@@ -60,3 +60,18 @@ input:-webkit-autofill:focus {
 .buttonStyle {
   @apply rounded-md border-2 py-[14px] px-6 font-medium md:hover:bg-gray-200 md:dark:hover:border-gray-700 md:dark:hover:bg-gray-700 md:dark:hover:text-white;
 }
+
+.my-masonry-grid {
+  display: flex;
+  width: auto;
+  margin: -10px; /* gutter size offset */
+}
+.my-masonry-grid_column {
+  padding: 10px; /* gutter size */
+  background-clip: padding-box;
+}
+
+/* Style your items */
+.my-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
+  margin-bottom: 20px;
+}
