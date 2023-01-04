@@ -44,7 +44,7 @@ const VideoPlayer = ({ id }) => {
             priority
           />
         </div>
-        <AdvancedVideo cldVid={cldVid} innerRef={videoRef} playsInline muted loop autoPlay/>
+        <AdvancedVideo cldVid={cldVid} innerRef={videoRef} playsInline muted loop autoPlay />
       </div>
       <div className=" flex justify-center font-medium text-blue-500">
         <button onClick={playVideo}>
