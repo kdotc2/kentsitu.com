@@ -19,7 +19,7 @@ export default function WorkLayout({ initialDisplayPosts = [], pagination }: Pro
   return (
     <>
       <PageSEO title={`Work - ${siteMetadata.author}`} description={'siteMetadata.description'} />
-      <div className="min-h-[calc(100vh-140px)] px-6 pb-2 sm:pb-4">
+      <div className="min-h-[calc(100vh-140px)] px-6 pb-6 sm:pb-8">
         <div className="space-y-2 py-24 text-center sm:py-40 md:space-y-5">
           <h2 className="text-2xl leading-9 sm:text-4xl sm:leading-10 md:leading-14">
             Designing user experiences from the ground up.
@@ -40,7 +40,7 @@ export default function WorkLayout({ initialDisplayPosts = [], pagination }: Pro
                       height={600}
                     />
                     <div className="flex-none md:place-self-center py-10 px-6 md:order-first md:w-1/2 md:px-8">
-                      <div className="space-y-6">
+                      <div className="space-y-2 md:space-y-3">
                         <h2 className="text-2xl font-bold leading-8 tracking-tight">{title}</h2>
                         <div className="flex flex-wrap prose text-gray-500 dark:text-gray-400">
                           {summary}

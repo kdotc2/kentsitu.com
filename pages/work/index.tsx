@@ -32,7 +32,6 @@ export default function Work({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      <PageSEO title={`Work - ${siteMetadata.author}`} description={'siteMetadata.description'} />
       <WorkLayout posts={posts} initialDisplayPosts={initialDisplayPosts} pagination={pagination} />
     </>
   )

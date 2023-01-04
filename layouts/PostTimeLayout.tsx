@@ -6,12 +6,12 @@ import { ReactNode } from 'react'
 import type { Notes, Work } from 'contentlayer/generated'
 import siteMetadata from '@/data/siteMetadata'
 
-const postDateTemplate: Intl.DateTimeFormatOptions = {
-  weekday: 'long',
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-}
+// const postDateTemplate: Intl.DateTimeFormatOptions = {
+//   // weekday: 'long',
+//   year: 'numeric',
+//   month: 'long',
+//   day: 'numeric',
+// }
 
 interface Props {
   content: CoreContent<Notes> & CoreContent<Work>
@@ -23,7 +23,7 @@ export default function PostTimeLayout({ content, children }: Props) {
 
   return (
     <SectionContainer>
-      <PageSEO title={title} description={description} />
+      <PageSEO title={`Work - ${siteMetadata.author}`} description={'siteMetadata.description'} />
       <article>
         <div className="min-h-[calc(100vh-140px)] divide-gray-200 px-6 pb-10 dark:divide-gray-700">
           <header className="pt-10 pb-6">
@@ -31,14 +31,14 @@ export default function PostTimeLayout({ content, children }: Props) {
               <div>
                 <PageTitle>{title}</PageTitle>
                 <p className="pt-2 text-gray-500 dark:text-gray-400">{description}</p>
-                <div>
+                {/* <div>
                   <dt className="sr-only">Published on</dt>
                   <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
                     <time dateTime={date}>
                       {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
                     </time>
                   </dd>
-                </div>
+                </div> */}
               </div>
             </div>
           </header>

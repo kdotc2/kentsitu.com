@@ -9,7 +9,7 @@ const siteMetadata = {
   siteRepo: '',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
-  socialBanner: '/static/images/twitter-card.png',
+  // socialBanner: '/static/images/twitter-card.png',
   email: 'hello@kentsitu.com',
   github: '',
   twitter: '',

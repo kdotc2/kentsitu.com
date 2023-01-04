@@ -13,7 +13,10 @@ export default function Pagination({ totalPages, currentPage }: Props) {
     <div className="sm:pt-10 pt-6 text-xs font-medium sm:text-sm mx-auto">
       <nav className="flex items-center justify-between">
         {!prevPage && (
-          <button className="cursor-auto disabled:opacity-50 invisible" disabled={!prevPage}>
+          <button
+            className="cursor-auto disabled:opacity-50 invisible rounded py-2"
+            disabled={!prevPage}
+          >
             Previous
           </button>
         )}
@@ -24,11 +27,14 @@ export default function Pagination({ totalPages, currentPage }: Props) {
             </button>
           </Link>
         )}
-        <span className="py-2">
+        <div className="py-2">
           Page {currentPage} of {totalPages}
-        </span>
+        </div>
         {!nextPage && (
-          <button className="cursor-auto disabled:opacity-50 invisible" disabled={!nextPage}>
+          <button
+            className="cursor-auto disabled:opacity-50 invisible rounded py-2 px-6"
+            disabled={!nextPage}
+          >
             Next
           </button>
         )}

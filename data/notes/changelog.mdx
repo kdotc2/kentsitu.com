@@ -1,12 +1,14 @@
 ---
 title: changelog
-date: '2022-12-30'
+date: '2023-01-03'
 draft: false
-summary: Updates and bug fixes for the website.
+summary: Updates and bug fixes.
 layout: PostTimeLayout
 ---
 
 ### Global Color Change
+I wanted to change the color scheme for borders in dark mode. The solution that I found was changing it in `tailwind.css` file rather than `tailwind.config.js`. I applied the components that I wanted the change under `@layer components`.
+
 ```js
 @layer components {
   .border,
@@ -16,27 +18,25 @@ layout: PostTimeLayout
 }
 ```
 
-I wanted to change the color scheme for borders in dark mode. The solution that I found was changing it in `tailwind.css` file rather than `tailwind.config.js`. I applied the components that I wanted the change under `@layer components`.
-
-<br />
+---
 
 ### Safari NavBar Hover Bug
+While hovering over the NavBar links, it didn't work as intended for safari browsers. Putting `button` tag inside the `Link` tag helped the problem. Not sure if this is the best fix or if there's another solution. But this will do for now.
+
 ```js
 <Link>
   <button>...</button>
 </Link>
 ```
 
-When the navBar links were hovered, there was a bug with the background for safari browsers. Putting `button` tag inside the `Link` tag helped the problem. Not sure if this is the best fix or if there's another solution. But this will do for now.
-
-<br />
+---
 
 ### Home Page & Footer Fix
+The first problem was figuring out how to make the home page a one pager  without scroll. Did some research and found that using `100vh` (viewport, height of browser) minus the navBar + footer helped solve the issue. The second problem was figuring out how to have the footer stay on the bottom of the page. When there isn't enough content to occupy the entire viewport, the footer goes up. Little did I realize the solution was to use `min-h` minus the navBar + footer.
+
 ```js
 // height for my navBar is 60px & height for my footer is 80px (60px + 80px = 140px)
 
 h-[calc(100vh-140px)] // used for home page to create a responsive page without a scroll
 min-h-[calc(100vh-140px)] // used for pages with minimum content
 ```
-
-The first problem was figuring out how to make the home page responsive without scroll. Did some research and found that using `100vh` (viewport, height of browser) minus the navBar + footer helped solve that. The second problem was figuring out how to have the footer stay on the bottom of the page when there isn't enough content to occupy the entire viewport. Little did I realize the solution was to use `min-h` minus the navBar + footer.

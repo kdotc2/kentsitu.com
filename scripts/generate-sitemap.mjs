@@ -11,7 +11,6 @@ async function generate() {
     .filter((x) => !x.draft && !x.canonicalUrl)
   const pages = await globby([
     'pages/*.{js|tsx}',
-    'public/tags/**/*.xml',
     '!pages/_*.{js|tsx}',
     '!pages/api',
     '!pages/404.{js|tsx}',
