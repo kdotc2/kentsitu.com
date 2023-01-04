@@ -1,39 +1,23 @@
-import React, { useMemo } from 'react'
-import { AdvancedVideo } from '@cloudinary/react'
-import { Cloudinary } from '@cloudinary/url-gen'
+import Image from './Image'
 import { useRef, useState } from 'react'
-import { byRadius } from '@cloudinary/url-gen/actions/roundCorners'
-import { scale } from '@cloudinary/url-gen/actions/resize'
-import Image from 'next/image'
 import { MdOutlinePauseCircleOutline, MdOutlinePlayCircleOutline } from 'react-icons/md'
 
-// Create and configure your Cloudinary instance.
-const cld = new Cloudinary({
-  cloud: {
-    cloudName: 'dpr8aiobt',
-  },
-})
-
-const VideoPlayer = ({ id }) => {
-  const videoRef = useRef<HTMLVideoElement>()
+const VideoPlayer = ({ link, poster }) => {
   const [isPlaying, setIsPlaying] = useState(false)
-
-  const cldVid = useMemo(() => cld.video(id), [id])
-  cldVid.roundCorners(byRadius(24)).resize(scale().width(223)).quality(100)
+  const videoRef = useRef<HTMLVideoElement>()
 
   const playVideo = () => {
-    setIsPlaying((status) => {
-      if (status) {
-        videoRef.current.play()
-      } else {
+    setIsPlaying(() => {
+      if (isPlaying) {
         videoRef.current.pause()
+      } else {
+        videoRef.current.play()
       }
-      return !status
+      return !isPlaying
     })
   }
-
   return (
-    <section>
+    <div>
       <div className="flex flex-col relative items-center justify-center">
         <div className="absolute z-10">
           <Image
@@ -44,23 +28,33 @@ const VideoPlayer = ({ id }) => {
             priority
           />
         </div>
-        <AdvancedVideo cldVid={cldVid} innerRef={videoRef} playsInline muted loop autoPlay />
+        <div className="">
+          <video
+            className="rounded-[20px]"
+            src={link}
+            poster={poster}
+            ref={videoRef}
+            width={223}
+            loop
+            muted
+            playsInline
+          />
+        </div>
       </div>
-      <div className=" flex justify-center font-medium text-blue-500">
-        <button onClick={playVideo}>
+      <div className="flex justify-center font-medium text-blue-500">
+        <button onClick={playVideo} className="rounded">
           {isPlaying ? (
-            <div className="flex items-center justify-between gap-1">
-              <MdOutlinePlayCircleOutline className="h-5 w-5" /> Play
-            </div>
-          ) : (
-            <div className="flex items-center justify-between gap-1">
+            <span className="flex items-center justify-between gap-2">
               <MdOutlinePauseCircleOutline className="h-5 w-5" /> Pause
-            </div>
+            </span>
+          ) : (
+            <span className="flex items-center justify-between gap-1">
+              <MdOutlinePlayCircleOutline className="h-5 w-5" /> Play
+            </span>
           )}
         </button>
       </div>
-    </section>
+    </div>
   )
 }
-
 export default VideoPlayer
