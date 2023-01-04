@@ -44,7 +44,7 @@ const VideoPlayer = ({ link, poster }) => {
       <div className="flex justify-center font-medium text-blue-500">
         <button onClick={playVideo} className="rounded">
           {isPlaying ? (
-            <span className="flex items-center justify-between gap-2">
+            <span className="flex items-center justify-between gap-1">
               <MdOutlinePauseCircleOutline className="h-5 w-5" /> Pause
             </span>
           ) : (
