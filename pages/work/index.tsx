@@ -1,5 +1,3 @@
-import siteMetadata from '@/data/siteMetadata'
-import { PageSEO } from '@/components/SEO'
 import { allWorks } from 'contentlayer/generated'
 import { InferGetStaticPropsType } from 'next'
 import type { Work } from 'contentlayer/generated'

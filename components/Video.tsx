@@ -2,7 +2,7 @@ import Image from './Image'
 import { useRef, useState } from 'react'
 import { MdOutlinePauseCircleOutline, MdOutlinePlayCircleOutline } from 'react-icons/md'
 
-const Video = ({ link }) => {
+const Video = ({ link, poster }) => {
   const [isPlaying, setIsPlaying] = useState(false)
   const videoRef = useRef<HTMLVideoElement>()
 
@@ -32,6 +32,7 @@ const Video = ({ link }) => {
           <video
             className="rounded-[20px]"
             src={link}
+            poster={poster}
             ref={videoRef}
             width={223}
             loop
