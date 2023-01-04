@@ -29,7 +29,15 @@ const Video = ({ link }) => {
           />
         </div>
         <div className="">
-          <video className="rounded-[20px]" src={link} ref={videoRef} width={223} loop muted playsInline/>
+          <video
+            className="rounded-[20px]"
+            src={link}
+            ref={videoRef}
+            width={223}
+            loop
+            muted
+            playsInline
+          />
         </div>
       </div>
       <div className="flex justify-center font-medium -mt-4 text-blue-500">
