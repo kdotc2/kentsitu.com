@@ -9,7 +9,7 @@ import TOCInline from './TOCInline'
 import Pre from './Pre'
 import type { Notes, Work, Extras } from 'contentlayer/generated'
 import Btn from './Button'
-import Video from './Video'
+import VideoPlayer from './VideoPlayer'
 
 interface MDXLayout {
   layout: string
@@ -34,7 +34,7 @@ export const MDXComponents: ComponentMap = {
   pre: Pre,
   wrapper: Wrapper,
   Btn: Btn,
-  Video: Video,
+  VideoPlayer: VideoPlayer,
 }
 
 export const MDXLayoutRenderer = ({ layout, content, ...rest }: MDXLayout) => {
