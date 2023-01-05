@@ -1,15 +1,26 @@
 ---
 title: changelog
 date: '2023-01-03'
+lastmod: '2022-12-28'
 draft: false
 summary: Updates and bug fixes.
 layout: PostTimeLayout
 ---
 
-### Global Color Change
-I wanted to change the color scheme for borders in dark mode. The solution that I found was changing it in `tailwind.css` file rather than `tailwind.config.js`. I applied the components that I wanted the change under `@layer components`.
+### Custom Styles For Tailwind CSS
 
-```js
+Easily add custom styles to the `tailwind.css` file. Those styles can then be used globally without having to rewrite them.
+
+```js:tailwind.css
+// Example of my image grid
+.projectImageGrid {
+  @apply grid grid-cols-2 py-8 -m-2 sm:grid-cols-4;
+}
+```
+
+I wanted to change the color scheme for border styles in dark mode. I applied the following under `@layer components`.
+
+```js:tailwind.css
 @layer components {
   .border,
   ... {

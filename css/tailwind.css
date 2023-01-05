@@ -38,7 +38,7 @@ input:-webkit-autofill:focus {
 }
 
 .projectImageGrid {
-  @apply grid grid-cols-2 -m-2 sm:grid-cols-4 py-8;
+  @apply grid grid-cols-2 py-8 -m-2 sm:grid-cols-4;
 }
 
 .imageProp {

@@ -16,7 +16,7 @@ export default function index() {
                 autoStart: true,
                 loop: true,
                 delay: 100,
-                strings: ['show work.', 'explore ideas.', 'share progress.'],
+                strings: ['show work.', 'share progress.', 'explore ideas.'],
               }}
             />
           </div>
