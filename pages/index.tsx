@@ -22,7 +22,7 @@ export default function index() {
           </div>
           <div className="py-12">
             <Link href={'/work'}>
-              <button className="buttonStyle">Enter Portfolio</button>
+              <button className="buttonStyle">View Portfolio</button>
             </Link>
           </div>
         </div>

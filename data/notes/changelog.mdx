@@ -1,10 +1,54 @@
 ---
 title: changelog
-date: '2023-01-03'
+date: '2023-01-04'
 lastmod: '2022-12-28'
 draft: false
 summary: Updates and bug fixes.
 layout: PostTimeLayout
+---
+
+### Masonry Layout
+
+There's quick way to do it with Tailwind CSS: `columns-2`. But the problem with this is that it didn't sort the dates from left to right. I discovered [React Masonry CSS](https://www.npmjs.com/package/react-masonry-css) by [Paul Collett](https://github.com/paulcollett) which helped solve the problem. 
+
+After installing it, I added this block of code to my `tailwind.css` file.
+
+```js:tailwind.css
+// to see list of all values, go to the React Masonry CSS link above
+.my-masonry-grid {
+  display: flex;
+  width: auto;
+  margin: -10px; /* gutter size offset */
+}
+.my-masonry-grid_column {
+  padding: 10px; /* gutter size */
+  background-clip: padding-box;
+}
+
+/* Style your items */
+.my-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
+  margin-bottom: 20px;
+}
+```
+
+Then added this my react component.
+```js:index.tsx
+import Masonry from 'react-masonry-css'
+
+const breakpointColumnsObj = {
+  default: 2, //default number of columns
+  768: 1, //breakpoint of going to 1 column
+}
+
+<Masonry
+  breakpointCols={breakpointColumnsObj}
+  className="my-masonry-grid"
+  columnClassName="my-masonry-grid_column"
+>
+...
+</Masonry>
+```
+
 ---
 
 ### Custom Styles For Tailwind CSS
