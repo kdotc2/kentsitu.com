@@ -4,6 +4,7 @@ import { PageSEO } from '@/components/SEO'
 import { CoreContent } from '@/lib/utils/contentlayer'
 import { ReactNode } from 'react'
 import type { Notes, Work } from 'contentlayer/generated'
+import ScrollTop from '@/components/ScrollTop'
 
 interface Props {
   content: CoreContent<Notes> & CoreContent<Work>
@@ -36,6 +37,7 @@ export default function PostLayout({ content, children }: Props) {
           </div>
         </div>
       </article>
+      <ScrollTop />
     </SectionContainer>
   )
 }

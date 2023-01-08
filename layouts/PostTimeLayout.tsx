@@ -5,6 +5,7 @@ import { CoreContent } from '@/lib/utils/contentlayer'
 import { ReactNode } from 'react'
 import type { Notes, Work } from 'contentlayer/generated'
 import siteMetadata from '@/data/siteMetadata'
+import ScrollTop from '@/components/ScrollTop'
 
 // const postDateTemplate: Intl.DateTimeFormatOptions = {
 //   // weekday: 'long',
@@ -52,6 +53,7 @@ export default function PostTimeLayout({ content, children }: Props) {
           </div>
         </div>
       </article>
+      <ScrollTop />
     </SectionContainer>
   )
 }
