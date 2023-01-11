@@ -4,6 +4,7 @@ import Plausible from './Plausible'
 import SimpleAnalytics from './SimpleAnalytics'
 import Umami from './Umami'
 import siteMetadata from '@/data/siteMetadata'
+import { Analytics } from '@vercel/analytics/react'
 
 declare global {
   interface Window {
@@ -15,9 +16,10 @@ declare global {
 
 const isProduction = process.env.NODE_ENV === 'production'
 
-const Analytics = () => {
+const AllAnalytics = () => {
   return (
     <>
+      <Analytics />
       {isProduction && siteMetadata.analytics.plausibleDataDomain && <Plausible />}
       {isProduction && siteMetadata.analytics.simpleAnalytics && <SimpleAnalytics />}
       {isProduction && siteMetadata.analytics.umamiWebsiteId && <Umami />}
@@ -26,4 +28,4 @@ const Analytics = () => {
   )
 }
 
-export default Analytics
+export default AllAnalytics

@@ -9,7 +9,7 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 
 import siteMetadata from '@/data/siteMetadata'
-import Analytics from '@/components/analytics'
+import AllAnalytics from '@/components/analytics'
 import Footer from '@/components/Footer'
 import NavBar from '@/components/NavBar'
 
@@ -19,7 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
-      <Analytics />
+      <AllAnalytics />
       <NavBar />
       <div className="mx-auto flex max-w-5xl flex-col justify-between xl:px-0">
         <Component {...pageProps} />
