@@ -11,7 +11,7 @@ const ContentSecurityPolicy = `
   style-src 'self' 'unsafe-inline';
   img-src * blob: data: https://*.google-analytics.com https://*.googletagmanager.com;
   media-src 'self' res.cloudinary.com;
-  connect-src * https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com;
+  connect-src * https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com vitals.vercel-insights.com;
   font-src 'self';
   frame-src 
 `
