@@ -19,7 +19,7 @@ const isProduction = process.env.NODE_ENV === 'production'
 const AllAnalytics = () => {
   return (
     <>
-      <Analytics />
+      {isProduction && <Analytics />}
       {isProduction && siteMetadata.analytics.plausibleDataDomain && <Plausible />}
       {isProduction && siteMetadata.analytics.simpleAnalytics && <SimpleAnalytics />}
       {isProduction && siteMetadata.analytics.umamiWebsiteId && <Umami />}
