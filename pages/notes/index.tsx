@@ -22,7 +22,7 @@ export default function Notes({ posts }: InferGetStaticPropsType<typeof getStati
   return (
     <>
       <PageSEO title={`Notes - ${siteMetadata.author}`} description={siteMetadata.description} />
-      <div className="min-h-[calc(100vh-140px)] px-6 pb-6">
+      <div className="min-h-[calc(100vh-60px)] px-6 pb-10 sm:pb-16">
         <div className="space-y-2 py-24 text-center sm:py-40 md:space-y-5">
           <h1 className="text-2xl leading-9 sm:text-4xl sm:leading-10 md:leading-14">
             Keeping track of progress and thoughts.

@@ -7,7 +7,7 @@ const Construction = () => {
   const finalSlashIndex = router.asPath.lastIndexOf('/')
   const previousPath = router.asPath.slice(0, finalSlashIndex)
   return (
-    <div className="flex h-[calc(100vh-140px)] items-center justify-center px-6 py-20 pb-10 sm:py-24">
+    <div className="flex h-[calc(100vh-60px)] items-center justify-center px-6 py-20 pb-10 sm:py-24">
       <div className="space-y-10 text-center">
         <PageTitle>
           <div>

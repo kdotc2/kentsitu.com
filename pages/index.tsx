@@ -7,7 +7,7 @@ export default function index() {
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
-      <div className="flex h-[calc(100vh-140px)] items-center justify-center px-6 py-20 pb-10 sm:py-24">
+      <div className="flex h-[calc(100vh-60px)] items-center justify-center px-6">
         <div className="space-y-4 text-center">
           <h2 className="text-3xl sm:text-5xl">A place to</h2>
           <div className="text-3xl sm:text-5xl">

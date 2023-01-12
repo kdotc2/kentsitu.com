@@ -88,13 +88,12 @@ While hovering over the NavBar links, it didn't work as intended for safari brow
 
 ---
 
-### Home Page & Footer Fix
+### Home Page Fix
 
-The first problem was figuring out how to make the home page a one pager without scroll. Did some research and found that using `100vh` (viewport, height of browser) minus the navBar + footer helped solve the issue. The second problem was figuring out how to have the footer stay on the bottom of the page. When there isn't enough content to occupy the entire viewport, the footer goes up. Little did I realize the solution was to use `min-h` minus the navBar + footer.
+The first problem was figuring out how to make the home page a one pager without scroll. Did some research and found that using `100vh` (viewport, height of browser) minus the navBar helped solve the issue.
 
 ```js
-// height for my navBar is 60px & height for my footer is 80px (60px + 80px = 140px)
+// height for my navBar is 60px
 
-h-[calc(100vh-140px)] // used for home page to create a responsive page without a scroll
-min-h-[calc(100vh-140px)] // used for pages with minimum content
+h-[calc(100vh-60px)] // used for home page to create a responsive page without a scroll
 ```

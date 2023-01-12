@@ -9,7 +9,7 @@ export default function FourZeroFour() {
   return (
     <>
       <PageSEO title="Page Not Found" description="Sorry we couldn't find this page" />
-      <div className="flex h-[calc(100vh-140px)] items-center justify-center">
+      <div className="flex h-[calc(100vh-60px)] items-center justify-center">
         <div className="item-start flex flex-col md:items-center">
           <div className="flex flex-col items-start justify-start md:flex-row md:items-center md:justify-center md:space-x-6">
             <div className="space-x-2 pt-4 pb-8 md:space-y-5">

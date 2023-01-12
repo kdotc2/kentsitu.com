@@ -16,7 +16,7 @@ export default function AboutLayout({ children, content }: Props) {
   return (
     <>
       <PageSEO title={`About - ${name}`} description={`About me - ${name}`} />
-      <div className="min-h-[calc(100vh-140px)] px-6 pb-10 sm:pb-16">
+      <div className="px-6 pb-10 sm:pb-16">
         <div className="items-start space-y-2">
           <div className="flex flex-col items-center py-8">
             <Image src={avatar} alt="avatar" width={200} height={200} className="h-48 w-48" />
