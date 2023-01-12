@@ -18,7 +18,7 @@ export default function PostLayout({ content, children }: Props) {
     <SectionContainer>
       <PageSEO title={title} description={''} />
       <article>
-        <div className="divide-gray-200 px-6 pb-10 dark:divide-gray-700">
+        <div className="divide-gray-200 px-6 pb-16 dark:divide-gray-700 sm:pb-24">
           <header className="pt-10 pb-6">
             <div className="space-y-1">
               <div>

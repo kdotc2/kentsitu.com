@@ -9,7 +9,7 @@ layout: PostTimeLayout
 
 ### Masonry Layout
 
-There's quick way to do it with Tailwind CSS: `columns-2`. But the problem with this is that it didn't sort the dates from left to right. I discovered [React Masonry CSS](https://www.npmjs.com/package/react-masonry-css) by [Paul Collett](https://github.com/paulcollett) which helped solve the problem. 
+There's quick way to do it with Tailwind CSS: `columns-2`. But the problem with this is that it didn't sort the dates from left to right. I discovered [React Masonry CSS](https://www.npmjs.com/package/react-masonry-css) by [Paul Collett](https://github.com/paulcollett) which helped solve the problem.
 
 After installing it, I added this block of code to my `tailwind.css` file.
 
@@ -32,6 +32,7 @@ After installing it, I added this block of code to my `tailwind.css` file.
 ```
 
 Then added this my react component.
+
 ```js:index.tsx
 import Masonry from 'react-masonry-css'
 
@@ -76,6 +77,7 @@ I wanted to change the color scheme for border styles in dark mode. I applied th
 ---
 
 ### Safari NavBar Hover Bug
+
 While hovering over the NavBar links, it didn't work as intended for safari browsers. Putting `button` tag inside the `Link` tag helped the problem. Not sure if this is the best fix or if there's another solution. But this will do for now.
 
 ```js
@@ -87,7 +89,8 @@ While hovering over the NavBar links, it didn't work as intended for safari brow
 ---
 
 ### Home Page & Footer Fix
-The first problem was figuring out how to make the home page a one pager  without scroll. Did some research and found that using `100vh` (viewport, height of browser) minus the navBar + footer helped solve the issue. The second problem was figuring out how to have the footer stay on the bottom of the page. When there isn't enough content to occupy the entire viewport, the footer goes up. Little did I realize the solution was to use `min-h` minus the navBar + footer.
+
+The first problem was figuring out how to make the home page a one pager without scroll. Did some research and found that using `100vh` (viewport, height of browser) minus the navBar + footer helped solve the issue. The second problem was figuring out how to have the footer stay on the bottom of the page. When there isn't enough content to occupy the entire viewport, the footer goes up. Little did I realize the solution was to use `min-h` minus the navBar + footer.
 
 ```js
 // height for my navBar is 60px & height for my footer is 80px (60px + 80px = 140px)

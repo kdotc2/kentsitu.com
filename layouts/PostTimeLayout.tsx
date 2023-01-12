@@ -24,9 +24,9 @@ export default function PostTimeLayout({ content, children }: Props) {
 
   return (
     <SectionContainer>
-      <PageSEO title={`Work - ${siteMetadata.author}`} description={'siteMetadata.description'} />
+      <PageSEO title={title} description={'siteMetadata.description'} />
       <article>
-        <div className="min-h-[calc(100vh-140px)] divide-gray-200 px-6 pb-10 dark:divide-gray-700">
+        <div className="min-h-[calc(100vh-140px)] divide-gray-200 px-6 pb-16 dark:divide-gray-700 sm:pb-24">
           <header className="pt-10 pb-6">
             <div className="space-y-1">
               <div>

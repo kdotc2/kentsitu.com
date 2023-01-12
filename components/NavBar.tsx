@@ -4,6 +4,7 @@ import Link from './Link'
 import MobileNav from './MobileNav'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
+import ThemeSwitch from './ThemeSwitch'
 
 function ScrollToTop() {
   const [atTop, setTop] = useState(true)
@@ -37,7 +38,7 @@ const NavBar = () => {
         <div className="mx-auto flex h-[60px] max-w-5xl items-center justify-between px-6">
           <Link href="/" aria-label={siteMetadata.headerTitle}>
             <div className="flex items-center justify-between">
-              <div className="text-lg font-bold sm:block">{siteMetadata.headerTitle}</div>
+              <div className="text-lg font-semibold sm:block">{siteMetadata.headerTitle}</div>
             </div>
           </Link>
           <div className="flex items-center text-base leading-5">
@@ -47,7 +48,7 @@ const NavBar = () => {
                   <button
                     className={`rounded font-medium py-2 px-3  ${
                       router.asPath === link.href
-                        ? 'py-2 px-3 rounded text-white bg-gray-800'
+                        ? 'py-2 px-3 rounded dark:text-white bg-gray-200 dark:bg-gray-800'
                         : 'py-2 px-3 hover:rounded hover:py-2 hover:px-3 hover:bg-gray-200 dark:hover:bg-gray-800'
                     }`}
                   >
@@ -56,6 +57,7 @@ const NavBar = () => {
                 </Link>
               ))}
             </div>
+            <ThemeSwitch />
             <MobileNav />
           </div>
         </div>
