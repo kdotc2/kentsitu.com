@@ -1,8 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import GA from './GoogleAnalytics'
-import Plausible from './Plausible'
-import SimpleAnalytics from './SimpleAnalytics'
-import Umami from './Umami'
 import siteMetadata from '@/data/siteMetadata'
 import { Analytics } from '@vercel/analytics/react'
 
@@ -20,9 +17,6 @@ const AllAnalytics = () => {
   return (
     <>
       {isProduction && <Analytics />}
-      {isProduction && siteMetadata.analytics.plausibleDataDomain && <Plausible />}
-      {isProduction && siteMetadata.analytics.simpleAnalytics && <SimpleAnalytics />}
-      {isProduction && siteMetadata.analytics.umamiWebsiteId && <Umami />}
       {isProduction && siteMetadata.analytics.googleAnalyticsId && <GA />}
     </>
   )
