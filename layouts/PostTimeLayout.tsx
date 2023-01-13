@@ -19,7 +19,7 @@ interface Props {
 }
 
 export default function PostTimeLayout({ content, children }: Props) {
-  const { date, title, description } = content
+  const { title, description } = content
 
   return (
     <SectionContainer>
