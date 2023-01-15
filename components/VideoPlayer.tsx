@@ -25,7 +25,6 @@ const VideoPlayer = ({ link, poster }) => {
             src={`/static/videos/iPhoneXS.png`}
             width={250}
             height={503}
-            priority
           />
         </div>
         <div className="">
