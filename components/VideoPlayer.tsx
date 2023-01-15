@@ -17,7 +17,7 @@ const VideoPlayer = ({ link, poster }) => {
     })
   }
   return (
-    <div>
+    <div className="py-8">
       <div className="flex flex-col relative items-center justify-center">
         <div className="absolute z-10">
           <Image
