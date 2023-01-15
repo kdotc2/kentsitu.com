@@ -35,6 +35,7 @@ const VideoPlayer = ({ link, poster }) => {
             poster={poster}
             ref={videoRef}
             width={224}
+            height={450}
             loop
             muted
             playsInline

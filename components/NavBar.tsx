@@ -44,7 +44,7 @@ const NavBar = () => {
           <div className="flex items-center text-base leading-5">
             <div className="hidden space-x-3 sm:block">
               {headerNavLinks.map((link) => (
-                <Link href={link.href} key={link.title}>
+                <Link href={link.href} key={link.title} aria-label={link.title}>
                   <button
                     className={`rounded font-medium py-2 px-3  ${
                       router.asPath === link.href
