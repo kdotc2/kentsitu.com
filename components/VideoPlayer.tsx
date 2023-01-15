@@ -20,12 +20,7 @@ const VideoPlayer = ({ link, poster }) => {
     <div className="py-8">
       <div className="flex flex-col relative items-center justify-center">
         <div className="absolute z-10">
-          <Image
-            alt="iPhone screen"
-            src={`/static/videos/iPhoneXS.png`}
-            width={250}
-            height={503}
-          />
+          <Image alt="iPhone screen" src={`/static/videos/iPhoneXS.png`} width={250} height={503} />
         </div>
         <div className="">
           <video
