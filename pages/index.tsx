@@ -10,7 +10,7 @@ export default function index() {
       <div className="flex h-[calc(100vh-60px)] items-center justify-center px-6">
         <div className="space-y-4 text-center">
           <h2 className="text-3xl sm:text-5xl">A place to</h2>
-          <div className="text-3xl sm:text-5xl pl-6">
+          <div className="text-3xl sm:text-5xl pl-3 sm:pl-[18px]">
             <Typewriter
               options={{
                 autoStart: true,
