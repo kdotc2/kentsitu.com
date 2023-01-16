@@ -1,6 +1,5 @@
 import { allWorks } from 'contentlayer/generated'
 import { InferGetStaticPropsType } from 'next'
-import type { Work } from 'contentlayer/generated'
 import { sortedWorkPost, allCoreContent } from '@/lib/utils/contentlayer'
 import WorkLayout from '@/layouts/WorkLayout'
 
