@@ -31,9 +31,9 @@ export default function WorkLayout({ initialDisplayPosts = [], pagination }: Pro
             return (
               <div className="" key={title}>
                 <Link href={`/work/${slug}`} aria-label={`Link to ${title}`}>
-                  <div className="flex flex-col mx-auto max-w-screen-xl rounded-[10px] border-2 md:flex-row md:hover:bg-gray-200 md:dark:hover:bg-gray-800 cursor-pointer">
+                  <div className="group flex flex-col mx-auto max-w-screen-xl rounded-[10px] border-2 md:flex-row md:hover:bg-gray-200 md:dark:hover:bg-gray-800 cursor-pointer">
                     <Image
-                      className="relative flex-shrink-0 rounded-t-[8px] md:w-1/2 md:rounded-none md:rounded-r-[8px]"
+                      className="relative flex-shrink-0 rounded-t-[8px] md:w-1/2 md:rounded-none md:rounded-r-[8px] md:group-hover:opacity-80"
                       alt={title}
                       src={cover}
                       width={800}
