@@ -1,13 +1,15 @@
 ---
 title: changelog
-date: '2023-01-04'
+date: '2023-01-09'
 lastmod: '2022-12-28'
 draft: false
 summary: Updates and bug fixes.
 layout: PostTimeLayout
 ---
 
-### Masonry Layout
+<TOCInline toc={props.toc} asDisclosure />
+
+## Masonry Layout
 
 There's quick way to do it with Tailwind CSS: `columns-2`. But the problem with this is that it didn't sort the dates from left to right. I discovered [React Masonry CSS](https://www.npmjs.com/package/react-masonry-css) by [Paul Collett](https://github.com/paulcollett) which helped solve the problem.
 
@@ -25,8 +27,8 @@ After installing it, I added this block of code to my `tailwind.css` file.
   background-clip: padding-box;
 }
 
-/* Style your items */
-.my-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
+/* style items */
+.my-masonry-grid_column > div { /* change div to reference elements in <Masonry> */
   margin-bottom: 20px;
 }
 ```
@@ -37,8 +39,8 @@ Then added this my react component.
 import Masonry from 'react-masonry-css'
 
 const breakpointColumnsObj = {
-  default: 2, //default number of columns
-  768: 1, //breakpoint of going to 1 column
+  default: 2, // default number of columns
+  768: 1, // breakpoint of going to 1 column
 }
 
 <Masonry
@@ -52,12 +54,92 @@ const breakpointColumnsObj = {
 
 ---
 
-### Custom Styles For Tailwind CSS
+## Video Inside iPhone Mockup
+
+In my previous website, I could just create a video with the same background as the website to blend it in. This wouldn't work for this website iteration, because of light/dark mode. I had to record the video and then put it into an iPhone mockup.
+
+```js:VideoPlayer.tsx
+import Image from 'next/image'
+import { useRef } from 'react'
+
+const VideoPlayer = ({ link, poster }) => {
+  const videoRef = useRef<HTMLVideoElement>() // persists value between renders
+
+  return (
+    <div className="flex flex-col items-center relative justify-center">
+      // places iPhone screen over video
+      <div className="absolute z-10">
+        // iPhone mockup screen, adjust width and height to fit over video
+        <Image alt="iPhone screen" src={iPhone.png} width={x1} height={y1} />
+      </div>
+      <div>
+        <video
+          src={link} // link to video
+          poster={poster} // link to poster image
+          ref={videoRef}
+          width={x2}
+          height={y2} 
+          loop
+          muted
+          playsInline
+        />
+      </div>
+    </div>
+  )
+}
+export default VideoPlayer
+```
+
+After placing the video inside the iPhone screen, I wanted to have a play/pause button away from the video. Something similar to what Apple does on their website. I added this block of code to `VideoPlayer.tsx`.
+
+```js:VideoPlayer.tsx
+import { useRef, useState } from 'react'
+import { MdOutlinePauseCircleOutline, MdOutlinePlayCircleOutline } from 'react-icons/md'
+
+const VideoPlayer = ({ link, poster }) => {
+  const [isPlaying, setIsPlaying] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>()
+
+  // pauses and plays the video
+  const playVideo = () => {
+    setIsPlaying(() => {
+      if (isPlaying) {
+        videoRef.current.pause()
+      } else {
+        videoRef.current.play()
+      }
+      return !isPlaying
+    })
+  }
+
+  return (
+    <div className="flex justify-center font-medium text-blue-500">
+      // on button click, the video pauses or plays depending on current state
+      <button onClick={playVideo} className="rounded">
+        {isPlaying ? (
+          <span className="flex items-center justify-between gap-1">
+            <MdOutlinePauseCircleOutline className="h-5 w-5" /> Pause
+          </span>
+        ) : (
+          <span className="flex items-center justify-between gap-1">
+            <MdOutlinePlayCircleOutline className="h-5 w-5" /> Play
+          </span>
+        )}
+      </button>
+    </div>
+  )
+}
+export default VideoPlayer
+```
+
+---
+
+## Custom Styles For Tailwind CSS
 
 Easily add custom styles to the `tailwind.css` file. Those styles can then be used globally without having to rewrite them.
 
 ```js:tailwind.css
-// Example of my image grid
+// example of my image grid
 .projectImageGrid {
   @apply grid grid-cols-2 py-8 -m-2 sm:grid-cols-4;
 }
@@ -66,6 +148,7 @@ Easily add custom styles to the `tailwind.css` file. Those styles can then be us
 I wanted to change the color scheme for border styles in dark mode. I applied the following under `@layer components`.
 
 ```js:tailwind.css
+// applies to all componenets listed below
 @layer components {
   .border,
   ... {
@@ -76,9 +159,9 @@ I wanted to change the color scheme for border styles in dark mode. I applied th
 
 ---
 
-### Safari NavBar Hover Bug
+## Safari NavBar Hover Bug
 
-While hovering over the NavBar links, it didn't work as intended for safari browsers. Putting `button` tag inside the `Link` tag helped the problem. Not sure if this is the best fix or if there's another solution. But this will do for now.
+While hovering over the NavBar links, it didn't work as intended for safari browsers. Putting `button` tag inside the `Link` tag helped the problem. Not sure if this is the best fix or if there's another solution.
 
 ```js
 <Link>
@@ -88,12 +171,14 @@ While hovering over the NavBar links, it didn't work as intended for safari brow
 
 ---
 
-### Home Page Fix
+## Home Page Fix
 
-The first problem was figuring out how to make the home page a one pager without scroll. Did some research and found that using `100vh` (viewport, height of browser) minus the navBar helped solve the issue.
+I was trying to figure out how to make the home page a one pager without scroll. Did some research and found that using `100vh` (viewport, height of browser) minus the NavBar helped solve the issue.
 
-```js
-// height for my navBar is 60px
-
-h-[calc(100vh-60px)] // used for home page to create a responsive page without a scroll
+```js:index.tsx
+// height for my NavBar is 60px
+// centers content into the middle as a one pager without scroll
+<div className="flex h-[calc(100vh-60px)] items-center justify-center px-6">
+  ...
+</div>
 ```
