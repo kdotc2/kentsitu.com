@@ -1,5 +1,5 @@
 const siteMetadata = {
-  title: 'Kent Situ\'s Portfolio',
+  title: 'Kent Situ',
   author: 'Kent Situ',
   headerTitle: 'Kent Situ',
   description: 'Product Designer with experience in mobile app design, user experience, research, and prototyping. Solving problems and bringing conceptual ideas to life.',
