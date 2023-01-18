@@ -17,11 +17,11 @@ const ThemeSwitch = () => {
       onClick={() => setTheme(theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark')}
     >
       {mounted && (theme === 'dark' || resolvedTheme === 'dark') ? (
-        <div className="text-xl sm:mx-0 mx-2 sm:py-2 sm:px-2 sm:hover:rounded sm:hover:bg-gray-200 sm:dark:hover:bg-gray-800">
+        <div className="text-xl py-2 px-2 sm:hover:rounded sm:hover:bg-gray-200 sm:dark:hover:bg-gray-800">
           <MdWbSunny />
         </div>
       ) : (
-        <div className="text-xl sm:mx-0 mx-2 sm:py-2 sm:px-2 sm:hover:rounded sm:hover:bg-gray-200 sm:dark:hover:bg-gray-800">
+        <div className="text-xl py-2 px-2 sm:hover:rounded sm:hover:bg-gray-200 sm:dark:hover:bg-gray-800">
           <MdNightlightRound className="-rotate-45" />
         </div>
       )}
