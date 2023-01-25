@@ -42,7 +42,7 @@ input:-webkit-autofill:focus {
 }
 
 .imageProp {
-  @apply px-1 py-1 overflow-hidden transform transition duration-500 hover:scale-110 ease-in-out;
+  @apply px-1 py-1 overflow-hidden transform transition duration-500 sm:hover:scale-110 ease-in-out;
 }
 
 .keyTakeaways {
