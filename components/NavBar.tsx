@@ -32,7 +32,7 @@ const NavBar = () => {
         className={`sticky top-0 left-0 right-0 z-40 ${
           isTop
             ? 'border-none bg-[#FBFBFB] dark:bg-gray-900'
-            : 'border-b shadow-sm border-gray-200 bg-[#FBFBFB]/[0.97] dark:bg-gray-900/[0.98] dark:border-black'
+            : 'border-b shadow-sm border-gray-200 bg-gray-100 dark:bg-[#111111] dark:border-gray-800'
         }`}
       >
         <div className="mx-auto flex h-[60px] max-w-5xl items-center justify-between px-6">
