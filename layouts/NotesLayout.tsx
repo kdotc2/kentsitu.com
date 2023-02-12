@@ -24,7 +24,7 @@ export default function NotesLayout({ initialDisplayPosts = [] }: Props) {
       <PageSEO title={`Notes - ${siteMetadata.author}`} description={siteMetadata.description} />
       <div className="min-h-[calc(100vh-60px)] px-6 pb-16 sm:pb-20">
         <div className="space-y-2 py-24 text-center sm:py-40 md:space-y-5">
-          <h1 className="text-2xl leading-9 sm:text-4xl sm:leading-10 md:leading-14">
+          <h1 className="text-2xl leading-9 sm:text-4xl sm:leading-10 md:leading-14 tracking-wide">
             Keeping track of progress and thoughts.
           </h1>
         </div>
