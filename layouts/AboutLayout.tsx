@@ -20,10 +20,28 @@ export default function AboutLayout({ children, content }: Props) {
         <div className="items-start space-y-2">
           <div className="flex flex-col items-center py-8">
             <Image src={avatar} alt="avatar" width={200} height={200} className="h-48 w-48" />
-            <div className="pt-12">
-              <Link href={`mailto:${siteMetadata.email}`}>
-                <button className="buttonStyle">Contact</button>
-              </Link>
+            <div className="pt-12 space-x-12">
+              <a
+                href={`mailto:${siteMetadata.email}`}
+                rel="noreferrer noopner"
+                aria-label="Contact"
+                className=""
+              >
+                <button className="text-medium text-gray-900 dark:text-gray-200 rounded-md border-2 py-[14px] px-6 font-medium hover:bg-gray-200 dark:hover:border-gray-700 dark:hover:bg-gray-700 dark:hover:text-white">
+                  Contact
+                </button>
+              </a>
+              <a
+                href="https://read.cv/kent"
+                target="_blank"
+                rel="noreferrer noopner"
+                aria-label="Read.cv"
+                className=""
+              >
+                <button className="text-medium text-gray-900 dark:text-gray-200 rounded-md border-2 py-[14px] px-6 font-medium hover:bg-gray-200 dark:hover:border-gray-700 dark:hover:bg-gray-700 dark:hover:text-white">
+                  Read.cv
+                </button>
+              </a>
             </div>
           </div>
           <div className="prose max-w-none pt-10 dark:prose-dark">{children}</div>
