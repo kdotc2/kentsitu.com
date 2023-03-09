@@ -27,7 +27,7 @@ export default function WorkLayout({ initialDisplayPosts = [], pagination }: Pro
         </div>
         <div className="flex flex-col gap-5">
           {displayPosts.map((post) => {
-            const { slug, title, summary, cover } = post
+            const { slug, title, summary, cover, readingTime } = post
             return (
               <div className="" key={title}>
                 <Link href={`/work/${slug}`} aria-label={`Link to ${title}`}>
@@ -45,6 +45,7 @@ export default function WorkLayout({ initialDisplayPosts = [], pagination }: Pro
                         <div className="flex flex-wrap prose text-gray-500 dark:text-gray-400">
                           {summary}
                         </div>
+                        {/* <div> {readingTime.text}</div> */}
                       </div>
                     </div>
                   </div>
