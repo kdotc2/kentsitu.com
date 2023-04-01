@@ -7,13 +7,13 @@ import Image from './Image'
 import CustomLink from './Link'
 import TOCInline from './TOCInline'
 import Pre from './Pre'
-import type { Notes, Work, Extras } from 'contentlayer/generated'
+import type { Notes, Work, Extras, Projects } from 'contentlayer/generated'
 import Btn from './Button'
 import VideoPlayer from './VideoPlayer'
 
 interface MDXLayout {
   layout: string
-  content: Notes | Work | Extras
+  content: Notes | Work | Extras | Projects
   [key: string]: unknown
 }
 

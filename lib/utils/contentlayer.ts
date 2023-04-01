@@ -1,4 +1,4 @@
-import type { Work, Notes, DocumentTypes } from 'contentlayer/generated'
+import type { Work, Notes, Projects, DocumentTypes } from 'contentlayer/generated'
 
 export function dateSortDesc(a: string, b: string) {
   if (a > b) return -1
@@ -11,6 +11,9 @@ export function sortedNotesPost(allNotes: Notes[]) {
 }
 export function sortedWorkPost(allWorks: Work[]) {
   return allWorks.sort((a, b) => dateSortDesc(a.date, b.date))
+}
+export function sortedProjectsPost(allProjects: Projects[]) {
+  return allProjects.sort((a, b) => dateSortDesc(a.date, b.date))
 }
 
 type ConvertUndefined<T> = OrNull<{

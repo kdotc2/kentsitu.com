@@ -1,6 +1,6 @@
 ---
 title: changelog
-date: '2023-01-09'
+date: '2023-3-31'
 lastmod: '2022-12-28'
 draft: false
 summary: Updates and bug fixes for this website.
@@ -8,6 +8,14 @@ layout: PostTimeLayout
 ---
 
 <TOCInline toc={props.toc} asDisclosure />
+
+## Added Projects Tab
+
+Added a projects tab in the navbar to keep work and side projects separate. I wanted a place to keep track of my progress for different projects.
+
+_March 31, 2023_
+
+---
 
 ## Masonry Layout
 
@@ -52,6 +60,8 @@ const breakpointColumnsObj = {
 </Masonry>
 ```
 
+_January 9, 2023_
+
 ---
 
 ## Video Inside iPhone Mockup
@@ -78,7 +88,7 @@ const VideoPlayer = ({ link, poster }) => {
           poster={poster} // link to poster image
           ref={videoRef}
           width={x2}
-          height={y2} 
+          height={y2}
           loop
           muted
           playsInline
@@ -132,6 +142,8 @@ const VideoPlayer = ({ link, poster }) => {
 export default VideoPlayer
 ```
 
+_January 7, 2023_
+
 ---
 
 ## Custom Styles For Tailwind CSS
@@ -157,6 +169,8 @@ I wanted to change the color scheme for border styles in dark mode. I applied th
 }
 ```
 
+_January 6, 2023_
+
 ---
 
 ## Safari NavBar Hover Bug
@@ -168,6 +182,8 @@ While hovering over the NavBar links, it didn't work as intended for safari brow
   <button>...</button>
 </Link>
 ```
+
+_January 3, 2023_
 
 ---
 
@@ -182,3 +198,5 @@ I was trying to figure out how to make the home page a one pager without scroll.
   ...
 </div>
 ```
+
+_January 2, 2023_

@@ -56,9 +56,27 @@ export const Work = defineDocumentType(() => ({
     lastmod: { type: 'date' },
     draft: { type: 'boolean' },
     summary: { type: 'string' },
-    description: { type: 'string'},
+    description: { type: 'string' },
     cover: { type: 'string' },
     layout: { type: 'string' },
+  },
+  computedFields,
+}))
+
+export const Projects = defineDocumentType(() => ({
+  name: 'Projects',
+  filePathPattern: 'projects/**/*.mdx',
+  contentType: 'mdx',
+  fields: {
+    title: { type: 'string', required: true },
+    date: { type: 'date', required: true },
+    lastmod: { type: 'date' },
+    draft: { type: 'boolean' },
+    summary: { type: 'string' },
+    description: { type: 'string' },
+    cover: { type: 'string' },
+    layout: { type: 'string' },
+    link: { type: 'string' },
   },
   computedFields,
 }))
@@ -83,7 +101,7 @@ export const Extras = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: 'data',
-  documentTypes: [Notes, Work, Extras],
+  documentTypes: [Notes, Work, Extras, Projects],
   mdx: {
     cwd: process.cwd(),
     remarkPlugins: [
