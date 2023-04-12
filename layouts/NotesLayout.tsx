@@ -4,6 +4,7 @@ import { CoreContent } from '@/lib/utils/contentlayer'
 import type { Notes } from 'contentlayer/generated'
 import formatDate from '@/lib/utils/formatDate'
 import Link from 'next/link'
+import CustomLink from '@/components/Link'
 import Masonry from 'react-masonry-css'
 
 interface Props {
@@ -37,8 +38,8 @@ export default function NotesLayout({ initialDisplayPosts = [] }: Props) {
             {displayPosts.map((post) => {
               const { slug, date, title, summary } = post
               return (
-                <Link key={slug} href={`/notes/${slug}`}>
-                  <div className="cursor-pointer mb-4 px-6 py-6 md:py-8 md:px-8 md:hover:bg-gray-200 md:dark:hover:bg-gray-800 md:hover:rounded-lg border-2 rounded-lg">
+                <CustomLink key={slug} href={`/notes/${slug}`} className="focus:rounded-[10px] focus:-outline-offset-1">
+                  <div className="cursor-pointer mb-4 px-6 py-6 md:py-8 md:px-8 md:hover:bg-gray-200 md:dark:hover:bg-gray-800 md:hover:rounded-[10px] border-2 rounded-[10px]">
                     <div className="space-y-2 md:space-y-3">
                       <h2 className="text-2xl font-bold leading-8 tracking-tight">{title}</h2>
                       <dt className="sr-only">Published on</dt>
@@ -50,7 +51,7 @@ export default function NotesLayout({ initialDisplayPosts = [] }: Props) {
                       </div>
                     </div>
                   </div>
-                </Link>
+                </CustomLink>
               )
             })}
           </Masonry>

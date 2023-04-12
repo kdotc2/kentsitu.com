@@ -2,7 +2,7 @@ import siteMetadata from '@/data/siteMetadata'
 import { PageSEO } from '@/components/SEO'
 import type { Work } from 'contentlayer/generated'
 import { CoreContent } from '@/lib/utils/contentlayer'
-import Link from 'next/link'
+import CustomLink from '@/components/Link'
 import Image from 'next/image'
 import Pagination from '@/components/Pagination'
 import { ComponentProps } from 'react'
@@ -30,7 +30,11 @@ export default function WorkLayout({ initialDisplayPosts = [], pagination }: Pro
             const { slug, title, summary, cover, readingTime } = post
             return (
               <div className="" key={title}>
-                <Link href={`/work/${slug}`} aria-label={`Link to ${title}`}>
+                <CustomLink
+                  href={`/work/${slug}`}
+                  aria-label={`Link to ${title}`}
+                  className="rounded-[10px] focus:-outline-offset-1"
+                >
                   <div className="group flex flex-col mx-auto max-w-screen-xl rounded-[10px] border-2 md:flex-row md:hover:bg-gray-200 md:dark:hover:bg-gray-800 cursor-pointer">
                     <Image
                       className="relative flex-shrink-0 rounded-t-[8px] md:w-1/2 md:rounded-none md:rounded-r-[8px] md:group-hover:opacity-80"
@@ -49,7 +53,7 @@ export default function WorkLayout({ initialDisplayPosts = [], pagination }: Pro
                       </div>
                     </div>
                   </div>
-                </Link>
+                </CustomLink>
               </div>
             )
           })}
