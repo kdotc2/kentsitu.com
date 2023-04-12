@@ -21,8 +21,8 @@ export default function AboutLayout({ children, content }: Props) {
           <div className="flex flex-col items-center py-8">
             <Image src={avatar} alt="avatar" width={200} height={200} className="h-48 w-48" />
             <div className="pt-12 space-x-12">
-              <a  
-                href={`mailto:${siteMetadata.email}`}     
+              <a
+                href={`mailto:${siteMetadata.email}`}
                 rel="noreferrer noopner"
                 aria-label="Contact"
                 className=""

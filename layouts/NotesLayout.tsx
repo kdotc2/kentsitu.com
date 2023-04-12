@@ -38,7 +38,11 @@ export default function NotesLayout({ initialDisplayPosts = [] }: Props) {
             {displayPosts.map((post) => {
               const { slug, date, title, summary } = post
               return (
-                <CustomLink key={slug} href={`/notes/${slug}`} className="focus:rounded-[10px] focus:-outline-offset-1">
+                <CustomLink
+                  key={slug}
+                  href={`/notes/${slug}`}
+                  className="focus:rounded-[10px] focus:-outline-offset-1"
+                >
                   <div className="cursor-pointer mb-4 px-6 py-6 md:py-8 md:px-8 md:hover:bg-gray-200 md:dark:hover:bg-gray-800 md:hover:rounded-[10px] border-2 rounded-[10px]">
                     <div className="space-y-2 md:space-y-3">
                       <h2 className="text-2xl font-bold leading-8 tracking-tight">{title}</h2>
