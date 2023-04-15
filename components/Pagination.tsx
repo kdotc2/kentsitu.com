@@ -25,7 +25,7 @@ export default function Pagination({ totalPages, currentPage }: Props) {
             href={currentPage - 1 === 1 ? `/work/` : `/work/page/${currentPage - 1}`}
             tabIndex={-1}
           >
-            <button className="rounded py-2 px-3 md:hover:rounded md:hover:bg-gray-200 md:hover:py-2 md:hover:px-3 md:dark:hover:bg-gray-800">
+            <button className="rounded py-2 px-3 md:hover:rounded md:hover:bg-gray-200 md:hover:py-2 md:hover:px-3 md:dark:hover:bg-gray-700">
               Previous
             </button>
           </Link>
@@ -43,7 +43,7 @@ export default function Pagination({ totalPages, currentPage }: Props) {
         )}
         {nextPage && (
           <Link href={`/work/page/${currentPage + 1}`} tabIndex={-1}>
-            <button className="rounded py-2 px-3 md:hover:rounded md:hover:bg-gray-200 md:hover:py-2 md:hover:px-3 md:dark:hover:bg-gray-800">
+            <button className="rounded py-2 px-3 md:hover:rounded md:hover:bg-gray-200 md:hover:py-2 md:hover:px-3 md:dark:hover:bg-gray-700">
               Next
             </button>
           </Link>
