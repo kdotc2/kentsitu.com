@@ -29,7 +29,7 @@ export default function PostTimeLayout({ content, children }: Props) {
           <header className="pt-10">
             <div>
               <PageTitle>{title}</PageTitle>
-              <p className="pt-2 text-gray-500 dark:text-gray-400">{description}</p>
+              <p className="text-gray-500 dark:text-gray-400">{description}</p>
               {/* <div>
                   <dt className="sr-only">Published on</dt>
                   <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
@@ -40,7 +40,9 @@ export default function PostTimeLayout({ content, children }: Props) {
                 </div> */}
             </div>
           </header>
-          <div className="prose max-w-none pt-10 dark:prose-dark">{children}</div>
+          <div className="prose prose-h2:sm:text-xl prose-h2:text-lg max-w-none pt-4 dark:prose-dark">
+            {children}
+          </div>
         </div>
       </article>
       <ScrollTop />

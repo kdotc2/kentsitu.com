@@ -6,6 +6,7 @@ import CustomLink from '@/components/Link'
 import Image from 'next/image'
 import Pagination from '@/components/Pagination'
 import { ComponentProps } from 'react'
+import PageTitle from '@/components/PageTitle'
 
 interface Props {
   posts: CoreContent<Work>[]
@@ -20,16 +21,15 @@ export default function WorkLayout({ initialDisplayPosts = [], pagination }: Pro
     <>
       <PageSEO title={`Work - ${siteMetadata.author}`} description={'siteMetadata.description'} />
       <div className="px-6 pb-16 sm:pb-20">
-        <div className="space-y-2 py-24 text-center sm:py-40 md:space-y-5">
-          <h2 className="text-2xl leading-9 sm:text-4xl sm:leading-10 md:leading-14 tracking-wide">
-            Designing user experiences from the ground up.
-          </h2>
+        <div className="py-10">
+          <PageTitle>Work</PageTitle>
+          <p>A space for curated work. Designing user experiences from the ground up.</p>
         </div>
         <div className="flex flex-col gap-5">
           {displayPosts.map((post) => {
             const { slug, title, summary, cover, readingTime } = post
             return (
-              <div className="" key={title}>
+              <div key={title}>
                 <CustomLink
                   href={`/work/${slug}`}
                   aria-label={`Link to ${title}`}
@@ -45,7 +45,7 @@ export default function WorkLayout({ initialDisplayPosts = [], pagination }: Pro
                     />
                     <div className="flex-none md:place-self-center py-10 px-6 md:order-first md:w-1/2 md:px-8">
                       <div className="space-y-2 md:space-y-3">
-                        <h2 className="text-2xl font-bold leading-8 tracking-tight">{title}</h2>
+                        <h2 className="text-xl font-bold leading-8">{title}</h2>
                         <div className="flex flex-wrap prose text-gray-500 dark:text-gray-400">
                           {summary}
                         </div>

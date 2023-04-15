@@ -6,6 +6,7 @@ import formatDate from '@/lib/utils/formatDate'
 import Link from 'next/link'
 import CustomLink from '@/components/Link'
 import Masonry from 'react-masonry-css'
+import PageTitle from '@/components/PageTitle'
 
 interface Props {
   posts: CoreContent<Notes>[]
@@ -23,11 +24,10 @@ export default function NotesLayout({ initialDisplayPosts = [] }: Props) {
   return (
     <>
       <PageSEO title={`Notes - ${siteMetadata.author}`} description={siteMetadata.description} />
-      <div className="min-h-[calc(100vh-60px)] px-6 pb-16 sm:pb-20">
-        <div className="space-y-2 py-24 text-center sm:py-40 md:space-y-5">
-          <h1 className="text-2xl leading-9 sm:text-4xl sm:leading-10 md:leading-14 tracking-wide">
-            Keeping track of progress and thoughts.
-          </h1>
+      <div className="px-6 pb-16 sm:pb-20">
+        <div className="py-10">
+          <PageTitle>Notes</PageTitle>
+          <p>A space to keep track of progress and thoughts.</p>
         </div>
         <div>
           <Masonry
@@ -45,7 +45,7 @@ export default function NotesLayout({ initialDisplayPosts = [] }: Props) {
                 >
                   <div className="cursor-pointer mb-4 px-6 py-6 md:py-8 md:px-8 md:hover:bg-gray-200 md:dark:hover:bg-gray-800 md:hover:rounded-[10px] border-2 rounded-[10px]">
                     <div className="space-y-2 md:space-y-3">
-                      <h2 className="text-2xl font-bold leading-8 tracking-tight">{title}</h2>
+                      <h2 className="text-xl font-bold leading-8">{title}</h2>
                       <dt className="sr-only">Published on</dt>
                       <dd className="text-base font-medium leading-6">
                         <time dateTime={date}>{formatDate(date)}</time>

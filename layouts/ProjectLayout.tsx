@@ -8,6 +8,7 @@ import Pagination from '@/components/Pagination'
 import { ComponentProps } from 'react'
 import { RiArrowRightUpLine } from 'react-icons/ri'
 import CustomLink from '@/components/Link'
+import PageTitle from '@/components/PageTitle'
 
 interface Props {
   posts: CoreContent<Projects>[]
@@ -25,10 +26,9 @@ export default function ProjectsLayout({ initialDisplayPosts = [], pagination }:
         description={'siteMetadata.description'}
       />
       <div className="px-6 pb-16 sm:pb-20">
-        <div className="space-y-2 py-24 text-center sm:py-40 md:space-y-5">
-          <h2 className="text-2xl leading-9 sm:text-4xl sm:leading-10 md:leading-14 tracking-wide">
-            Building and bringing ideas to life.
-          </h2>
+        <div className="py-10">
+          <PageTitle>Projects</PageTitle>
+          <p>A space for ongoing side projects. Learning how to code and bringing them to life.</p>
         </div>
         <div className="flex flex-col gap-5">
           {displayPosts.map((post) => {
@@ -50,7 +50,7 @@ export default function ProjectsLayout({ initialDisplayPosts = [], pagination }:
                     />
                     <div className="flex-none md:place-self-center py-10 px-6 md:order-first md:w-1/2 md:px-8">
                       <div className="space-y-2 md:space-y-3">
-                        <h2 className="text-2xl font-bold leading-8 tracking-tight">{title}</h2>
+                        <h2 className="text-xl font-bold leading-8">{title}</h2>
                         <div className="flex flex-wrap prose text-gray-500 dark:text-gray-400">
                           {summary}
                         </div>

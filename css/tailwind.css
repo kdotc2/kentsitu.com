@@ -54,7 +54,7 @@ input:-webkit-autofill:focus {
 }
 
 .buttonStyle {
-  @apply rounded-md border-2 py-[14px] px-6 font-medium md:hover:bg-gray-200 md:dark:hover:border-gray-700 md:dark:hover:bg-gray-700 md:dark:hover:text-white;
+  @apply rounded-md border-2 py-[8px] px-3 sm:py-[10px] text-sm sm:text-base sm:px-4 font-medium md:hover:bg-gray-200 md:dark:hover:border-gray-700 md:dark:hover:bg-gray-700 md:dark:hover:text-white;
 }
 
 .my-masonry-grid {
