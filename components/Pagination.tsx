@@ -10,11 +10,11 @@ export default function Pagination({ totalPages, currentPage }: Props) {
   const nextPage = currentPage + 1 <= totalPages
 
   return (
-    <div className="sm:pt-10 pt-6 text-xs font-medium sm:text-sm mx-auto">
+    <div className="mx-auto pt-6 text-xs font-medium sm:pt-10 sm:text-sm">
       <nav className="flex items-center justify-between">
         {!prevPage && (
           <button
-            className="cursor-auto disabled:opacity-50 invisible rounded py-2"
+            className="invisible cursor-auto rounded py-2 disabled:opacity-50"
             disabled={!prevPage}
           >
             Previous
@@ -25,7 +25,7 @@ export default function Pagination({ totalPages, currentPage }: Props) {
             href={currentPage - 1 === 1 ? `/work/` : `/work/page/${currentPage - 1}`}
             tabIndex={-1}
           >
-            <button className="rounded py-2 px-3 md:hover:rounded md:hover:py-2 md:hover:px-3 md:hover:bg-gray-200 md:dark:hover:bg-gray-800">
+            <button className="rounded py-2 px-3 md:hover:rounded md:hover:bg-gray-200 md:hover:py-2 md:hover:px-3 md:dark:hover:bg-gray-800">
               Previous
             </button>
           </Link>
@@ -35,7 +35,7 @@ export default function Pagination({ totalPages, currentPage }: Props) {
         </div>
         {!nextPage && (
           <button
-            className="cursor-auto disabled:opacity-50 invisible rounded py-2 px-6"
+            className="invisible cursor-auto rounded py-2 px-6 disabled:opacity-50"
             disabled={!nextPage}
           >
             Next
@@ -43,7 +43,7 @@ export default function Pagination({ totalPages, currentPage }: Props) {
         )}
         {nextPage && (
           <Link href={`/work/page/${currentPage + 1}`} tabIndex={-1}>
-            <button className="rounded py-2 px-3 md:hover:rounded md:hover:py-2 md:hover:px-3 md:hover:bg-gray-200 md:dark:hover:bg-gray-800">
+            <button className="rounded py-2 px-3 md:hover:rounded md:hover:bg-gray-200 md:hover:py-2 md:hover:px-3 md:dark:hover:bg-gray-800">
               Next
             </button>
           </Link>

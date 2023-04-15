@@ -40,7 +40,7 @@ export default function ProjectsLayout({ initialDisplayPosts = [], pagination }:
                   aria-label={`Link to ${title}`}
                   className="rounded-[10px] focus:-outline-offset-1"
                 >
-                  <div className="group flex flex-col mx-auto max-w-screen-xl rounded-[10px] border-2 md:flex-row md:hover:bg-gray-200 md:dark:hover:bg-gray-800 cursor-pointer">
+                  <div className="group mx-auto flex max-w-screen-xl cursor-pointer flex-col rounded-[10px] border-2 md:flex-row md:hover:bg-gray-200 md:dark:hover:bg-gray-800">
                     <Image
                       className="relative flex-shrink-0 rounded-t-[8px] md:w-1/2 md:rounded-none md:rounded-r-[8px] md:group-hover:opacity-80"
                       alt={title}
@@ -48,10 +48,10 @@ export default function ProjectsLayout({ initialDisplayPosts = [], pagination }:
                       width={800}
                       height={600}
                     />
-                    <div className="flex-none md:place-self-center py-10 px-6 md:order-first md:w-1/2 md:px-8">
+                    <div className="flex-none py-10 px-6 md:order-first md:w-1/2 md:place-self-center md:px-8">
                       <div className="space-y-2 md:space-y-3">
                         <h2 className="text-xl font-bold leading-8">{title}</h2>
-                        <div className="flex flex-wrap prose text-gray-500 dark:text-gray-400">
+                        <div className="prose flex flex-wrap text-gray-500 dark:text-gray-400">
                           {summary}
                         </div>
                         <div className="group pointer-events-auto lowercase hover:underline">
@@ -59,7 +59,7 @@ export default function ProjectsLayout({ initialDisplayPosts = [], pagination }:
                             href={`https://${link}`}
                             target="_blank"
                             rel="noreferrer"
-                            className="items-center inline-flex  gap-1"
+                            className="inline-flex items-center  gap-1"
                             onClick={(event) => {
                               event.stopPropagation()
                             }}

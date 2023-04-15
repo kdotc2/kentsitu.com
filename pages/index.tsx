@@ -7,10 +7,10 @@ export default function index() {
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
-      <div className="flex sm:h-[calc(100vh-60px)] supports-[height:100dvh]:h-[calc(100dvh-60px)] items-center justify-center px-6">
-        <div className="sm:space-y-4 space-y-2 text-center">
+      <div className="flex items-center justify-center px-6 supports-[height:100dvh]:h-[calc(100dvh-60px)] sm:h-[calc(100vh-60px)]">
+        <div className="space-y-2 text-center sm:space-y-4">
           <h2 className="text-2xl sm:text-4xl">My space to</h2>
-          <div className="text-2xl sm:text-4xl pl-3 sm:pl-[18px]">
+          <div className="pl-3 text-2xl sm:pl-[18px] sm:text-4xl">
             <Typewriter
               options={{
                 autoStart: true,

@@ -22,7 +22,7 @@ export default function AboutLayout({ children, content }: Props) {
           <PageTitle>About</PageTitle>
           <p>A space to learn more about me and my journey.</p>
         </div>
-        <div className="space-x-4 flex pb-6">
+        <div className="flex space-x-4 pb-6">
           <a
             href="https://read.cv/kent"
             target="_blank"
