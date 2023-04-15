@@ -18,11 +18,11 @@ export default function AboutLayout({ children, content }: Props) {
     <>
       <PageSEO title={`About - ${name}`} description={`About me - ${name}`} />
       <div className="px-6 pb-16 sm:pb-24">
-        <div className="py-10">
+        <div className="pt-10 pb-16">
           <PageTitle>About</PageTitle>
           <p>A space to learn more about me and my journey.</p>
         </div>
-        <div className="space-x-4 flex pb-10">
+        <div className="space-x-4 flex pb-6">
           <a
             href="https://read.cv/kent"
             target="_blank"

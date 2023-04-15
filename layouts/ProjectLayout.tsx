@@ -26,7 +26,7 @@ export default function ProjectsLayout({ initialDisplayPosts = [], pagination }:
         description={'siteMetadata.description'}
       />
       <div className="px-6 pb-16 sm:pb-20">
-        <div className="py-10">
+        <div className="pt-10 pb-16">
           <PageTitle>Projects</PageTitle>
           <p>A space for ongoing side projects. Learning how to code and bringing them to life.</p>
         </div>

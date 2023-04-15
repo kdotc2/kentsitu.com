@@ -21,7 +21,7 @@ export default function WorkLayout({ initialDisplayPosts = [], pagination }: Pro
     <>
       <PageSEO title={`Work - ${siteMetadata.author}`} description={'siteMetadata.description'} />
       <div className="px-6 pb-16 sm:pb-20">
-        <div className="py-10">
+        <div className="pt-10 pb-16">
           <PageTitle>Work</PageTitle>
           <p>A space for curated work. Designing user experiences from the ground up.</p>
         </div>
