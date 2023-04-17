@@ -46,10 +46,10 @@ const NavBar = () => {
               {headerNavLinks.map((link) => (
                 <Link href={link.href} key={link.title} aria-label={link.title} tabIndex={-1}>
                   <button
-                    className={`rounded py-2 px-3 font-medium ${
+                    className={`h-[30px] rounded px-3 font-medium ${
                       router.asPath === link.href
-                        ? 'rounded bg-gray-200 py-2 px-3 dark:bg-gray-700 dark:text-white'
-                        : 'py-2 px-3 hover:rounded hover:bg-gray-200 hover:py-2 hover:px-3 dark:hover:bg-gray-700'
+                        ? 'h-[30px] rounded bg-gray-200 px-3 dark:bg-gray-700 dark:text-white'
+                        : 'hover:rounded hover:bg-gray-200  dark:hover:bg-gray-700'
                     }`}
                   >
                     {link.title}
