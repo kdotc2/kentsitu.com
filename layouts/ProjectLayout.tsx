@@ -2,7 +2,6 @@ import siteMetadata from '@/data/siteMetadata'
 import { PageSEO } from '@/components/SEO'
 import type { Projects } from 'contentlayer/generated'
 import { CoreContent } from '@/lib/utils/contentlayer'
-import Link from 'next/link'
 import Image from 'next/image'
 import Pagination from '@/components/Pagination'
 import { ComponentProps } from 'react'
@@ -32,7 +31,7 @@ export default function ProjectsLayout({ initialDisplayPosts = [], pagination }:
         </div>
         <div className="flex flex-col gap-5">
           {displayPosts.map((post) => {
-            const { slug, title, summary, cover, readingTime, link } = post
+            const { slug, title, summary, cover, link } = post
             return (
               <div className="" key={title}>
                 <CustomLink

@@ -1,8 +1,6 @@
 import { ReactNode } from 'react'
 import type { Extras } from 'contentlayer/generated'
-import Image from '@/components/Image'
 import { PageSEO } from '@/components/SEO'
-import Link from 'next/link'
 import siteMetadata from '@/data/siteMetadata'
 import PageTitle from '@/components/PageTitle'
 
@@ -12,7 +10,7 @@ interface Props {
 }
 
 export default function AboutLayout({ children, content }: Props) {
-  const { name, avatar } = content
+  const { name } = content
 
   return (
     <>
@@ -22,7 +20,14 @@ export default function AboutLayout({ children, content }: Props) {
           <PageTitle>About</PageTitle>
           <p>A space to learn more about me and my journey.</p>
         </div>
-        <div className="flex space-x-4 pb-6">
+
+        <div className="items-start">
+          <div className="flex flex-col items-center">
+            {/* <Image src={avatar} alt="avatar" width={200} height={200} className="h-48 w-48" /> */}
+          </div>
+          <div className="prose max-w-none dark:prose-dark">{children}</div>
+        </div>
+        <div className="flex space-x-4 pt-6">
           <a
             href="https://read.cv/kent"
             target="_blank"
@@ -42,12 +47,6 @@ export default function AboutLayout({ children, content }: Props) {
           >
             <button className="buttonStyle">Contact</button>
           </a>
-        </div>
-        <div className="items-start space-y-2">
-          <div className="flex flex-col items-center">
-            {/* <Image src={avatar} alt="avatar" width={200} height={200} className="h-48 w-48" /> */}
-          </div>
-          <div className="prose max-w-none dark:prose-dark">{children}</div>
         </div>
       </div>
     </>

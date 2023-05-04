@@ -27,7 +27,7 @@ export default function WorkLayout({ initialDisplayPosts = [], pagination }: Pro
         </div>
         <div className="flex flex-col gap-5">
           {displayPosts.map((post) => {
-            const { slug, title, summary, cover, readingTime } = post
+            const { slug, title, summary, cover } = post
             return (
               <div key={title}>
                 <CustomLink
