@@ -29,7 +29,6 @@ type MetaData = {
     description: string
     image: { url: string }
     url: string
-    logo: { url: string }
   }
 }
 
@@ -86,7 +85,7 @@ export default async function BookmarksLayout() {
                     <img
                       className="relative flex-shrink-0 rounded-xl"
                       alt={metadata.data.image + 'image'}
-                      src={metadata.data.image.url ? metadata.data.image.url : metadata.data.logo.url}
+                      src={metadata.data.image.url}
                       width={800}
                       height={600}
                     />
