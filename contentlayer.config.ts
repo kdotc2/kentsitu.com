@@ -8,7 +8,7 @@ import {
 // Remark packages
 import remarkGfm from 'remark-gfm'
 import remarkCodeTitles from './lib/remark-code-title'
-import remarkImgToJsx from './lib/remark-img-to-jsx'
+// import remarkImgToJsx from './lib/remark-img-to-jsx'
 // // Rehype packages
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
@@ -90,7 +90,7 @@ export default makeSource({
   documentTypes: [Writing, Work, Misc, Projects],
   mdx: {
     cwd: process.cwd(),
-    remarkPlugins: [remarkGfm, remarkCodeTitles, remarkImgToJsx],
+    remarkPlugins: [remarkGfm, remarkCodeTitles],
     rehypePlugins: [
       rehypeAutolinkHeadings,
       rehypeSlug,

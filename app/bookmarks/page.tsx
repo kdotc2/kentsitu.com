@@ -29,11 +29,12 @@ type MetaData = {
     description: string
     image: { url: string }
     url: string
+    logo: { url: string }
   }
 }
 
 const bookmarkedLinks = [
-  'brianlovin.com',
+  // 'brianlovin.com',
   'timlrx.com',
   'honghong.me',
   'vyshnav.xyz',
@@ -41,7 +42,7 @@ const bookmarkedLinks = [
   'musing.vercel.app',
   'cretu.dev',
   'iamrob.in',
-  'neal.fun',
+  // 'neal.fun',
 ]
 
 async function getMetadata(link: string): Promise<MetaData> {
@@ -65,25 +66,15 @@ export default async function BookmarksLayout() {
         <LayoutHeader
           title={metainfo.title}
           description={
-            <span>
+            <div>
               A space for inspiring portfolios and useful links.
-              {/* Using{' '}
-              <a
-                className="text-blue-500 hover:text-blue-600 hover:dark:text-blue-400"
-                href="https://microlink.io/meta"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Microlink's API
-              </a>{' '}
-              to extract the metadata information below. */}
-            </span>
+            </div>
           }
         />
         <AnimateEnter>
           <div className="-mx-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {data.map((metadata) => (
-              <div key={metadata.data.title}>
+            {data.map((metadata, i) => (
+              <div key={i}>
                 <Link
                   href={metadata.data.url}
                   aria-label={`Link to ${title}`}
@@ -95,7 +86,7 @@ export default async function BookmarksLayout() {
                     <img
                       className="relative flex-shrink-0 rounded-xl"
                       alt={metadata.data.image + 'image'}
-                      src={metadata.data.image.url}
+                      src={metadata.data.image.url ? metadata.data.image.url : metadata.data.logo.url}
                       width={800}
                       height={600}
                     />

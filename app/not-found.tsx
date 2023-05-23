@@ -10,7 +10,7 @@ export default function NotFound() {
         <div className="item-start flex flex-col items-center">
           <div className="flex items-center space-x-3">
             <h1 className="border-r-2 px-3 text-base font-extrabold">404</h1>
-            <p className="text-sm">Looks like this page doesn't exist.</p>
+            <p className="text-sm">{`Looks like this page doesn't exist.`}</p>
           </div>
           <div className="py-8">
             <button onClick={previousPath} className="buttonStyle">

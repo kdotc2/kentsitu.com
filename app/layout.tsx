@@ -10,7 +10,7 @@ import AnimateEnter from '@components/AnimateEnter'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  authors: [{ name: 'Kent Situ', url: 'https:/kentsitu.com' }],
+  metadataBase: new URL('https://kentsitu.com'),
   category: 'Design',
   creator: 'Kent Situ',
   description:
@@ -20,13 +20,6 @@ export const metadata: Metadata = {
     icon: '/static/favicons/favicon-32x32.png',
     shortcut: '/static/favicons/favicon.ico',
   },
-  keywords: [
-    'Design',
-    'Product Designer',
-    'Freelance Product Designer',
-    'Kent Situ',
-    'kentsitu.com',
-  ],
   manifest: '/static/favicons/site.webmanifest',
   openGraph: {
     description:
