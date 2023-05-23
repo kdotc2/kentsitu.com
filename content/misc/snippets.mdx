@@ -1,0 +1,86 @@
+---
+title: Snippets
+date: '2023-4-14'
+lastmod: '2022-12-28'
+summary: Collection of reusable code
+---
+
+## Masonry Layout
+
+There's quick way to do it with Tailwind CSS: `columns-2`. But the problem with this method is it doesn't sort the dates from left to right. I discovered [React Masonry CSS](https://www.npmjs.com/package/react-masonry-css) by [Paul Collett](https://github.com/paulcollett) which helped solve the problem.
+
+After installing it, I added this block of code to my `tailwind.css` file.
+
+```js:tailwind.css
+// to see list of all values, go to the React Masonry CSS link above
+.my-masonry-grid {
+  display: flex;
+  width: auto;
+  margin: -10px; /* gutter size offset */
+}
+.my-masonry-grid_column {
+  padding: 10px; /* gutter size */
+  background-clip: padding-box;
+}
+
+/* style items */
+.my-masonry-grid_column > div { /* change div to reference elements in <Masonry> */
+  margin-bottom: 20px;
+}
+```
+
+Then added this my react component.
+
+```js:index.tsx
+import Masonry from 'react-masonry-css'
+
+const breakpointColumnsObj = {
+  default: 2, // default number of columns
+  768: 1, // breakpoint of going to 1 column
+}
+
+<Masonry
+  breakpointCols={breakpointColumnsObj}
+  className="my-masonry-grid"
+  columnClassName="my-masonry-grid_column"
+>
+...
+</Masonry>
+```
+
+---
+
+## Media Element Inside Photo
+
+In my previous website, I could just create a video with the same background as the website to blend it in. This wouldn't work for this website iteration, because of light/dark mode. I had to record the video and then put it into an iPhone mockup.
+
+```js
+<div className="group block object-scale-down py-4">
+  <div className="flex flex-col items-center relative justify-center">
+    // places iPhone screen over video
+    <div className="absolute z-10">
+      // adjust width and height to fit over video
+      <Image alt="iPhone screen" src={iPhone.png} width={x1} height={y1} />
+    </div>
+    <div>
+      <video />
+    </div>
+  </div>
+</div>
+
+```
+
+---
+
+## Using calc()
+
+I used `calc()` to help me calculate height of viewport with navbar/footer. Useful snipper for width and height calculations.
+
+```js
+// x is in pixels
+h-[calc(100vh-x)]
+w-[calc(100vh-x)]
+
+// use for mobile screens dvh = dynamic viewport height
+supports-[height:100dvh]:h-[calc(100dvh-x)]
+```

@@ -1,0 +1,71 @@
+---
+title: 'Portfolio Website'
+date: '2023-01-01'
+summary: Redesigned and built a responsive portfolio website.
+description: My personal space to share my work, ideas, and progress.
+image: /static/images/projects/portfolio/cover-photo.png
+url: https://kentsitu.com
+tags: ['Figma', 'Next.js', 'Tailwind CSS', 'Typescript', 'Contentlayer']
+---
+
+_Recently redesigned the website again and will update with thoughts._
+
+## Overview
+
+I redesigned my portfolio website after a lot of procrastination. I learned and used Next.js and Tailwind CSS to build the website. I wrote about why I moved away from website builders to building my own website <a href="/writing/portfolio-update" target="_blank" rel="noreferrer noopener">here</a>. I also wrote about the idea behind the design layout below. There will likely be new features in the future, but for now I think it's at a good place.
+
+## NavBar
+
+The navigation menu sticks to the top. When a scroll action occurs, it splits from the background and pins a 60px bar at the top. When clicked on, my name goes back to the home page. I don't expect this action to occur often.
+
+There's three different categories: work, notes, and about. And also a light/dark mode icon theme switch. When hovered/active, there's a rounded rectangle background. On mobile, the three categories disappear and a hamburger menu takes its place. The hamburger menu slides out with the three categories.
+
+![Navigation Bar](/static/images/projects/portfolio/navbar.png)
+
+## Home
+
+It acts as a landing page, where I can display whatever message I want to convey. It lets visitors know what to expect, when navigating my website. There's also a CTA button that goes to my work. I wanted these two sections to be the entire focal point of the home page. A direct message that's straight to the point.
+
+![Home page](/static/images/projects/portfolio/home.png)
+
+## Work
+
+A message at the top to summarize my design work. The cards split in the middle with a side of text and a cover photo. The text explains the project and the cover photo to give a visual of the work. When hovered, the card background of the text side changes color depending on the theme.
+
+At the bottom of the page, there's pages. The reasoning behind this feature was that, I wanted my 4 best pieces of work to be in the front. But I also wanted to display previous work that made the cut.
+
+![Work page](/static/images/projects/portfolio/work.png)
+
+## Projects
+
+This is a new section that I added recently. It's a way to seperate my work from my side projects. Similar layout to the Work page.
+
+![Projects page](/static/images/projects/portfolio/projects.png)
+
+## Notes
+
+Similar layout to the work page. It uses a masonry layout, which Pinterest popularized. Some notes might have shorter or longer summaries. I thought going with a responsive design like the masonry layout keeps it clean and adaptive. Might add a search bar in the future.
+
+![Notes page](/static/images/projects/portfolio/notes.png)
+
+## About
+
+An information dump page for me to tell my story. For what it does, it's fine for now. Not sure if I'm going to redesign or add more to it.
+
+![Notes page](/static/images/projects/portfolio/about.png)
+
+## Mobile
+
+The design is also responsive. The mobile nav is a slide out menu. The cards for the work, notes, and projects page shrinks to one card in a vertical format.
+
+<div className="projectImageGrid">
+
+![Home screen](/static/images/projects/portfolio/mob-home.png)
+
+![Nav screen](/static/images/projects/portfolio/mob-nav.png)
+
+![Work screen](/static/images/projects/portfolio/mob-work.png)
+
+![Notes screen](/static/images/projects/portfolio/mob-notes.png)
+
+</div>

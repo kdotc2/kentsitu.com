@@ -1,0 +1,39 @@
+.prose img {
+  @apply m-0;
+}
+
+.prose video {
+  @apply m-0;
+}
+
+.prose h2 {
+  @apply text-lg font-bold tracking-tight text-gray-900 dark:text-gray-100;
+}
+
+.prose h3 {
+  @apply text-base font-bold tracking-tight text-gray-900 dark:text-gray-100;
+}
+
+.prose a {
+  @apply text-blue-500 hover:text-blue-600 hover:dark:text-blue-400;
+}
+
+.prose details {
+  @apply rounded bg-gray-100 px-1 py-0.5 dark:bg-gray-800;
+}
+
+.prose ol li::marker {
+  @apply font-semibold text-gray-500 dark:text-gray-400;
+}
+
+.prose ul li::marker {
+  @apply bg-gray-500 dark:bg-gray-400;
+}
+
+.prose blockquote {
+  @apply my-0 border-none px-12 text-gray-900 dark:text-gray-100;
+}
+
+.prose pre {
+  @apply bg-gray-800 px-5;
+}

@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.task-list-item::before {
+  @apply hidden;
+}
+
+.task-list-item {
+  @apply list-none;
+}
+
+.csl-entry {
+  @apply my-5;
+}
+
+/* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+.projectImageGrid {
+  @apply grid grid-cols-2 gap-3 py-4 sm:grid-cols-4;
+}
+
+/* .imageProp {
+  @apply flex-initial flex-shrink-0;
+} */
+
+.keyTakeaways {
+  @apply text-[#171717] dark:text-[#f5f5f5];
+}
+
+.metricHeader {
+  @apply text-4xl font-semibold md:text-5xl;
+}
+
+.buttonStyle {
+  @apply rounded-md border px-4 py-[10px] text-sm font-medium md:hover:bg-gray-200 md:dark:hover:border-gray-700 md:dark:hover:bg-gray-700 md:dark:hover:text-white;
+}
+
+.cardStyle {
+  @apply flex cursor-pointer flex-col items-center gap-y-4 rounded-xl p-6 dark:text-white md:hover:rounded-xl md:hover:bg-gray-100 md:dark:hover:bg-gray-800;
+}
