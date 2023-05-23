@@ -1,0 +1,54 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>Kent Situ&#39;s Portfolio</title>
+      <link>https://kentsitu.com/notes</link>
+      <description>Product Designer with experience in mobile app design, user experience, research, and prototyping. Solving problems and bringing conceptual ideas to life.</description>
+      <language>en-us</language>
+      <managingEditor>hello@kentsitu.com (Kent Situ)</managingEditor>
+      <webMaster>hello@kentsitu.com (Kent Situ)</webMaster>
+      <lastBuildDate>Thu, 29 Dec 2022 00:00:00 GMT</lastBuildDate>
+      <atom:link href="https://kentsitu.com/feed.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+    <guid>https://kentsitu.com/notes/bookmarked-portfolios</guid>
+    <title>bookmarked portfolios</title>
+    <link>https://kentsitu.com/notes/bookmarked-portfolios</link>
+    <description>Portfolios that inspire me to work on my site.</description>
+    <pubDate>Thu, 29 Dec 2022 00:00:00 GMT</pubDate>
+    <author>hello@kentsitu.com (Kent Situ)</author>
+    undefined
+  </item>
+
+  <item>
+    <guid>https://kentsitu.com/notes/changelog</guid>
+    <title>changelog</title>
+    <link>https://kentsitu.com/notes/changelog</link>
+    <description>Updates and bug fixes.</description>
+    <pubDate>Tue, 03 Jan 2023 00:00:00 GMT</pubDate>
+    <author>hello@kentsitu.com (Kent Situ)</author>
+    undefined
+  </item>
+
+  <item>
+    <guid>https://kentsitu.com/notes/portfolio-update</guid>
+    <title>portfolio update</title>
+    <link>https://kentsitu.com/notes/portfolio-update</link>
+    <description>Moving away from website builders. Shoutout to Timothy Lin for the starter blog template.</description>
+    <pubDate>Mon, 02 Jan 2023 00:00:00 GMT</pubDate>
+    <author>hello@kentsitu.com (Kent Situ)</author>
+    undefined
+  </item>
+
+  <item>
+    <guid>https://kentsitu.com/notes/why-is-there-a-privacy-policy</guid>
+    <title>why is there a privacy policy?</title>
+    <link>https://kentsitu.com/notes/why-is-there-a-privacy-policy</link>
+    <description>Since I use Google Analytics to track who visits the site, I am required to disclose the use of it.</description>
+    <pubDate>Wed, 28 Dec 2022 00:00:00 GMT</pubDate>
+    <author>hello@kentsitu.com (Kent Situ)</author>
+    undefined
+  </item>
+
+    </channel>
+  </rss>
