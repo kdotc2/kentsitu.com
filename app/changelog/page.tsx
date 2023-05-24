@@ -23,7 +23,7 @@ export default async function ChangelogLayout() {
   return (
     <>
       <div className="py-10">
-        <LayoutHeader title={post.title} description={post.summary!} />
+        <LayoutHeader title={post.title} description={post.summary} />
         <div className="prose max-w-none dark:prose-dark">
           <article>
             <Mdx content={post} MDXComponents={MDXComponents} />

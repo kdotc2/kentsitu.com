@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+
 import AnimateEnter from '@components/AnimateEnter'
 import LayoutHeader from '@components/LayoutHeader'
 import { ArrowUpRightIcon } from '@heroicons/react/24/outline'
@@ -12,6 +14,8 @@ import { Metadata } from 'next'
 //   domain: string
 //   url: string
 // }
+
+// TO DO: Need to figure out how to get prefetch JSON data into JSON file prebuild or find another metascraper API
 
 const metainfo = {
   title: 'Bookmarks',
@@ -55,21 +59,12 @@ async function getMetadata(link: string): Promise<MetaData> {
 
 export default async function BookmarksLayout() {
   const randomList = bookmarkedLinks.sort(() => Math.random() - 0.5)
-  const data = await Promise.all<MetaData>(
-    randomList.map((url) => getMetadata(url))
-  )
+  const data = await Promise.all<MetaData>(randomList.map((url) => getMetadata(url)))
 
   return (
     <>
       <div className="py-10">
-        <LayoutHeader
-          title={metainfo.title}
-          description={
-            <div>
-              A space for inspiring portfolios and useful links.
-            </div>
-          }
-        />
+        <LayoutHeader title={metainfo.title} description={metainfo.description} />
         <AnimateEnter>
           <div className="-mx-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {data.map((metadata, i) => (
@@ -91,8 +86,7 @@ export default async function BookmarksLayout() {
                     />
                     <div className="w-full px-2 text-sm">
                       <div className="flex items-center gap-2 font-bold leading-8">
-                        {metadata.data.title}{' '}
-                        <ArrowUpRightIcon className="h-3 w-3" />
+                        {metadata.data.title} <ArrowUpRightIcon className="h-3 w-3" />
                       </div>
                       <div className="flex flex-wrap text-gray-500 dark:text-gray-400">
                         {metadata.data.description}

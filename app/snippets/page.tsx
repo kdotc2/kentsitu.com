@@ -29,11 +29,7 @@ export default async function SnippetsLayout() {
     <>
       <div className="relative py-10 lg:gap-10 xl:grid xl:grid-cols-[1fr_240px] xl:gap-20">
         <div>
-          <LayoutHeader
-            title={metainfo.title}
-            description={metainfo.description}
-          />
-
+          <LayoutHeader title={metainfo.title} description={metainfo.description} />
           <div className="prose max-w-none dark:prose-dark">
             <article>
               <Mdx content={post} MDXComponents={MDXComponents} />

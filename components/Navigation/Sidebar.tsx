@@ -25,9 +25,7 @@ function Sidebar() {
               return (
                 <ul className="mx-5 pt-6" key={i}>
                   {section.label && (
-                    <div className="mb-2 ml-3 text-xs font-medium">
-                      {section.label}
-                    </div>
+                    <div className="mb-2 ml-3 text-xs font-medium">{section.label}</div>
                   )}
                   {section.items.map((item, j) => (
                     <NavigationLink key={j} link={item} />

@@ -1,18 +1,15 @@
-import {
-  defineDocumentType,
-  ComputedFields,
-  makeSource,
-} from 'contentlayer/source-files'
+import { defineDocumentType, ComputedFields, makeSource } from 'contentlayer/source-files'
 // import readingTime from 'reading-time'
 
 // Remark packages
 import remarkGfm from 'remark-gfm'
 import remarkCodeTitles from './lib/remark-code-title'
-// import remarkImgToJsx from './lib/remark-img-to-jsx'
+import remarkImgToJsx from './lib/remark-img-to-jsx'
 // // Rehype packages
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypePrismPlus from 'rehype-prism-plus'
+// import remarkUnwrapImages from 'remark-unwrap-images'
 
 const computedFields: ComputedFields = {
   // readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
@@ -89,12 +86,7 @@ export default makeSource({
   contentDirPath: 'content',
   documentTypes: [Writing, Work, Misc, Projects],
   mdx: {
-    cwd: process.cwd(),
-    remarkPlugins: [remarkGfm, remarkCodeTitles],
-    rehypePlugins: [
-      rehypeAutolinkHeadings,
-      rehypeSlug,
-      [rehypePrismPlus, { ignoreMissing: true }],
-    ],
+    remarkPlugins: [remarkGfm, remarkCodeTitles, remarkImgToJsx],
+    rehypePlugins: [rehypeAutolinkHeadings, rehypeSlug, [rehypePrismPlus, { ignoreMissing: true }]],
   },
 })

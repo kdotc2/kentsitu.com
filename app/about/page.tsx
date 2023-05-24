@@ -1,4 +1,3 @@
-import siteMetadata from 'content/siteMetadata'
 import { allMiscs } from 'contentlayer/generated'
 import { MDXComponents, Mdx } from '@components/Mdx/MDXComponents'
 import { notFound } from 'next/navigation'
@@ -25,10 +24,7 @@ export default async function AboutLayout() {
   return (
     <>
       <div className="py-10">
-        <LayoutHeader
-          title={metainfo.title}
-          description={metainfo.description}
-        />
+        <LayoutHeader title={metainfo.title} description={metainfo.description} />
 
         <div className="">
           <div className="prose max-w-none dark:prose-dark">
@@ -49,7 +45,7 @@ export default async function AboutLayout() {
             <button className="buttonStyle">Read.cv</button>
           </a>
           <a
-            href={`mailto:${siteMetadata.email}`}
+            href={`mailto:hello@kentsitu.com`}
             rel="noreferrer noopner"
             aria-label="Contact"
             className=""

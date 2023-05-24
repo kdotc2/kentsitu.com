@@ -3,25 +3,24 @@ import { MDXComponents, Mdx } from '@components/Mdx/MDXComponents'
 import Construction from '@components/Construction'
 import { notFound } from 'next/navigation'
 
-export const generateStaticParams = async () =>
-  allWritings.map((post: any) => ({ slug: post.slug }))
+export const generateStaticParams = async () => allWritings.map((post) => ({ slug: post.slug }))
 export const generateMetadata = ({ params }: { params: Writing }) => {
-  const post = allWritings.find((post: any) => post.slug === params.slug)
+  const post = allWritings.find((post) => post.slug === params.slug)
   if (!post) {
     return
   }
-  const { title, summary: description, image, slug } = post
-  const ogImage = image
+  const { title, summary: description, slug } = post
+  const ogImage = '/static/images/og.png'
 
   return {
     description,
     openGraph: {
       description,
-      // images: [
-      //   {
-      //     url: ogImage,
-      //   },
-      // ],
+      images: [
+        {
+          url: ogImage,
+        },
+      ],
       title,
       url: `/writing/${slug}`,
     },
@@ -29,17 +28,13 @@ export const generateMetadata = ({ params }: { params: Writing }) => {
     twitter: {
       card: 'summary_large_image',
       description,
-      // images: [ogImage],
+      images: [ogImage],
       title,
     },
   }
 }
 
-export default async function WritingLayout({
-  params,
-}: {
-  params: { slug: string }
-}) {
+export default async function WritingLayout({ params }: { params: { slug: string } }) {
   const post = allWritings.find((post) => post.slug === params.slug)
 
   if (!post) {

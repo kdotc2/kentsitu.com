@@ -2,7 +2,7 @@ import React from 'react'
 
 type Props = {
   title: string
-  description: React.JSX.Element | string
+  description: string | undefined
 }
 
 function LayoutHeader({ title, description }: Props) {

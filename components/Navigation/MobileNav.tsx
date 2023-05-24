@@ -29,15 +29,11 @@ const MobileNav = () => {
       </Link>
       <div className="flex">
         <button type="button" aria-label="Toggle Menu" onClick={onToggleNav}>
-          {navShow ? (
-            <XMarkIcon className="h-6 w-6" />
-          ) : (
-            <Bars3Icon className="h-6 w-6" />
-          )}
+          {navShow ? <XMarkIcon className="h-6 w-6" /> : <Bars3Icon className="h-6 w-6" />}
         </button>
       </div>
       <div
-        className={`fixed left-0 right-0 top-0 mt-16 w-full transform overflow-y-auto bg-gray-100/[0.97] duration-300 ease-in-out supports-[height:100dvh]:h-[calc(100dvh-40px)] dark:bg-[#212121]/[0.98] ${
+        className={`fixed left-0 right-0 top-0 mt-16 w-full transform overflow-y-auto bg-gray-100/[0.97] pb-10 duration-300 ease-in-out supports-[height:100dvh]:h-[calc(100dvh-64px)] dark:bg-[#212121]/[0.98] ${
           navShow ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -46,21 +42,19 @@ const MobileNav = () => {
             return (
               <ul className="mx-6 pt-6" key={i}>
                 {section.label && (
-                  <div className="mb-2 ml-3 text-xs font-medium">
-                    {section.label}
-                  </div>
+                  <div className="mb-2 ml-3 text-xs font-medium">{section.label}</div>
                 )}
                 {section.items.map((item, j) => (
-                  <div key={j} onClick={onToggleNav}>
+                  <button key={j} onClick={onToggleNav} className="w-full text-left">
                     <NavigationLink link={item} />
-                  </div>
+                  </button>
                 ))}
               </ul>
             )
           })}
         </div>
-        <div className="mx-1 cursor-pointer" onClick={onToggleNav}>
-          <ThemeSwitch />
+        <div className="mx-1 cursor-pointer">
+          <ThemeSwitch onToggleNav={onToggleNav} />
         </div>
       </div>
     </div>

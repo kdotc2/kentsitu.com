@@ -6,8 +6,8 @@ import '@fontsource/inter/variable-full.css'
 import MobileNav from '@components/Navigation/MobileNav'
 import Providers from './providers'
 import Sidebar from '@components/Navigation/Sidebar'
-import AnimateEnter from '@components/AnimateEnter'
 import { Metadata } from 'next'
+import AllAnalytics from '@components/analytics'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://kentsitu.com'),
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
       {
         alt: 'Kent Situ',
         height: 628,
-        url: 'public/static/images/og.png',
+        url: '/static/images/og.png',
         width: 1200,
       },
     ],
@@ -61,7 +61,9 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Kent Situ',
-    images: 'public/static/images/og.png',
+    images: '/static/images/og.png',
+    description:
+      'Product Designer with experience in mobile app design, user experience, research, and prototyping. Solving problems and bringing conceptual ideas to life.',
   },
 }
 
@@ -91,6 +93,7 @@ export default function RootLayout({ children }: Props) {
             </div>
           </div>
         </Providers>
+        <AllAnalytics />
       </body>
     </html>
   )

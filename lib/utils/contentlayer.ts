@@ -1,9 +1,6 @@
-import type {
-  Work,
-  Writing,
-  Projects,
-  DocumentTypes,
-} from 'contentlayer/generated'
+/* eslint-disable  @typescript-eslint/no-explicit-any */
+
+import type { Work, Writing, Projects, DocumentTypes } from 'contentlayer/generated'
 
 export function dateSortDesc(a: string, b: string) {
   if (a > b) return -1
@@ -44,10 +41,7 @@ export const pick = <Obj, Keys extends keyof Obj>(
   }, {} as any)
 }
 
-export const omit = <Obj, Keys extends keyof Obj>(
-  obj: Obj,
-  keys: Keys[]
-): Omit<Obj, Keys> => {
+export const omit = <Obj, Keys extends keyof Obj>(obj: Obj, keys: Keys[]): Omit<Obj, Keys> => {
   const result = Object.assign({}, obj)
   keys.forEach((key) => {
     delete result[key]

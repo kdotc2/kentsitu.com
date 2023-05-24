@@ -21,10 +21,7 @@ export default async function Projects() {
   return (
     <>
       <div className="py-10">
-        <LayoutHeader
-          title={metainfo.title}
-          description={metainfo.description}
-        />
+        <LayoutHeader title={metainfo.title} description={metainfo.description} />
         <div className="-mx-6 grid grid-cols-1 gap-4 lg:grid-cols-2">
           {posts.map((post) => {
             const { slug, title, summary, image, tags } = post
@@ -39,7 +36,7 @@ export default async function Projects() {
                     <Image
                       className="relative flex-shrink-0 rounded-xl"
                       alt={title + ' Cover Photo'}
-                      src={image!}
+                      src={image}
                       width={800}
                       height={600}
                     />

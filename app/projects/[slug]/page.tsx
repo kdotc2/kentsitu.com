@@ -5,10 +5,9 @@ import { getTableOfContents } from '@lib/remark-toc-headings'
 import { ArrowUpRightIcon } from '@heroicons/react/24/outline'
 import { notFound } from 'next/navigation'
 
-export const generateStaticParams = async () =>
-  allProjects.map((post: any) => ({ slug: post.slug }))
+export const generateStaticParams = async () => allProjects.map((post) => ({ slug: post.slug }))
 export const generateMetadata = ({ params }: { params: Projects }) => {
-  const post = allProjects.find((post: any) => post.slug === params.slug)
+  const post = allProjects.find((post) => post.slug === params.slug)
   if (!post) {
     return
   }
@@ -37,11 +36,7 @@ export const generateMetadata = ({ params }: { params: Projects }) => {
   }
 }
 
-export default async function ProjectLayout({
-  params,
-}: {
-  params: { slug: string }
-}) {
+export default async function ProjectLayout({ params }: { params: { slug: string } }) {
   const post = allProjects.find((post) => post.slug === params.slug)
   if (!post) {
     notFound()

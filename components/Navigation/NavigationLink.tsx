@@ -2,7 +2,7 @@ import CodeBracketIcon from '@heroicons/react/24/outline/CodeBracketIcon'
 import Link from 'next/link'
 import { allProjects, allWorks } from 'contentlayer/generated'
 import { sortedProjectsPost, sortedWorkPost } from '@lib/utils/contentlayer'
-import AnimateSection from '@components/AnimateSection'
+import AnimateSection from '@components/Navigation/AnimateSection'
 
 export type NavProps = {
   link: {
@@ -33,16 +33,8 @@ export function NavigationLink({ link }: NavProps) {
           <Icon className="h-4 w-4" />
           {link.title}
         </Link>
-        <AnimateSection
-          section={'work'}
-          isActive={link.isActive}
-          posts={workPosts}
-        />
-        <AnimateSection
-          section={'projects'}
-          isActive={link.isActive}
-          posts={projectPosts}
-        />
+        <AnimateSection section={'work'} isActive={link.isActive} posts={workPosts} />
+        <AnimateSection section={'projects'} isActive={link.isActive} posts={projectPosts} />
       </li>
     </>
   )

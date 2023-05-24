@@ -6,7 +6,7 @@ interface Props {
 }
 
 const Pre = ({ children }: Props) => {
-  const textInput = useRef(null) as any
+  const textInput = useRef<HTMLDivElement>(null)
   const [hovered, setHovered] = useState(false)
   const [copied, setCopied] = useState(false)
 
@@ -19,24 +19,20 @@ const Pre = ({ children }: Props) => {
   }
   const onCopy = () => {
     setCopied(true)
-    navigator.clipboard.writeText(textInput.current?.textContent)
+    if (textInput.current !== null && textInput.current.textContent !== null)
+      navigator.clipboard.writeText(textInput.current.textContent)
     setTimeout(() => {
       setCopied(false)
     }, 2000)
   }
 
   return (
-    <div
-      ref={textInput}
-      onMouseEnter={onEnter}
-      onMouseLeave={onExit}
-      className="relative"
-    >
+    <div ref={textInput} onMouseEnter={onEnter} onMouseLeave={onExit} className="relative">
       {hovered && (
         <button
           aria-label="Copy code"
           type="button"
-          className={`absolute right-2 top-2 h-8 w-8 rounded border-2 bg-gray-700 p-1 dark:bg-gray-800 ${
+          className={`absolute right-2 top-2 h-8 w-8 rounded p-1 ${
             copied
               ? 'border-green-400 focus:border-green-400 focus:outline-none'
               : 'border-gray-300'

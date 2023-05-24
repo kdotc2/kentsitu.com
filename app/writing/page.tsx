@@ -1,7 +1,6 @@
 import { allWritings } from 'contentlayer/generated'
 import { sortedWritingPost } from '@lib/utils/contentlayer'
 import type { Writing } from 'contentlayer/generated'
-import Image from 'next/image'
 import Link from 'next/link'
 import { formatDate } from '@lib/utils/utils'
 import LayoutHeader from '@components/LayoutHeader'
@@ -9,7 +8,7 @@ import { Metadata } from 'next'
 
 const metainfo = {
   title: 'Writing',
-  description: 'A space to keep track of progress and thoughts.',
+  description: 'A space for word dumping. Keep track of progress, ideas, and thoughts.',
 }
 
 export const metadata: Metadata = {
@@ -22,10 +21,7 @@ export default async function Writing() {
   return (
     <>
       <div className="mx-auto py-10">
-        <LayoutHeader
-          title={metainfo.title}
-          description={metainfo.description}
-        />
+        <LayoutHeader title={metainfo.title} description={metainfo.description} />
         <div className="-mx-6">
           {posts.map((post) => {
             const { slug, title, summary, date, draft } = post

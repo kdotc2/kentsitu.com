@@ -4,8 +4,7 @@ import { TableOfContents } from '@components/Mdx/Toc'
 import { getTableOfContents } from '@lib/remark-toc-headings'
 import { notFound } from 'next/navigation'
 
-export const generateStaticParams = async () =>
-  allWorks.map((post: any) => ({ slug: post.slug }))
+export const generateStaticParams = async () => allWorks.map((post) => ({ slug: post.slug }))
 
 export const generateMetadata = ({ params }: { params: Work }) => {
   const post = allWorks.find((post) => post.slug === params.slug)
@@ -37,11 +36,7 @@ export const generateMetadata = ({ params }: { params: Work }) => {
   }
 }
 
-export default async function WorkLayout({
-  params,
-}: {
-  params: { slug: string }
-}) {
+export default async function WorkLayout({ params }: { params: { slug: string } }) {
   const post = allWorks.find((post) => post.slug === params.slug)
 
   if (!post) {

@@ -8,8 +8,7 @@ import { Metadata } from 'next'
 
 const metainfo = {
   title: 'Work',
-  description:
-    'A space for curated work. Designing user experiences from the ground up.',
+  description: 'A space for curated work. Designing user experiences from the ground up.',
 }
 
 export const metadata: Metadata = {
@@ -22,10 +21,7 @@ export default async function Work() {
   return (
     <>
       <div className="py-10">
-        <LayoutHeader
-          title={metainfo.title}
-          description={metainfo.description}
-        />
+        <LayoutHeader title={metainfo.title} description={metainfo.description} />
         <div className="-mx-6 grid grid-cols-1 gap-4 lg:grid-cols-2">
           {posts.map((post) => {
             const { slug, title, summary, image } = post
@@ -41,7 +37,7 @@ export default async function Work() {
                       <Image
                         className="relative flex-shrink-0 rounded-xl"
                         alt={title + ' Cover Photo'}
-                        src={image!}
+                        src={image}
                         width={800}
                         height={600}
                       />

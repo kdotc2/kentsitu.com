@@ -2,11 +2,7 @@
 
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 
-export default function AnimateEnter({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function AnimateEnter({ children }: { children: React.ReactNode }) {
   return (
     <LazyMotion features={domAnimation}>
       <m.main

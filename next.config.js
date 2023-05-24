@@ -52,6 +52,9 @@ const securityHeaders = [
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  eslint: {
+    dirs: ['app', 'components', 'lib'],
+  },
   experimental: {
     appDir: true,
   },
