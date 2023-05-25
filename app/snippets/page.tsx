@@ -8,7 +8,7 @@ import { getTableOfContents } from '@lib/remark-toc-headings'
 
 const metainfo = {
   title: 'Snippets',
-  description: 'Collection of reusable code',
+  description: 'Collection of reusable code.',
 }
 
 export const metadata: Metadata = {

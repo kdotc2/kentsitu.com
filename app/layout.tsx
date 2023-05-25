@@ -27,9 +27,7 @@ export const metadata: Metadata = {
     images: [
       {
         alt: 'Kent Situ',
-        height: 628,
         url: '/static/images/og.png',
-        width: 1200,
       },
     ],
     locale: 'en-US',

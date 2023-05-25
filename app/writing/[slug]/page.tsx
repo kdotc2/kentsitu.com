@@ -10,7 +10,7 @@ export const generateMetadata = ({ params }: { params: Writing }) => {
     return
   }
   const { title, summary: description, slug } = post
-  const ogImage = '/static/images/og.png'
+  const ogImage = `/og?title=${title}&description=${description}`
 
   return {
     description,
