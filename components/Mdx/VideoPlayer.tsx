@@ -19,7 +19,7 @@ const VideoPlayer = ({ link, poster }: { link: string; poster: string }) => {
   }
   return (
     <div className="group block object-scale-down py-4">
-      <div className="group relative flex flex-col items-center  justify-center">
+      <div className="group relative flex flex-col items-center justify-center">
         <div className="group absolute z-10">
           <Image alt="iPhone layout" src={`/static/videos/iPhoneXS.png`} width={250} height={503} />
         </div>

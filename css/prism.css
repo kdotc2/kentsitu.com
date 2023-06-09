@@ -7,285 +7,189 @@
 
 /* Code title styles */
 .remark-code-title {
-  @apply rounded-t bg-gray-700 px-5 py-3 font-mono text-sm font-bold text-gray-200;
+  @apply rounded-t-lg border border-b-0 border-gray-200 bg-[#f2f2f2] px-5 py-3 text-xs dark:border-gray-700 dark:bg-[#121212];
 }
 
 .remark-code-title + div > pre {
   @apply mt-0 rounded-t-none;
 }
 
-pre[class*="language-"],
-code[class*="language-"] {
-	color: #d4d4d4;
-	font-size: 13px;
-	text-shadow: none;
-	font-family: Menlo, Monaco, Consolas, "Andale Mono", "Ubuntu Mono", "Courier New", monospace;
-	direction: ltr;
-	text-align: left;
-	white-space: pre;
-	word-spacing: normal;
-	word-break: normal;
-	line-height: 1.5;
-	-moz-tab-size: 4;
-	-o-tab-size: 4;
-	tab-size: 4;
-	-webkit-hyphens: none;
-	-moz-hyphens: none;
-	-ms-hyphens: none;
-	hyphens: none;
+/* Code block styles */
+.code-highlight {
+  @apply float-left min-w-full;
 }
 
-pre[class*="language-"]::selection,
-code[class*="language-"]::selection,
-pre[class*="language-"] *::selection,
-code[class*="language-"] *::selection {
-	text-shadow: none;
-	background: #264F78;
+.code-line {
+  @apply -mx-4 block border-transparent px-6 py-[2px];
 }
 
+.code-line.inserted {
+  @apply bg-green-500 bg-opacity-20;
+}
+
+.code-line.deleted {
+  @apply bg-red-500 bg-opacity-20;
+}
+
+.highlight-line {
+  @apply -mx-4 border-gray-500 bg-[#fff8c5] dark:bg-[#2f2a1e];
+}
+
+.line-number::before {
+  @apply mr-8 inline-block w-4 text-right text-gray-400;
+  content: attr(line);
+}
+
+code[class*='language-'] {
+  @apply text-gray-900 dark:text-gray-100;
+}
+
+pre[class*='language-'],
+code[class*='language-'] {
+  color: #24292f;
+  font-size: 12px;
+  text-shadow: none;
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono',
+    monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+pre[class*='language-']::selection,
+code[class*='language-']::selection,
+pre[class*='language-']::mozselection,
+code[class*='language-']::mozselection {
+  @apply bg-[#9fc6e9] shadow-none dark:bg-[#234879];
+}
 @media print {
-	pre[class*="language-"],
-	code[class*="language-"] {
-		text-shadow: none;
-	}
+  pre[class*='language-'],
+  code[class*='language-'] {
+    text-shadow: none;
+  }
+}
+pre[class*='language-'] {
+  @apply my-[0.5em] overflow-auto bg-gray-50 p-[1em] dark:bg-gray-950;
 }
 
-pre[class*="language-"] {
-	padding: 1em;
-	margin: .5em 0;
-	overflow: auto;
-	background: #1e1e1e;
+:not(pre) > code[class*='language-'] {
+  @apply rounded-[0.3em] bg-[#eff1f3] px-[0.3em] py-[0.1em] text-[#24292f] dark:bg-[#343942] dark:text-[#c9d1d9];
 }
-
-:not(pre) > code[class*="language-"] {
-	padding: .1em .3em;
-	border-radius: .3em;
-	color: #db4c69;
-	background: #1e1e1e;
+/* Line highlighting */
+pre[data-line] {
+  position: relative;
 }
-/*********************************************************
-* Tokens
-*/
+pre[class*='language-'] > code[class*='language-'] {
+  position: relative;
+  z-index: 1;
+}
+.line-highlight {
+  @apply pointer-events-none absolute left-0 right-0 z-0 mt-4 whitespace-pre bg-[#fff8c5] dark:bg-[#2f2a1e];
+}
+/* .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: #fff8c5;
+  box-shadow: inset 5px 0 0 #eed888;
+  z-index: 0;
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+} */
+/* Tokens */
 .namespace {
-	opacity: .7;
+  opacity: 0.7;
 }
-
-.token.doctype .token.doctype-tag {
-	color: #569CD6;
-}
-
-.token.doctype .token.name {
-	color: #9cdcfe;
-}
-
 .token.comment,
-.token.prolog {
-	color: #6a9955;
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  @apply text-[#6e7781] dark:text-[#8b949e];
 }
-
-.token.punctuation,
-.language-html .language-css .token.punctuation,
-.language-html .language-javascript .token.punctuation {
-	color: #d4d4d4;
+.token.punctuation {
+  @apply text-[#24292f] dark:text-[#79c0ff];
 }
-
+.token.tag {
+  @apply text-[#116329] dark:text-[#7ee787];
+}
 .token.property,
-.token.tag,
+.token.attr-name {
+  @apply text-[#0550ae] dark:text-[#79c0ff];
+}
 .token.boolean,
 .token.number,
 .token.constant,
 .token.symbol,
-.token.inserted,
-.token.unit {
-	color: #b5cea8;
+.token.deleted {
+  @apply text-[#0550ae] dark:text-[#79c0ff];
 }
-
 .token.selector,
-.token.attr-name,
-.token.string,
+.token.script {
+  @apply text-gray-900 dark:text-gray-100;
+}
+.token.string {
+  @apply dark:text-[#a5d6ff];
+}
 .token.char,
 .token.builtin,
-.token.deleted {
-	color: #ce9178;
+.token.inserted {
+  @apply text-[#0a3069] dark:text-[#a5d6ff];
 }
-
-.language-css .token.string.url {
-	text-decoration: underline;
-}
-
 .token.operator,
-.token.entity {
-	color: #d4d4d4;
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  @apply text-[#0550ae] dark:text-[#a5d6ff];
 }
-
-.token.operator.arrow {
-	color: #569CD6;
+.token.atrule,
+.token.attr-value {
+  @apply text-[#0a3069] dark:text-[#a5d6ff];
 }
-
-.token.atrule {
-	color: #ce9178;
+.token.function {
+  @apply text-[#8250df] dark:text-[#d2a8ff];
 }
-
-.token.atrule .token.rule {
-	color: #c586c0;
+.token.regex,
+.token.important,
+.token.variable {
+  @apply text-[#0a3069] dark:text-[#a8daff];
 }
-
-.token.atrule .token.url {
-	color: #9cdcfe;
+.token.important,
+.token.bold {
+  font-weight: bold;
 }
-
-.token.atrule .token.url .token.function {
-	color: #dcdcaa;
-}
-
-.token.atrule .token.url .token.punctuation {
-	color: #d4d4d4;
-}
-
-.token.keyword {
-	color: #569CD6;
-}
-
-.token.keyword.module,
-.token.keyword.control-flow {
-	color: #c586c0;
-}
-
-.token.function,
-.token.function .token.maybe-class-name {
-	color: #dcdcaa;
-}
-
-.token.regex {
-	color: #d16969;
-}
-
-.token.important {
-	color: #569cd6;
-}
-
 .token.italic {
-	font-style: italic;
+  font-style: italic;
 }
-
-.token.constant {
-	color: #9cdcfe;
-}
-
-.token.class-name,
-.token.maybe-class-name {
-	color: #4ec9b0;
-}
-
-.token.console {
-	color: #9cdcfe;
-}
-
-.token.parameter {
-	color: #9cdcfe;
-}
-
-.token.interpolation {
-	color: #9cdcfe;
-}
-
-.token.punctuation.interpolation-punctuation {
-	color: #569cd6;
-}
-
-.token.boolean {
-	color: #569cd6;
-}
-
-.token.property,
-.token.variable,
-.token.imports .token.maybe-class-name,
-.token.exports .token.maybe-class-name {
-	color: #9cdcfe;
-}
-
-.token.selector {
-	color: #d7ba7d;
-}
-
-.token.escape {
-	color: #d7ba7d;
-}
-
-.token.tag {
-	color: #569cd6;
-}
-
-.token.tag .token.punctuation {
-	color: #808080;
-}
-
-.token.cdata {
-	color: #808080;
-}
-
-.token.attr-name {
-	color: #9cdcfe;
-}
-
-.token.attr-value,
-.token.attr-value .token.punctuation {
-	color: #ce9178;
-}
-
-.token.attr-value .token.punctuation.attr-equals {
-	color: #d4d4d4;
-}
-
 .token.entity {
-	color: #569cd6;
+  cursor: help;
+}
+.token.imports {
+  @apply text-[#953800] dark:text-[#ffa657];
 }
 
-.token.namespace {
-	color: #4ec9b0;
-}
-/*********************************************************
-* Language Specific
-*/
-
-pre[class*="language-javascript"],
-code[class*="language-javascript"],
-pre[class*="language-jsx"],
-code[class*="language-jsx"],
-pre[class*="language-typescript"],
-code[class*="language-typescript"],
-pre[class*="language-tsx"],
-code[class*="language-tsx"] {
-	color: #9cdcfe;
+.token.plain-text {
+  @apply text-gray-900 dark:text-gray-100;
 }
 
-pre[class*="language-css"],
-code[class*="language-css"] {
-	color: #ce9178;
+.token.maybe-class-name {
+  @apply text-[#953800] dark:text-[#ffa657];
 }
-
-pre[class*="language-html"],
-code[class*="language-html"] {
-	color: #d4d4d4;
+.token.keyword {
+  @apply text-[#cf222e] dark:text-[#ff7b72];
 }
-
-.language-regex .token.anchor {
-	color: #dcdcaa;
-}
-
-.language-html .token.punctuation {
-	color: #808080;
-}
-/*********************************************************
-* Line highlighting
-*/
-pre[class*="language-"] > code[class*="language-"] {
-	position: relative;
-	z-index: 1;
-}
-
-.line-highlight.line-highlight {
-	background: #f7ebc6;
-	box-shadow: inset 5px 0 0 #f7d87c;
-	z-index: 0;
+.token.keyword.nil {
+  @apply text-[#0550ae] dark:text-[#79c0ff];
 }

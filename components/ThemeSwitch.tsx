@@ -19,7 +19,7 @@ const ThemeSwitch = ({ onToggleNav }: Props) => {
     <button
       aria-label="Toggle Appearance"
       type="button"
-      className="mx-5 rounded-md px-3 py-[6px] sm:w-[calc(100vw-48px)] sm:hover:bg-gray-200 sm:dark:hover:bg-gray-700 md:w-[140px] lg:w-[200px]"
+      className="mx-5 w-[calc(100vw-48px)] rounded-md px-3 py-[6px] active:bg-gray-200 dark:active:bg-gray-700 sm:hover:bg-gray-200 sm:hover:dark:bg-gray-800 md:w-[140px] lg:w-[200px]"
       onClick={() => {
         onToggleNav && onToggleNav()
         setTheme(theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark')

@@ -8,7 +8,7 @@ import { Metadata } from 'next'
 const metainfo = {
   title: 'Projects',
   description:
-    "A space for side projects. Designing and bringing ideas to life. Learning how to build them when there's time.",
+    "A space to showcase side projects. Designing and bringing ideas to life. Learning how to build them when there's time.",
 }
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export default async function Projects() {
   const posts = sortedProjectsPost(allProjects)
   return (
     <>
-      <div className="py-10">
+      <div className="pb-16 pt-10">
         <LayoutHeader title={metainfo.title} description={metainfo.description} />
         <div className="-mx-6 grid grid-cols-1 gap-4 lg:grid-cols-2">
           {posts.map((post) => {

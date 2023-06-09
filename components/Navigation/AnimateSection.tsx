@@ -34,22 +34,22 @@ export default function AnimateSection({ section, posts, isActive }: Props) {
                   ease: [0.04, 0.62, 0.23, 0.98],
                 }}
               >
-                <motion.div
-                  variants={{
-                    collapsed: { height: 'auto' },
-                  }}
-                  layout
-                  transition={{ duration: 0.8, ease: 'easeInOut' }}
-                  className={clsx(
-                    'ml-5 py-[6px] pl-6',
-                    `${
-                      pathname.endsWith(`${slug}`)
-                        ? 'border-l border-l-gray-800 dark:border-l-gray-200'
-                        : 'border-l border-l-gray-300 text-gray-400 hover:border-l hover:border-l-gray-800 hover:text-gray-800 dark:border-l-gray-700 dark:text-gray-600 hover:dark:border-l-gray-200 hover:dark:text-gray-200'
-                    }`
-                  )}
-                >
-                  <Link href={`/${section}/${slug}`} aria-label={`Link to ${title}`}>
+                <Link href={`/${section}/${slug}`} aria-label={`Link to ${title}`}>
+                  <motion.div
+                    variants={{
+                      collapsed: { height: 'auto' },
+                    }}
+                    layout
+                    transition={{ duration: 0.8, ease: 'easeInOut' }}
+                    className={clsx(
+                      'ml-5 mr-0.5 py-[6px] pl-[17px]',
+                      `${
+                        pathname.endsWith(`${slug}`)
+                          ? 'border-l border-l-gray-800 dark:border-l-gray-200'
+                          : 'border-l border-l-gray-300 text-gray-400 hover:border-l dark:border-l-gray-700 dark:text-gray-600 sm:hover:border-l-gray-800 sm:hover:text-gray-800 sm:hover:dark:border-l-gray-200 sm:hover:dark:text-gray-200'
+                      }`
+                    )}
+                  >
                     <div
                       className={`truncate ${
                         pathname.endsWith(`${slug}`) && 'text-gray-900 dark:text-gray-100'
@@ -57,8 +57,8 @@ export default function AnimateSection({ section, posts, isActive }: Props) {
                     >
                       {title}
                     </div>
-                  </Link>
-                </motion.div>
+                  </motion.div>
+                </Link>
               </motion.div>
             )
           })}

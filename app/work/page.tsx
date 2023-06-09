@@ -8,7 +8,7 @@ import { Metadata } from 'next'
 
 const metainfo = {
   title: 'Work',
-  description: 'A space for curated work. Designing user experiences from the ground up.',
+  description: 'A space to showcase curated work. Designing user experiences from the ground up.',
 }
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export default async function Work() {
   const posts = sortedWorkPost(allWorks)
   return (
     <>
-      <div className="py-10">
+      <div className="pb-16 pt-10">
         <LayoutHeader title={metainfo.title} description={metainfo.description} />
         <div className="-mx-6 grid grid-cols-1 gap-4 lg:grid-cols-2">
           {posts.map((post) => {

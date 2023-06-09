@@ -6,7 +6,7 @@ import { Metadata } from 'next'
 
 const metainfo = {
   title: 'Changelog',
-  description: 'Updates and bug fixes for this website.',
+  description: ' A space to keep track of updates and bug fixes for this website.',
 }
 
 export const metadata: Metadata = {
@@ -22,12 +22,10 @@ export default async function ChangelogLayout() {
 
   return (
     <>
-      <div className="py-10">
+      <div className="pb-16 pt-10">
         <LayoutHeader title={post.title} description={post.summary} />
         <div className="prose max-w-none dark:prose-dark">
-          <article>
-            <Mdx content={post} MDXComponents={MDXComponents} />
-          </article>
+          <Mdx content={post} MDXComponents={MDXComponents} />
         </div>
       </div>
     </>

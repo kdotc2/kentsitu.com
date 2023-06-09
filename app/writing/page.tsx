@@ -8,19 +8,37 @@ import { Metadata } from 'next'
 
 const metainfo = {
   title: 'Writing',
-  description: 'A space for word dumping. Keep track of progress, ideas, and thoughts.',
+  description: 'A space to dump words. Keep track of progress, ideas, and thoughts.',
 }
 
+const ogImage = `/og?title=${metainfo.title}&description=${metainfo.description}`
+
 export const metadata: Metadata = {
-  title: metainfo.title,
   description: metainfo.description,
+  openGraph: {
+    description: metainfo.description,
+    images: [
+      {
+        url: ogImage,
+      },
+    ],
+    title: metainfo.title,
+    url: `/writing`,
+  },
+  title: metainfo.title,
+  twitter: {
+    card: 'summary_large_image',
+    description: metainfo.description,
+    images: [ogImage],
+    title: metainfo.title,
+  },
 }
 
 export default async function Writing() {
   const posts = sortedWritingPost(allWritings)
   return (
     <>
-      <div className="mx-auto py-10">
+      <div className="mx-auto pb-16 pt-10">
         <LayoutHeader title={metainfo.title} description={metainfo.description} />
         <div className="-mx-6">
           {posts.map((post) => {

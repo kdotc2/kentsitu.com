@@ -37,8 +37,8 @@ export function TableOfContents({ toc }: TocProps) {
   }
 
   return mounted ? (
-    <div className="space-y-2">
-      <p className="font-bold">On This Page</p>
+    <div className="m-0.5 space-y-4">
+      <p className="font-semibold">On This Page</p>
       <Tree tree={toc} activeItem={activeHeading} />
     </div>
   ) : null
@@ -56,7 +56,7 @@ function useActiveItem(itemIds: (string | undefined)[]) {
           }
         })
       },
-      { rootMargin: `0% 0% -93% 0%` }
+      { rootMargin: `0% 0% -90% 0%` }
     )
 
     itemIds?.forEach((id) => {
@@ -95,20 +95,29 @@ interface TreeProps {
 
 function Tree({ tree, level = 1, activeItem }: TreeProps) {
   return tree?.items?.length && level < 3 ? (
-    <ul className={cn('m-0 list-none', { 'pl-4': level !== 1 })}>
+    <ul className="">
       {tree.items.map((item, index) => {
         return (
-          <li key={index} className={cn('mt-0 pt-2')}>
+          <li key={index}>
             <a
               href={item.url}
               className={cn(
-                'inline-block no-underline',
-                item.url === `#${activeItem}`
-                  ? 'font-medium'
-                  : 'text-sm text-gray-400 dark:text-gray-600'
+                'text-gray-400 no-underline hover:text-gray-800 dark:text-gray-600 hover:dark:text-gray-200',
+                item.url === `#${activeItem}` && 'text-gray-800 dark:text-gray-200'
               )}
             >
-              {item.title}
+              <div
+                className={cn(
+                  { 'py-1': level === 1 },
+                  {
+                    'ml-1 border-l border-l-gray-300 py-1 pl-4 hover:border-l-gray-800 hover:text-gray-800 dark:border-l-gray-700 hover:dark:border-l-gray-200 hover:dark:text-gray-200':
+                      level !== 1,
+                  },
+                  item.url === `#${activeItem}` && 'border-l-gray-800 dark:border-l-gray-200'
+                )}
+              >
+                {item.title}
+              </div>
             </a>
             {item.items?.length ? (
               <Tree tree={item} level={level + 1} activeItem={activeItem} />

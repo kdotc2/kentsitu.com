@@ -26,8 +26,8 @@ export function NavigationLink({ link }: NavProps) {
           aria-label={link.href}
           className={`my-0.5 flex items-center gap-[10px] rounded-md px-3 py-[6px] ${
             link.isActive
-              ? 'rounded-md bg-gray-200 px-2 py-2 dark:bg-gray-700 dark:text-white'
-              : 'sm:hover:rounded-md sm:hover:bg-gray-200 sm:dark:hover:bg-gray-700'
+              ? 'rounded-md bg-gray-200 px-2 py-2 dark:bg-gray-800 dark:text-white'
+              : 'sm:hover:rounded-md sm:hover:bg-gray-200 sm:hover:dark:bg-gray-800'
           }`}
         >
           <Icon className="h-4 w-4" />

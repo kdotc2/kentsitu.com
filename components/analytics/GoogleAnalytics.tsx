@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import Script from 'next/script'
 
 export const googleAnalyticsId = 'G-1F6Q624FLP'
@@ -28,7 +27,7 @@ const GAScript = () => {
 export default GAScript
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/events
-export const logEvent = (action: any, category: any, label: any, value: any) => {
+export const logEvent = (action: string, category: string, label: string, value: number) => {
   window.gtag?.('event', action, {
     event_category: category,
     event_label: label,

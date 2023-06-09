@@ -20,7 +20,7 @@ export default function Home() {
             />
           </div>
           <div className="py-8">
-            <Link href={'/work'}>
+            <Link href={'/work'} tabIndex={-1}>
               <button className="buttonStyle">View Work</button>
             </Link>
           </div>

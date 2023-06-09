@@ -1,5 +1,3 @@
-// @ts-nocheck
-
 import { Parent, Node, Literal } from 'unist'
 import { visit } from 'unist-util-visit'
 import sizeOf from 'image-size'
@@ -17,8 +15,11 @@ export default function remarkImgToJsx() {
     visit(
       tree,
       // only visit p tags that contain an img element
-      (node: Parent): node is Parent =>
-        node.type === 'paragraph' && node.children.some((n) => n.type === 'image'),
+      (node: Node): node is Parent =>
+        node.type === 'paragraph' &&
+        'children' in node &&
+        Array.isArray(node.children) &&
+        node.children.some((n) => n.type === 'image'),
       (node: Parent) => {
         const imageNode = node.children.find((n) => n.type === 'image') as ImageNode
 

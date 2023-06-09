@@ -19,7 +19,7 @@ import { Metadata } from 'next'
 
 const metainfo = {
   title: 'Bookmarks',
-  description: 'A space for inspiring portfolios and useful links.',
+  description: 'A space to save inspiring portfolios and useful links.',
 }
 
 export const metadata: Metadata = {
@@ -38,13 +38,16 @@ type MetaData = {
 
 const bookmarkedLinks = [
   'brianlovin.com',
-  'timlrx.com',
-  'vyshnav.xyz',
   'rauno.me',
-  'musing.vercel.app',
+  'chia.design',
   'cretu.dev',
   'iamrob.in',
   'neal.fun',
+  `karinasirqueira.com`,
+  // 'sdrn.co',
+  // 'musing.vercel.app',
+  // 'timlrx.com',
+  // 'vyshnav.xyz',
 ]
 
 async function getMetadata(link: string): Promise<MetaData> {
@@ -62,7 +65,7 @@ export default async function BookmarksLayout() {
 
   return (
     <>
-      <div className="py-10">
+      <div className="pb-16 pt-10">
         <LayoutHeader title={metainfo.title} description={metainfo.description} />
         <AnimateEnter>
           <div className="-mx-6 columns-1 md:columns-2 lg:columns-3 xl:columns-4">

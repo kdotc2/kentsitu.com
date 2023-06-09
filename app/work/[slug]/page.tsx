@@ -46,16 +46,14 @@ export default async function WorkLayout({ params }: { params: { slug: string } 
   const toc = await getTableOfContents(post.body.raw)
 
   return (
-    <div className="relative py-10 lg:gap-10 xl:grid xl:grid-cols-[1fr_240px] xl:gap-20">
+    <div className="relative pb-16 pt-10 xl:grid xl:grid-cols-[1fr_240px] xl:gap-10 2xl:gap-20">
       <div>
-        <div className="space-y-2 pb-6 pt-4">
+        <div className="space-y-2 pb-10 pt-4">
           <div className="text-2xl font-bold">{post.title}</div>
           <p className="text-gray-500 dark:text-gray-400">{post.description}</p>
         </div>
         <div className="prose max-w-none dark:prose-dark">
-          <article>
-            <Mdx content={post} MDXComponents={MDXComponents} />
-          </article>
+          <Mdx content={post} MDXComponents={MDXComponents} />
         </div>
       </div>
       <div className="hidden text-sm xl:block">

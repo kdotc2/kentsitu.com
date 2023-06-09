@@ -2,17 +2,21 @@
 title: Snippets
 date: '2023-4-14'
 lastmod: '2022-12-28'
-summary: Collection of reusable code
+summary: A space to collect reusable code.
 ---
 
 ## Masonry Layout
 
-There's quick way to do it with Tailwind CSS: `columns-2`. But the problem with this method is it doesn't sort the dates from left to right. I discovered [React Masonry CSS](https://www.npmjs.com/package/react-masonry-css) by [Paul Collett](https://github.com/paulcollett) which helped solve the problem.
+There's quick way to do it with Tailwind CSS: `columns-2`. But the problem with this method is it doesn't sort the dates from left to right. [React Masonry CSS](https://www.npmjs.com/package/react-masonry-css) by [Paul Collett](https://github.com/paulcollett) helps solve this problem.
 
-After installing it, I added this block of code to my `tailwind.css` file.
+```js showlinenumbers={false}
+npm i react-masonry-css
+```
 
-```js:tailwind.css
-// to see list of all values, go to the React Masonry CSS link above
+Add this block of code to the `tailwind.css` file.
+
+```css:tailwind.css
+/* to see list of all values, go to the React Masonry CSS link above */
 .my-masonry-grid {
   display: flex;
   width: auto;
@@ -29,9 +33,9 @@ After installing it, I added this block of code to my `tailwind.css` file.
 }
 ```
 
-Then added this my react component.
+Then add this to your react component. 
 
-```js:index.tsx
+```tsx:index.tsx
 import Masonry from 'react-masonry-css'
 
 const breakpointColumnsObj = {
@@ -50,11 +54,11 @@ const breakpointColumnsObj = {
 
 ---
 
-## Media Element Inside Photo
+## Media Inside Photo
 
 In my previous website, I could just create a video with the same background as the website to blend it in. This wouldn't work for this website iteration, because of light/dark mode. I had to record the video and then put it into an iPhone mockup.
 
-```js
+```tsx
 <div className="group block object-scale-down py-4">
   <div className="flex flex-col items-center relative justify-center">
     // places iPhone screen over video
@@ -67,14 +71,13 @@ In my previous website, I could just create a video with the same background as 
     </div>
   </div>
 </div>
-
 ```
 
 ---
 
 ## Using calc()
 
-I used `calc()` to help me calculate height of viewport with navbar/footer. Useful snipper for width and height calculations.
+I used `calc()` to help me calculate height of viewport with navbar/footer. Useful snippet for width and height calculations in Tailwind CSS.
 
 ```js
 // x is in pixels

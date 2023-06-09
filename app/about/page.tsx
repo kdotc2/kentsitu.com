@@ -23,14 +23,12 @@ export default async function AboutLayout() {
 
   return (
     <>
-      <div className="py-10">
+      <div className="pb-16 pt-10">
         <LayoutHeader title={metainfo.title} description={metainfo.description} />
 
         <div className="">
           <div className="prose max-w-none dark:prose-dark">
-            <article>
-              <Mdx content={post} MDXComponents={MDXComponents} />
-            </article>
+            <Mdx content={post} MDXComponents={MDXComponents} />
           </div>
         </div>
         <div className="flex space-x-4 pt-6">

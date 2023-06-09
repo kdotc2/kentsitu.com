@@ -9,7 +9,6 @@ import remarkImgToJsx from './lib/remark-img-to-jsx'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypePrismPlus from 'rehype-prism-plus'
-// import remarkUnwrapImages from 'remark-unwrap-images'
 
 const computedFields: ComputedFields = {
   // readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
@@ -86,7 +85,11 @@ export default makeSource({
   contentDirPath: 'content',
   documentTypes: [Writing, Work, Misc, Projects],
   mdx: {
-    remarkPlugins: [remarkGfm, remarkCodeTitles, remarkImgToJsx],
-    rehypePlugins: [rehypeAutolinkHeadings, rehypeSlug, [rehypePrismPlus, { ignoreMissing: true }]],
+    remarkPlugins: [remarkGfm, remarkImgToJsx, remarkCodeTitles],
+    rehypePlugins: [
+      rehypeAutolinkHeadings,
+      rehypeSlug,
+      [rehypePrismPlus, { ignoreMissing: true, showLineNumbers: true }],
+    ],
   },
 })
