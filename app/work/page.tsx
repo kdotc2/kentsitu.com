@@ -8,7 +8,7 @@ import { Metadata } from 'next'
 
 const metainfo = {
   title: 'Work',
-  description: 'A space to showcase curated work. Designing user experiences from the ground up.',
+  description: 'A space to showcase selected work. Designing user experiences from the ground up.',
 }
 
 export const metadata: Metadata = {
