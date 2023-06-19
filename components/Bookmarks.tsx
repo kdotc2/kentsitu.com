@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 import bookmarkItems from '@data/bookmarkItems'
 import Link from 'next/link'
@@ -19,7 +20,7 @@ type MetaData = {
   }
 }
 
-const randomList = bookmarkItems.sort((a, b) => 0.5 - Math.random())
+const randomList = bookmarkItems.sort(() => 0.5 - Math.random())
 
 async function getMetadata(link: string): Promise<MetaData> {
   const res = await fetch(`https://api.microlink.io/?url=https://${link}`)
@@ -41,14 +42,15 @@ export default function Bookmarks() {
       }
     })
 
+    let observerRefValue: HTMLDivElement | null = null
+
     if (lastBookmarkRef.current) {
       observer.observe(lastBookmarkRef.current)
+      observerRefValue = lastBookmarkRef.current
     }
 
     return () => {
-      if (lastBookmarkRef.current) {
-        observer.unobserve(lastBookmarkRef.current)
-      }
+      if (observerRefValue) observer.unobserve(observerRefValue)
     }
   }, [])
 
