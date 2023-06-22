@@ -39,3 +39,19 @@ input:-webkit-autofill:focus {
 .cardStyle {
   @apply flex cursor-pointer flex-col items-center gap-y-4 rounded-xl p-6 dark:text-white md:hover:rounded-xl md:hover:bg-[#f2f2f2] md:hover:dark:bg-[#121212];
 }
+
+/* to see list of all values, go to the React Masonry CSS link above */
+.my-masonry-grid {
+  display: flex;
+  width: auto;
+  margin: -10px; /* gutter size offset */
+}
+.my-masonry-grid_column {
+  padding: 10px; /* gutter size */
+  background-clip: padding-box;
+}
+
+/* style items */
+.my-masonry-grid_column > div { /* change div to reference elements in <Masonry> */
+  margin-bottom: 20px;
+}
