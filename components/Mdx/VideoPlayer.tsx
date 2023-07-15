@@ -2,6 +2,7 @@
 import Image from './Image'
 import { useRef, useState } from 'react'
 import { PlayCircleIcon, PauseCircleIcon } from '@heroicons/react/24/outline'
+import AnimateEnter from '@components/AnimateEnter'
 
 const VideoPlayer = ({ link, poster }: { link: string; poster: string }) => {
   const [isPlaying, setIsPlaying] = useState(false)
@@ -19,24 +20,31 @@ const VideoPlayer = ({ link, poster }: { link: string; poster: string }) => {
   }
   return (
     <div className="group block object-scale-down py-4">
-      <div className="group relative flex flex-col items-center justify-center">
-        <div className="group absolute z-10">
-          <Image alt="iPhone layout" src={`/static/videos/iPhoneXS.png`} width={250} height={503} />
+      <AnimateEnter>
+        <div className="group relative flex flex-col items-center justify-center">
+          <div className="group absolute z-10">
+            <Image
+              alt="iPhone layout"
+              src={`/static/videos/iPhoneXS.png`}
+              width={250}
+              height={503}
+            />
+          </div>
+          <div className="group">
+            <video
+              className="rounded-[20px]"
+              src={link}
+              poster={poster}
+              ref={videoRef}
+              width={220}
+              height={478}
+              loop
+              muted
+              playsInline
+            />
+          </div>
         </div>
-        <div className="group">
-          <video
-            className="rounded-[20px]"
-            src={link}
-            poster={poster}
-            ref={videoRef}
-            width={220}
-            height={478}
-            loop
-            muted
-            playsInline
-          />
-        </div>
-      </div>
+      </AnimateEnter>
       <div className="mt-8 flex justify-center font-medium text-blue-500">
         <button onClick={playVideo} className="rounded">
           {isPlaying ? (

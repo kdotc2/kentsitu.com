@@ -3,11 +3,11 @@ const { withContentlayer } = require('next-contentlayer')
 // You might need to insert additional domains in script-src if you are using external services
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' https://*.googletagmanager.com;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline';
   style-src 'self' 'unsafe-inline';
-  img-src 'self' * blob: data: https://*.google-analytics.com https://*.googletagmanager.com;
-  media-src 'self' res.cloudinary.com;
-  connect-src * https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com vitals.vercel-insights.com;
+  img-src 'self' * blob: data:;
+  media-src 'self';
+  connect-src * vitals.vercel-insights.com;
   font-src 'self';
   frame-src 
 `

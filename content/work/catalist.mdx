@@ -145,77 +145,89 @@ As I upgraded our wireframes to Hi-Fi screens, we were stuck on several differen
 
 </div>
 
-### Test Hi-Fi Prototype
+### Refine & Test Designs
 
-After gathering feedback and iterating the designs, I created a clickable Hi-Fi prototype. I asked ten participants to test the usability of our Hi-Fi prototype. They were able to perform most of the tasks.
+After getting feedback and discussing with the team, I started iterating the designs. Here were some of the notable changes that I made.
+
+- Sign in with Apple or Google for easier access. Also added a guided onboarding process.
+<div className="projectImageGrid">
+
+    ![Welcome screen](/static/images/work/catalist/screen1.png)
+
+    ![Apple signin screen](/static/images/work/catalist/screen2.png)
+
+    ![Google signin screen](/static/images/work/catalist/screen3.png)
+
+    ![Enter info screen](/static/images/work/catalist/screen4.png)
+
+</div>
+
+- Users can view own lists with the option to edit/add items. In item view, they can bookmark and mark item as complete. Edit button is changed to bookmark button for others' lists.
+
+<div className="projectImageGrid">
+
+    ![Welcome screen](/static/images/work/catalist/screen5.png)
+
+    ![Discover screen](/static/images/work/catalist/screen6.png)
+
+    ![List view screen](/static/images/work/catalist/screen7.png)
+
+    ![Item view screen](/static/images/work/catalist/screen8.png)
+
+</div>
+
+- Create a list by adding a title and items by searching the database. Editing is similar, tap title to change and use add/remove buttons for items.
+
+<div className="projectImageGrid">
+
+    ![Create list screen](/static/images/work/catalist/screen9.png)
+
+    ![Search item screen](/static/images/work/catalist/screen10.png)
+
+    ![Adding items screen](/static/images/work/catalist/screen11.png)
+
+    ![Edit list screen](/static/images/work/catalist/screen12.png)
+
+</div>
+
+ I put together the screens to create a clickable Hi-Fi prototype. I asked ten participants to test the usability of our prototype. They were able to perform most of the tasks.
+
 
 <div className="flex justify-center py-6">
   <Button link="https://www.figma.com/proto/WHJWY7oH3GPv2ytojmFueg/Catalist" text="Hi-Fi Prototype" />
 </div>
 
-<div className="md:mx-20 py-4">![Test results](/static/images/work/catalist/test-results.png)</div>
-
 <div className="grid grid-cols-1 sm:grid-cols-2 py-4 gap-4">
   <div className="m-auto pb-0 sm:pb-4">
     <div className="text-lg text-[#FF8300] font-semibold">Updated Prototype</div>
     - Sign up through a guided process.
-    - Create lists and make edits.
     - View list and individual items.
+    - Create lists and make edits.
     - Filter the discover feed.
     - Check notifications and start a chat.
   </div>
   <VideoPlayer link="/static/videos/catalist.mp4" poster="/static/videos/catalist-poster.png" />
 </div>
 
-<div className="projectImageGrid">
+<div className="md:mx-20 py-4">![Test results](/static/images/work/catalist/test-results.png)</div>
 
-    ![Welcome screen](/static/images/work/catalist/screen1.png)
+### MVP Implementation
 
-    ![Discover screen](/static/images/work/catalist/screen2.png)
+As the team and I started to implement the designs, we soon realized we couldn't implement everything. We prioritized features that users responded well towards and put together a MVP.
 
-    ![List view screen](/static/images/work/catalist/screen3.png)
+![Discover components screen](/static/images/work/catalist/mvp-features.png)
 
-    ![Item view screen](/static/images/work/catalist/screen4.png)
-
-    ![Search screen](/static/images/work/catalist/screen5.png)
-
-    ![Sort by screen](/static/images/work/catalist/screen6.png)
-
-    ![Filter screen](/static/images/work/catalist/screen7.png)
-
-    ![Applied filter screen](/static/images/work/catalist/screen8.png)
-
-    ![Create list screen](/static/images/work/catalist/screen9.png)
-
-    ![Search to add items screen](/static/images/work/catalist/screen10.png)
-
-    ![Editing screen](/static/images/work/catalist/screen11.png)
-
-    ![Inbox - notifications screen](/static/images/work/catalist/screen12.png)
-
-    ![Inbox - messages screen](/static/images/work/catalist/screen13.png)
-
-    ![Chat screen](/static/images/work/catalist/screen14.png)
-
-    ![New message screen](/static/images/work/catalist/screen15.png)
-
-    ![Settings screen](/static/images/work/catalist/screen16.png)
-
-</div>
-
-### Handoff & Implementation
-
-As the team and I started to implement the designs, we soon realized we couldn't implement everything. We prioritized features that users responded well towards and put together a MVP. We got rid of features such as chatting, filters, and the dining category.
+ We got rid of features such as chatting, filters, and the dining category. Since we already had comments, we didn't think it was necessary to have private chats. Filters can wait as we get more users and categories added. The dining category didn't fit in with the other categories since it required a map.
 
 <div className="projectImageGrid">
 
-    ![Discover screen](/static/images/work/catalist/screen17.png)
+    ![Discover screen](/static/images/work/catalist/screen13.png)
 
-    ![List view screen](/static/images/work/catalist/screen18.png)
+    ![List view screen](/static/images/work/catalist/screen14.png)
 
-    ![Item view screen](/static/images/work/catalist/screen19.png)
+    ![Item view screen](/static/images/work/catalist/screen15.png)
 
-    ![Create list screen](/static/images/work/catalist/screen20.png)
+    ![Create list screen](/static/images/work/catalist/screen16.png)
 
 </div>
 
@@ -235,7 +247,7 @@ For the sake of consistency, I put together some components. To help with contr
 
 While launching, we had several hiccups. The main one being our app getting rejected from the App Store twice. We needed to have a report button on every screen that had user comments. We were able to patch up the issues and get our MVP approved for the App Store.
 
-### MVP Validation
+## MVP Validation
 
 After about two months of launching our MVP in the App Store, we got decent usage. We used Google Analytics to track usage, which helped us early validate our MVP.
 

@@ -78,7 +78,7 @@ export default function Bookmarks() {
               // aria-label={`Link to ${title}`}
               className="space-y-3 rounded-[10px] focus:-outline-offset-1"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               <div className="cardStyle">
                 <img
@@ -89,7 +89,9 @@ export default function Bookmarks() {
                   height={600}
                 />
                 <div className="w-full space-y-1.5 px-2 text-sm">
-                  <div className="flex items-center gap-2 font-bold ">{bookmark.title}</div>
+                  <div className="flex items-center gap-2 font-bold ">
+                    <div className="line-clamp-2">{bookmark.title}</div>
+                  </div>
                   <div className="flex flex-wrap text-gray-500 dark:text-gray-400">
                     <p className="line-clamp-2">{bookmark.description}</p>
                   </div>

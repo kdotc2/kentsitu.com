@@ -5,6 +5,32 @@ lastmod: '2022-12-28'
 summary: A space to collect reusable code.
 ---
 
+## Filtering in SwiftUI
+
+A way to filter a list with any kind of filter key and any kind of entity from CoreData. Snippet from [100 Days of SwiftUI](https://www.hackingwithswift.com/books/ios-swiftui/dynamically-filtering-fetchrequest-with-swiftui).
+```swift:FilteredList.swift
+import CoreData
+import SwiftUI
+
+struct FilteredList<T: NSManagedObject, Content: View>: View {
+    @FetchRequest var fetchRequest: FetchedResults<T>
+
+    // this is our content closure; we'll call this once for each item in the list
+    let content: (T) -> Content
+
+    var body: some View {
+        List(fetchRequest, id: \.self) { singer in
+            self.content(singer)
+        }
+    }
+
+    init(filterKey: String, filterValue: String, @ViewBuilder content: @escaping (T) -> Content) {
+        _fetchRequest = FetchRequest<T>(sortDescriptors: [], predicate: NSPredicate(format: "%K BEGINSWITH %@", filterKey, filterValue))
+        self.content = content
+    }
+}
+```
+
 ## Masonry Layout
 
 There's quick way to do it with Tailwind CSS: `columns-2`. But the problem with this method is it doesn't sort the dates from left to right. [React Masonry CSS](https://www.npmjs.com/package/react-masonry-css) by [Paul Collett](https://github.com/paulcollett) helps solve this problem.

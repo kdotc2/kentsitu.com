@@ -5,17 +5,12 @@ lastmod: '2022-12-28'
 summary: A space to keep track of updates and bug fixes for this website.
 ---
 
-## Infinite scroll
+## Dynamic open graph (og) images and infinite scroll
 <div className="font-mono text-sm text-gray-500 dark:text-gray-400">June 17, 2023 </div>
 
-Updated bookmarks page with infinite scroll.
-
----
-
-## Dynamic open graph (og) images for Writing posts
-<div className="font-mono text-sm text-gray-500 dark:text-gray-400">May 25, 2023 </div>
-
-Used `@vercel/og` to dynamically populate title and description of Writing post in og image. Adjusted spacing for sidebar and table of contents.
+- Used `@vercel/og` to dynamically populate title and description of Writing post in og image. 
+- Updated bookmarks page with infinite scroll.
+- Adjusted spacing for sidebar and table of contents.
 
 ---
 
@@ -23,58 +18,35 @@ Used `@vercel/og` to dynamically populate title and description of Writing post 
 <div className="font-mono text-sm text-gray-500 dark:text-gray-400">May 23, 2023 </div>
 
 Updated to Next.js 13.4 (still some bugs, but usable). Redesigned layout and updated elements.
-- Navbar moved to the left side, along with a fixed body area for content - responsive for mobile
-- Design section has expandable tabs (Work & Projects) — experimental feature for now
-- Added fixed table of contents for Work & Project pages
-- Renamed Notes to Writing, Bookmarks and Changelog gets individual tabs, added Snippets tab
-- Bookmarks tab is work in progress
-- Added draft page for work in progress pieces for Writing page
-- Updated button, dark theme, and code block styling
----
-
-## Updated styles
-<div className="font-mono text-sm text-gray-500 dark:text-gray-400">April 14, 2023 </div>
-
-Updated the styling for the navbar and each of its tabs. Made it more consistent across each page. Added title of the tab name, along with a short description.
+- Navbar moved to the left side, along with a fixed body area for content - responsive for mobile.
+- Design section has expandable tabs (Work & Projects) — experimental feature for now.
+- Added fixed table of contents for Work & Project pages.
+- Renamed Notes to Writing, Bookmarks and Changelog gets individual tabs, added Snippets tab.
+- Bookmarks tab is work in progress.
+- Added draft page for work in progress pieces for Writing page.
+- Updated button, dark theme, and code block styling.
 
 ---
 
-## Added Projects tab
-<div className="font-mono text-sm text-gray-500 dark:text-gray-400">March 31, 20233 </div>
+## Added Projects tab and updated styles
+<div className="font-mono text-sm text-gray-500 dark:text-gray-400">April 14, 20233 </div>
 
-Added a Projects tab in the navbar to keep work and side projects separate. I wanted a place to keep track of my progress for different projects.
-
----
-
-## Masonry layout
-<div className="font-mono text-sm text-gray-500 dark:text-gray-400">January 9, 2023 </div>
-
-Updated Notes page with masonry layout.
+Added a Projects tab in the navbar to keep work and side projects separate. I wanted a place to keep track of my progress for different projects. Updated the styling for the navbar and each of its tabs. Made it more consistent across each page. Added title of the tab name, along with a short description.
 
 ---
 
-## Video inside iPhone mockup
+## Minor bug fixes and updates
 <div className="font-mono text-sm text-gray-500 dark:text-gray-400">January 7, 2023 </div>
 
-Added video inside iPhone mockup component for `mdx` files.
+- Fixed dark mode border bug.
+- Fixed hover bug in Safari.
+- Fixed home page scroll issue.
+- Added video inside iPhone mockup component for `mdx` files.
+- Updated Notes page with masonry layout.
 
 ---
 
-## Dark mode border not working
+## Website is live
+<div className="font-mono text-sm text-gray-500 dark:text-gray-400">January 1, 2023 </div>
 
-
-Dark mode border color wouldn't populate, updated with global option in `tailwind.css`
-
----
-
-## Safari navbar hover bug
-<div className="font-mono text-sm text-gray-500 dark:text-gray-400">January 3, 2023 </div>
-
-While hovering over the NavBar links, it didn't work as intended for safari browsers. Putting `button` tag inside the `Link` tag helped the problem. Not sure if this is the best fix or if there's another solution.
-
----
-
-## Home page scroll
-<div className="font-mono text-sm text-gray-500 dark:text-gray-400">January 2, 2023 </div>
-
-Fixed home page to center without scroll.
+Built using Next.js, Tailwind CSS, Typescript, Contentlayer and hosted on Vercel.

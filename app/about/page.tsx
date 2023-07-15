@@ -3,6 +3,7 @@ import { MDXComponents, Mdx } from '@components/Mdx/MDXComponents'
 import { notFound } from 'next/navigation'
 import LayoutHeader from '@components/LayoutHeader'
 import { Metadata } from 'next'
+import Link from 'next/link'
 
 const metainfo = {
   title: 'About',
@@ -25,32 +26,30 @@ export default async function AboutLayout() {
     <>
       <div className="pb-16 pt-10">
         <LayoutHeader title={metainfo.title} description={metainfo.description} />
-
         <div className="">
           <div className="prose max-w-none dark:prose-dark">
             <Mdx content={post} MDXComponents={MDXComponents} />
           </div>
         </div>
         <div className="flex space-x-4 pt-6">
-          <a
+          <Link
+            className="linkStyle"
             href="https://read.cv/kent"
             target="_blank"
-            rel="noreferrer noopner"
+            rel="noopener noreferrer"
             aria-label="Read.cv"
-            className=""
-            tabIndex={-1}
           >
-            <button className="buttonStyle">Read.cv</button>
-          </a>
-          <a
+            Read.cv
+          </Link>
+          <Link
+            className="linkStyle"
             href={`mailto:hello@kentsitu.com`}
-            rel="noreferrer noopner"
-            aria-label="Contact"
-            className=""
-            tabIndex={-1}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Read.cv"
           >
-            <button className="buttonStyle">Contact</button>
-          </a>
+            Contact
+          </Link>
         </div>
       </div>
     </>

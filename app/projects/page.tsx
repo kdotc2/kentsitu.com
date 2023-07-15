@@ -46,9 +46,7 @@ export default async function Projects() {
                         {summary}
                       </div>
                       <div className="flex items-center gap-x-3 truncate py-2 text-xs uppercase text-gray-500 dark:text-gray-400">
-                        {tags?.map((tag: string) => (
-                          <div key={tag}>{tag}</div>
-                        ))}
+                        {tags?.map((tag: string) => <div key={tag}>{tag}</div>)}
                       </div>
                     </div>
                   </div>

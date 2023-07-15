@@ -6,7 +6,7 @@ import MobileNav from '@components/Navigation/MobileNav'
 import Providers from './providers'
 import Sidebar from '@components/Navigation/Sidebar'
 import { Metadata } from 'next'
-import AllAnalytics from '@components/analytics'
+import { Analytics } from '@vercel/analytics/react'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://kentsitu.com'),
@@ -74,6 +74,7 @@ export default function RootLayout({ children }: Props) {
     <html
       lang="en"
       suppressHydrationWarning={true}
+      // className="scroll-py-24 scroll-smooth"
       // className="[--scroll-mt:400px]"
     >
       <body className="flex overscroll-y-none bg-[#f2f2f2] text-gray-900 antialiased dark:bg-[#121212] dark:text-gray-100">
@@ -90,7 +91,7 @@ export default function RootLayout({ children }: Props) {
             </div>
           </div>
         </Providers>
-        <AllAnalytics />
+        <Analytics />
       </body>
     </html>
   )

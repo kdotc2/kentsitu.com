@@ -8,7 +8,7 @@ image: /static/images/work/ylli-item-card/cover-photo.png
 
 ## Overview
 
-The team consisted of five people. I worked with a product manager, and three engineers. My role was Lead Product Designer. I led the redesign by taking point on research, interaction design, and prototyping, and testing. I collaborated with the team on implementation and QA. The project took two and a half months.
+The team consisted of five people. I worked with a product manager, and three engineers. My role was Lead Product Designer. I led the redesign by taking point on research, interaction design, and prototyping, and testing. I collaborated with the team on implementation and QA. The project took three months.
 
 ## Problem
 
@@ -53,7 +53,7 @@ The short-term fix was effective in that it increased the 28% number to about 53
 With the app being only in the App Store, the team agreed to focus on a native iOS design. The feedback from the short-term fix and seeing iOS 15's new swipe actions made it an easy decision. The goal was to make the swiping experience more natural. And to widen the click box, so there would be less misclicks.
 
 <div className="py-4">
-  <div className="flex justify-center">
+  <div className="flex justify-center max-w-[400px] mx-auto">
   ![Swipe actions](/static/images/work/ylli-item-card/swipe-docs.png)
   </div>
   <div className="text-xs text-center">
@@ -76,9 +76,9 @@ Through each iteration, we maintained the same design elements. The click box n
 
 </div>
 
-### Get Feedback & Design New Tutorial
+### Get Feedback & Consider Future Features
 
-I put together a Hi-Fi prototype to get some internal feedback from several stakeholders. The general consensus among the stakeholders was that the new design was smoother. It also provided us more flexibility to add features from our roadmap.
+I put together a Hi-Fi prototype to get some internal feedback from  stakeholders. We discussed some future features. We wanted to make sure this new card design could scale with our roadmap.
 
 <div className="flex justify-center py-6">
   <Button link="https://xd.adobe.com/view/ec45e4a2-ebac-4499-a5d9-31a4c1c9d798-b916/" text="Hi-Fi Prototype" />
@@ -95,6 +95,22 @@ I put together a Hi-Fi prototype to get some internal feedback from several stak
   </div>
   <VideoPlayer link="/static/videos/item-card-updates.mp4" poster="/static/videos/item-card-updates-poster.png" />
 </div>
+
+The general consensus among the stakeholders was that the new design was smoother. It provided us with more flexibility to add new features. The work in progress features below include, reminders, groups, storage filters, and multi-select.
+
+ <div className="projectImageGrid">
+
+    ![Concept 1 screen](/static/images/work/ylli-item-card/concept5.png)
+
+    ![Concept 2 screen](/static/images/work/ylli-item-card/concept6.png)
+
+    ![Final concept screen](/static/images/work/ylli-item-card/concept7.png)
+
+    ![Undo action screen](/static/images/work/ylli-item-card/concept8.png)
+
+</div>
+
+### Design New Tutorial
 
 Before testing it with users, we still had one problem to tackle: the tutorial. From our previous testing, users struggled with a simple tutorial. So this time around, we decided to make it a bit more interactive with animation guides and overlays. I created a simple tapping and sliding animation using After Effects.
 
@@ -147,7 +163,7 @@ Some of the participants mentioned that a skip button would be useful. The team
   <VideoPlayer link="/static/videos/updated-tutorial.mp4" poster="/static/videos/updated-tutorial-poster.png" />
 </div>
 
-### Handoff & Implementation
+### Implementation & Tradeoffs
 
 The team decided not to implement all the changes. For developer handoff, we used Adobe XD's specs and commenting. For the animations, we used Lottie Files.
 

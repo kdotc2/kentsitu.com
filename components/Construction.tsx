@@ -10,7 +10,7 @@ const Construction = () => {
         <div className="space-x-2">
           <span role="img" aria-label="roadwork sign">
             🚧
-          </span>{' '}
+          </span>
           <span className="text sm font-semibold"> Under Construction</span>
         </div>
         <div className="py-8">

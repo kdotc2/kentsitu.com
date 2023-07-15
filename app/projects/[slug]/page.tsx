@@ -45,10 +45,10 @@ export default async function ProjectLayout({ params }: { params: { slug: string
   const toc = await getTableOfContents(post.body.raw)
 
   return (
-    <div className="relative pb-16 pt-10 xl:grid xl:grid-cols-[1fr_240px] xl:gap-10 2xl:gap-20">
+    <div className="relative pb-16 pt-10 xl:grid xl:grid-cols-[1fr_200px] xl:gap-20">
       <div>
         <div className="space-y-2 pb-10 pt-4">
-          <a target="_blank" rel="noreferrer noopener" href={post.url} className="inline-block">
+          <a target="_blank" rel="noopener noreferrer" href={post.url} className="inline-block">
             <span className="flex items-center gap-2 text-2xl font-bold hover:underline">
               {post.title}
               <ArrowUpRightIcon className="h-4 w-4" />
