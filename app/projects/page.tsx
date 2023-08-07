@@ -7,8 +7,7 @@ import { Metadata } from 'next'
 
 const metainfo = {
   title: 'Projects',
-  description:
-    "A space to showcase side projects. Designing and bringing ideas to life. Learning how to build them when there's time.",
+  description: 'A space to showcase side projects. Designing and bringing ideas to life.',
 }
 
 export const metadata: Metadata = {
@@ -40,9 +39,9 @@ export default async function Projects() {
                       width={800}
                       height={600}
                     />
-                    <div className="w-full px-2 text-base">
+                    <div className="w-full px-2">
                       <div className="font-bold leading-8">{title}</div>
-                      <div className="flex flex-wrap text-gray-500 dark:text-gray-400">
+                      <div className="flex flex-wrap text-sm text-gray-500 dark:text-gray-400">
                         {summary}
                       </div>
                       <div className="flex items-center gap-x-3 truncate py-2 text-xs uppercase text-gray-500 dark:text-gray-400">

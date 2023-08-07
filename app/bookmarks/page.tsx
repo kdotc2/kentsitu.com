@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import AnimateEnter from '@components/AnimateEnter'
 import LayoutHeader from '@components/LayoutHeader'
 import Bookmarks from '@components/Bookmarks'
 import { Metadata } from 'next'
@@ -17,14 +16,12 @@ export const metadata: Metadata = {
 export default function BookmarksLayout() {
   return (
     <>
-      <AnimateEnter>
-        <div className="pb-16 pt-10">
-          <LayoutHeader title={metainfo.title} description={metainfo.description} />
-          <div className="-mx-6">
-            <Bookmarks />
-          </div>
+      <div className="pb-16 pt-10">
+        <LayoutHeader title={metainfo.title} description={metainfo.description} />
+        <div className="-mx-6">
+          <Bookmarks />
         </div>
-      </AnimateEnter>
+      </div>
     </>
   )
 }

@@ -26,7 +26,7 @@ export function NavigationLink({ link }: NavProps) {
           aria-label={link.href}
           className={`my-0.5 flex items-center gap-[10px] rounded-md px-3 py-[6px] ${
             link.isActive
-              ? 'rounded-md bg-gray-200 px-2 py-2 dark:bg-gray-800 dark:text-white'
+              ? 'rounded-md bg-gray-200 px-2 py-2 dark:bg-gray-800 dark:text-gray-100'
               : 'sm:hover:rounded-md sm:hover:bg-gray-200 sm:hover:dark:bg-gray-800'
           }`}
         >

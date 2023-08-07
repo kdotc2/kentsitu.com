@@ -50,24 +50,26 @@ export default async function Writing() {
                   aria-label={`Link to ${title}`}
                   className="rounded-[10px] focus:-outline-offset-1"
                 >
-                  <div className="cardStyle">
-                    <div className="w-full text-base">
-                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                        <div className="font-bold leading-8">{title}</div>
-                        <dd className="font-mono text-sm font-medium leading-6">
-                          {draft ? (
-                            'In progress...'
-                          ) : (
-                            <time dateTime={date}>{formatDate(date)}</time>
-                          )}
-                        </dd>
-                      </div>
+                  {!draft && (
+                    <div className="cardStyle">
+                      <div className="w-full text-base">
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                          <div className="font-bold leading-8">{title}</div>
+                          <dd className="font-mono text-sm font-medium leading-6">
+                            {draft ? (
+                              'In progress...'
+                            ) : (
+                              <time dateTime={date}>{formatDate(date)}</time>
+                            )}
+                          </dd>
+                        </div>
 
-                      <div className="flex flex-wrap text-gray-500 dark:text-gray-400">
-                        {summary}
+                        <div className="flex flex-wrap text-sm text-gray-500 dark:text-gray-400">
+                          {summary}
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  )}
                 </Link>
               </div>
             )

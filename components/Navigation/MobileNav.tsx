@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { NavigationLink } from './NavigationLink'
 import { XMarkIcon, Bars3Icon } from '@heroicons/react/24/solid'
 import NavigationItems from './NavigationItems'
-import ThemeSwitch from 'components/ThemeSwitch'
+import ThemeSwitch from '@components/Navigation/ThemeSwitch'
 
 const MobileNav = () => {
   const [navShow, setNavShow] = useState(false)

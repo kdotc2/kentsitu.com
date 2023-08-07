@@ -1,24 +1,33 @@
 'use client'
-import * as React from 'react'
 import { TableOfContents } from '@lib/remark-toc-headings'
+import { ListBulletIcon } from '@heroicons/react/24/outline'
+import { useState, useEffect, useMemo } from 'react'
+import { motion } from 'framer-motion'
 import { cn } from '@lib/utils/utils'
+import clsx from 'clsx'
 
 interface TocProps {
   toc: TableOfContents
 }
 
-function useMounted() {
-  const [mounted, setMounted] = React.useState(false)
-
-  React.useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  return mounted
-}
-
 export function TableOfContents({ toc }: TocProps) {
-  const itemIds = React.useMemo(
+  const [tocShow, setTocShow] = useState(false)
+  const [tooltipStatus, setTooltipStatus] = useState(false)
+
+  const onToggleToc = () => {
+    setTooltipStatus(false)
+    setTocShow((status) => {
+      if (status) {
+        document.body.style.overflow = 'auto'
+      } else {
+        // Prevent scrolling
+        document.body.style.overflow = 'hidden'
+      }
+      return !status
+    })
+  }
+
+  const itemIds = useMemo(
     () =>
       toc.items
         ? toc.items
@@ -30,24 +39,60 @@ export function TableOfContents({ toc }: TocProps) {
     [toc]
   )
   const activeHeading = useActiveItem(itemIds)
-  const mounted = useMounted()
 
   if (!toc?.items) {
     return null
   }
 
-  return mounted ? (
-    <div className="m-0.5 space-y-4">
-      <p className="font-semibold">On This Page</p>
-      <Tree tree={toc} activeItem={activeHeading} />
+  return (
+    <div
+      className={clsx(`${tocShow ? ' ml-[104px]' : 'absolute flex'}`, 'ml-5 pt-4')}
+      onMouseEnter={() => setTooltipStatus(true)}
+      onMouseLeave={() => setTooltipStatus(false)}
+    >
+      <div className="relative flex items-center gap-4">
+        {tocShow && <p className="w-[100px] font-semibold">On This Page</p>}
+        <div className="group">
+          <button
+            aria-label="table of contents"
+            className="flex items-center justify-center rounded-full border border-gray-200 bg-[#f2f2f2] p-2.5 text-gray-900 active:scale-95 active:border-gray-300 active:bg-[#ebebeb] dark:border-gray-700 dark:bg-[#121212] dark:text-gray-100 active:dark:border-gray-600 active:dark:bg-[#191919] md:hover:border-gray-300 md:hover:bg-[#ebebeb] md:hover:dark:border-gray-600 md:hover:dark:bg-[#191919]"
+            onClick={onToggleToc}
+          >
+            <ListBulletIcon className="h-5 w-5" />
+          </button>
+          {tooltipStatus && (
+            <>
+              {!tocShow && (
+                <span className="absolute right-12 top-[5px] whitespace-nowrap rounded-md bg-[#ebebeb] px-2 py-2 text-xs font-medium opacity-0 transition-opacity group-hover:opacity-95 dark:bg-[#191919]">
+                  Table of Contents
+                </span>
+              )}
+            </>
+          )}
+        </div>
+      </div>
+      <>
+        {tocShow && (
+          <motion.div
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 0 }}
+            initial={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+          >
+            <div className="w-[200px] space-y-4">
+              <Tree tree={toc} activeItem={activeHeading} />
+            </div>
+          </motion.div>
+        )}
+      </>
     </div>
-  ) : null
+  )
 }
 
 function useActiveItem(itemIds: (string | undefined)[]) {
-  const [activeId, setActiveId] = React.useState<string>('')
+  const [activeId, setActiveId] = useState<string>('')
 
-  React.useEffect(() => {
+  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

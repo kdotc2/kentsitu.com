@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import ThemeSwitch from '../ThemeSwitch'
+import ThemeSwitch from './ThemeSwitch'
 import { NavigationLink } from './NavigationLink'
 import NavigationItems from './NavigationItems'
 import { AnimatePresence } from 'framer-motion'

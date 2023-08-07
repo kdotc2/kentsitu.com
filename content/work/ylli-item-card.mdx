@@ -2,13 +2,13 @@
 title: 'YLLI Item Card'
 date: '2022-12-01'
 summary: Redesigned item card, swipe feature, and designed a tutorial.
-description: Item card and swipe features improvement. New tutorial for new changes.
+description: Food management app item card and swipe feature improvements. New tutorial for new changes.
 image: /static/images/work/ylli-item-card/cover-photo.png
 ---
 
 ## Overview
 
-The team consisted of five people. I worked with a product manager, and three engineers. My role was Lead Product Designer. I led the redesign by taking point on research, interaction design, and prototyping, and testing. I collaborated with the team on implementation and QA. The project took three months.
+The team consisted of five people. I worked with a product manager, and three engineers. My role was Lead Product Designer. I led the redesign by taking point on research, interaction design, prototyping, and testing. I collaborated with the team on implementation and QA. The project took 10 weeks.
 
 ## Problem
 
@@ -76,12 +76,8 @@ Through each iteration, we maintained the same design elements. The click box n
 
 </div>
 
-### Get Feedback & Consider Future Features
-
-I put together a Hi-Fi prototype to get some internal feedback from  stakeholders. We discussed some future features. We wanted to make sure this new card design could scale with our roadmap.
-
 <div className="flex justify-center py-6">
-  <Button link="https://xd.adobe.com/view/ec45e4a2-ebac-4499-a5d9-31a4c1c9d798-b916/" text="Hi-Fi Prototype" />
+  <Button link="https://xd.adobe.com/view/ec45e4a2-ebac-4499-a5d9-31a4c1c9d798-b916/" text="Prototype" />
 </div>
 
 <div className="grid grid-cols-1 sm:grid-cols-2 py-4 gap-4">
@@ -93,21 +89,7 @@ I put together a Hi-Fi prototype to get some internal feedback from  stakeholder
     - Tap 'Delete Item' to delete card.
     - Tap 'Undo' to revert changes.
   </div>
-  <VideoPlayer link="/static/videos/item-card-updates.mp4" poster="/static/videos/item-card-updates-poster.png" />
-</div>
-
-The general consensus among the stakeholders was that the new design was smoother. It provided us with more flexibility to add new features. The work in progress features below include, reminders, groups, storage filters, and multi-select.
-
- <div className="projectImageGrid">
-
-    ![Concept 1 screen](/static/images/work/ylli-item-card/concept5.png)
-
-    ![Concept 2 screen](/static/images/work/ylli-item-card/concept6.png)
-
-    ![Final concept screen](/static/images/work/ylli-item-card/concept7.png)
-
-    ![Undo action screen](/static/images/work/ylli-item-card/concept8.png)
-
+  <VideoPlayer link="/static/videos/ylli-item-card-updates.mp4" poster="/static/videos/ylli-item-card-updates-poster.png" />
 </div>
 
 ### Design New Tutorial
@@ -125,7 +107,7 @@ Before testing it with users, we still had one problem to tackle: the tutorial. 
 <div className="projectImageGrid">
   
     ![Beginning of tutorial screen](/static/images/work/ylli-item-card/screen1.png)
-  
+
     ![Search to add tutorial screen](/static/images/work/ylli-item-card/screen2.png)
   
     ![Search for "orange" tutorial screen](/static/images/work/ylli-item-card/screen3.png)
@@ -142,13 +124,7 @@ Before testing it with users, we still had one problem to tackle: the tutorial. 
 
 </div>
 
-### Test Prototype With Updated Tutorial
-
-I put the tutorial screens together, along with the animations, to create a tutorial prototype. I tested the Hi-Fi prototype without and with the tutorial. I asked 12 users to go through the changes. Half of the participants, in the prototype without a tutorial group struggled. They thought tapping the item card would give them the item marking options.
-
-<div className="md:mx-20 py-4">![Test results](/static/images/work/ylli-item-card/test-results.png)</div>
-
-Some of the participants mentioned that a skip button would be useful. The team discussed how existing users might want to skip the tutorial as well. So we decided to add a "Skip Tutorial" button to give users that option.
+I put the tutorial screens together, along with the animations, to create a tutorial prototype. When we were testing internally, someone brought up having the ability to skip. The team then discussed how existing users might want to skip the tutorial as well. So we decided to add a "Skip Tutorial" button to give users that option.
 
 <div className="flex justify-center py-6">
   <Button link="https://xd.adobe.com/view/0dc5a716-f8bb-4974-a846-1683ca4ccb72-5896/" text="Tutorial Prototype" />
@@ -160,7 +136,29 @@ Some of the participants mentioned that a skip button would be useful. The team
     - Added swipe and tap animations.
     - Added worded description for each step.
   </div>
-  <VideoPlayer link="/static/videos/updated-tutorial.mp4" poster="/static/videos/updated-tutorial-poster.png" />
+  <VideoPlayer link="/static/videos/ylli-updated-tutorial.mp4" poster="/static/videos/ylli-updated-tutorial-poster.png" />
+</div>
+
+### Test Prototype With Updated Tutorial
+
+I tested the Hi-Fi prototype without and with the tutorial. I asked 12 users to go through the changes. Half of the participants, in the prototype without a tutorial group struggled. Those that struggled thought tapping the item card would give them the item marking options.
+
+<div className="md:mx-20 py-4">![Test results](/static/images/work/ylli-item-card/test-results.png)</div>
+
+### Consider Future Features
+
+The general consensus among the stakeholders was that the new design was smoother. It provided us with more flexibility to add new features. The work in progress features below include, reminders, groups, storage filters, and multi-select. Before implementation, we wanted to make sure this new card design could scale with our roadmap.
+
+ <div className="projectImageGrid">
+
+    ![Concept 1 screen](/static/images/work/ylli-item-card/concept5.png)
+
+    ![Concept 2 screen](/static/images/work/ylli-item-card/concept6.png)
+
+    ![Final concept screen](/static/images/work/ylli-item-card/concept7.png)
+
+    ![Undo action screen](/static/images/work/ylli-item-card/concept8.png)
+
 </div>
 
 ### Implementation & Tradeoffs

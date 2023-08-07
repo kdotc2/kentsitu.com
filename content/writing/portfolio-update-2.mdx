@@ -6,7 +6,7 @@ summary: Updating to Next.js 13.4 App Router and redesigning layout.
 draft: false
 ---
 
-Next.js recently released 13.4 and made App Router stable. I've learned quite a bit since my first iteration of my portfolio and thought it was time for a change. I still like the UI of my [old portfolio](https://v1.kentsitu.com) and might use it for a blog or docs in the future. But to continue learning and building my knowledge, I needed to apply what I learned.
+Next.js recently released 13.4 and made App Router stable. I've learned quite a bit since my first iteration of my portfolio and thought it was time for a change. I still like the UI of my <a href={'/projects/portfolio'}>old portfolio</a> and might use it for a blog or docs in the future. But to continue learning and building my knowledge, I needed to apply what I learned.
 
 App Router has a better structure and is easier to understand (at least for me), compared to Pages Router. Instead of having a `_app.tsx` and `_document.tsx`, it's merged into one file called `layout.tsx`. This makes it easier to control the global layout for all pages. The introduction of nested routes and layouts make it a lot easier to share them between pages. And the built-in SEO makes it easier to populate metadata.
 
@@ -18,7 +18,7 @@ The `Work` and `Projects` tabs are the only ones with the expandable pages. This
 
 I renamed `Notes` to `Writing` to make me write more (but we'll see). It's a place to share my ideas, thoughts and processes behind some of my decisions. Nothing formal or fancy, just words on top of words. `Bookmarks`, `Changelog`, and `Snippets` now have their own individual tabs. `Bookmarks` is a collection of portfolio websites that have inspired me. I'm going to rework this page in the future and share more than portfolio websites. `Changelog` is to keep track of the changes for the website. `Snippets` use to be in `Changelog` but I wanted it to be separate and accessible to copy reusable code.
 
-<div className="grid sm:grid-cols-2 gap-3 sm:gap-2 py-4">
+<div className="py-2 space-y-4">
 
     ![Work page 1.0](/static/images/writing/portfolio-updates/work-page-v1.png)
 

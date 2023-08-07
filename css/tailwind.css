@@ -2,22 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.task-list-item::before {
-  @apply hidden;
-}
-
-.task-list-item {
-  @apply list-none;
-}
-
-.csl-entry {
-  @apply my-5;
-}
-
 /* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
-  transition: background-color 600000s 0s, color 600000s 0s;
+  transition:
+    background-color 600000s 0s,
+    color 600000s 0s;
 }
 
 .projectImageGrid {
@@ -33,15 +23,15 @@ input:-webkit-autofill:focus {
 }
 
 .buttonStyle {
-  @apply h-9 rounded-md border border-gray-200 bg-[#f2f2f2] px-4 text-sm font-medium text-gray-900  active:border-gray-300 active:bg-[#ebebeb] dark:border-gray-700 dark:bg-[#121212] dark:text-gray-100 active:dark:border-gray-600 active:dark:bg-[#191919] md:hover:border-gray-300 md:hover:bg-[#ebebeb] md:hover:dark:border-gray-600 md:hover:dark:bg-[#191919];
+  @apply h-9 rounded-md border border-gray-200 bg-[#f2f2f2] px-3 text-[13px] font-medium text-gray-900 active:border-gray-300 active:bg-[#ebebeb] dark:border-gray-700 dark:bg-[#121212] dark:text-gray-100 active:dark:border-gray-600 active:dark:bg-[#191919] md:hover:border-gray-300 md:hover:bg-[#ebebeb] md:hover:dark:border-gray-600 md:hover:dark:bg-[#191919];
 }
 
 .linkStyle {
-  @apply flex items-center justify-center rounded-md border border-gray-200 bg-[#f2f2f2] px-4 py-[10px] text-sm font-medium leading-none text-gray-900  active:border-gray-300 active:bg-[#ebebeb] dark:border-gray-700 dark:bg-[#121212] dark:text-gray-100 active:dark:border-gray-600 active:dark:bg-[#191919] md:hover:border-gray-300 md:hover:bg-[#ebebeb] md:hover:dark:border-gray-600 md:hover:dark:bg-[#191919]
+  @apply flex items-center justify-center rounded-md border border-gray-200 bg-[#f2f2f2] px-3 py-[10px] text-[13px] font-medium leading-none text-gray-900  active:border-gray-300 active:bg-[#ebebeb] dark:border-gray-700 dark:bg-[#121212] dark:text-gray-100 active:dark:border-gray-600 active:dark:bg-[#191919] md:hover:border-gray-300 md:hover:bg-[#ebebeb] md:hover:dark:border-gray-600 md:hover:dark:bg-[#191919];
 }
 
 .cardStyle {
-  @apply flex cursor-pointer flex-col items-center gap-y-4 rounded-xl p-6 dark:text-white md:hover:rounded-xl md:hover:bg-[#f2f2f2] md:hover:dark:bg-[#121212];
+  @apply flex cursor-pointer flex-col items-center gap-y-4 rounded-xl p-6 dark:text-gray-100 md:hover:rounded-xl md:hover:bg-[#f2f2f2] md:hover:dark:bg-[#121212];
 }
 
 /* to see list of all values, go to the React Masonry CSS link above */
@@ -56,6 +46,7 @@ input:-webkit-autofill:focus {
 }
 
 /* style items */
-.my-masonry-grid_column > div { /* change div to reference elements in <Masonry> */
+.my-masonry-grid_column > div {
+  /* change div to reference elements in <Masonry> */
   margin-bottom: 20px;
 }

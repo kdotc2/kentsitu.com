@@ -45,7 +45,7 @@ export default async function ProjectLayout({ params }: { params: { slug: string
   const toc = await getTableOfContents(post.body.raw)
 
   return (
-    <div className="relative pb-16 pt-10 xl:grid xl:grid-cols-[1fr_200px] xl:gap-20">
+    <div className="relative flex pb-16 pt-10">
       <div>
         <div className="space-y-2 pb-10 pt-4">
           <a target="_blank" rel="noopener noreferrer" href={post.url} className="inline-block">
@@ -56,12 +56,12 @@ export default async function ProjectLayout({ params }: { params: { slug: string
           </a>
           <p className="text-gray-500 dark:text-gray-400">{post.description}</p>
         </div>
-        <div className="prose max-w-none dark:prose-dark">
+        <div className="prose max-w-5xl dark:prose-dark">
           <Mdx content={post} MDXComponents={MDXComponents} />
         </div>
       </div>
-      <div className="hidden text-sm xl:block">
-        <div className="sticky top-14 max-h-[calc(var(--vh)-4rem)] overflow-y-auto">
+      <div className="hidden max-w-[200px] text-sm 2xl:block">
+        <div className="sticky top-10 flex">
           <TableOfContents toc={toc} />
         </div>
       </div>
