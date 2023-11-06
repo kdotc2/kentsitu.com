@@ -18,6 +18,7 @@ The receipt scan flow needed some updates. Users had trouble scanning their rece
 
 1. Update and improve error handling messages.
 2. Use UI elements to guide user through the receipt scan process.
+3. Prevent capturing and reduce, unnecessary photos.
 
 ## Process
 
@@ -65,7 +66,7 @@ The first thing that caught the team's eye was the storage usage for photos. Whe
         />
       </svg>
     </span>
-    <span className="tabular-nums">14% of processed receipts in photo storage.</span>
+    <span className="tabular-nums">14% of analyzed receipts in photo storage.</span>
   </div>
 
   <div className="flex items-center">
@@ -89,7 +90,7 @@ The first thing that caught the team's eye was the storage usage for photos. Whe
   </div>
 </div>
 
-Our hypothesis on why was because of errors. We had a catch-all generic error for all use cases, which wasn't ideal. This most likely meant that the users kept taking photos when it didn't work. When we spoke to users about this issue, they confirmed our suspicion.
+Our hypothesis on why was because of errors. The error only showed up after the receipt analysis, which wasn't ideal. This most likely meant that the users kept taking photos when it didn't work. When we spoke to users about this issue, they confirmed our suspicion.
 
 > ​​​​​I kept getting an error even though my receipt was in clear view of the camera... I kept taking photos, hoping that it would go away.
 
@@ -101,8 +102,8 @@ Our hypothesis on why was because of errors. We had a catch-all generic error fo
 
 I went through our current scan flow and identified some areas where we could improve.
 - Scan won't work until OCR (optical character recognition) recognizes receipt.
-- Update generic error message based on situation.
-- Need a better way of letting user know which items need required information.
+- Present error alert before photo capture.
+- Let users know which items need required information.
 
 <div className="projectImageGrid">
 
@@ -116,7 +117,7 @@ I went through our current scan flow and identified some areas where we could im
 
 </div>
 
-I put together an updated user flow with two new error breakpoints. The first breakpoint prevents the user from capturing the photo if there's an error. This should prevent capturing unnecessary photos. The second breakpoint will let users know which items still need required information. This should help figure out which items need updating.
+I put together an updated user flow with two new error breakpoints. The first breakpoint prevents the user from capturing the photo if there's an error. This should prevent capturing unnecessary photos. The second breakpoint will let users know which items still need required information. This should signal to the user on the items that need updating.
 
 ![User flow](/static/images/work/ylli-receipt-scan/user-flow.png)
 
@@ -126,7 +127,7 @@ The engineers and I discussed how the accuracy threshold for the scan was around
 
 - Got rid of the "SAMPLE TEXT SIZE", as it was misleading. 
 - Updated the capture box to accommodate for smaller device types. 
-- Moved the alert to the center of the screen. Capture button disappers when error is active.
+- Moved the alert to the center of the screen. Capture button disappears when error is active.
 
 <div className="projectImageGrid">
 
@@ -140,7 +141,7 @@ The engineers and I discussed how the accuracy threshold for the scan was around
 
 </div>
 
-We also made some updates to the second part of the scan flow. These features were missing in the first launch. And it made the scan difficult for users to complete.
+I also made some updates to the second part of the scan flow. These features were missing in the first launch. And it made the scan difficult for users to complete. The item card got <a href={'/work/ylli-item-card'} target="_blank">redesigned</a> from a previous project.
 
 - Added "Required information missing" alert, along with red dot indicators.
 - Option to change Purchase Date for all items at once.
@@ -160,13 +161,13 @@ We also made some updates to the second part of the scan flow. These features we
 
 ### Prototype & Test
 
-After getting the screens and the copy down, I put together a prototype for testing. In this phase of testing, we didn't include the real-time errors. We decided it was better to do it in-house with different edge cases. These included faded, wrinkled, and marked receipts.
+After getting the screens and the copy down, I put together a prototype for testing. In this phase of testing, we didn't include the real-time errors. We decided it was better to do it in-house with different edge cases.
 
 <div className="flex justify-center py-6">
-  <Button link="https://xd.adobe.com/view/8056aa3c-d0c0-4ccc-8514-830f00b7f71f-d505/" text="Prototype" />
+  <Button link="https://xd.adobe.com/view/054c2c94-149a-45e6-a131-18987683f5db-501f/" text="Prototype" />
 </div>
 
-<div className="md:mx-24 py-4">![Test results](/static/images/work/ylli-receipt-scan/test-results.png)</div>
+<div className="py-4 mx-auto max-w-[500px]">![Test results](/static/images/work/ylli-receipt-scan/test-results.png)</div>
 
 <div className="grid grid-cols-1 sm:grid-cols-2 py-4 gap-4">
   <div className="m-auto pb-0 sm:pb-4">
@@ -182,14 +183,14 @@ After getting the screens and the copy down, I put together a prototype for test
 
 ### Implementation
 
-We tested the live error handling in-house. We wanted to account for as many edge cases as we could. And the 80-90% threshold accuracy still remained with the new alert changes. The decision was to stick with the two error alerts, and add more if necessary.
+We tested the live error handling in-house. We wanted to account for as many edge cases as we could. These included faded, wrinkled, and marked receipts. Also wanted to make sure the 80-90% threshold accuracy remained the same with the new changes. The decision was to stick with the two error alerts, and add more when needed.
 
 <div className="grid grid-cols-1 sm:grid-cols-2 py-4 gap-4">
   <div className="m-auto pb-0 sm:pb-4">
     <div className="text-lg text-[#FFD968] font-semibold">Error Handling Alerts</div>
-    - Capture button disappears when errors are present.
-    - Brightness error when background is too dark.
-    - Adjust error when receipt is blurry or not recognized.
+    - Capture button disappears on errors.
+    - Brightness error on dark background.
+    - Adjust error when receipt is not recognized.
   </div>
   <VideoPlayer link="/static/videos/ylli-receipt-error-handling.mp4" poster="/static/videos/ylli-receipt-error-handling-poster.png" phone="iPhone13Pro" width="224"/>
 </div>
@@ -228,7 +229,7 @@ After about a month of the updates, we saw improvements in our metrics. The new 
         />
       </svg>
     </span>
-    <span className="tabular-nums"><span className="line-through">71%</span><span className="font-bold"> 12%</span> of photos were duplicates of the same receipt.</span>
+    <span className="tabular-nums"><span className="line-through">71%</span><span className="font-bold"> 19%</span> of photos were duplicates of the same receipt.</span>
   </div>
 
   <div className="flex items-center">
@@ -248,7 +249,7 @@ After about a month of the updates, we saw improvements in our metrics. The new 
         />
       </svg>
     </span>
-    <span className="tabular-nums"><span className="line-through">14%</span><span className="font-bold"> 84%</span> of processed receipts in photo storage.</span>
+    <span className="tabular-nums"><span className="line-through">14%</span><span className="font-bold"> 85%</span> of analyzed receipts in photo storage.</span>
   </div>
 
   <div className="flex items-center">
@@ -268,11 +269,11 @@ After about a month of the updates, we saw improvements in our metrics. The new 
         />
       </svg>
     </span>
-    <span className="tabular-nums"><span className="line-through">18%</span><span className="font-bold"> 72%</span> of users completed their receipt scan.</span>
+    <span className="tabular-nums"><span className="line-through">18%</span><span className="font-bold"> 70%</span> of users completed their receipt scan.</span>
   </div>
 </div>
 
-The receipt scan feature is one of our core features. It makes adding items a lot easier and more efficient. Being able to improve the experience and metrics was an awesome sight. We also reduced cost on the business of things by getting rid of unnecessary photos in storage.
+The receipt scan feature is one of our core features. It makes adding items a lot easier and more efficient. Being able to improve the experience and metrics was an awesome sight. We also reduced future cost on the business of things by getting rid of unnecessary photos in storage.
 
 Here are the key takeaways from this project:
 
@@ -285,5 +286,5 @@ Here are the key takeaways from this project:
 </div>
 
 <div className="keyTakeaways">
-  3. <span className="font-semibold">Find balance between the user and business.</span> It is rare when things align for both the business and user. It's an amazing feeling when the end goal is the same.
+  3. <span className="font-semibold">The end goal differs for each project.</span> Aligning both business and user needs requires balance. When they both have the same goal, it becomes an amazing collaborative effort.
 </div>

@@ -75,7 +75,6 @@ export default function Bookmarks() {
           <div key={bookmark.url} className="inline-block">
             <Link
               href={bookmark.url}
-              // aria-label={`Link to ${title}`}
               className="space-y-3 rounded-[10px] focus:-outline-offset-1"
               target="_blank"
               rel="noopener noreferrer"

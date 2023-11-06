@@ -32,6 +32,8 @@ const bookmarkItems = [
   'getwaitlist.com/blog/solo-dev-startup-stack',
   'seungmee-lee.com',
   'nevflynn.com',
+  'anarodrigues.design',
+  'mattrothenberg.com',
 ]
 
 export default bookmarkItems

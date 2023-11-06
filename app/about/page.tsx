@@ -37,7 +37,6 @@ export default async function AboutLayout() {
             href="https://read.cv/kent"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Read.cv"
           >
             Read.cv
           </Link>
@@ -46,7 +45,6 @@ export default async function AboutLayout() {
             href={`mailto:hello@kentsitu.com`}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Read.cv"
           >
             Contact
           </Link>

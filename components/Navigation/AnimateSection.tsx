@@ -34,7 +34,7 @@ export default function AnimateSection({ section, posts, isActive }: Props) {
                   ease: [0.04, 0.62, 0.23, 0.98],
                 }}
               >
-                <Link href={`/${section}/${slug}`} aria-label={`Link to ${title}`}>
+                <Link href={`/${section}/${slug}`}>
                   <motion.div
                     variants={{
                       collapsed: { height: 'auto' },

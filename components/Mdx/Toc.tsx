@@ -54,7 +54,7 @@ export function TableOfContents({ toc }: TocProps) {
         {tocShow && <p className="w-[100px] font-semibold">On This Page</p>}
         <div className="group">
           <button
-            aria-label="table of contents"
+            aria-label="Table of Contents"
             className="flex items-center justify-center rounded-full border border-gray-200 bg-[#f2f2f2] p-2.5 text-gray-900 active:scale-95 active:border-gray-300 active:bg-[#ebebeb] dark:border-gray-700 dark:bg-[#121212] dark:text-gray-100 active:dark:border-gray-600 active:dark:bg-[#191919] md:hover:border-gray-300 md:hover:bg-[#ebebeb] md:hover:dark:border-gray-600 md:hover:dark:bg-[#191919]"
             onClick={onToggleToc}
           >

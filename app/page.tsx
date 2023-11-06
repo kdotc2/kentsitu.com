@@ -10,7 +10,8 @@ export default function Home() {
         <div className="space-y-2 sm:space-y-4">
           <Clock />
           <div className="prose max-w-[350px] dark:prose-dark">
-            Welcome to my space. I use this space to share my designs, thoughts, and progress.
+            Welcome to my space on the internet. A place to share my designs, thoughts, and
+            progress.
           </div>
           <div className="flex space-x-4 pt-2">
             <Link href={'/work'} className="linkStyle">

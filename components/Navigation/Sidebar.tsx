@@ -10,36 +10,38 @@ function Sidebar() {
   const { sections } = NavigationItems()
 
   return (
-    <div
+    <nav
       className={`sticky top-0 z-[40] hidden flex-shrink-0 flex-col overflow-y-auto bg-[#f2f2f2] dark:bg-[#121212] md:flex md:h-[calc(100vh)] lg:h-screen ${'w-[180px] lg:w-[240px]'}`}
     >
       <AnimatePresence>
         <div className="my-8 lg:my-12">
-          <div className="mx-[32px] mb-2 flex justify-start">
-            <Link href="/" aria-label="site title">
-              <div className="font-semibold sm:block">Kent Situ</div>
-            </Link>
-          </div>
-          <div>
+          <header className="mx-[32px] mb-2 flex justify-start font-semibold sm:block">
+            <Link href="/">Kent Situ</Link>
+          </header>
+          <>
             {sections.map((section, i) => {
               return (
-                <ul className="mx-5 pt-6" key={i}>
+                <div key={i}>
                   {section.label && (
-                    <div className="mb-2 ml-3 text-xs font-medium">{section.label}</div>
+                    <h4 className="mb-2 ml-8 pt-6 text-xs font-medium">{section.label}</h4>
                   )}
-                  {section.items.map((item, j) => (
-                    <NavigationLink key={j} link={item} />
-                  ))}
-                </ul>
+                  <ul className="mx-5">
+                    {section.items.map((item, j) => (
+                      <li className="text-[13px]" key={j}>
+                        <NavigationLink link={item} />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               )
             })}
-          </div>
-          <div>
-            <ThemeSwitch />
-          </div>
+            <div>
+              <ThemeSwitch />
+            </div>
+          </>
         </div>
       </AnimatePresence>
-    </div>
+    </nav>
   )
 }
 

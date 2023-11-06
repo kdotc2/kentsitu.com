@@ -29,11 +29,7 @@ export default async function Work() {
             return (
               <div key={title} className="grid">
                 <div className="flex h-auto w-full">
-                  <Link
-                    href={`/work/${slug}`}
-                    aria-label={`Link to ${title}`}
-                    className="rounded-[10px] focus:-outline-offset-1"
-                  >
+                  <Link href={`/work/${slug}`} className="rounded-[10px] focus:-outline-offset-1">
                     <div className="cardStyle">
                       <Image
                         className="relative flex-shrink-0 rounded-xl"

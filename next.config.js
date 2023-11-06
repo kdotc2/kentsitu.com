@@ -55,9 +55,6 @@ const nextConfig = {
   eslint: {
     dirs: ['app', 'components', 'lib'],
   },
-  experimental: {
-    appDir: true,
-  },
   async headers() {
     return [
       {

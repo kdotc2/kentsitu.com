@@ -26,11 +26,7 @@ export default async function Projects() {
             const { slug, title, summary, image, tags } = post
             return (
               <div key={title}>
-                <Link
-                  href={`/projects/${slug}`}
-                  aria-label={`Link to ${title}`}
-                  className="rounded-[10px] focus:-outline-offset-1"
-                >
+                <Link href={`/projects/${slug}`} className="rounded-[10px] focus:-outline-offset-1">
                   <div className="cardStyle">
                     <Image
                       className="relative flex-shrink-0 rounded-xl"

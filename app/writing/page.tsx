@@ -45,11 +45,7 @@ export default async function Writing() {
             const { slug, title, summary, date, draft } = post
             return (
               <div key={title}>
-                <Link
-                  href={`/writing/${slug}`}
-                  aria-label={`Link to ${title}`}
-                  className="rounded-[10px] focus:-outline-offset-1"
-                >
+                <Link href={`/writing/${slug}`} className="rounded-[10px] focus:-outline-offset-1">
                   {!draft && (
                     <div className="cardStyle">
                       <div className="w-full text-base">
