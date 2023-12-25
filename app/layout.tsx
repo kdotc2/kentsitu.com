@@ -46,10 +46,6 @@ export const metadata: Metadata = {
     },
     index: true,
   },
-  themeColor: [
-    { color: '#fbfbfb', media: '(prefers-color-scheme: light)' },
-    { color: '#111111', media: '(prefers-color-scheme: dark)' },
-  ],
   title: {
     default: 'Kent Situ',
     template: '%s',
