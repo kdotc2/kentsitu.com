@@ -19,7 +19,7 @@ const ThemeSwitch = ({ onToggleNav }: Props) => {
     <button
       aria-label="Toggle Dark Mode"
       type="button"
-      className="mx-5 w-[calc(100vw-48px)] rounded-md px-3 py-[6px] active:bg-gray-200 dark:active:bg-gray-700 sm:hover:bg-gray-200 sm:hover:dark:bg-gray-800 md:w-[140px] lg:w-[200px]"
+      className="mx-5 w-[calc(100vw-48px)] rounded-md px-3 py-[6px] active:bg-gray-200 sm:hover:bg-gray-200 md:w-[140px] lg:w-[200px] dark:active:bg-gray-700 sm:hover:dark:bg-gray-800"
       onClick={() => {
         onToggleNav && onToggleNav()
         setTheme(theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark')

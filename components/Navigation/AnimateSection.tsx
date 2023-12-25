@@ -46,7 +46,7 @@ export default function AnimateSection({ section, posts, isActive }: Props) {
                       `${
                         pathname.endsWith(`${slug}`)
                           ? 'border-l border-l-gray-800 dark:border-l-gray-200'
-                          : 'border-l border-l-gray-300 text-gray-400 hover:border-l dark:border-l-gray-700 dark:text-gray-600 sm:hover:border-l-gray-800 sm:hover:text-gray-800 sm:hover:dark:border-l-gray-200 sm:hover:dark:text-gray-200'
+                          : 'border-l border-l-gray-300 text-gray-400 hover:border-l sm:hover:border-l-gray-800 sm:hover:text-gray-800 dark:border-l-gray-700 dark:text-gray-600 sm:hover:dark:border-l-gray-200 sm:hover:dark:text-gray-200'
                       }`
                     )}
                   >

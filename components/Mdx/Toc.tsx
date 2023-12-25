@@ -55,7 +55,7 @@ export function TableOfContents({ toc }: TocProps) {
         <div className="group">
           <button
             aria-label="Table of Contents"
-            className="flex items-center justify-center rounded-full border border-gray-200 bg-[#f2f2f2] p-2.5 text-gray-900 active:scale-95 active:border-gray-300 active:bg-[#ebebeb] dark:border-gray-700 dark:bg-[#121212] dark:text-gray-100 active:dark:border-gray-600 active:dark:bg-[#191919] md:hover:border-gray-300 md:hover:bg-[#ebebeb] md:hover:dark:border-gray-600 md:hover:dark:bg-[#191919]"
+            className="flex items-center justify-center rounded-full border border-gray-200 bg-[#f2f2f2] p-2.5 text-gray-900 active:scale-95 active:border-gray-300 active:bg-[#ebebeb] md:hover:border-gray-300 md:hover:bg-[#ebebeb] dark:border-gray-700 dark:bg-[#121212] dark:text-gray-100 active:dark:border-gray-600 active:dark:bg-[#191919] md:hover:dark:border-gray-600 md:hover:dark:bg-[#191919]"
             onClick={onToggleToc}
           >
             <ListBulletIcon className="h-5 w-5" />
