@@ -7,6 +7,7 @@ import Providers from './providers'
 import Sidebar from '@components/Navigation/Sidebar'
 import { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://kentsitu.com'),
@@ -87,6 +88,7 @@ export default function RootLayout({ children }: Props) {
           </div>
         </Providers>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
