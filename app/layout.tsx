@@ -7,6 +7,7 @@ import Providers from './providers'
 import Sidebar from '@components/Navigation/Sidebar'
 import { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://kentsitu.com'),
@@ -46,10 +47,6 @@ export const metadata: Metadata = {
     },
     index: true,
   },
-  themeColor: [
-    { color: '#fbfbfb', media: '(prefers-color-scheme: light)' },
-    { color: '#111111', media: '(prefers-color-scheme: dark)' },
-  ],
   title: {
     default: 'Kent Situ',
     template: '%s',
@@ -82,7 +79,7 @@ export default function RootLayout({ children }: Props) {
           <MobileNav />
           <div className="relative min-w-0 flex-auto bg-[#f2f2f2] dark:bg-[#121212]">
             <div className="relative overflow-auto pt-16 sm:rounded-2xl sm:pb-5 sm:pl-5 sm:pr-5 md:pl-0 md:pt-5 lg:py-10 lg:pr-10">
-              <div className="relative overflow-y-auto overflow-x-hidden bg-[#fbfbfb] dark:bg-[#050505] sm:rounded-2xl">
+              <div className="relative overflow-y-auto overflow-x-hidden bg-[#fbfbfb] sm:rounded-2xl dark:bg-[#050505]">
                 <main className="mx-auto max-w-5xl px-5 supports-[height:100dvh]:h-[calc(100dvh-64px)] sm:h-[calc(100vh-84px)] md:h-[calc(100vh-40px)] md:px-10 lg:h-[calc(100vh-80px)]">
                   {children}
                 </main>
@@ -91,6 +88,7 @@ export default function RootLayout({ children }: Props) {
           </div>
         </Providers>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )

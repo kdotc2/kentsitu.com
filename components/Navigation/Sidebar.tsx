@@ -11,7 +11,7 @@ function Sidebar() {
 
   return (
     <nav
-      className={`sticky top-0 z-[40] hidden flex-shrink-0 flex-col overflow-y-auto bg-[#f2f2f2] dark:bg-[#121212] md:flex md:h-[calc(100vh)] lg:h-screen ${'w-[180px] lg:w-[240px]'}`}
+      className={`sticky top-0 z-[40] hidden flex-shrink-0 flex-col overflow-y-auto bg-[#f2f2f2] md:flex md:h-[calc(100vh)] lg:h-screen dark:bg-[#121212] ${'w-[180px] lg:w-[240px]'}`}
     >
       <AnimatePresence>
         <div className="my-8 lg:my-12">
