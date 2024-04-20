@@ -46,7 +46,6 @@ code[class*='language-'] {
 
 pre[class*='language-'],
 code[class*='language-'] {
-  color: #24292f;
   font-size: 12px;
   text-shadow: none;
   font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono',
@@ -64,6 +63,7 @@ code[class*='language-'] {
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
+  padding: 4px;
 }
 pre[class*='language-']::selection,
 code[class*='language-']::selection,
@@ -185,6 +185,9 @@ pre[class*='language-'] > code[class*='language-'] {
 }
 
 .token.maybe-class-name {
+  @apply text-[#953800] dark:text-[#ffa657];
+}
+.token.class-name {
   @apply text-[#953800] dark:text-[#ffa657];
 }
 .token.keyword {
