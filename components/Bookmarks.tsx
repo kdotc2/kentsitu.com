@@ -2,7 +2,7 @@
 'use client'
 import bookmarkItems from '@data/bookmarkItems'
 import Link from 'next/link'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import Masonry from 'react-masonry-css'
 
 const breakpointColumnsObj = {
@@ -18,14 +18,17 @@ type MetaData = {
   url: string
 }
 
-const randomList = bookmarkItems.sort(() => 0.5 - Math.random())
-
-async function getMetadata(link: string): Promise<MetaData> {
-  const res = await fetch(`https://metainfo.vercel.app/api?url=https://${link}`)
-  if (!res.ok) {
-    throw new Error('Failed to fetch data')
+async function getMetadata(link: string): Promise<MetaData | null> {
+  try {
+    const res = await fetch(`https://metainfo.vercel.app/api?url=https://${link}`)
+    if (!res.ok) {
+      throw new Error('Failed to fetch data')
+    }
+    return res.json()
+  } catch (error) {
+    console.error(`Failed to fetch metadata for ${link}:`, error)
+    return null // Return null on error to signify failure
   }
-  return res.json()
 }
 
 export default function Bookmarks() {
@@ -33,6 +36,11 @@ export default function Bookmarks() {
   const [bookmarks, setBookmarks] = useState<MetaData[]>([])
   const lastBookmarkRef = useRef<HTMLDivElement>(null)
   const [loading, setLoading] = useState(true)
+
+  const randomList = useMemo(() => {
+    const sortedItems = bookmarkItems.sort(() => 0.5 - Math.random())
+    return sortedItems
+  }, [])
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
@@ -57,12 +65,12 @@ export default function Bookmarks() {
     async function fetchBookmarks() {
       setLoading(true)
       const data = await Promise.all(randomList.slice(0, page * 6).map((url) => getMetadata(url)))
-      setBookmarks(data)
+      setBookmarks(data.filter((bookmark) => bookmark !== null) as MetaData[])
       setLoading(false)
     }
 
     fetchBookmarks()
-  }, [page])
+  }, [page, randomList])
 
   return (
     <>
@@ -78,6 +86,7 @@ export default function Bookmarks() {
               className="space-y-3 rounded-[10px] focus:-outline-offset-1"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`Link to ${bookmark.title}`}
             >
               <div className="cardStyle">
                 <img
@@ -86,6 +95,7 @@ export default function Bookmarks() {
                   alt={bookmark.title}
                   width={800}
                   height={600}
+                  loading="lazy"
                 />
                 <div className="w-full space-y-1.5 px-2 text-sm">
                   <div className="flex items-center gap-2 font-bold ">
