@@ -1,4 +1,4 @@
-const { withContentlayer } = require('next-contentlayer')
+const { withContentlayer } = require('next-contentlayer2')
 
 // You might need to insert additional domains in script-src if you are using external services
 const ContentSecurityPolicy = `
@@ -63,6 +63,6 @@ const nextConfig = {
       },
     ]
   },
-};
+}
 
-module.exports = withContentlayer(nextConfig);
+module.exports = withContentlayer(nextConfig)

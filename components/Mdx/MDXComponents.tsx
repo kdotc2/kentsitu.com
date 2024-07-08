@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 import React from 'react'
-import { useMDXComponent } from 'next-contentlayer/hooks'
+import { useMDXComponent } from 'next-contentlayer2/hooks'
 import { coreContent } from 'lib/utils/contentlayer'
 import type { Writing, Work, Misc, Projects } from 'contentlayer/generated'
 import Image from './Image'

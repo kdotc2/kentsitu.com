@@ -1,10 +1,14 @@
-import { defineDocumentType, ComputedFields, makeSource } from 'contentlayer/source-files'
+import { defineDocumentType, ComputedFields, makeSource } from 'contentlayer2/source-files'
 // import readingTime from 'reading-time'
 
 // Remark packages
 import remarkGfm from 'remark-gfm'
-import remarkCodeTitles from './lib/remark-code-title'
-import remarkImgToJsx from './lib/remark-img-to-jsx'
+import {
+  remarkExtractFrontmatter,
+  remarkCodeTitles,
+  remarkImgToJsx,
+  extractTocHeadings,
+} from 'pliny/mdx-plugins/index.js'
 // // Rehype packages
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
