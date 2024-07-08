@@ -1,5 +1,5 @@
 'use client'
-import { TableOfContents } from '@lib/remark-toc-headings'
+import type { TableOfContents } from '@lib/remark-toc-headings'
 import { ListBulletIcon } from '@heroicons/react/24/outline'
 import { useState, useEffect, useMemo } from 'react'
 import { motion } from 'framer-motion'
