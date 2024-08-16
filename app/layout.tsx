@@ -12,8 +12,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 export const metadata: Metadata = {
   metadataBase: new URL('https://kentsitu.com'),
   creator: 'Kent Situ',
-  description:
-    'Product Designer with experience in mobile app design, user experience, research, and prototyping. Solving problems and bringing conceptual ideas to life.',
+  description: 'Product Designer. Crafting product experiences through design and code.',
   icons: {
     apple: '/static/favicons/apple-touch-icon.png',
     icon: '/static/favicons/favicon-32x32.png',
@@ -21,21 +20,19 @@ export const metadata: Metadata = {
   },
   manifest: '/static/favicons/site.webmanifest',
   openGraph: {
-    description:
-      'Product Designer with experience in mobile app design, user experience, research, and prototyping. Solving problems and bringing conceptual ideas to life.',
+    title: 'Kent Situ',
+    description: 'Product Designer. Crafting product experiences through design and code.',
+    url: 'https://kentsitu.com',
+    siteName: 'Kent Situ',
     images: [
       {
         alt: 'Kent Situ',
         url: '/static/images/og.png',
       },
     ],
-    locale: 'en-US',
-    siteName: 'Kent Situ',
-    title: 'Kent Situ',
+    locale: 'en_US',
     type: 'website',
-    url: 'https://kentsitu.com',
   },
-  publisher: 'Kent Situ',
   robots: {
     follow: true,
     googleBot: {
@@ -55,8 +52,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Kent Situ',
     images: '/static/images/og.png',
-    description:
-      'Product Designer with experience in mobile app design, user experience, research, and prototyping. Solving problems and bringing conceptual ideas to life.',
+    description: 'Product Designer. Crafting product experiences through design and code.',
   },
 }
 
@@ -79,7 +75,7 @@ export default function RootLayout({ children }: Props) {
           <MobileNav />
           <div className="relative min-w-0 flex-auto bg-[#f2f2f2] dark:bg-[#121212]">
             <div className="relative overflow-auto pt-16 sm:rounded-2xl sm:pb-5 sm:pl-5 sm:pr-5 md:pl-0 md:pt-5 lg:py-10 lg:pr-10">
-              <div className="relative overflow-y-auto overflow-x-hidden bg-[#fbfbfb] sm:rounded-2xl dark:bg-[#050505]">
+              <div className="relative overflow-y-auto overflow-x-hidden bg-[#fbfbfb] dark:bg-[#050505] sm:rounded-2xl">
                 <main className="mx-auto max-w-5xl px-5 supports-[height:100dvh]:h-[calc(100dvh-64px)] sm:h-[calc(100vh-84px)] md:h-[calc(100vh-40px)] md:px-10 lg:h-[calc(100vh-80px)]">
                   {children}
                 </main>

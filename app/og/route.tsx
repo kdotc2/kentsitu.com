@@ -11,7 +11,7 @@ export async function GET(request: Request) {
   const title = searchParams.get('title') || 'Kent Situ'
   const description =
     searchParams.get('description') ||
-    `Product Designer with experience in solving problems and bringing conceptual ideas to life.`
+    'Product Designer. Crafting product experiences through design and code.'
   const truncatedDescription =
     description.length > 120 ? description.slice(0, 120) + '...' : description
 

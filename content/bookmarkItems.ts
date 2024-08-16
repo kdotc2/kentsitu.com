@@ -2,7 +2,7 @@ const bookmarkItems = [
   'brianlovin.com',
   'rauno.me',
   'chia.design',
-  'cretu.dev',
+  // 'cretu.dev',
   // 'sdrn.co',
   // 'musing.vercel.app',
   'timlrx.com',
