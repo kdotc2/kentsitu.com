@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description: 'Product Designer. Crafting product experiences through design and code.',
   icons: {
     apple: '/static/favicons/apple-touch-icon.png',
-    icon: '/static/favicons/favicon-32x32.png',
+    icon: '/static/favicons/favicon-16x16.png',
     shortcut: '/static/favicons/favicon.ico',
   },
   manifest: '/static/favicons/site.webmanifest',
