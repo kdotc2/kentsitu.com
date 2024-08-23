@@ -14,9 +14,9 @@ export const metadata: Metadata = {
   creator: 'Kent Situ',
   description: 'Product Designer. Crafting product experiences through design and code.',
   icons: {
+    shortcut: '/static/favicons/favicon-16x16.png',
+    icon: '/static/favicons/favicon.ico',
     apple: '/static/favicons/apple-touch-icon.png',
-    icon: '/static/favicons/favicon-16x16.png',
-    shortcut: '/static/favicons/favicon.ico',
   },
   manifest: '/static/favicons/site.webmanifest',
   openGraph: {
