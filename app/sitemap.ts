@@ -6,21 +6,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const projectRoutes = allProjects.map((post) => ({
     url: `${siteUrl}/projects/${post.slug}`,
-    lastModified: new Date().toISOString().split('T')[0],
-    // lastModified: post.lastmod || post.date,
+    lastModified: post.lastmod || post.date,
   }))
 
   const workRoutes = allWorks.map((post) => ({
     url: `${siteUrl}/work/${post.slug}`,
-    lastModified: new Date().toISOString().split('T')[0],
-    // lastModified: post.lastmod || post.date,
+    lastModified: post.lastmod || post.date,
   }))
 
-  const writingRoutes = allWritings.map((post) => ({
-    url: `${siteUrl}/writing/${post.slug}`,
-    lastModified: new Date().toISOString().split('T')[0],
-    // lastModified: post.lastmod || post.date,
-  }))
+  const writingRoutes = allWritings
+    .filter((post) => !post.draft)
+    .map((post) => ({
+      url: `${siteUrl}/writing/${post.slug}`,
+      lastModified: post.lastmod || post.date,
+    }))
 
   const routes = [
     '',
