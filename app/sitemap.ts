@@ -29,12 +29,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((post) => !post.draft)
     .map((post) => ({
       url: `${siteUrl}/${post.slug}`,
-      lastModified: post.lastmod?.split('T')[0] || post.date.split('T')[0],
+      // lastModified: post.lastmod?.split('T')[0] || post.date.split('T')[0],
     }))
 
   const routes = ['', 'work', 'projects', 'writing'].map((route) => ({
     url: `https://kentsistu.com/${route}`,
-    lastModified: new Date().toISOString().split('T')[0],
+    // lastModified: new Date().toISOString().split('T')[0],
   }))
 
   return [...routes, ...miscsRoutes]
