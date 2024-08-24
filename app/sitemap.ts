@@ -4,6 +4,11 @@ import { allProjects } from 'contentlayer/generated'
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = 'https://kentsitu.com'
 
+  const projectRoutes = allProjects.map((post) => ({
+    url: `${siteUrl}/${post.slug}`,
+    lastModified: post.lastmod || post.date,
+  }))
+
   const routes = [
     '',
     'work',
@@ -18,5 +23,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date().toISOString().split('T')[0],
   }))
 
-  return [...routes]
+  return [...routes, ...projectRoutes]
 }
