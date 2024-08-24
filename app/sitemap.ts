@@ -8,28 +8,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((post) => !post.draft)
     .map((post) => ({
       url: `${siteUrl}/projects/${post.slug}`,
-      lastModified: post.lastmod || post.date,
+      lastModified: post.lastmod?.split('T')[0] || post.date.split('T')[0],
     }))
 
   const workRoutes = allWorks
     .filter((post) => !post.draft)
     .map((post) => ({
       url: `${siteUrl}/work/${post.slug}`,
-      lastModified: post.lastmod || post.date,
+      lastModified: post.lastmod?.split('T')[0] || post.date.split('T')[0],
     }))
 
   const writingRoutes = allWritings
     .filter((post) => !post.draft)
     .map((post) => ({
       url: `${siteUrl}/writing/${post.slug}`,
-      lastModified: post.lastmod || post.date,
+      lastModified: post.lastmod?.split('T')[0] || post.date.split('T')[0],
     }))
 
   const miscsRoutes = allMiscs
     .filter((post) => !post.draft)
     .map((post) => ({
       url: `${siteUrl}/${post.slug}`,
-      lastModified: post.lastmod || post.date,
+      lastModified: post.lastmod?.split('T')[0] || post.date.split('T')[0],
     }))
 
   const routes = ['', 'work', 'projects', 'writing'].map((route) => ({
