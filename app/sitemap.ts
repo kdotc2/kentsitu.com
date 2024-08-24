@@ -1,12 +1,25 @@
 import { MetadataRoute } from 'next'
-import { allProjects } from 'contentlayer/generated'
+import { allProjects, allWorks, allWritings } from 'contentlayer/generated'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = 'https://kentsitu.com'
 
   const projectRoutes = allProjects.map((post) => ({
-    url: `${siteUrl}/${post.slug}`,
-    lastModified: post.lastmod || post.date,
+    url: `${siteUrl}/projects/${post.slug}`,
+    lastModified: new Date().toISOString().split('T')[0],
+    // lastModified: post.lastmod || post.date,
+  }))
+
+  const workRoutes = allWorks.map((post) => ({
+    url: `${siteUrl}/work/${post.slug}`,
+    lastModified: new Date().toISOString().split('T')[0],
+    // lastModified: post.lastmod || post.date,
+  }))
+
+  const writingRoutes = allWritings.map((post) => ({
+    url: `${siteUrl}/writing/${post.slug}`,
+    lastModified: new Date().toISOString().split('T')[0],
+    // lastModified: post.lastmod || post.date,
   }))
 
   const routes = [
@@ -23,5 +36,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date().toISOString().split('T')[0],
   }))
 
-  return [...routes, ...projectRoutes]
+  return [...routes, ...projectRoutes, ...workRoutes, ...writingRoutes]
 }
