@@ -8,6 +8,7 @@ import CustomLink from './Link'
 import Pre from './Pre'
 import Button from './Button'
 import VideoPlayer from './VideoPlayer'
+import Bookmarks from '@components/Bookmarks'
 
 interface MDXLayout {
   content: Writing | Work | Misc | Projects
@@ -20,6 +21,7 @@ export const MDXComponents: object = {
   pre: Pre,
   Button,
   VideoPlayer,
+  Bookmarks,
 }
 
 export const Mdx = ({ content, ...rest }: MDXLayout) => {
