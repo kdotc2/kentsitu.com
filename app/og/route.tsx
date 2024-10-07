@@ -31,7 +31,7 @@ export async function GET(request: Request) {
       >
         <div tw="flex bg-gray-50 h-full w-full p-20 justify-between flex-col">
           <div tw="flex">
-            <img alt={'og icon'} src="https://kentsitu.com/icon.svg" width={50} height={50} />
+            <img alt={'og icon'} src="/icon.svg" width={50} height={50} />
           </div>
           <div tw="flex w-full flex-col">
             <div tw="flex flex-col text-left py-2">
