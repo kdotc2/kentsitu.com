@@ -11,14 +11,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://kentsitu.com'),
-  creator: 'Kent Situ',
   description: 'Product Designer. Crafting product experiences through design and code.',
-  icons: {
-    shortcut: '/static/favicons/favicon-16x16.png',
-    icon: '/static/favicons/favicon.ico',
-    apple: '/static/favicons/apple-touch-icon.png',
-  },
-  manifest: '/static/favicons/site.webmanifest',
   openGraph: {
     title: 'Kent Situ',
     description: 'Product Designer. Crafting product experiences through design and code.',

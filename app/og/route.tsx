@@ -33,7 +33,7 @@ export async function GET(request: Request) {
           <div tw="flex">
             <img
               alt={'og icon'}
-              src="https://kentsitu.com/static/favicons/apple-touch-icon.png"
+              src="https://kentsitu.com/static/images/icon.svg"
               width={50}
               height={50}
             />
