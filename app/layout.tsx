@@ -11,7 +11,6 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://kentsitu.com'),
-  creator: 'Kent Situ',
   description: 'Product Designer. Crafting product experiences through design and code.',
   openGraph: {
     title: 'Kent Situ',
