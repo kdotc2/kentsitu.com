@@ -49,7 +49,7 @@ export default async function ProjectLayout({ params }: { params: { slug: string
       <div>
         <div className="space-y-2 pb-10 pt-4">
           <a target="_blank" rel="noopener noreferrer" href={post.url} className="inline-block">
-            <span className="flex items-center gap-2 text-2xl font-bold hover:underline">
+            <span className="flex items-center gap-2 text-2xl font-bold">
               {post.title}
               <ArrowUpRightIcon className="h-4 w-4" />
             </span>
