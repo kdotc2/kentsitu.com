@@ -34,7 +34,7 @@ export default async function AboutLayout() {
         <div className="flex space-x-4 pt-6">
           <Link
             className="linkStyle"
-            href="/static/Kent_Situ_Resume.pdf"
+            href="/Kent_Situ_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
