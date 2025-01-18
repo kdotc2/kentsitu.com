@@ -32,14 +32,14 @@ export default async function AboutLayout() {
           </div>
         </div>
         <div className="flex space-x-4 pt-6">
-          {/* <Link
+          <Link
             className="linkStyle"
-            href="https://read.cv/kent"
+            href="/static/Kent_Situ_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Read.cv
-          </Link> */}
+            Resume
+          </Link>
           <Link
             className="linkStyle"
             href={`mailto:hello@kentsitu.com`}
