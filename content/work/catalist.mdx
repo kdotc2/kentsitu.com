@@ -33,16 +33,184 @@ New and existing content is constantly recommended by peers. Looking for interes
 2. Organize and consolidate recommendations. 
 3. Launch and get early validation for our solution.
 
-## Solution
+## Process
 
-After speaking to users and exploring competitor apps, we identified pain points. I put together some designs and iterated over them after getting feedback. This prototype was the result.
+The process leading up to the Hi-Fi prototype was more of an organic process, rather than a linear one. There was a lot of going back to previous steps, as we received feedback and added/removed features.
+
+### Research & Explore Competitor Apps
+
+To understand the market better, we used a survey and did a competitive analysis. We interviewed 7 people and surveyed 52 people to find out which categories to prioritize. They were young professionals, age range of 24-35, with a college degree that works a 9-5 job. It also helped us find 20 competitor products to explore, which narrowed down to 12.
+
+<div className="py-4">
+
+  ![Top 4 categories out of 13](/images/work/catalist/survey.png)
+
+  <div className="text-xs text-center">
+    Top 4 categories from a list of 13 from the survey
+  </div>
+
+</div>
+
+Of the 12 products, we focused on four products with a similar goal of what we were trying to achieve. Use friends and trusted sources to help find new recommendations.
+
+<div className="py-4">![12 Competitor products](/images/work/catalist/competitors.png)</div>
+
+### Uncover Key Findings
+
+All four products shared similar features. They used a list format to share and save recommendations. The categories—TV shows, movies, and books are all present in the apps. These were also the categories that we found to be highly requested during our survey. One thing to note is that all apps required an account to view content.
+
+<div className="py-4">![Competitor analysis](/images/work/catalist/competitor-analysis.png)</div>
+
+I synthesized our user research from the 7 interviewees into four main categories. We followed our competitors' lead by consolidating different category types into one platform. 
+
+<div className="grid grid-cols-1 md:grid-cols-2 py-4 gap-4 text-sm">
+  <div>
+    <div className="font-semibold text-[#FF8300]">Motivations</div>
+    <div className="-space-y-1">
+
+        - Research and discover something new to do
+        - Share interests with friends and peers through lists
+        - Stay cultured and current with what's trending
+        - Understand references and have topics to talk about
+        - Add to checklist/bucket list of new recommendations to try  
+
+    </div>
+  </div>
+  <div>
+    <div className="font-semibold text-[#FF8300]">Pain Points</div>
+    <div className="-space-y-1">
+
+        - Researching what to do can be time-consuming and tedious
+        - Review sites aren't always tailored towards the individual
+        - Forget what friends and peers recommended
+        - Need to use different sources for different interests types 
+        - No all-in-one app to help with sharing  
+
+    </div>
+  </div>
+  <div>
+    <div className="font-semibold text-[#FF8300]">Behaviors</div>
+    <div className="-space-y-1">
+
+        - Use google to search for "best of" or "top" interests
+        - Ask people for recommendations and links
+        - Look at social feeds to see what others are doing
+        - Hop onto a mass rating/reviews app to see what's trending  
+
+    </div>
+  </div>
+  <div>
+    <div className="font-semibold text-[#FF8300]">Platforms</div>
+    <div className="-space-y-1">
+
+        - Friends, family, and peers
+        - Social feeds (Pinterest, Instagram, Reddit, etc.)
+        - Mass rating apps (Yelp, Goodreads, Rotten Tomatoes, etc.)
+        - Trusted brands (Google, Netflix, TimeOut, Thrillist, etc.)  
+
+    </div>
+  </div>
+</div>
+
+### Ideation & Focus On List Format
+
+We decided to put more emphasis on the list format, as opposed to the individual interest types our competitors focused on. We found that a list format could potentially solve our pain points above. I put together a sitemap organize our idea.
+
+<div className="py-4">![Sitemap](/images/work/catalist/sitemap.png)</div>
+
+I also put together a user flow. There are two options the user can go towards, creating a new list or discovering lists. They need an account to go through the darker areas of the flow.
+
+<div className="py-4">![User flow](/images/work/catalist/user-flow.png)</div>
+
+After several iterations, I came up with the Lo-Fi wireframes below. I kept in mind that our core product would focus on users going through lists and their items. I wanted to make it easy to scan and go through each recommendation.
+
+<div className="projectImageGrid pt-4">
+
+    ![Discover screen](/images/work/catalist/wireframe1.png)
+
+    ![List screen](/images/work/catalist/wireframe2.png)
+
+    ![Item screen](/images/work/catalist/wireframe3.png)
+
+    ![Create list screen](/images/work/catalist/wireframe4.png)
+
+    ![Favorites - list screen](/images/work/catalist/wireframe5.png)
+
+    ![Inbox - notifications screen](/images/work/catalist/wireframe6.png)
+
+    ![Inbox - messages screen](/images/work/catalist/wireframe7.png)
+
+    ![Profile screen](/images/work/catalist/wireframe8.png)
+
+</div>
+
+As I upgraded our wireframes to Hi-Fi screens, we were stuck on several different home screens. After some deliberation and feedback from users on our waiting list, we decided on the fourth one. English speakers read from left to right. The title straight across gave the user a more natural reading experience.
+
+<div className="projectImageGrid pt-4">
+
+  ![Concept 1 screen](/images/work/catalist/concept1.png)
+
+  ![Concept 2 screen](/images/work/catalist/concept2.png)
+
+  ![Concept 3 screen](/images/work/catalist/concept3.png)
+
+  ![Concept 4 screen](/images/work/catalist/concept4.png)
+
+</div>
+
+### Refine & Test Designs
+
+After getting feedback and discussing with the team, I started iterating the designs. Here were some of the notable changes that I made.
+
+- Sign in with Apple or Google for easier access. Also added a guided onboarding process.
+
+<div className="projectImageGrid pt-4">
+
+  ![Welcome screen](/images/work/catalist/screen1.png)
+
+  ![Apple signin screen](/images/work/catalist/screen2.png)
+
+  ![Google signin screen](/images/work/catalist/screen3.png)
+
+  ![Enter info screen](/images/work/catalist/screen4.png)
+
+</div>
+
+- Users can view own lists with the option to edit/add items. In item view, they can bookmark and mark item as complete. Edit button is changed to bookmark button for others' lists.
+
+<div className="projectImageGrid pt-4">
+
+  ![Welcome screen](/images/work/catalist/screen5.png)
+
+  ![Discover screen](/images/work/catalist/screen6.png)
+
+  ![List view screen](/images/work/catalist/screen7.png)
+
+  ![Item view screen](/images/work/catalist/screen8.png)
+
+</div>
+
+- Create a list by adding a title and items by searching the database. Editing is similar, tap title to change and use add/remove buttons for items.
+
+<div className="projectImageGrid pt-4">
+
+  ![Create list screen](/images/work/catalist/screen9.png)
+
+  ![Search item screen](/images/work/catalist/screen10.png)
+
+  ![Adding items screen](/images/work/catalist/screen11.png)
+
+  ![Edit list screen](/images/work/catalist/screen12.png)
+
+</div>
+
+ I put together the screens to create a clickable Hi-Fi prototype. I asked ten participants to test the usability of our prototype. They were able to perform most of the tasks.
 
 <div className="grid grid-cols-1 sm:grid-cols-2 py-6 gap-4">
   <div className="m-auto pb-0 sm:pb-4">
-    {/* <div className="flex py-2">
-      <Button link="https://www.figma.com/proto/WHJWY7oH3GPv2ytojmFueg/Catalist" text="Clickable Prototype" />
-    </div> */}
-        <div className="text-lg text-[#FF8300] font-semibold">Utility App For Recommendations</div>
+    <div className="flex py-2">
+      <Button link="https://www.figma.com/proto/WHJWY7oH3GPv2ytojmFueg/Catalist" text="Updated Prototype" />
+    </div>
     - Sign up through a guided process.
     - View list and individual items.
     - Create lists and make edits.
@@ -51,6 +219,42 @@ After speaking to users and exploring competitor apps, we identified pain points
   </div>
   <VideoPlayer link="/videos/catalist.mp4" poster="/videos/catalist-poster.png" />
 </div>
+
+### MVP Implementation
+
+As the team and I started to implement the designs, we soon realized we couldn't implement everything. We prioritized features that users responded well towards and put together a MVP.
+
+![Discover components screen](/images/work/catalist/mvp-features.png)
+
+ We got rid of features such as chatting, filters, and the dining category. Since we already had comments, we didn't think it was necessary to have private chats. Filters can wait as we get more users and categories added. The dining category didn't fit in with the other categories since it required a map.
+
+<div className="projectImageGrid pt-4">
+
+    ![Discover screen](/images/work/catalist/screen13.png)
+
+    ![List view screen](/images/work/catalist/screen14.png)
+
+    ![Item view screen](/images/work/catalist/screen15.png)
+
+    ![Create list screen](/images/work/catalist/screen16.png)
+
+</div>
+
+For the sake of consistency, I put together some components. To help with contrast, I put an overlay over the background images and limited color usage. We also linked the font sizes to the OS dynamic text setting option to make the app more accessible.
+
+<div className="projectImageGrid pt-4">
+
+    ![Discover components screen](/images/work/catalist/components1.png)
+
+    ![List view components screen](/images/work/catalist/components2.png)
+
+    ![Item view components screen](/images/work/catalist/components3.png)
+
+    ![Create list components screen](/images/work/catalist/components4.png)
+
+</div>
+
+While launching, we had several hiccups. The main one being our app getting rejected from the App Store twice. We needed to have a report button on every screen that had user comments. We were able to patch up the issues and get our MVP approved for the App Store.
 
 ## MVP Validation
 
