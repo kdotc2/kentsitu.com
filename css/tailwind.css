@@ -11,7 +11,7 @@ input:-webkit-autofill:focus {
 }
 
 .projectImageGrid {
-  @apply grid grid-cols-2 gap-3 py-4 sm:grid-cols-4;
+  @apply grid grid-cols-2 gap-3 pb-4 sm:grid-cols-4;
 }
 
 .keyTakeaways {

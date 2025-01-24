@@ -3,7 +3,8 @@ title: 'YLLI Receipt Scan'
 date: '2023-12-24'
 summary: Updated receipt scan design and improved error handling.
 description: Food management app receipt scan feature UI and error handling updates.
-image: /static/images/work/ylli-receipt-scan/cover-photo.png
+image: /images/work/ylli-receipt-scan/cover-photo.png
+draft: true
 ---
 
 ## Overview
@@ -107,19 +108,19 @@ I went through our current scan flow and identified some areas where we could im
 
 <div className="projectImageGrid">
 
-    ![Camera scan screen](/static/images/work/ylli-receipt-scan/screen1.png)
+    ![Camera scan screen](/images/work/ylli-receipt-scan/screen1.png)
 
-    ![Review photos screen](/static/images/work/ylli-receipt-scan/screen2.png)
+    ![Review photos screen](/images/work/ylli-receipt-scan/screen2.png)
 
-    ![Scan error screen](/static/images/work/ylli-receipt-scan/screen3.png)
+    ![Scan error screen](/images/work/ylli-receipt-scan/screen3.png)
 
-    ![Items found screen](/static/images/work/ylli-receipt-scan/screen4.png)
+    ![Items found screen](/images/work/ylli-receipt-scan/screen4.png)
 
 </div>
 
 I put together an updated user flow with two new error breakpoints. The first breakpoint prevents the user from capturing the photo if there's an error. This should prevent capturing unnecessary photos. The second breakpoint will let users know which items still need required information. This should signal to the user on the items that need updating.
 
-![User flow](/static/images/work/ylli-receipt-scan/user-flow.png)
+![User flow](/images/work/ylli-receipt-scan/user-flow.png)
 
 ### Partner With Engineers On Ideation
 
@@ -131,13 +132,13 @@ The engineers and I discussed how the accuracy threshold for the scan was around
 
 <div className="projectImageGrid">
 
-    ![Brightness error screen](/static/images/work/ylli-receipt-scan/screen5.png)
+    ![Brightness error screen](/images/work/ylli-receipt-scan/screen5.png)
 
-    ![Adjust receipt error screen](/static/images/work/ylli-receipt-scan/screen6.png)
+    ![Adjust receipt error screen](/images/work/ylli-receipt-scan/screen6.png)
 
-    ![Updated brightness error screen](/static/images/work/ylli-receipt-scan/screen7.png)
+    ![Updated brightness error screen](/images/work/ylli-receipt-scan/screen7.png)
 
-    ![Updated adjust receipt error screen](/static/images/work/ylli-receipt-scan/screen8.png)
+    ![Updated adjust receipt error screen](/images/work/ylli-receipt-scan/screen8.png)
 
 </div>
 
@@ -149,13 +150,13 @@ I also made some updates to the second part of the scan flow. These features wer
 
 <div className="projectImageGrid">
 
-    ![Updated items found screen](/static/images/work/ylli-receipt-scan/screen9.png)
+    ![Updated items found screen](/images/work/ylli-receipt-scan/screen9.png)
 
-    ![Select purchase date screen](/static/images/work/ylli-receipt-scan/screen10.png)
+    ![Select purchase date screen](/images/work/ylli-receipt-scan/screen10.png)
 
-    ![Add item screen](/static/images/work/ylli-receipt-scan/screen11.png)
+    ![Add item screen](/images/work/ylli-receipt-scan/screen11.png)
 
-    ![Completed items found screen](/static/images/work/ylli-receipt-scan/screen12.png)
+    ![Completed items found screen](/images/work/ylli-receipt-scan/screen12.png)
 
 </div>
 
@@ -177,7 +178,7 @@ After getting the screens and the copy down, I put together a prototype for test
     - Add missing item after scan.
     - Option to delete card and undo action.
   </div>
-  <VideoPlayer link="/static/videos/ylli-receipt-scan.mp4" poster="/static/videos/ylli-receipt-scan-poster.png" phone="iPhone13Pro" width="224" />
+  <VideoPlayer link="/videos/ylli-receipt-scan.mp4" poster="/videos/ylli-receipt-scan-poster.png" phone="iPhone13Pro" width="224" />
 </div>
 
 ### Implementation
@@ -191,18 +192,18 @@ We tested the live error handling in-house. We wanted to account for as many edg
     - Brightness error on dark background.
     - Adjust error when receipt is not recognized.
   </div>
-  <VideoPlayer link="/static/videos/ylli-receipt-error-handling.mp4" poster="/static/videos/ylli-receipt-error-handling-poster.png" phone="iPhone13Pro" width="224"/>
+  <VideoPlayer link="/videos/ylli-receipt-error-handling.mp4" poster="/videos/ylli-receipt-error-handling-poster.png" phone="iPhone13Pro" width="224"/>
 </div>
 
 <div className="projectImageGrid">
   
-    ![Error specs screen](/static/images/work/ylli-receipt-scan/screen13.png)
+    ![Error specs screen](/images/work/ylli-receipt-scan/screen13.png)
   
-    ![Capture receipt specs screen](/static/images/work/ylli-receipt-scan/screen14.png)
+    ![Capture receipt specs screen](/images/work/ylli-receipt-scan/screen14.png)
   
-    ![Items found specs screen](/static/images/work/ylli-receipt-scan/screen15.png)
+    ![Items found specs screen](/images/work/ylli-receipt-scan/screen15.png)
   
-    ![Delete item specs screen](/static/images/work/ylli-receipt-scan/screen16.png)
+    ![Delete item specs screen](/images/work/ylli-receipt-scan/screen16.png)
 
 </div>
 
@@ -274,7 +275,7 @@ After about a month of the updates, we saw improvements in our metrics. The new 
 
 The receipt scan feature is one of our core features. It makes adding items a lot easier and more efficient. Being able to improve the experience and metrics was an awesome sight. We also reduced future cost on the business of things by getting rid of unnecessary photos in storage.
 
-Here are the key takeaways from this project:
+Here are the key takeaways from this project:
 
 <div className="keyTakeaways">
   1. <span className="font-semibold">Being on the same page makes collaboration a lot easier.</span> With little disagreement, the process of solving problems was very smooth.

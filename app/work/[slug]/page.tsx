@@ -4,11 +4,15 @@ import { TableOfContents } from '@components/Mdx/Toc'
 import { getTableOfContents } from '@lib/remark-toc-headings'
 import { notFound } from 'next/navigation'
 
-export const generateStaticParams = async () => allWorks.map((post) => ({ slug: post.slug }))
+export const generateStaticParams = async () =>
+  allWorks
+    .filter((post) => !post.draft) // Exclude drafts
+    .map((post) => ({ slug: post.slug }))
 
 export const generateMetadata = ({ params }: { params: Work }) => {
   const post = allWorks.find((post) => post.slug === params.slug)
-  if (!post) {
+  if (!post || post.draft) {
+    // Check if the post exists or is a draft
     return
   }
   const { title, summary: description, image, slug } = post
@@ -39,7 +43,8 @@ export const generateMetadata = ({ params }: { params: Work }) => {
 export default async function WorkLayout({ params }: { params: { slug: string } }) {
   const post = allWorks.find((post) => post.slug === params.slug)
 
-  if (!post) {
+  if (!post || post.draft) {
+    // Check if the post exists or is a draft
     notFound()
   }
 

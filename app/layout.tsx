@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     images: [
       {
         alt: 'Kent Situ',
-        url: '/static/images/og.png',
+        url: '/images/og.png',
       },
     ],
     locale: 'en_US',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Kent Situ',
-    images: '/static/images/og.png',
+    images: '/images/og.png',
     description: 'Product Designer. Crafting product experiences through design and code.',
   },
 }

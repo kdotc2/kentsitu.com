@@ -2,7 +2,7 @@ import React from 'react'
 
 type Props = {
   title: string
-  description: string | undefined
+  description: React.ReactNode
 }
 
 function LayoutHeader({ title, description }: Props) {

@@ -3,16 +3,28 @@ title: 'YLLI'
 date: '2023-12-24'
 summary: Led the design for a food management and budgeting app.
 description: An inventory management app that organizes and keeps track of food items and spend.
-image: /static/images/work/ylli/cover-photo.png
+image: /images/work/ylli/cover-photo.png
 ---
+
+<div className="projectImageGrid">
+
+  ![Inventory home screen](/images/work/ylli/screen1.png)
+
+  ![Total spend screen](/images/work/ylli/screen5.png)
+
+  ![Completed info screen](/images/work/ylli/screen12.png)
+
+  ![Photo access screen](/images/work/ylli/screen15.png)
+
+</div>
 
 ## Overview
 
-The team consisted of seven people and we built the product from zero to one. I worked with a product manager, a branding designer, and four engineers. My role was Lead Product Designer. I designed, prototyped, tested the screens and wrote the UX copy. I collaborated with the team on research, implementation, and QA. We launched an early version of the app in the App Store. The project took eight months.
+The team consisted of seven people and we built the product from zero to one. I worked with a product manager, a branding designer, and four engineers. My role was Lead Product Designer. I designed, prototyped, tested the screens and wrote the UX copy. I collaborated with the team on research, implementation, and QA. We launched an early version of the app in the App Store and will continue to iterate on features. The project took ten months.
 
 ## Problem
 
-Food waste is a growing global problem that continues to affect the environment. Food production exceeds consumption and edible food is often thrown away. This comes from forgetting about its existence or not knowing how to judge the expiration date of an item.
+Food waste is a growing global problem that continues to affect the environment. Food production exceeds consumption and edible food is often thrown away. This comes from forgetting about its existence. And also, not knowing how to judge the expiration date of an item.
 
 ## Goals
 
@@ -20,247 +32,302 @@ Food waste is a growing global problem that continues to affect the environment.
 2. Create a less tedious process to add food items into inventory.
 3. Help users better understand food and spending habits.
 
-## Process
+## Solution
 
-The process was an iterative agile process. We went back to previous steps as we tested and gathered more feedback from stakeholders and users.
+We got a better understanding of food waste in the US by doing research and interviewing users. After seeing what features competitors already had, we were able to narrow our focus down. We decided on food inventory management and budgeting. I put together wireframes and iterated on them from feedback. We launched version 0.9 in the App Store.
 
-### Understand Food Waste
+<div className="grid grid-cols-1 sm:grid-cols-2 pt-6 gap-4">
+  <div className="m-auto pb-0 sm:pb-4">
+    {/* <div className="flex py-2">
+      <Button link="https://xd.adobe.com/view/0b9e365e-d3bb-4054-8233-540514a59951-5ecd/" text="Clickable Prototype" />
+    </div> */}
+    <div className="text-lg font-semibold">Inventory Management App</div>
+    - Add items through scanning a receipt.
+    - Manually add items through search.
+    - Track spend through expense report.
+  </div>
+  <VideoPlayer link="/videos/ylli.mp4" poster="/videos/ylli-poster.png" phone="iPhone13Pro" width="224" />
+</div>
 
-The team and I kicked off our research by getting a better understanding of food waste. I spoke with six people about their food habits. They were frequent grocery shoppers, in the age range of 27-40. They lived with their partner or have families. I also researched competitor products with the team.
+---
 
-<div className="py-4">
-  ![Food waste stats](/static/images/work/ylli/chart1.png)
-  <div className="text-xs text-center">
-    Source:{' '}
-    <a
-      href="https://essayzilla.org/wp-content/uploads/2020/12/20190403031440household_food_waste__3_.pdf#page=4"
-      target="_blank"
-      rel="noreferrer noopener"
-    >
-      U.S. Household Food Waste: Awareness and Attitudes
-    </a>
+## Receipt Scan Iteration
+
+The receipt scan flow needed some updates. Users had trouble scanning their receipts. They couldn't add missing items from the scan. And the error alerts needed a copy update.
+
+<div className="space-y-2.5">
+  <div className="flex items-center">
+    <span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="mx-1 mr-2 h-5 w-5"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"
+        />
+      </svg>
+    </span>
+    <span className="tabular-nums">71% of photos were duplicates of the same receipt.</span>
+  </div>
+
+  <div className="flex items-center">
+    <span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="mx-1 mr-2 h-5 w-5"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125"
+        />
+      </svg>
+    </span>
+    <span className="tabular-nums">14% of analyzed receipts in photo storage.</span>
+  </div>
+
+  <div className="flex items-center">
+    <span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="mx-1 mr-2 h-5 w-5"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
+      </svg>
+    </span>
+    <span className="tabular-nums">18% of users completed their receipt scan.</span>
   </div>
 </div>
 
-Consumers are by far, the biggest contributors of food waste. Below are some quotes that help explain how big of an issue it has become in the U.S.
+### Identify Opportunities
 
-> ​​​​​ ​Food is the largest single source of waste in the U.S. More food ends up in landfills than plastic or paper (source: <a href="https://www.npr.org/sections/thesalt/2014/11/17/364172105/to-end-food-waste-change-needs-to-begin-at-home" target="_blank" rel="noreferrer noopener">NPR</a>).
+I went through our current scan flow and identified some areas where we could improve.
+- Scan won't work until OCR (optical character recognition) recognizes receipt.
+- Present error alert before photo capture.
+- Let users know which items need required information.
 
-> In 2018 EPA estimates that more than 63 million tons of wasted food was generated, and about 40 percent came from households (source: <a href="https://www.epa.gov/sustainable-management-food/food-too-good-waste-implementation-guide-and-toolkit#whyis" target="_blank" rel="noreferrer noopener">United States Environmental Protection Agency</a>).
+### Design New Receipt Scan
 
-> Experts have projected that reducing food losses by just 15 percent would provide enough food for more than 25 million Americans every year (source: <a href="https://www.usda.gov/media/press-releases/2015/09/16/usda-and-epa-join-private-sector-charitable-organizations-set" target="_blank" rel="noreferrer noopener">U.S. Department of Agriculture</a>).
-
-<div className="py-4">
-  ![More food waste stats](/static/images/work/ylli/chart2.png)
-  <div className="text-xs text-center">
-    Source:{' '}
-    <a
-      href="https://www.nrdc.org/sites/default/files/wasted-2017-report.pdf#page=10"
-      target="_blank"
-      rel="noreferrer noopener"
-    >
-      Natural Resources Defense Council, Inc.
-    </a>
-  </div>
-</div>
-
-### Synthesize & Explore Competitors' Features
-
-For the user interviews, I summarized the responses into four main categories. These insights were helpful in figuring out how users managed their items and budgeting. It also helped us with pain points prioritization.
-
-<div className="grid grid-cols-1 md:grid-cols-2 py-4 gap-4 text-sm">
-  <div>
-    <div className="font-semibold text-gray-900 dark:text-gray-100">Motivations</div>
-    <div className="-space-y-1">
-      - Manage and keep track of inventory and budget
-      - Cut spending on unnecessary items
-      - Maintain healthly lifestyle and lower carbon footprint
-      - Don't throw away food that is still edible
-      - Discover recipes to use up extra ingredients
-    </div>
-  </div>
-
-  <div>
-    <div className="font-semibold text-gray-900 dark:text-gray-100">Pain Points</div>
-    <div className="-space-y-1">
-      - Difficult to share or trade food items
-      - Forgetful of what items exist at home
-      - Uncertain of item expiration without expiration labels
-      - Hard to keep track of spend for wasted items
-      - Inputting items manually can be time-consuming
-    </div>
-  </div>
-
-  <div>
-    <div className="font-semibold text-gray-900 dark:text-gray-100">Behaviors</div>
-    <div className="-space-y-1">
-      - Write grocery list items down on phone or paper 
-      - Rarely spend time checking inventory, just go out and buy 
-      - Use credit card statements to keep track of budget
-    </div>
-  </div>
-
-  <div>
-    <div className="font-semibold text-gray-900 dark:text-gray-100">Channels</div>
-    <div className="-space-y-1">
-      - Whiteboard, paper, and stickie notes 
-      - Software and apps for different use cases (Excel, Mint, Tasty, Notes, banking apps, etc.)
-    </div>
-  </div>
-</div>
-
-The team narrowed down the competitors with a focus on five features. Those five features turned to two—food inventory management and budgeting. We agreed that these two features would offer more value than the other three. It also would be easier to implement.
-
-<div className="py-4">![Competitors and features](/static/images/work/ylli/competitors.png)</div>
-
-### Focus on Food Management & Budgeting
-
-After going through the competitor apps and findings with stakeholders, I put together a user flow. It focuses on users adding items through two options, manual option and receipt scanning. Then users can mark their items to track their expenses. The receipt scanning feature was something the stakeholders thought was an absolute must-have.
-
-<div className="py-4">![User flow](/static/images/work/ylli/user-flow.png)</div>
-
-I mocked up some Lo-Fi wireframes using the flow above. After several iterations, I made sure that both features had the necessary visual information for their main screen. The inventory screen had item cards with the following information—name, expiration date, and price. The expense report screen mapped out the different categories of spend.
-
-<div className="projectImageGrid">
-
-    ![Inventory screen](/static/images/work/ylli/wireframe1.png)
-
-    ![Item info screen](/static/images/work/ylli/wireframe2.png)
-
-    ![Swipe actions screen](/static/images/work/ylli/wireframe3.png)
-
-    ![Notifications screen](/static/images/work/ylli/wireframe4.png)
-
-    ![Report screen](/static/images/work/ylli/wireframe5.png)
-
-    ![Add item options screen](/static/images/work/ylli/wireframe6.png)
-
-    ![Search item screen](/static/images/work/ylli/wireframe7.png)
-
-    ![Edit info screen](/static/images/work/ylli/wireframe8.png)
-
-</div>
-
-### Test Ideas Using Early Prototype
-
-I converted the Lo-Fi wireframes into an early clickable prototype. I asked seven participants to complete a list of tasks and any suggestions they had. The participants completed most of the tasks with ease, except the swipe actions. Several of them recommended creating a tutorial to make it clearer. The swipe actions redesign got pushed back and will launch at a later date.
+After getting the screens and the copy down, I put together a prototype for testing. In this phase of testing, we didn't include the real-time errors. We decided it was better to do it in-house with different edge cases.
 
 {/* <div className="flex justify-center py-6">
-  <Button
-    link="https://xd.adobe.com/view/faacdecc-f1ad-4e90-998d-de8240f5b4e8-afff/"
-    text="Early Prototype"
-  />
+  <Button link="https://xd.adobe.com/view/054c2c94-149a-45e6-a131-18987683f5db-501f/" text="Prototype" />
 </div> */}
 
-<div className="py-4">![User interviews](/static/images/work/ylli/user-interviews.png)</div>
 
-### Refine Designs & Continue Iterating
+<div className="grid grid-cols-1 sm:grid-cols-2 py-4 gap-4">
+  <div className="m-auto pb-0 sm:pb-4">
+    <div className="text-lg text-[#FFD968] font-semibold">Receipt Scan Updates</div>
+    - Wider capture box for scan.
+    - New error alerts and indicators.
+    - Globally change purchase date.
+    - Add missing item after scan.
+    - Option to delete card and undo action.
+  </div>
+  <VideoPlayer link="/videos/ylli-receipt-scan.mp4" poster="/videos/ylli-receipt-scan-poster.png" phone="iPhone13Pro" width="224" />
+</div>
 
-After countless iterations, here were some of the crucial changes.
+### Test Error Handling
 
-- Users have three methods to find and organize their items. They can search, filter by category, and sort items using five different options.
+We tested the live error handling in-house. We wanted to account for as many edge cases as we could. These included faded, wrinkled, and marked receipts. Also wanted to make sure the 80-90% threshold accuracy remained the same with the new changes. The decision was to stick with the two error alerts, and add more when needed.
 
-<div className="projectImageGrid">
+<div className="grid grid-cols-1 sm:grid-cols-2 py-4 gap-4">
+  <div className="m-auto pb-0 sm:pb-4">
+    <div className="text-lg text-[#FFD968] font-semibold">Error Handling Alerts</div>
+    - Capture button disappears on errors.
+    - Brightness error on dark background.
+    - Adjust error when receipt is not recognized.
+  </div>
+  <VideoPlayer link="/videos/ylli-receipt-error-handling.mp4" poster="/videos/ylli-receipt-error-handling-poster.png" phone="iPhone13Pro" width="224"/>
+</div>
 
-  ![Inventory home screen](/static/images/work/ylli/screen1.png)
+### Conclusion
 
-  ![Search inventory screen](/static/images/work/ylli/screen2.png)
+After about a month of the updates, we saw improvements in our metrics. The new error alerts and disabled capture button prevented unnecessary photos. The updated UI and indicators also helped more users complete their receipt scan. We also reduced future cost by getting rid of unnecessary photos in storage.
 
-  ![Category filter screen](/static/images/work/ylli/screen3.png)
+<div className="space-y-2.5">
+  <div className="flex items-center">
+    <span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="mx-1 mr-2 h-5 w-5"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"
+        />
+      </svg>
+    </span>
+    <span className="tabular-nums"><span className="line-through">71%</span><span className="font-bold"> 19%</span> of photos were duplicates of the same receipt.</span>
+  </div>
 
-  ![Sort items by screen](/static/images/work/ylli/screen4.png)
+  <div className="flex items-center">
+    <span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="mx-1 mr-2 h-5 w-5"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125"
+        />
+      </svg>
+    </span>
+    <span className="tabular-nums"><span className="line-through">14%</span><span className="font-bold"> 85%</span> of analyzed receipts in photo storage.</span>
+  </div>
+
+  <div className="flex items-center">
+    <span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="mx-1 mr-2 h-5 w-5"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
+      </svg>
+    </span>
+    <span className="tabular-nums"><span className="line-through">18%</span><span className="font-bold"> 70%</span> of users completed their receipt scan.</span>
+  </div>
+</div>
+
+---
+
+## Item Card Iteration
+
+Users were struggling with the swipe feature. The card design didn't provide us with enough flexibility. It wasn't designed wide enough for us to implement future features on our roadmap. About 28% of users were moving items to the expense report. A lot of them had no clue that this feature existed.
+
+### Short-Term Tutorial Fix
+
+The current item card didn't offer a swipe experience that users expected. The short-term fix was effective in that it increased the 28% number to about 53%. But there were still some complaints about the experience not being ideal.
+
+<div className="projectImageGrid pt-4">
+
+    ![Click to add items tutorial screen](/images/work/ylli-item-card/tutorial1.png)
+
+    ![Added first item tutorial screen](/images/work/ylli-item-card/tutorial2.png)
+
+    ![Swipe for more actions tutorial screen](/images/work/ylli-item-card/tutorial3.png)
+
+    ![Available options tutorial screen](/images/work/ylli-item-card/tutorial4.png)
 
 </div>
 
-- The expense report shows a category breakdown for better insights into spending habits. Also have the option of filtering the report by time periods.
+### Focus On Native iOS
 
-<div className="projectImageGrid">
+With the app being only in the App Store, the team agreed to focus on a native iOS design. The feedback from the short-term fix and seeing iOS 15's new swipe actions made it an easy decision. The goal was to make the swiping experience more natural. And to widen the click box, so there would be less misclicks.
 
-  ![Total spend screen](/static/images/work/ylli/screen5.png)
+{/* <div className="flex justify-center py-6">
+  <Button link="https://xd.adobe.com/view/ec45e4a2-ebac-4499-a5d9-31a4c1c9d798-b916/" text="Prototype" />
+</div> */}
 
-  ![Item breakdown screen](/static/images/work/ylli/screen6.png)
+<div className="grid grid-cols-1 sm:grid-cols-2 py-6 gap-4">
+  <div className="m-auto pb-0 sm:pb-4">
+    <div className="text-lg text-[#59A4F5] font-semibold">Item Card Updates</div>
+    - Swipe right to mark item as finished.
+    - Swipe left to mark item as expired.
+    - Tap card to open item info screen.
+    - Tap 'Delete Item' to delete card.
+    - Tap 'Undo' to revert changes.
+  </div>
+  <VideoPlayer link="/videos/ylli-item-card-updates.mp4" poster="/videos/ylli-item-card-updates-poster.png" phone="iPhone13Pro" width="224" />
+</div>
 
-  ![Spend category breakdown screen](/static/images/work/ylli/screen7.png)
+### Design New Tutorial
 
-  ![Filter report by screen](/static/images/work/ylli/screen8.png)
+Users struggled with a simple tutorial. We decided to make it a bit more interactive with animation guides and overlays. I created a simple tapping and sliding animation using After Effects.
+
+<div className="grid grid-cols-1 md:grid-cols-2 py-2 gap-y-4 gap-x-3">
+
+    ![Tap animation](/images/work/ylli-item-card/tap-animation.gif)
+
+    ![Swipe animation](/images/work/ylli-item-card/swipe-animation.gif)
 
 </div>
 
-- Made the add/edit item screen more accessible with labels. Added optional fields and default category images to speed up process of adding items.
-
-<div className="projectImageGrid">
-
-  ![Add item screen](/static/images/work/ylli/screen9.png)
-
-  ![Select category screen](/static/images/work/ylli/screen10.png)
-
-  ![Select expiration date screen](/static/images/work/ylli/screen11.png)
-
-  ![Completed info screen](/static/images/work/ylli/screen12.png)
-
+<div className="grid grid-cols-1 sm:grid-cols-2 py-6 gap-4">
+  <div className="m-auto pb-0 sm:pb-4">
+    <div className="text-lg text-[#59A4F5] font-semibold">Tutorial Updates</div>
+    - Added swipe and tap animations.
+    - Added worded description for each step.
+  </div>
+  <VideoPlayer link="/videos/ylli-updated-tutorial.mp4" poster="/videos/ylli-updated-tutorial-poster.png" phone="iPhone13Pro" width="224" />
 </div>
 
-- More control for users by letting them allow/not allow access to camera and photos. Item names and default images now populates after OCR (optical character recognition) receipt scan.
+### Conclusion
 
-<div className="projectImageGrid">
+We weren't able to implement all the changes.
 
-  ![Camera access screen](/static/images/work/ylli/screen13.png)
+- Instead of having users go through each step of the tutorial, we created a video to speed up some of the process. 
+- Due to timing, we didn't update the undo button and left it as it was in the previous design. 
+- The delete button wasn't implemented in this iteration.
 
-  ![Receipt scan screen](/static/images/work/ylli/screen14.png)
+But we did see a jump from 28% to 72%. While the redesign looks successful early on, we still need to continue monitoring it.
 
-  ![Photo access screen](/static/images/work/ylli/screen15.png)
-
-  ![Scanned items screen](/static/images/work/ylli/screen16.png)
-
+<div className="text-center py-4 font-bold text-lg">Users moving items to expense report</div>
+<div className="grid grid-cols-3 text-center gap-x-3">
+  <div className="py-4">
+    <div className="metricHeader text-[#59A4F5]">28%</div>
+    <p className="text-xs sm:text-base">Old design <br />without tutorial</p>
+  </div>
+  <div className="py-4">
+    <div className="metricHeader text-[#59A4F5]">53%</div>
+    <p className="text-xs sm:text-base">Old design with <br />short-term tutorial</p>
+  </div>
+  <div className="py-4">
+    <div className="metricHeader text-[#59A4F5]">72%</div>
+    <p className="text-xs sm:text-base">New design with <br />updated tutorial</p>
+  </div>
 </div>
 
-### Handoff & Implementation
+---
 
-There was a lot of back and forth between the teams on what and how to proceed. One of the core features that we delayed was the reminders feature. Feedback and discussions told us that the feature wasn't quite where we wanted. We used Adobe XD's specs and commenting for developer handoff with the updated prototype.
-
-<div className="flex justify-center py-6">
-  <Button
-    link="https://xd.adobe.com/view/0b9e365e-d3bb-4054-8233-540514a59951-5ecd/"
-    text="Updated Prototype"
-  />
-</div>
-
-<div className="projectImageGrid">
-
-    ![Sort items filter screen](/static/images/work/ylli/handoff1.png)
-
-    ![Category filters screen](/static/images/work/ylli/handoff2.png)
-
-    ![Swipe actions screen](/static/images/work/ylli/handoff3.png)
-
-    ![Edit info screen](/static/images/work/ylli/handoff4.png)
-
-</div>
-
-We launched version 0.9 and wanted feedback from a live product as soon as possible. We also wanted to spend some more time preparing delayed features and fixing bugs.
-
-## Next Steps & Reflection
-
-While the product is live in the App Store, there are still tasks that we need to complete. In hindsight, we should have waited a bit longer to complete some of these tasks. But we were on a time crunch and had to move up the timeline.
-
-Now that version 0.9 is live in the App Store, we can look for product market fit. We are also gathering feedback to help prioritize and add to our roadmap. Currently, we are continuing our implementation of the reminders feature. We are also rethinking the swipe actions and item card.
-
-Here are the key takeaways from this project:
+## Reflection
 
 <div className="keyTakeaways">
-  1. <span className="font-semibold">The plan and roadmap is always adapting.</span> New and
-  existing features can get delayed to a later release date. Continue to communicate and stay
-  updated with what's happening.
+  1. <span className="font-semibold">Tradeoffs and disagreements will occur.</span> The goal is to get
+  on the same page through compromise. Then come up with the best path forward.
 </div>
 
 <div className="keyTakeaways">
-  2. <span className="font-semibold">Designs fail and that is okay.</span> There is no such thing as
-  a perfect solution, things can and will break during testing. Don't see it as a failure, but
-  rather a lesson for the future.
+  2. <span className="font-semibold">It's okay if production doesn't match handoff.</span> Priorities
+  and designs are always shifting. Document the inconsistencies and advocate for them to get fixed.
 </div>
 
 <div className="keyTakeaways">
-  3. <span className="font-semibold">Change takes time.</span> Be persistent and continue building
-  rapport. Never stop advocating for the user. But understand that the business side of things can
-  slow things down.
+  3. <span className="font-semibold">The end goal differs for each feature.</span> Aligning both business and user needs requires balance. When they both have the same goal, it becomes an amazing collaborative effort.
 </div>

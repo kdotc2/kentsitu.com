@@ -33,7 +33,7 @@ const VideoPlayer = ({
         <div className="group absolute z-10">
           <Image
             alt="iPhone layout"
-            src={`/static/videos/${phone ? phone : 'iPhoneXS'}.png`}
+            src={`/videos/${phone ? phone : 'iPhoneXS'}.png`}
             width={250}
             height={503}
           />
