@@ -11,7 +11,7 @@ function Sidebar() {
 
   return (
     <nav
-      className={`sticky top-0 z-[40] hidden flex-shrink-0 flex-col overflow-y-auto bg-[#f2f2f2] md:flex md:h-[calc(100vh)] lg:h-screen dark:bg-[#121212] ${'w-[180px] lg:w-[240px]'}`}
+      className={`sticky top-0 z-[40] hidden flex-shrink-0 flex-col overflow-y-auto bg-[#f2f2f2] dark:bg-[#121212] md:flex md:h-[calc(100vh)] lg:h-screen ${'w-[180px] lg:w-[240px]'}`}
     >
       <AnimatePresence>
         <div className="my-8 lg:my-12">
@@ -19,15 +19,15 @@ function Sidebar() {
             <Link href="/">Kent Situ</Link>
           </header>
           <>
-            {sections.map((section, i) => {
+            {sections.map((section) => {
               return (
-                <div key={i}>
+                <div key={section.label}>
                   {section.label && (
                     <h4 className="mb-2 ml-8 pt-6 text-xs font-medium">{section.label}</h4>
                   )}
                   <ul className="mx-5">
-                    {section.items.map((item, j) => (
-                      <li className="text-[13px]" key={j}>
+                    {section.items.map((item) => (
+                      <li className="text-[13px]" key={item.title}>
                         <NavigationLink link={item} />
                       </li>
                     ))}
