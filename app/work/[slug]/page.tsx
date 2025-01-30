@@ -1,39 +1,48 @@
 import { allWorks } from 'contentlayer/generated'
-import {
-  getContentBySlug,
-  generateStaticParamsForContent,
-  generateMetadataForContent,
-} from '@/lib/utils/contentUtils'
 import { MDXComponents, Mdx } from '@/components/mdx/MDXComponents'
 import { getTableOfContents } from '@/lib/toc'
 import { notFound } from 'next/navigation'
 import { TableOfContents } from '@/components/mdx/Toc'
 
-export const generateStaticParams = async (): Promise<{ slug: string }[]> =>
-  generateStaticParamsForContent(allWorks)
+export const generateStaticParams = async () =>
+  allWorks
+    .filter((post) => !post.draft) // Exclude drafts
+    .map((post) => ({ slug: post.slug }))
 
-export const generateMetadata = async ({
+export async function generateMetadata({
   params,
 }: {
-  params: { slug: string }
-}) => {
-  return await generateMetadataForContent({
-    params,
-    allContent: allWorks,
-    basePath: '/work',
-  })
+  params: Promise<{ slug: string }>
+}) {
+  const { slug } = await params
+  const post = allWorks.find((post) => post.slug === slug)
+
+  if (!post || post.draft) {
+    return
+  }
+
+  const { title, summary: description, image } = post
+
+  return {
+    title,
+    description,
+    openGraph: {
+      images: {
+        url: image,
+      },
+    },
+  }
 }
 
 export default async function WorkLayout({
   params,
 }: {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }) {
-  const resolvedParams = await params
-  const post = getContentBySlug(resolvedParams.slug, allWorks)
+  const { slug } = await params
+  const post = allWorks.find((post) => post.slug === slug)
 
   if (!post || post.draft) {
-    // Check if the post exists or is a draft
     notFound()
   }
 

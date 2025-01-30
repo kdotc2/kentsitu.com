@@ -1,4 +1,3 @@
-import { Mdx } from '@/components/mdx/MDXComponents'
 import React from 'react'
 
 type LayoutHeaderProps = {
@@ -6,9 +5,9 @@ type LayoutHeaderProps = {
   description: React.ReactNode
 }
 
-type LayoutContentProps = {
-  className?: string
-}
+// type LayoutContentProps = {
+//   className?: string
+// }
 
 export const LayoutHeader = ({ title, description }: LayoutHeaderProps) => {
   return (
@@ -19,10 +18,10 @@ export const LayoutHeader = ({ title, description }: LayoutHeaderProps) => {
   )
 }
 
-export const LayoutContent = ({ className }: LayoutContentProps) => {
-  return (
-    <div className="prose max-w-none dark:prose-invert">
-      <Mdx content={post} MDXComponents={MDXComponents} />
-    </div>
-  )
-}
+// export const LayoutContent = ({ className }: LayoutContentProps) => {
+//   return (
+//     <div className={cn('prose max-w-none dark:prose-invert', className)}>
+//       <Mdx content={post} MDXComponents={MDXComponents} />
+//     </div>
+//   )
+// }

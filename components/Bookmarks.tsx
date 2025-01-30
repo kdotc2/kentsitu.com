@@ -5,12 +5,6 @@ import Link from 'next/link'
 import { useEffect, useMemo, useRef, useState } from 'react'
 // import Masonry from 'react-masonry-css'
 
-const breakpointColumnsObj = {
-  default: 3,
-  1280: 2,
-  640: 1,
-}
-
 type MetaData = {
   title: string
   description: string

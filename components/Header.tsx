@@ -1,6 +1,5 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import {
   Breadcrumb,
@@ -16,59 +15,46 @@ import { SidebarTrigger } from '@/components/ui/sidebar'
 import { Clock } from '@/components/Clock'
 import { cn } from '@/lib/utils'
 
+// Special title mappings for known paths
+const titleMappings: Record<string, string> = {
+  ylli: 'YLLI',
+  'portfolio-update-2': 'Portfolio Update 2.0',
+  // Add more mappings here
+}
+
 // Utility function to format titles
 const formatTitle = (text: string) => {
-  if (text === 'ylli') {
-    return 'YLLI'
-  } else
-    return text
-      .split('-') // Split words by hyphens
-      .map((word) => {
-        if (word.length <= 3) {
-          return word.toLowerCase() // Lowercase words with 3 letters or less
-        }
-        return word.charAt(0).toUpperCase() + word.slice(1) // Capitalize longer words
-      })
-      .join(' ') // Join back with spaces
+  // Return pre-defined title if it exists
+  if (titleMappings[text]) {
+    return titleMappings[text]
+  }
+
+  return text
+    .split('-')
+    .map((word) =>
+      word.length <= 3
+        ? word.toLowerCase()
+        : word.charAt(0).toUpperCase() + word.slice(1)
+    )
+    .join(' ')
 }
 
 export const Header = () => {
-  const pathname = usePathname() // Get the current pathname
+  const pathname = usePathname()
   const router = useRouter()
 
-  // Initialize state with formatted pathname
-  const [activeContent, setActiveContent] = useState(() => {
-    const pathParts = pathname.split('/').filter(Boolean)
-    return pathParts.length > 0 ? formatTitle(pathParts[0]) : ''
-  })
-
-  const [activeTitle, setSelectedTitle] = useState(() => {
-    const pathParts = pathname.split('/').filter(Boolean)
-    return pathParts.length > 1
-      ? pathParts.slice(1).map(formatTitle).join(' > ')
-      : ''
-  })
-
-  useEffect(() => {
-    const pathParts = pathname.split('/').filter(Boolean)
-    setActiveContent(pathParts.length > 0 ? formatTitle(pathParts[0]) : '')
-    setSelectedTitle(
-      pathParts.length > 1
-        ? pathParts.slice(1).map(formatTitle).join(' > ')
-        : ''
-    )
-  }, [pathname])
+  const pathParts = pathname.split('/').filter(Boolean)
+  const activeContent = pathParts.length > 0 ? formatTitle(pathParts[0]) : ''
+  const activeTitle =
+    pathParts.length > 1 ? pathParts.slice(1).map(formatTitle).join(' > ') : ''
 
   const handleTitleClick = (e: React.MouseEvent) => {
     e.preventDefault()
-    setSelectedTitle('')
     router.push(`/${activeContent.toLowerCase()}`)
   }
 
   const handleHomeClick = (e: React.MouseEvent) => {
     e.preventDefault()
-    setSelectedTitle('')
-    setActiveContent('')
     router.push('/')
   }
 

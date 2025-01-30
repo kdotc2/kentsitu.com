@@ -10,6 +10,7 @@ import { CurrentSlideProvider } from '@/context/CurrentSlideContext'
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar'
 import { AppSidebar } from '@/components/AppSidebar'
 import { Header } from '@/components/Header'
+import { Suspense } from 'react'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -37,21 +38,24 @@ export default function RootLayout({
       <body className={`${inter.variable} antialiased`}>
         <ThemeProvider>
           <MDXProviderWrapper>
-            <CurrentSlideProvider>
-              <ModeProvider>
-                <SidebarProvider>
-                  <AppSidebar />
-                  <SidebarInset>
-                    <Header />
-                    <div className="relative overflow-y-auto">
-                      <div className="mx-auto max-w-5xl p-5 supports-[height:100dvh]:h-[calc(100dvh-64px)] md:p-10">
-                        {children}
+            {/* Wrap the client-side providers in Suspense */}
+            <Suspense fallback={<div>Loading...</div>}>
+              <CurrentSlideProvider>
+                <ModeProvider>
+                  <SidebarProvider>
+                    <AppSidebar />
+                    <SidebarInset>
+                      <Header />
+                      <div className="relative overflow-y-auto">
+                        <div className="mx-auto max-w-5xl p-5 supports-[height:100dvh]:h-[calc(100dvh-64px)] md:p-10">
+                          {children}
+                        </div>
                       </div>
-                    </div>
-                  </SidebarInset>
-                </SidebarProvider>
-              </ModeProvider>
-            </CurrentSlideProvider>
+                    </SidebarInset>
+                  </SidebarProvider>
+                </ModeProvider>
+              </CurrentSlideProvider>
+            </Suspense>
           </MDXProviderWrapper>
         </ThemeProvider>
       </body>

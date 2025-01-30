@@ -3,7 +3,6 @@ import { visit } from 'unist-util-visit'
 
 /**
  * Parses title from code block and inserts it as a sibling title node.
- *
  */
 export function remarkCodeTitles() {
   return (tree: Parent & { lang?: string }) =>
@@ -17,7 +16,7 @@ export function remarkCodeTitles() {
 
         if (nodeLang.includes(':')) {
           language = nodeLang.slice(0, nodeLang.search(':'))
-          title = nodeLang.slice(nodeLang.search(':') + 1, nodeLang.length)
+          title = nodeLang.slice(nodeLang.search(':') + 1)
         }
 
         if (!title) {
@@ -36,7 +35,16 @@ export function remarkCodeTitles() {
           data: { _xdmExplicitJsx: true },
         }
 
-        parent.children.splice(index, 0, titleNode)
+        // Ensure index is a number before using it with splice
+        if (
+          index !== undefined &&
+          parent.children &&
+          Array.isArray(parent.children)
+        ) {
+          parent.children.splice(index, 0, titleNode)
+        }
+
+        // Ensure lang is updated for the node
         node.lang = language
       }
     )

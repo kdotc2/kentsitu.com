@@ -1,6 +1,6 @@
 'use client'
 
-import React, { ReactNode, useEffect } from 'react'
+import React, { ReactNode, useEffect, isValidElement, Children } from 'react'
 import { useRouter, useSearchParams, usePathname } from 'next/navigation'
 import { Slide } from '@/components/slide-deck/Slide'
 import { PresentationMode } from '@/components/slide-deck/PresentationMode'
@@ -15,56 +15,51 @@ interface SlidePageProps {
   children: ReactNode
 }
 
+const processChildren = (
+  children: ReactNode,
+  slideNotes: NotesContent,
+  slides: ReactNode[][]
+) => {
+  let currentIndex = 0
+  let generatorCount = 0
+
+  // Process each child in one pass
+  Children.forEach(children, (child) => {
+    if (!isValidElement(child)) return
+
+    const childProps = child.props as { children?: ReactNode } // Type assertion to access child.props
+
+    if (child.type === 'hr') {
+      // New slide separation
+      currentIndex++
+      slides[currentIndex] = []
+    } else if (child.type === SpeakerNotes) {
+      // Process speaker notes
+      if (!slideNotes[generatorCount]) slideNotes[generatorCount] = []
+      Children.forEach(childProps.children, (noteChild) => {
+        if (isValidElement(noteChild))
+          slideNotes[generatorCount].push(noteChild)
+      })
+    } else {
+      // Normal slide content
+      slides[currentIndex].push(child)
+    }
+  })
+}
+
 export default function SlidePage({ children }: SlidePageProps) {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
-  // Memoize slide notes
-  const slideNotes = React.useMemo((): NotesContent => {
-    const generatedNotes: NotesContent = {}
-    let generatorCount = 0
+  // Memoize slide notes and content by processing children once
+  const { slideNotes, slides } = React.useMemo(() => {
+    const notes: NotesContent = {}
+    const slidesArr: ReactNode[][] = [[]]
 
-    const processChild = (child: ReactNode) => {
-      if (!React.isValidElement(child)) return
+    processChildren(children, notes, slidesArr)
 
-      if (child.type === 'hr') {
-        generatorCount++
-      } else if (child.type === SpeakerNotes) {
-        if (!generatedNotes[generatorCount]) {
-          generatedNotes[generatorCount] = []
-        }
-        React.Children.forEach(child.props.children, (noteChild) => {
-          if (React.isValidElement(noteChild)) {
-            generatedNotes[generatorCount].push(noteChild)
-          }
-        })
-      } else if (child.props?.children) {
-        React.Children.forEach(child.props.children, processChild)
-      }
-    }
-
-    React.Children.forEach(children, processChild)
-    return generatedNotes
-  }, [children])
-
-  // Memoize slide content
-  const slides = React.useMemo(() => {
-    const renderedSlides: ReactNode[][] = [[]]
-    let currentIndex = 0
-
-    React.Children.forEach(children, (child) => {
-      if (!React.isValidElement(child)) return
-
-      if (child.type === 'hr') {
-        currentIndex++
-        renderedSlides[currentIndex] = []
-      } else {
-        renderedSlides[currentIndex].push(child)
-      }
-    })
-
-    return renderedSlides
+    return { slideNotes: notes, slides: slidesArr }
   }, [children])
 
   const { currentSlide, mode, setSlide } = useKeyboardNavigation({
