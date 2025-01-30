@@ -1,9 +1,8 @@
 'use client'
-import type { TableOfContents } from '@lib/remark-toc-headings'
-import { ListBulletIcon } from '@heroicons/react/24/outline'
+import type { TableOfContents } from '@/lib/toc'
+import { List } from 'lucide-react'
 import { useState, useEffect, useMemo } from 'react'
-import { motion } from 'framer-motion'
-import { cn } from '@lib/utils/utils'
+import { cn } from '@/lib/utils'
 import clsx from 'clsx'
 
 interface TocProps {
@@ -46,7 +45,10 @@ export function TableOfContents({ toc }: TocProps) {
 
   return (
     <div
-      className={clsx(`${tocShow ? ' ml-[104px]' : 'absolute flex'}`, 'ml-5 pt-4')}
+      className={clsx(
+        `${tocShow ? ' ml-[104px]' : 'absolute flex'}`,
+        'ml-5 pt-4'
+      )}
       onMouseEnter={() => setTooltipStatus(true)}
       onMouseLeave={() => setTooltipStatus(false)}
     >
@@ -58,7 +60,7 @@ export function TableOfContents({ toc }: TocProps) {
             className="flex items-center justify-center rounded-full border border-gray-200 bg-[#f2f2f2] p-2.5 text-gray-900 active:scale-95 active:border-gray-300 active:bg-[#ebebeb] md:hover:border-gray-300 md:hover:bg-[#ebebeb] dark:border-gray-700 dark:bg-[#121212] dark:text-gray-100 active:dark:border-gray-600 active:dark:bg-[#191919] md:hover:dark:border-gray-600 md:hover:dark:bg-[#191919]"
             onClick={onToggleToc}
           >
-            <ListBulletIcon className="h-5 w-5" />
+            <List className="h-5 w-5" />
           </button>
           {tooltipStatus && (
             <>
@@ -71,20 +73,12 @@ export function TableOfContents({ toc }: TocProps) {
           )}
         </div>
       </div>
-      <>
-        {tocShow && (
-          <motion.div
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 0 }}
-            initial={{ opacity: 0, y: -16 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-          >
-            <div className="w-[200px] space-y-4">
-              <Tree tree={toc} activeItem={activeHeading} />
-            </div>
-          </motion.div>
-        )}
-      </>
+
+      {tocShow && (
+        <div className="w-[200px] space-y-4">
+          <Tree tree={toc} activeItem={activeHeading} />
+        </div>
+      )}
     </div>
   )
 }
@@ -148,7 +142,8 @@ function Tree({ tree, level = 1, activeItem }: TreeProps) {
               href={item.url}
               className={cn(
                 'text-gray-400 no-underline hover:text-gray-800 dark:text-gray-600 hover:dark:text-gray-200',
-                item.url === `#${activeItem}` && 'text-gray-800 dark:text-gray-200'
+                item.url === `#${activeItem}` &&
+                  'text-gray-800 dark:text-gray-200'
               )}
             >
               <div
@@ -158,7 +153,8 @@ function Tree({ tree, level = 1, activeItem }: TreeProps) {
                     'ml-1 border-l border-l-gray-300 py-1 pl-4 hover:border-l-gray-800 hover:text-gray-800 dark:border-l-gray-700 hover:dark:border-l-gray-200 hover:dark:text-gray-200':
                       level !== 1,
                   },
-                  item.url === `#${activeItem}` && 'border-l-gray-800 dark:border-l-gray-200'
+                  item.url === `#${activeItem}` &&
+                    'border-l-gray-800 dark:border-l-gray-200'
                 )}
               >
                 {item.title}

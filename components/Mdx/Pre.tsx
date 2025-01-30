@@ -1,9 +1,9 @@
 'use client'
 
-import { ClipboardDocumentCheckIcon, ClipboardDocumentIcon } from '@heroicons/react/24/outline'
+import { Clipboard, ClipboardCheck } from 'lucide-react'
 import React from 'react'
 
-type PreProps = JSX.IntrinsicElements['pre']
+type PreProps = React.HTMLProps<HTMLPreElement> // This includes all props for <pre> element
 
 const Pre = (props: PreProps) => {
   const { children, ...rest } = props
@@ -37,9 +37,9 @@ const Pre = (props: PreProps) => {
         title="Copy to clipboard"
       >
         {isCopied ? (
-          <ClipboardDocumentCheckIcon className="h-5 w-5" />
+          <ClipboardCheck className="h-5 w-5" />
         ) : (
-          <ClipboardDocumentIcon className="h-5 w-5" />
+          <Clipboard className="h-5 w-5" />
         )}
       </button>
       <pre className="overflow-x-scroll" ref={textInput} {...rest}>

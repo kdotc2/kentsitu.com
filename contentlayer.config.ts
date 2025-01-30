@@ -1,18 +1,17 @@
-import { defineDocumentType, ComputedFields, makeSource } from 'contentlayer2/source-files'
+import {
+  defineDocumentType,
+  ComputedFields,
+  makeSource,
+} from 'contentlayer2/source-files'
 // import readingTime from 'reading-time'
-
 // Remark packages
 import remarkGfm from 'remark-gfm'
-import {
-  remarkExtractFrontmatter,
-  remarkCodeTitles,
-  remarkImgToJsx,
-  extractTocHeadings,
-} from 'pliny/mdx-plugins/index.js'
 // // Rehype packages
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypePrismPlus from 'rehype-prism-plus'
+import { remarkImgToJsx } from '@/lib/mdx-plugins/remark-img-to-jsx'
+import { remarkCodeTitles } from '@/lib/mdx-plugins/remark-code-title'
 
 const computedFields: ComputedFields = {
   // readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },

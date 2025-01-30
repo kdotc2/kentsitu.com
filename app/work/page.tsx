@@ -1,9 +1,9 @@
 import { allWorks } from 'contentlayer/generated'
-import { sortedWorkPost } from '@lib/utils/contentlayer'
+import { sortedWorkPost } from '@/lib/utils/contentlayer'
 import type { Work } from 'contentlayer/generated'
 import Image from 'next/image'
 import Link from 'next/link'
-import LayoutHeader from '@components/LayoutHeader'
+import { LayoutHeader } from '@/components/Layout'
 import { Metadata } from 'next'
 
 const metainfo = {
@@ -21,7 +21,7 @@ export default async function Work() {
 
   return (
     <>
-      <div className="pb-16 pt-10">
+      <div className="">
         <LayoutHeader
           title={metainfo.title}
           description={
@@ -46,7 +46,10 @@ export default async function Work() {
               !draft && (
                 <div key={title} className="grid">
                   <div className="flex h-auto w-full">
-                    <Link href={`/work/${slug}`} className="rounded-[10px] focus:-outline-offset-1">
+                    <Link
+                      href={`/work/${slug}`}
+                      className="rounded-[10px] focus:-outline-offset-1"
+                    >
                       <div className="cardStyle">
                         <Image
                           className="relative flex-shrink-0 rounded-xl"

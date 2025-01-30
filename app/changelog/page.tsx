@@ -1,12 +1,13 @@
 import { allMiscs } from 'contentlayer/generated'
-import { MDXComponents, Mdx } from '@components/Mdx/MDXComponents'
+import { MDXComponents, Mdx } from '@/components/mdx/MDXComponents'
 import { notFound } from 'next/navigation'
-import LayoutHeader from '@components/LayoutHeader'
+import { LayoutHeader } from '@/components/Layout'
 import { Metadata } from 'next'
 
 const metainfo = {
   title: 'Changelog',
-  description: ' A space to keep track of updates and bug fixes for this website.',
+  description:
+    ' A space to keep track of updates and bug fixes for this website.',
 }
 
 export const metadata: Metadata = {
@@ -22,9 +23,9 @@ export default async function ChangelogLayout() {
 
   return (
     <>
-      <div className="pb-16 pt-10">
+      <div className="">
         <LayoutHeader title={post.title} description={post.summary} />
-        <div className="prose max-w-none dark:prose-dark">
+        <div className="prose max-w-none dark:prose-invert">
           <Mdx content={post} MDXComponents={MDXComponents} />
         </div>
       </div>

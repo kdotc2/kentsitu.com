@@ -1,7 +1,7 @@
 'use client'
 import Image from './Image'
 import { useRef, useState } from 'react'
-import { PlayCircleIcon, PauseCircleIcon } from '@heroicons/react/24/outline'
+import { CirclePlay, PauseCircle } from 'lucide-react'
 
 const VideoPlayer = ({
   link,
@@ -57,11 +57,11 @@ const VideoPlayer = ({
         <button onClick={playVideo} className="rounded">
           {isPlaying ? (
             <span className="flex items-center justify-between gap-1">
-              <PauseCircleIcon className="h-5 w-5" /> Pause
+              <PauseCircle className="h-5 w-5" /> Pause
             </span>
           ) : (
             <span className="flex items-center justify-between gap-1">
-              <PlayCircleIcon className="h-5 w-5" /> Play
+              <CirclePlay className="h-5 w-5" /> Play
             </span>
           )}
         </button>

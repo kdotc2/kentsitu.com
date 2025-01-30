@@ -1,47 +1,36 @@
-import { Work, allWorks } from 'contentlayer/generated'
-import { MDXComponents, Mdx } from '@components/Mdx/MDXComponents'
-import { TableOfContents } from '@components/Mdx/Toc'
-import { getTableOfContents } from '@lib/remark-toc-headings'
+import { allWorks } from 'contentlayer/generated'
+import {
+  getContentBySlug,
+  generateStaticParamsForContent,
+  generateMetadataForContent,
+} from '@/lib/utils/contentUtils'
+import { MDXComponents, Mdx } from '@/components/mdx/MDXComponents'
+import { getTableOfContents } from '@/lib/toc'
 import { notFound } from 'next/navigation'
+import { TableOfContents } from '@/components/mdx/Toc'
 
-export const generateStaticParams = async () =>
-  allWorks
-    .filter((post) => !post.draft) // Exclude drafts
-    .map((post) => ({ slug: post.slug }))
+export const generateStaticParams = async (): Promise<{ slug: string }[]> =>
+  generateStaticParamsForContent(allWorks)
 
-export const generateMetadata = ({ params }: { params: Work }) => {
-  const post = allWorks.find((post) => post.slug === params.slug)
-  if (!post || post.draft) {
-    // Check if the post exists or is a draft
-    return
-  }
-  const { title, summary: description, image, slug } = post
-  const ogImage = image
-
-  return {
-    description,
-    openGraph: {
-      description,
-      images: [
-        {
-          url: ogImage,
-        },
-      ],
-      title,
-      url: `/work/${slug}`,
-    },
-    title,
-    twitter: {
-      card: 'summary_large_image',
-      description,
-      images: [ogImage],
-      title,
-    },
-  }
+export const generateMetadata = async ({
+  params,
+}: {
+  params: { slug: string }
+}) => {
+  return await generateMetadataForContent({
+    params,
+    allContent: allWorks,
+    basePath: '/work',
+  })
 }
 
-export default async function WorkLayout({ params }: { params: { slug: string } }) {
-  const post = allWorks.find((post) => post.slug === params.slug)
+export default async function WorkLayout({
+  params,
+}: {
+  params: { slug: string }
+}) {
+  const resolvedParams = await params
+  const post = getContentBySlug(resolvedParams.slug, allWorks)
 
   if (!post || post.draft) {
     // Check if the post exists or is a draft
@@ -51,13 +40,13 @@ export default async function WorkLayout({ params }: { params: { slug: string } 
   const toc = await getTableOfContents(post.body.raw)
 
   return (
-    <div className="relative flex pb-16 pt-10">
+    <div className="relative flex">
       <div>
-        <div className="space-y-2 pb-10 pt-4">
+        <div className="space-y-2 pb-10">
           <div className="text-2xl font-bold">{post.title}</div>
           <p className="text-gray-500 dark:text-gray-400">{post.description}</p>
         </div>
-        <div className="prose max-w-5xl dark:prose-dark">
+        <div className="prose max-w-5xl dark:prose-invert">
           <Mdx content={post} MDXComponents={MDXComponents} />
         </div>
       </div>

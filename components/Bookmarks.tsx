@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
-import bookmarkItems from '@data/bookmarkItems'
+import bookmarkItems from '@/content/bookmarkItems'
 import Link from 'next/link'
 import { useEffect, useMemo, useRef, useState } from 'react'
-import Masonry from 'react-masonry-css'
+// import Masonry from 'react-masonry-css'
 
 const breakpointColumnsObj = {
   default: 3,
@@ -20,7 +20,9 @@ type MetaData = {
 
 async function getMetadata(link: string): Promise<MetaData | null> {
   try {
-    const res = await fetch(`https://metainfo.vercel.app/api?url=https://${link}`)
+    const res = await fetch(
+      `https://metainfo.vercel.app/api?url=https://${link}`
+    )
     if (!res.ok) {
       throw new Error('Failed to fetch data')
     }
@@ -64,7 +66,9 @@ export default function Bookmarks() {
   useEffect(() => {
     async function fetchBookmarks() {
       setLoading(true)
-      const data = await Promise.all(randomList.slice(0, page * 6).map((url) => getMetadata(url)))
+      const data = await Promise.all(
+        randomList.slice(0, page * 6).map((url) => getMetadata(url))
+      )
       setBookmarks(data.filter((bookmark) => bookmark !== null) as MetaData[])
       setLoading(false)
     }
@@ -74,42 +78,42 @@ export default function Bookmarks() {
 
   return (
     <>
-      <Masonry
+      {/* <Masonry
         breakpointCols={breakpointColumnsObj}
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
-      >
-        {bookmarks.map((bookmark) => (
-          <div key={bookmark.url} className="inline-block">
-            <Link
-              href={bookmark.url}
-              className="space-y-3 rounded-[10px] focus:-outline-offset-1"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Link to ${bookmark.title}`}
-            >
-              <div className="cardStyle">
-                <img
-                  className="relative flex-shrink-0 rounded-xl"
-                  src={bookmark.image}
-                  alt={bookmark.title}
-                  width={800}
-                  height={600}
-                  loading="lazy"
-                />
-                <div className="w-full space-y-1.5 px-2 text-sm">
-                  <div className="flex items-center gap-2 font-bold ">
-                    <div className="line-clamp-2">{bookmark.title}</div>
-                  </div>
-                  <div className="flex flex-wrap text-gray-500 dark:text-gray-400">
-                    <p className="line-clamp-2">{bookmark.description}</p>
-                  </div>
+      > */}
+      {bookmarks.map((bookmark) => (
+        <div key={bookmark.url} className="inline-block">
+          <Link
+            href={bookmark.url}
+            className="space-y-3 rounded-[10px] focus:-outline-offset-1"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Link to ${bookmark.title}`}
+          >
+            <div className="cardStyle">
+              <img
+                className="relative flex-shrink-0 rounded-xl"
+                src={bookmark.image}
+                alt={bookmark.title}
+                width={800}
+                height={600}
+                loading="lazy"
+              />
+              <div className="w-full space-y-1.5 px-2 text-sm">
+                <div className="flex items-center gap-2 font-bold ">
+                  <div className="line-clamp-2">{bookmark.title}</div>
+                </div>
+                <div className="flex flex-wrap text-gray-500 dark:text-gray-400">
+                  <p className="line-clamp-2">{bookmark.description}</p>
                 </div>
               </div>
-            </Link>
-          </div>
-        ))}
-      </Masonry>
+            </div>
+          </Link>
+        </div>
+      ))}
+      {/* </Masonry> */}
       <div ref={lastBookmarkRef}>
         {loading && (
           <div className="flex items-center justify-center">

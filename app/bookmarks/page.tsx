@@ -1,9 +1,8 @@
-/* eslint-disable @next/next/no-img-element */
-import LayoutHeader from '@components/LayoutHeader'
+import { LayoutHeader } from '@/components/Layout'
 import { Metadata } from 'next'
 import { allMiscs } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
-import { MDXComponents, Mdx } from '@components/Mdx/MDXComponents'
+import { MDXComponents, Mdx } from '@/components/mdx/MDXComponents'
 
 const metainfo = {
   title: 'Bookmarks',
@@ -24,8 +23,11 @@ export default async function BookmarksLayout() {
 
   return (
     <>
-      <div className="pb-16 pt-10">
-        <LayoutHeader title={metainfo.title} description={metainfo.description} />
+      <div className="">
+        <LayoutHeader
+          title={metainfo.title}
+          description={metainfo.description}
+        />
         <div className="-mx-6">
           <Mdx content={post} MDXComponents={MDXComponents} />
         </div>

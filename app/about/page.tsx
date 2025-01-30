@@ -1,9 +1,9 @@
 import { allMiscs } from 'contentlayer/generated'
-import { MDXComponents, Mdx } from '@components/Mdx/MDXComponents'
+import { MDXComponents, Mdx } from '@/components/mdx/MDXComponents'
 import { notFound } from 'next/navigation'
-import LayoutHeader from '@components/LayoutHeader'
 import { Metadata } from 'next'
 import Link from 'next/link'
+import { LayoutHeader } from '@/components/Layout'
 
 const metainfo = {
   title: 'About',
@@ -24,10 +24,13 @@ export default async function AboutLayout() {
 
   return (
     <>
-      <div className="pb-16 pt-10">
-        <LayoutHeader title={metainfo.title} description={metainfo.description} />
+      <div className="">
+        <LayoutHeader
+          title={metainfo.title}
+          description={metainfo.description}
+        />
         <div className="">
-          <div className="prose max-w-none dark:prose-dark">
+          <div className="prose max-w-none dark:prose-invert">
             <Mdx content={post} MDXComponents={MDXComponents} />
           </div>
         </div>

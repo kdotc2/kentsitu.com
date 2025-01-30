@@ -1,10 +1,28 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useMounted } from '@/hooks/useMounted'
 
 export const Clock = () => {
   const [time, setTime] = useState(new Date())
-  const [mounted, setMounted] = useState(false)
+  const mounted = useMounted()
+
+  // Update time every second
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTime(new Date()) // Update the time every second
+    }, 1000)
+
+    return () => clearInterval(timer) // Cleanup the interval on unmount
+  }, [])
+
+  // Only render the clock once mounted
+  if (!mounted)
+    return (
+      <div className="text-sm font-medium tabular-nums text-muted-foreground max-md:hidden">
+        {`Day Mon 00 88:88:88 `}
+      </div>
+    )
 
   const formatter = time.toLocaleTimeString('en-US', {
     weekday: 'short',
@@ -18,17 +36,9 @@ export const Clock = () => {
 
   const formattedTime = formatter.replaceAll(',', '')
 
-  useEffect(() => {
-    setMounted(true)
-
-    const timer = setInterval(() => {
-      setTime(new Date())
-    }, 1000)
-
-    return () => clearInterval(timer)
-  }, [])
-
-  if (!mounted) return null
-
-  return <div className="text-sm font-medium tabular-nums">{formattedTime}</div>
+  return (
+    <div className="text-sm font-medium tabular-nums text-muted-foreground max-md:hidden">
+      {formattedTime}
+    </div>
+  )
 }
