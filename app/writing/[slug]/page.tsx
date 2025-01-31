@@ -1,11 +1,14 @@
 import { allWritings } from 'contentlayer/generated'
 import { MDXComponents, Mdx } from '@/components/mdx/MDXComponents'
 import { notFound } from 'next/navigation'
+import {
+  generateStaticParamsForContent,
+  getContentBySlug,
+  getMetadataBySlug,
+} from '@/lib/utils/contentUtils'
 
 export const generateStaticParams = async () =>
-  allWritings
-    .filter((post) => !post.draft) // Exclude drafts
-    .map((post) => ({ slug: post.slug }))
+  generateStaticParamsForContent(allWritings)
 
 export async function generateMetadata({
   params,
@@ -13,23 +16,10 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const post = allWritings.find((post) => post.slug === slug)
-
-  if (!post || post.draft) {
-    return
-  }
-
-  const { title, summary: description, image } = post
-
-  return {
-    title,
-    description,
-    openGraph: {
-      images: {
-        url: image,
-      },
-    },
-  }
+  return getMetadataBySlug({
+    slug,
+    allContent: allWritings,
+  })
 }
 
 export default async function WritingLayout({
@@ -38,9 +28,7 @@ export default async function WritingLayout({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const post = allWritings.find((post) => post.slug === slug)
-
-  console.log(post)
+  const post = getContentBySlug(slug, allWritings)
 
   if (!post || post.draft) {
     notFound()

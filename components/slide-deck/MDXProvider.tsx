@@ -2,7 +2,7 @@
 
 import { MDXProvider } from '@mdx-js/react'
 import { ComponentType, ReactNode } from 'react'
-import SlidePage from '@/layouts/SlidePage'
+import SlidePage from '@/components/layouts/SlidePage'
 import Cover from './Cover'
 import SpeakerNotes from './SpeakerNotes'
 import Step from './Step'

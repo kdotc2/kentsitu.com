@@ -4,6 +4,7 @@ import { List } from 'lucide-react'
 import { useState, useEffect, useMemo } from 'react'
 import { cn } from '@/lib/utils'
 import clsx from 'clsx'
+import { SidebarMenuButton } from '@/components/ui/sidebar'
 
 interface TocProps {
   toc: TableOfContents
@@ -11,19 +12,9 @@ interface TocProps {
 
 export function TableOfContents({ toc }: TocProps) {
   const [tocShow, setTocShow] = useState(false)
-  const [tooltipStatus, setTooltipStatus] = useState(false)
 
   const onToggleToc = () => {
-    setTooltipStatus(false)
-    setTocShow((status) => {
-      if (status) {
-        document.body.style.overflow = 'auto'
-      } else {
-        // Prevent scrolling
-        document.body.style.overflow = 'hidden'
-      }
-      return !status
-    })
+    setTocShow((status) => !status)
   }
 
   const itemIds = useMemo(
@@ -44,33 +35,20 @@ export function TableOfContents({ toc }: TocProps) {
   }
 
   return (
-    <div
-      className={clsx(
-        `${tocShow ? ' ml-[104px]' : 'absolute flex'}`,
-        'ml-5 pt-4'
-      )}
-      onMouseEnter={() => setTooltipStatus(true)}
-      onMouseLeave={() => setTooltipStatus(false)}
-    >
+    <div className={clsx(`${tocShow ? ' ml-[104px]' : 'flex'}`, 'ml-5 pt-4')}>
       <div className="relative flex items-center gap-4">
         {tocShow && <p className="w-[100px] font-semibold">On This Page</p>}
         <div className="group">
-          <button
-            aria-label="Table of Contents"
-            className="flex items-center justify-center rounded-full border border-gray-200 bg-[#f2f2f2] p-2.5 text-gray-900 active:scale-95 active:border-gray-300 active:bg-[#ebebeb] md:hover:border-gray-300 md:hover:bg-[#ebebeb] dark:border-gray-700 dark:bg-[#121212] dark:text-gray-100 active:dark:border-gray-600 active:dark:bg-[#191919] md:hover:dark:border-gray-600 md:hover:dark:bg-[#191919]"
+          <SidebarMenuButton
+            tooltip={'Table of Contents'}
+            size="icon"
+            variant="outline"
             onClick={onToggleToc}
+            className="rounded-full"
+            showTooltip={!tocShow}
           >
             <List className="h-5 w-5" />
-          </button>
-          {tooltipStatus && (
-            <>
-              {!tocShow && (
-                <span className="absolute right-12 top-[5px] whitespace-nowrap rounded-md bg-[#ebebeb] px-2 py-2 text-xs font-medium opacity-0 transition-opacity group-hover:opacity-95 dark:bg-[#191919]">
-                  Table of Contents
-                </span>
-              )}
-            </>
-          )}
+          </SidebarMenuButton>
         </div>
       </div>
 

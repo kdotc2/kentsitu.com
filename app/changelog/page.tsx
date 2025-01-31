@@ -1,7 +1,7 @@
 import { allMiscs } from 'contentlayer/generated'
 import { MDXComponents, Mdx } from '@/components/mdx/MDXComponents'
 import { notFound } from 'next/navigation'
-import { LayoutHeader } from '@/components/Layout'
+import { PageLayout } from '@/components/layouts/PageLayout'
 import { Metadata } from 'next'
 
 const metainfo = {
@@ -17,18 +17,18 @@ export const metadata: Metadata = {
 
 export default async function ChangelogLayout() {
   const post = allMiscs.find((p) => p.slug === 'changelog')
+
   if (!post) {
     notFound()
   }
 
   return (
-    <>
-      <div className="">
-        <LayoutHeader title={post.title} description={post.summary} />
-        <div className="prose max-w-none dark:prose-invert">
-          <Mdx content={post} MDXComponents={MDXComponents} />
-        </div>
-      </div>
-    </>
+    <PageLayout
+      title={post.title}
+      description={post.summary}
+      className="prose max-w-none dark:prose-invert"
+    >
+      <Mdx content={post} MDXComponents={MDXComponents} />
+    </PageLayout>
   )
 }

@@ -2,60 +2,43 @@ import { Work, Projects, Writing } from 'contentlayer/generated'
 
 type Post = Work | Projects | Writing
 
-const getContentBySlug = (slug: string, allContent: Post[]) => {
-  return allContent.find((post) => post.slug === slug && !post.draft)
-}
-
 const generateStaticParamsForContent = (
   allContent: Post[]
 ): { slug: string }[] => {
   return allContent
-    .filter((post) => !post.draft)
+    .filter((post) => !post.draft) // exclude drafts
     .map((post) => ({ slug: post.slug }))
 }
 
-const generateMetadataForContent = async ({
-  params,
-  allContent,
-  basePath,
-}: {
-  params: { slug: string }
-  allContent: Post[]
-  basePath: string
-}) => {
-  const resolvedParams = await params
-  const post = getContentBySlug(resolvedParams.slug, allContent)
+const getContentBySlug = (slug: string, allContent: Post[]) => {
+  return allContent.find((post) => post.slug === slug)
+}
 
-  if (!post) {
+const getMetadataBySlug = async ({
+  slug,
+  allContent,
+}: {
+  slug: string
+  allContent: Post[]
+}) => {
+  const post = getContentBySlug(slug, allContent)
+
+  if (!post || post.draft) {
     return {}
   }
 
-  const { title, summary: description, image, slug } = post
+  const { title, summary: description, image } = post
+  const ogImage = `/og?title=${title}&description=${description}`
 
   return {
+    title,
     description,
     openGraph: {
-      description,
-      images: [
-        {
-          url: image,
-        },
-      ],
-      title,
-      url: `${basePath}/${slug}`,
-    },
-    title,
-    twitter: {
-      card: 'summary_large_image',
-      description,
-      images: [image],
-      title,
+      images: {
+        url: image ?? ogImage,
+      },
     },
   }
 }
 
-export {
-  getContentBySlug,
-  generateStaticParamsForContent,
-  generateMetadataForContent,
-}
+export { getContentBySlug, generateStaticParamsForContent, getMetadataBySlug }

@@ -1,4 +1,4 @@
-import { LayoutHeader } from '@/components/Layout'
+import { PageLayout } from '@/components/layouts/PageLayout'
 import { Metadata } from 'next'
 import { allMiscs } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
@@ -22,16 +22,12 @@ export default async function BookmarksLayout() {
   }
 
   return (
-    <>
-      <div className="">
-        <LayoutHeader
-          title={metainfo.title}
-          description={metainfo.description}
-        />
-        <div className="-mx-6">
-          <Mdx content={post} MDXComponents={MDXComponents} />
-        </div>
-      </div>
-    </>
+    <PageLayout
+      title={metainfo.title}
+      description={metainfo.description}
+      className="-mx-6"
+    >
+      <Mdx content={post} MDXComponents={MDXComponents} />
+    </PageLayout>
   )
 }

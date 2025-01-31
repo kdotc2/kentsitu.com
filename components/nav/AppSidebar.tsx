@@ -12,9 +12,9 @@ import {
   SidebarMenu,
   SidebarMenuButton,
 } from '@/components/ui/sidebar'
-import { ThemeSwitch } from '@/components/ThemeSwitch'
-import { NavigationLink } from '@/components/NavigationLink'
-import NavigationItems from '@/components/NavigationItems'
+import { ThemeSwitch } from '@/components/nav/ThemeSwitch'
+import { NavigationLink } from '@/components/nav/NavigationLink'
+import NavigationItems from '@/components/nav/NavigationItems'
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { sections } = NavigationItems()

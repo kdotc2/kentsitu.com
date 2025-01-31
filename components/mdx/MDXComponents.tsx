@@ -8,7 +8,7 @@ import CustomLink from './Link'
 import Pre from './Pre'
 import Button from './Button'
 import VideoPlayer from './VideoPlayer'
-import Bookmarks from '@/components/Bookmarks'
+import Bookmarks from '@/components/layouts/BookmarksLayout'
 import { cn } from '@/lib/utils'
 
 interface MDXLayout {
@@ -19,7 +19,7 @@ interface MDXLayout {
 const headerClass =
   (Component: React.ElementType) =>
   ({ className, ...props }: { className: string }) =>
-    <Component className={cn('scroll-mt-8', className)} {...props} />
+    <Component className={cn('scroll-mt-20', className)} {...props} />
 
 export const MDXComponents: object = {
   h1: headerClass('h1'),

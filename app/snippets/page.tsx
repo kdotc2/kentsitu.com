@@ -1,7 +1,7 @@
 import { allMiscs } from 'contentlayer/generated'
 import { MDXComponents, Mdx } from '@/components/mdx/MDXComponents'
 import { notFound } from 'next/navigation'
-import { LayoutHeader } from '@/components/Layout'
+import { PageLayout } from '@/components/layouts/PageLayout'
 import { Metadata } from 'next'
 
 const metainfo = {
@@ -22,13 +22,12 @@ export default async function SnippetsLayout() {
   }
 
   return (
-    <div className="relative">
-      <div>
-        <LayoutHeader title={post.title} description={post.summary} />
-        <div className="prose max-w-full dark:prose-invert">
-          <Mdx content={post} MDXComponents={MDXComponents} />
-        </div>
-      </div>
-    </div>
+    <PageLayout
+      title={post.title}
+      description={post.summary}
+      className="prose max-w-none dark:prose-invert"
+    >
+      <Mdx content={post} MDXComponents={MDXComponents} />
+    </PageLayout>
   )
 }

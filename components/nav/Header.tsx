@@ -12,7 +12,7 @@ import {
 import { Flex } from '@/components/ui/flex'
 import { Separator } from '@/components/ui/separator'
 import { SidebarTrigger } from '@/components/ui/sidebar'
-import { Clock } from '@/components/Clock'
+import { Clock } from '@/components/nav/Clock'
 import { cn } from '@/lib/utils'
 
 // Special title mappings for known paths

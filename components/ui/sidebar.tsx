@@ -334,7 +334,7 @@ const SidebarInset = React.forwardRef<
     <main
       ref={ref}
       className={cn(
-        'relative flex min-h-svh flex-1 flex-col bg-background',
+        'relative flex min-h-svh flex-1 flex-col bg-background min-w-0',
         'peer-data-[variant=inset]:min-h-[calc(100svh-theme(spacing.4))] md:peer-data-[variant=inset]:m-2 md:peer-data-[state=collapsed]:peer-data-[variant=inset]:ml-2 md:peer-data-[variant=inset]:ml-0 md:peer-data-[variant=inset]:rounded-xl md:peer-data-[variant=inset]:shadow',
         className
       )}
@@ -541,6 +541,7 @@ const sidebarMenuButtonVariants = cva(
         default: 'h-8 text-sm',
         sm: 'h-7 text-xs',
         lg: 'h-12 text-sm group-data-[collapsible=icon]:!p-0',
+        icon: 'p-3',
       },
     },
     defaultVariants: {
@@ -556,21 +557,23 @@ const SidebarMenuButton = React.forwardRef<
     asChild?: boolean
     isActive?: boolean
     tooltip?: string | React.ComponentProps<typeof TooltipContent>
+    showTooltip?: boolean
+    as?: React.ElementType // Add `as` prop to allow custom root element
   } & VariantProps<typeof sidebarMenuButtonVariants>
 >(
   (
     {
-      asChild = false,
       isActive = false,
       variant = 'default',
       size = 'default',
       tooltip,
+      showTooltip,
       className,
+      as: Comp = 'button', // Default to 'button', but can be overridden
       ...props
     },
     ref
   ) => {
-    const Comp = asChild ? Slot : 'button'
     const { isMobile, state } = useSidebar()
 
     const button = (
@@ -579,7 +582,11 @@ const SidebarMenuButton = React.forwardRef<
         data-sidebar="menu-button"
         data-size={size}
         data-active={isActive}
-        className={cn(sidebarMenuButtonVariants({ variant, size }), className)}
+        className={cn(
+          sidebarMenuButtonVariants({ variant, size }),
+          isActive,
+          className
+        )}
         {...props}
       />
     )
@@ -598,9 +605,12 @@ const SidebarMenuButton = React.forwardRef<
         <TooltipTrigger asChild>{button}</TooltipTrigger>
         <TooltipContent
           key={key}
-          side="right"
+          side={showTooltip === false ? 'right' : 'left'}
           align="center"
-          hidden={state !== 'collapsed' || isMobile}
+          hidden={
+            showTooltip === false || // Hide if showTooltip is explicitly false
+            (showTooltip !== true && (state !== 'collapsed' || isMobile))
+          } // Otherwise use the state and mobile conditions}
           {...tooltipRest}
         />
       </Tooltip>
@@ -701,14 +711,18 @@ SidebarMenuSkeleton.displayName = 'SidebarMenuSkeleton'
 
 const SidebarMenuSub = React.forwardRef<
   HTMLUListElement,
-  React.ComponentProps<'ul'>
->(({ className, ...props }, ref) => (
+  React.ComponentProps<'ul'> & {
+    isActive?: boolean
+  }
+>(({ isActive = false, className, ...props }, ref) => (
   <ul
     ref={ref}
     data-sidebar="menu-sub"
     className={cn(
       'mx-3.5 flex min-w-0 translate-x-px flex-col gap-1 border-l border-sidebar-border px-2.5 py-0.5',
       'group-data-[collapsible=icon]:hidden',
+      isActive &&
+        'active:bg-sidebar-accent active:text-sidebar-accent-foreground data-[active=true]:bg-sidebar-accent data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground',
       className
     )}
     {...props}

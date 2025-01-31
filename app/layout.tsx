@@ -3,13 +3,13 @@ import '@/css/prose.css'
 import '@/css/prism.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { ThemeProvider } from '@/components/ThemeProvider'
+import { ThemeProvider } from '@/context/ThemeProvider'
 import { MDXProviderWrapper } from '@/components/slide-deck/MDXProvider'
 import { ModeProvider } from '@/context/ModeContext'
 import { CurrentSlideProvider } from '@/context/CurrentSlideContext'
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar'
-import { AppSidebar } from '@/components/AppSidebar'
-import { Header } from '@/components/Header'
+import { AppSidebar } from '@/components/nav/AppSidebar'
+import { Header } from '@/components/nav/Header'
 import { Suspense } from 'react'
 
 const inter = Inter({
@@ -35,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} antialiased`}>
+      <body className={`${inter.variable} antialiased min-h-screen`}>
         <ThemeProvider>
           <MDXProviderWrapper>
             {/* Wrap the client-side providers in Suspense */}
@@ -46,8 +46,8 @@ export default function RootLayout({
                     <AppSidebar />
                     <SidebarInset>
                       <Header />
-                      <div className="relative overflow-y-auto">
-                        <div className="mx-auto max-w-5xl p-5 supports-[height:100dvh]:h-[calc(100dvh-64px)] md:p-10">
+                      <div className="relative overflow-y-auto overflow-x-hidden">
+                        <div className="mx-auto max-w-5xl p-5 md:p-10">
                           {children}
                         </div>
                       </div>

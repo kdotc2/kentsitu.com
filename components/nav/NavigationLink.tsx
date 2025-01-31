@@ -14,7 +14,7 @@ import {
 } from '@/components/ui/sidebar'
 import { cn } from '@/lib/utils'
 import { usePathname } from 'next/navigation'
-import NavigationItems from '@/components/NavigationItems'
+import NavigationItems from '@/components/nav/NavigationItems'
 
 export type NavProps = {
   link: {
@@ -61,13 +61,13 @@ export function NavigationLink({ link, className }: NavProps) {
               </Link> */}
               <Link
                 href={link.href}
-                className={`flex items-center justify-between rounded-md group-data-[state=collapsed]:mx-2 group-data-[state=expanded]:px-1 group-data-[state=expanded]:-mx-1 ${
-                  link.isActive
-                    ? 'bg-gray-200 dark:bg-gray-800 dark:text-gray-100'
-                    : 'sm:hover:bg-gray-200 sm:hover:dark:bg-gray-800'
-                }`}
+                className={`flex items-center justify-between rounded-md group-data-[state=collapsed]:mx-2 group-data-[state=expanded]:px-1 group-data-[state=expanded]:-mx-1`}
               >
-                <SidebarMenuButton tooltip={link.title}>
+                <SidebarMenuButton
+                  tooltip={link.title}
+                  as="div"
+                  isActive={link.isActive}
+                >
                   <link.icon />
                   <span>{link.title}</span>
                   <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
@@ -80,21 +80,17 @@ export function NavigationLink({ link, className }: NavProps) {
               {posts.map((post) => (
                 <SidebarMenuSub
                   key={post.slug}
-                  className={
-                    pathname.endsWith(`${post.slug}`)
-                      ? 'border-l-black dark:border-l-white'
-                      : ''
-                  }
+                  isActive={pathname.endsWith(`${post.slug}`)}
                 >
                   <Link
                     href={`${basePath}/${post.slug}`}
                     className={cn(
-                      'block px-2 py-1 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100',
-                      `${
-                        pathname.endsWith(`${post.slug}`)
-                          ? ''
-                          : 'text-gray-400  dark:text-gray-600 sm:hover:text-gray-800 sm:hover:dark:text-gray-200'
-                      }`
+                      'block px-2 py-1 '
+                      // `${
+                      //   pathname.endsWith(`${post.slug}`)
+                      //     ? ''
+                      //     : 'text-gray-400  dark:text-gray-600 sm:hover:text-gray-800 sm:hover:dark:text-gray-200'
+                      // }`
                     )}
                     onClick={() => setOpenMobile(false)}
                   >

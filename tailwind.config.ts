@@ -82,10 +82,36 @@ export default {
           from: { height: 'var(--radix-collapsible-content-height)' },
           to: { height: '0' },
         },
+        appear: {
+          '0%': {
+            opacity: '0',
+            transform: 'translateY(-10px)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateY(0)',
+          },
+        },
+        flip: {
+          '0%': {
+            transform: 'rotateX(0deg)',
+            opacity: '0',
+          },
+          '50%': {
+            transform: 'rotateX(180deg)',
+            opacity: '0.5',
+          },
+          '100%': {
+            transform: 'rotateX(360deg)',
+            opacity: '1',
+          },
+        },
       },
       animation: {
         expand: 'expand 0.3s ease-in-out',
         collapse: 'collapse 0.3s ease-in-out',
+        appear: 'appear 0.3s forwards',
+        flip: 'flip 0.5s ease-out forwards',
       },
     },
   },

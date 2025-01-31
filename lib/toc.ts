@@ -31,8 +31,6 @@ function getItems(node: any, current: Item | Items = { items: [] }): Items {
 
   if (node.type === 'paragraph') {
     visit(node, (item: any) => {
-      console.log('Processing item:', item) // Log the structure of `item` to debug
-
       // Only process links
       if (item.type === 'link') {
         if (item.url) {
