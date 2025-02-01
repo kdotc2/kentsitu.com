@@ -135,9 +135,6 @@ importers:
       tailwindcss:
         specifier: ^3.4.17
         version: 3.4.17(ts-node@10.9.2(@types/node@20.17.16)(typescript@5.7.3))
-      ts-node:
-        specifier: ^10.9.2
-        version: 10.9.2(@types/node@20.17.16)(typescript@5.7.3)
       typescript:
         specifier: ^5.7.3
         version: 5.7.3
@@ -3481,6 +3478,7 @@ snapshots:
   '@cspotcode/source-map-support@0.8.1':
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
+    optional: true
 
   '@effect-ts/core@0.60.5':
     dependencies:
@@ -3785,6 +3783,7 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
+    optional: true
 
   '@js-sdsl/ordered-map@4.4.2': {}
 
@@ -4309,13 +4308,17 @@ snapshots:
       postcss-selector-parser: 6.0.10
       tailwindcss: 3.4.17(ts-node@10.9.2(@types/node@20.17.16)(typescript@5.7.3))
 
-  '@tsconfig/node10@1.0.11': {}
+  '@tsconfig/node10@1.0.11':
+    optional: true
 
-  '@tsconfig/node12@1.0.11': {}
+  '@tsconfig/node12@1.0.11':
+    optional: true
 
-  '@tsconfig/node14@1.0.3': {}
+  '@tsconfig/node14@1.0.3':
+    optional: true
 
-  '@tsconfig/node16@1.0.4': {}
+  '@tsconfig/node16@1.0.4':
+    optional: true
 
   '@types/acorn@4.0.6':
     dependencies:
@@ -4468,6 +4471,7 @@ snapshots:
   acorn-walk@8.3.4:
     dependencies:
       acorn: 8.14.0
+    optional: true
 
   acorn@8.14.0: {}
 
@@ -4495,7 +4499,8 @@ snapshots:
       normalize-path: 3.0.0
       picomatch: 2.3.1
 
-  arg@4.1.3: {}
+  arg@4.1.3:
+    optional: true
 
   arg@5.0.2: {}
 
@@ -4740,7 +4745,8 @@ snapshots:
 
   core-util-is@1.0.3: {}
 
-  create-require@1.1.1: {}
+  create-require@1.1.1:
+    optional: true
 
   cross-spawn@7.0.6:
     dependencies:
@@ -4817,7 +4823,8 @@ snapshots:
 
   didyoumean@1.2.2: {}
 
-  diff@4.0.2: {}
+  diff@4.0.2:
+    optional: true
 
   dlv@1.1.3: {}
 
@@ -5785,7 +5792,8 @@ snapshots:
     dependencies:
       react: 19.0.0
 
-  make-error@1.3.6: {}
+  make-error@1.3.6:
+    optional: true
 
   markdown-extensions@2.0.0: {}
 
@@ -7155,6 +7163,7 @@ snapshots:
       typescript: 5.7.3
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
+    optional: true
 
   ts-pattern@5.6.2: {}
 
@@ -7285,7 +7294,8 @@ snapshots:
 
   uuid@9.0.1: {}
 
-  v8-compile-cache-lib@3.0.1: {}
+  v8-compile-cache-lib@3.0.1:
+    optional: true
 
   vfile-location@5.0.3:
     dependencies:
@@ -7378,7 +7388,8 @@ snapshots:
       y18n: 5.0.8
       yargs-parser: 21.1.1
 
-  yn@3.1.1: {}
+  yn@3.1.1:
+    optional: true
 
   yocto-queue@0.1.0: {}
 

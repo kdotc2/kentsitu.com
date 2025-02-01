@@ -17,7 +17,7 @@ export default {
         sans: ['var(--font-inter)'],
       },
       colors: {
-        background: 'hsl(var(--background)) /* hsl(0, 0%, 100%) */',
+        background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
           DEFAULT: 'hsl(var(--card))',

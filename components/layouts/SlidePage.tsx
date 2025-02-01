@@ -21,7 +21,7 @@ const processChildren = (
   slides: ReactNode[][]
 ) => {
   let currentIndex = 0
-  let generatorCount = 0
+  const generatorCount = 0
 
   // Process each child in one pass
   Children.forEach(children, (child) => {
@@ -89,7 +89,7 @@ export default function SlidePage({ children }: SlidePageProps) {
         <div
           id="slide"
           className={cn(
-            'flex items-center justify-center bg-black text-white p-8',
+            'flex items-center justify-center p-8',
             mode === 'speaker' ? 'h-20' : 'min-h-screen'
           )}
         >
