@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 import clsx from 'clsx'
 import { SidebarMenuButton } from '@/components/ui/sidebar'
 
-interface TocProps {
+export interface TocProps {
   toc: TableOfContents
 }
 
@@ -35,7 +35,12 @@ export function TableOfContents({ toc }: TocProps) {
   }
 
   return (
-    <div className={clsx(`${tocShow ? ' ml-[104px]' : 'flex'}`, 'ml-5 pt-4')}>
+    <div
+      className={clsx(
+        `${tocShow ? ' ml-[104px]' : 'flex absolute'}`,
+        'ml-5 pt-4'
+      )}
+    >
       <div className="relative flex items-center gap-4">
         {tocShow && <p className="w-[100px] font-semibold">On This Page</p>}
         <div className="group">
@@ -52,11 +57,21 @@ export function TableOfContents({ toc }: TocProps) {
         </div>
       </div>
 
-      {tocShow && (
-        <div className="w-[200px] space-y-4">
-          <Tree tree={toc} activeItem={activeHeading} />
-        </div>
-      )}
+      <div
+        className={clsx(
+          'transition-all duration-300 ease-in-out',
+          tocShow
+            ? 'opacity-100 translate-y-0' // On open, fully visible and in place
+            : 'opacity-0 translate-y-[-16px]', // On close, fading out and sliding up
+          'overflow-hidden w-[200px] space-y-4'
+        )}
+      >
+        {tocShow && ( // Ensure this is only rendered when tocShow is true
+          <div>
+            <Tree tree={toc} activeItem={activeHeading} />
+          </div>
+        )}
+      </div>
     </div>
   )
 }
@@ -119,20 +134,19 @@ function Tree({ tree, level = 1, activeItem }: TreeProps) {
             <a
               href={item.url}
               className={cn(
-                'text-gray-400 no-underline hover:text-gray-800 dark:text-gray-600 hover:dark:text-gray-200',
-                item.url === `#${activeItem}` &&
-                  'text-gray-800 dark:text-gray-200'
+                'text-sidebar-foreground/50 hover:text-primary',
+                item.url === `#${activeItem}` && 'text-primary'
               )}
             >
               <div
                 className={cn(
                   { 'py-1': level === 1 },
                   {
-                    'ml-1 border-l border-l-gray-300 py-1 pl-4 hover:border-l-gray-800 hover:text-gray-800 dark:border-l-gray-700 hover:dark:border-l-gray-200 hover:dark:text-gray-200':
+                    'ml-1 border-l border-l-sidebar-foreground/50 py-1 pl-4 text-sidebar-foreground/50 hover:text-primary hover:border-l-primary':
                       level !== 1,
                   },
                   item.url === `#${activeItem}` &&
-                    'border-l-gray-800 dark:border-l-gray-200'
+                    'text-primary border-l-primary'
                 )}
               >
                 {item.title}

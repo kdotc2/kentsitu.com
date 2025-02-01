@@ -3,15 +3,8 @@
 import { useState, useEffect } from 'react'
 import { useMounted } from '@/hooks/useMounted'
 
-const getRandomCharacter = () => {
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789:'
-  return chars.charAt(Math.floor(Math.random() * chars.length))
-}
-
 export const Clock = () => {
   const [time, setTime] = useState(new Date())
-  const [isRendered, setIsRendered] = useState(false) // Track if it's the first render
-  const [randomTime, setRandomTime] = useState('') // Track random character
   const mounted = useMounted()
 
   const formatter = time.toLocaleTimeString('en-US', {
@@ -28,42 +21,32 @@ export const Clock = () => {
 
   // Update time every second
   useEffect(() => {
-    if (!isRendered) {
-      // Generate random characters once on the first render, respecting spaces
-      const randomCharacters = formattedTime
-        .split('')
-        .map((char) => {
-          return char === ' ' ? ' ' : getRandomCharacter() // Preserve spaces
-        })
-        .join('')
-      setRandomTime(randomCharacters)
-      setIsRendered(true) // Set that the initial render has occurred
-    }
-
     const timer = setInterval(() => {
       setTime(new Date()) // Update the time every second
     }, 1000)
 
     return () => clearInterval(timer) // Cleanup the interval on unmount
-  }, [isRendered, formattedTime])
+  }, [])
 
   // Only render the clock once mounted
-  if (!mounted) return null
+  if (!mounted)
+    return (
+      <div className="text-sm font-medium tabular-nums text-muted-foreground max-md:hidden whitespace-nowrap">
+        Hello!
+      </div>
+    )
 
   return (
     <div className="text-sm font-medium tabular-nums text-muted-foreground max-md:hidden whitespace-nowrap">
       {formattedTime.split('').map((char, index) => (
         <span
           key={index}
-          className={`inline-block opacity-0 ${
-            isRendered ? 'animate-flip' : ''
-          }`}
+          className={`inline-block opacity-0 ${mounted ? 'animate-flip' : ''}`}
           style={{
             animationDelay: `${index * 0.1}s`, // Custom delay for staggered animation
           }}
         >
-          {isRendered ? (char === ' ' ? '\u00A0' : char) : randomTime[index]}{' '}
-          {/* Use &nbsp; for spaces */}
+          {mounted && (char === ' ' ? '\u00A0' : char)}
         </span>
       ))}
     </div>

@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { ChevronRight, ArrowUpRight, LucideIcon } from 'lucide-react'
+import { ArrowUpRight, LucideIcon, ChevronDown } from 'lucide-react'
 import {
   Collapsible,
   CollapsibleContent,
@@ -45,34 +45,17 @@ export function NavigationLink({ link, className }: NavProps) {
           >
             {/* Link as the Collapsible Trigger */}
             <CollapsibleTrigger asChild>
-              {/* <Link
+              <SidebarMenuButton
+                tooltip={link.title}
+                isActive={link.isActive}
+                as={Link}
                 href={link.href}
-                className={`flex items-center justify-between rounded-md px-3 py-[6px] ${
-                  link.isActive
-                    ? 'bg-gray-200 dark:bg-gray-800 dark:text-gray-100'
-                    : 'sm:hover:bg-gray-200 sm:hover:dark:bg-gray-800'
-                }`}
+                className="group-data-[state=collapsed]:mx-2"
               >
-                <Flex className="items-center gap-[10px]">
-                  <Icon className="h-4 w-4" aria-hidden="true" />
-                  {link.title}
-                </Flex>
-                <ChevronRight className="h-4 w-4 transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
-              </Link> */}
-              <Link
-                href={link.href}
-                className={`flex items-center justify-between rounded-md group-data-[state=collapsed]:mx-2 group-data-[state=expanded]:px-1 group-data-[state=expanded]:-mx-1`}
-              >
-                <SidebarMenuButton
-                  tooltip={link.title}
-                  as="div"
-                  isActive={link.isActive}
-                >
-                  <link.icon />
-                  <span>{link.title}</span>
-                  <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
-                </SidebarMenuButton>
-              </Link>
+                <link.icon />
+                <span>{link.title}</span>
+                <ChevronDown className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-180 text-muted-foreground" />
+              </SidebarMenuButton>
             </CollapsibleTrigger>
 
             {/* Collapsible Content */}
@@ -85,7 +68,7 @@ export function NavigationLink({ link, className }: NavProps) {
                   <Link
                     href={`${basePath}/${post.slug}`}
                     className={cn(
-                      'block px-2 py-1 '
+                      'block px-2 py-1'
                       // `${
                       //   pathname.endsWith(`${post.slug}`)
                       //     ? ''
@@ -105,50 +88,25 @@ export function NavigationLink({ link, className }: NavProps) {
 
       {/* Regular Navigation Links */}
       {!collapsibleSections.some(({ label }) => link.title === label) && (
-        // <Link
-        //   target={
-        //     link.title === 'Resume' || link.title === 'Contact'
-        //       ? '_blank'
-        //       : '_self'
-        //   }
-        //   href={link.href}
-        //   className={`flex items-center justify-between gap-[10px] rounded-md px-3 py-[6px] ${
-        //     link.isActive
-        //       ? 'bg-gray-200 dark:bg-gray-800 dark:text-gray-100'
-        //       : 'sm:hover:bg-gray-200 sm:hover:dark:bg-gray-800'
-        //   }`}
-        //   onClick={() => setOpenMobile(false)}
-        // >
-        //   <Flex className="items-center gap-[10px]">
-        //     <Icon className="h-4 w-4" aria-hidden="true" />
-        //     {link.title}
-        //   </Flex>
-        //   {(link.title === 'Resume' || link.title === 'Contact') && (
-        //     <ArrowUpRight className="h-4 w-4" />
-        //   )}
-        // </Link>
-        <Link
+        <SidebarMenuButton
+          tooltip={link.title}
+          isActive={link.isActive}
+          as={Link}
+          href={link.href}
           target={
             link.title === 'Resume' || link.title === 'Contact'
               ? '_blank'
               : '_self'
           }
-          href={link.href}
-          className={`flex items-center justify-between rounded-md group-data-[state=collapsed]:mx-2 group-data-[state=expanded]:px-1 group-data-[state=expanded]:-mx-1 ${
-            link.isActive
-              ? 'bg-gray-200 dark:bg-gray-800 dark:text-gray-100'
-              : 'sm:hover:bg-gray-200 sm:hover:dark:bg-gray-800'
-          }`}
+          className="group-data-[state=collapsed]:mx-2"
           onClick={() => setOpenMobile(false)}
         >
-          <SidebarMenuButton tooltip={link.title}>
-            <link.icon />
-            <span>{link.title}</span>
-            {(link.title === 'Resume' || link.title === 'Contact') && (
-              <ArrowUpRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
-            )}
-          </SidebarMenuButton>
-        </Link>
+          <link.icon />
+          <span>{link.title}</span>
+          {(link.title === 'Resume' || link.title === 'Contact') && (
+            <ArrowUpRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90 text-muted-foreground" />
+          )}
+        </SidebarMenuButton>
       )}
     </div>
   )

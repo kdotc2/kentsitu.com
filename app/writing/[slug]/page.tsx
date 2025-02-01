@@ -1,11 +1,11 @@
 import { allWritings } from 'contentlayer/generated'
-import { MDXComponents, Mdx } from '@/components/mdx/MDXComponents'
 import { notFound } from 'next/navigation'
 import {
   generateStaticParamsForContent,
   getContentBySlug,
   getMetadataBySlug,
 } from '@/lib/utils/contentUtils'
+import { SlugContentLayout } from '@/components/layouts/PageLayout'
 
 export const generateStaticParams = async () =>
   generateStaticParamsForContent(allWritings)
@@ -34,15 +34,5 @@ export default async function WritingLayout({
     notFound()
   }
 
-  return (
-    <div className="">
-      <div className="space-y-2 pb-10">
-        <div className="text-2xl font-bold">{post.title}</div>
-        <p className="text-gray-500 dark:text-gray-400">{post.summary}</p>
-      </div>
-      <div className="prose max-w-none dark:prose-invert">
-        <Mdx content={post} MDXComponents={MDXComponents} />
-      </div>
-    </div>
-  )
+  return <SlugContentLayout post={post} />
 }

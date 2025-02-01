@@ -9,6 +9,7 @@
     "lint": "next lint",
     "build:content": "contentlayer2 build"
   },
+  "type": "module",
   "dependencies": {
     "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
@@ -54,6 +55,7 @@
     "eslint-config-next": "15.1.0",
     "postcss": "^8.5.1",
     "tailwindcss": "^3.4.17",
+    "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
   }
 }

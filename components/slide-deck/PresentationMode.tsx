@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react'
 import MODES from '@/lib/utils/mode'
-import { Flex } from '../ui/flex'
-import Timer from './Timer'
+import Timer from '@/components/slide-deck/Timer'
 
 export interface Notes {
   [key: number]: ReactNode // Change to ReactNode to allow more flexible content (not just strings)
@@ -22,17 +21,17 @@ export const PresentationMode: React.FC<PresentationModeProps> = ({
 }) => {
   if (mode === MODES.SPEAKER) {
     return (
-      <Flex className="justify-center p-4" gap="md">
-        <Flex className="border w-[70%]">
+      <div className="flex gap-4 justify-center p-4">
+        <div className="flex border w-[70%]">
           <div>{children}</div>
-        </Flex>
-        <Flex direction="column" gap="md" className="w-[30%]">
+        </div>
+        <div className="flex flex-col gap-4 w-[30%]">
           <div className="border p-4 overscroll-y-auto">
             {notes[currentSlide]}
           </div>
           <Timer />
-        </Flex>
-      </Flex>
+        </div>
+      </div>
     )
   }
   return <>{children}</>

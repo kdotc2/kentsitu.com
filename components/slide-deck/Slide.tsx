@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex } from '@/components/ui/flex'
+import { cn } from '@/lib/utils'
 
 interface SlideProps {
   children: React.ReactNode
@@ -9,10 +9,8 @@ interface SlideProps {
 
 export const Slide = ({ children, id, className = '' }: SlideProps) => {
   return (
-    <Flex id={id} className={className}>
-      <div className="w-full max-w-4xl mx-auto px-8 max-h-[400px]">
-        {children}
-      </div>
-    </Flex>
+    <div id={id} className={cn('flex', className)}>
+      <div className="w-full max-w-4xl mx-auto px-8">{children}</div>
+    </div>
   )
 }

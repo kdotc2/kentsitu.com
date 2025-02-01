@@ -17,7 +17,7 @@ export default {
         sans: ['var(--font-inter)'],
       },
       colors: {
-        background: 'hsl(var(--background))',
+        background: 'hsl(var(--background)) /* hsl(0, 0%, 100%) */',
         foreground: 'hsl(var(--foreground))',
         card: {
           DEFAULT: 'hsl(var(--card))',
@@ -82,16 +82,6 @@ export default {
           from: { height: 'var(--radix-collapsible-content-height)' },
           to: { height: '0' },
         },
-        appear: {
-          '0%': {
-            opacity: '0',
-            transform: 'translateY(-10px)',
-          },
-          '100%': {
-            opacity: '1',
-            transform: 'translateY(0)',
-          },
-        },
         flip: {
           '0%': {
             transform: 'rotateX(0deg)',
@@ -110,8 +100,7 @@ export default {
       animation: {
         expand: 'expand 0.3s ease-in-out',
         collapse: 'collapse 0.3s ease-in-out',
-        appear: 'appear 0.3s forwards',
-        flip: 'flip 0.5s ease-out forwards',
+        flip: 'flip 0.3s ease-out forwards',
       },
     },
   },

@@ -2,7 +2,6 @@
 
 import React from 'react'
 import { Button } from '@/components/ui/button'
-import { Flex } from '@/components/ui/flex'
 
 // Helper function to format seconds as hh:mm:ss
 const formatTime = (seconds: number) => {
@@ -40,7 +39,7 @@ export default function Timer() {
   }
 
   return (
-    <Flex align="center" gap="xs">
+    <div className="flex items-center gap-2">
       {/* Show the Reset button only when the timer is stopped */}
       {!active && seconds > 0 && (
         <Button
@@ -61,6 +60,6 @@ export default function Timer() {
       </Button>
 
       <div className="tabular-nums">{formatTime(seconds)}</div>
-    </Flex>
+    </div>
   )
 }

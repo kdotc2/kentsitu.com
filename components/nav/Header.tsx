@@ -59,17 +59,17 @@ export const Header = () => {
   }
 
   return (
-    <Flex className="h-16 shrink-0 items-center gap-2 border-b px-4 sticky top-0 bg-sidebar z-50">
+    <div className="flex h-16 shrink-0 items-center gap-2 border-b px-4 sticky top-0 bg-sidebar z-50">
       <SidebarTrigger className="-ml-1" />
       <Separator orientation="vertical" className="mr-2 h-4" />
-      <Flex justify="between" align="center" className="w-full">
+      <div className="flex items-center justify-between w-full">
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem
               className={cn(
                 !activeContent && !activeTitle
-                  ? 'text-black dark:text-white'
-                  : '',
+                  ? 'text-primary'
+                  : 'text-sidebar-foreground/50',
                 'cursor-pointer'
               )}
             >
@@ -79,8 +79,8 @@ export const Header = () => {
             <BreadcrumbItem
               className={cn(
                 activeContent && !activeTitle
-                  ? 'text-black dark:text-white'
-                  : '',
+                  ? 'text-primary'
+                  : 'text-sidebar-foreground/50',
                 'cursor-pointer'
               )}
             >
@@ -97,7 +97,7 @@ export const Header = () => {
           </BreadcrumbList>
         </Breadcrumb>
         <Clock />
-      </Flex>
-    </Flex>
+      </div>
+    </div>
   )
 }

@@ -260,7 +260,7 @@ const Sidebar = React.forwardRef<
         >
           <div
             data-sidebar="sidebar"
-            className="flex h-full w-full flex-col bg-sidebar group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:border-sidebar-border group-data-[variant=floating]:shadow px-2 group-data-[collapsible=icon]:px-0"
+            className="flex h-full w-full flex-col bg-sidebar group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:border-sidebar-border group-data-[variant=floating]:shadow group-data-[collapsible=icon]:px-0"
           >
             {children}
           </div>
@@ -558,7 +558,9 @@ const SidebarMenuButton = React.forwardRef<
     isActive?: boolean
     tooltip?: string | React.ComponentProps<typeof TooltipContent>
     showTooltip?: boolean
-    as?: React.ElementType // Add `as` prop to allow custom root element
+    as?: React.ElementType
+    href?: string // Add href prop
+    target?: string // Add target prop
   } & VariantProps<typeof sidebarMenuButtonVariants>
 >(
   (
@@ -570,6 +572,8 @@ const SidebarMenuButton = React.forwardRef<
       showTooltip,
       className,
       as: Comp = 'button', // Default to 'button', but can be overridden
+      href,
+      target,
       ...props
     },
     ref
@@ -587,6 +591,8 @@ const SidebarMenuButton = React.forwardRef<
           isActive,
           className
         )}
+        href={href}
+        target={target} // Pass href to the component
         {...props}
       />
     )
@@ -719,10 +725,10 @@ const SidebarMenuSub = React.forwardRef<
     ref={ref}
     data-sidebar="menu-sub"
     className={cn(
-      'mx-3.5 flex min-w-0 translate-x-px flex-col gap-1 border-l border-sidebar-border px-2.5 py-0.5',
-      'group-data-[collapsible=icon]:hidden',
+      'mx-3.5 flex min-w-0 translate-x-px flex-col gap-1 border-l border-sidebar-border px-2.5 py-0.5 text-sidebar-accent',
+      'group-data-[collapsible=icon]:hidden text-sidebar-foreground/50',
       isActive &&
-        'active:bg-sidebar-accent active:text-sidebar-accent-foreground data-[active=true]:bg-sidebar-accent data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground',
+        'data-[active=true]:bg-sidebar-accent data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground border-l-primary text-primary',
       className
     )}
     {...props}

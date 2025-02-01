@@ -3,7 +3,6 @@
 import { useTheme } from 'next-themes'
 import { Button } from '@/components/ui/button'
 import { Monitor, Moon, Sun } from 'lucide-react'
-import { Flex } from '@/components/ui/flex'
 import { cn } from '@/lib/utils'
 import { useMounted } from '@/hooks/useMounted' // Import the custom hook
 import { useIsMobile } from '@/hooks/use-mobile'
@@ -20,7 +19,7 @@ export const ThemeSwitch = ({ className }: { className?: string }) => {
   }
 
   return (
-    <Flex
+    <div
       className={cn(
         'flex items-center rounded-full w-fit',
         'group-data-[state=expanded]:p-1 group-data-[state=expanded]:border group-data-[state=collapsed]:mx-2',
@@ -78,6 +77,6 @@ export const ThemeSwitch = ({ className }: { className?: string }) => {
           </Button>
         </div>
       </div>
-    </Flex>
+    </div>
   )
 }
