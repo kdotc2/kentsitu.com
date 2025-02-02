@@ -87,10 +87,6 @@ body {
   }
 }
 
-.linkStyle {
-  @apply flex items-center justify-center rounded-md border border-gray-200 bg-[#f2f2f2] px-3 py-[10px] text-[13px] font-medium leading-none text-gray-900 active:border-gray-300 active:bg-[#ebebeb] dark:border-gray-700 dark:bg-[#121212] dark:text-gray-100 active:dark:border-gray-600 active:dark:bg-[#191919] md:hover:border-gray-300 md:hover:bg-[#ebebeb] md:hover:dark:border-gray-600 md:hover:dark:bg-[#191919];
-}
-
 .projectImageGrid {
   @apply grid grid-cols-2 gap-3 pb-4 sm:grid-cols-4;
 }

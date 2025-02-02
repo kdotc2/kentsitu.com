@@ -19,7 +19,8 @@ const buttonVariants = cva(
           'bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80',
         ghost: 'hover:bg-accent hover:text-accent-foreground',
         link: 'flex items-center justify-center rounded-md border border-gray-200 bg-[#f2f2f2] px-3 py-[10px] text-[13px] font-medium leading-none text-gray-900 active:border-gray-300 active:bg-[#ebebeb] dark:border-gray-700 dark:bg-[#121212] dark:text-gray-100 active:dark:border-gray-600 active:dark:bg-[#191919] md:hover:border-gray-300 md:hover:bg-[#ebebeb] md:hover:dark:border-gray-600 md:hover:dark:bg-[#191919]',
-        transparent: 'bg-none',
+        transparent:
+          'bg-none hover:bg-sidebar-accent hover:text-sidebar-accent-foreground',
       },
       size: {
         default: 'h-9 px-4 py-2',
