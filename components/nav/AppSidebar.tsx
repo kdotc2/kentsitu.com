@@ -71,7 +71,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarContent>
 
       {/* Sidebar Footer */}
-      <SidebarFooter className="my-2">
+      <SidebarFooter className="m-2">
         <ThemeSwitch />
       </SidebarFooter>
 

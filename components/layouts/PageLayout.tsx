@@ -17,7 +17,7 @@ const Header = ({
   url?: string
 }) => {
   return (
-    <div className="space-y-2 pb-10">
+    <div className="space-y-2">
       {titleLink ? (
         <a
           target="_blank"
@@ -50,7 +50,7 @@ export const PageLayout = ({
   className?: string
 }) => {
   return (
-    <div className="relative pb-14">
+    <div className="relative pb-14 space-y-14">
       {/* layout header */}
       <Header title={title} description={description} />
       <div className={className}>{children}</div>
@@ -73,7 +73,7 @@ export const SlugContentLayout = ({
 
   return (
     <>
-      <div className="pb-14">
+      <div className="pb-14 space-y-14">
         <Header
           title={post.title}
           description={post.summary}
@@ -86,7 +86,7 @@ export const SlugContentLayout = ({
       </div>
       {toc && (
         <div className="hidden max-w-[200px] text-sm 2xl:block">
-          <div className="sticky top-10 flex">
+          <div className="sticky top-14 flex">
             <TableOfContents toc={toc} />
           </div>
         </div>

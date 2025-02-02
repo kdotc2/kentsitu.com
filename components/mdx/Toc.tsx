@@ -34,12 +34,7 @@ export function TableOfContents({ toc }: TocProps) {
   }
 
   return (
-    <div
-      className={cn(
-        'ml-5 pt-4',
-        `${tocShow ? ' ml-[104px]' : 'flex absolute'}`
-      )}
-    >
+    <div className={cn('ml-5', `${tocShow ? ' ml-20' : 'flex absolute'}`)}>
       <div className="relative flex items-center gap-4">
         {tocShow && <p className="w-[100px] font-semibold">On This Page</p>}
         <div className="group">
