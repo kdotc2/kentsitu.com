@@ -22,11 +22,7 @@ export default async function BookmarksLayout() {
   }
 
   return (
-    <PageLayout
-      title={metainfo.title}
-      description={metainfo.description}
-      className="-mx-6"
-    >
+    <PageLayout title={metainfo.title} description={metainfo.description}>
       <Mdx content={post} MDXComponents={MDXComponents} />
     </PageLayout>
   )

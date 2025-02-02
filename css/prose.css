@@ -1,13 +1,13 @@
 .prose h2 {
-  @apply text-lg font-bold tracking-tight text-gray-900 dark:text-gray-100;
+  @apply text-lg font-bold;
 }
 
 .prose h3 {
-  @apply text-base font-bold tracking-tight text-gray-900 dark:text-gray-100;
+  @apply text-base font-bold;
 }
 
 .prose a {
-  @apply font-normal text-blue-500 hover:text-blue-600 hover:dark:text-blue-400 no-underline;
+  @apply font-normal text-ring/80 hover:text-ring no-underline;
 }
 
 .prose img {
@@ -19,27 +19,23 @@
 }
 
 .prose ol li::marker {
-  @apply font-semibold text-gray-500 dark:text-gray-400;
+  @apply font-semibold text-muted-foreground/70;
 }
 
 .prose ul li::marker {
-  @apply bg-gray-500 dark:bg-gray-400;
+  @apply bg-muted-foreground/70;
 }
 
 .prose blockquote {
-  @apply my-0 border-none px-6 text-gray-900 dark:text-gray-100 sm:px-12;
-}
-
-.prose hr {
-  @apply border-gray-200 dark:border-gray-700;
+  @apply my-0 border-none px-6 sm:px-12;
 }
 
 .prose pre {
-  @apply m-0 gap-2 rounded-lg border border-gray-200 bg-gray-50 text-[13px] text-gray-900 dark:border-gray-700 dark:bg-gray-950 dark:text-gray-100;
+  @apply m-0 gap-2 rounded-lg border;
 }
 
 .prose :not(pre) > code {
-  @apply rounded-[4px] bg-gray-200 px-1 py-[2px] font-medium text-gray-900 dark:bg-gray-800 dark:text-gray-50;
+  @apply px-1 py-[2px] font-medium bg-muted rounded-sm;
 }
 
 .prose code::before {

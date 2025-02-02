@@ -16,58 +16,34 @@ export const metadata: Metadata = {
   description: metainfo.description,
 }
 
-const description = (
-  <>
-    A space to showcase selected work.{' '}
-    <Link
-      href="mailto:hello@kentsitu.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-blue-500 hover:text-blue-600 hover:dark:text-blue-400"
-    >
-      Contact me
-    </Link>{' '}
-    if you want to learn more about my work.
-  </>
-)
-
 export default async function Work() {
   const posts = sortedWorkPost(allWorks)
 
   return (
     <PageLayout
       title={metainfo.title}
-      description={description}
-      className="-mx-6 grid grid-cols-1 gap-4 lg:grid-cols-2"
+      description={metadata.description}
+      className="grid grid-cols-1 gap-4 lg:grid-cols-2"
     >
       {posts.map((post) => {
         const { slug, title, summary, image, draft } = post
         return (
           !draft && (
-            <div key={title} className="grid">
-              <div className="flex h-auto w-full">
-                <Link
-                  href={`/work/${slug}`}
-                  className="rounded-[10px] focus:-outline-offset-1"
-                >
-                  <div className="cardStyle">
-                    <Image
-                      className="relative flex-shrink-0 rounded-xl"
-                      alt={title + ' Cover Photo'}
-                      src={image}
-                      width={800}
-                      height={600}
-                    />
-                    <div className="w-full px-2">
-                      <div className="font-bold leading-8">{title}</div>
-                      <div className="flex flex-wrap text-sm text-gray-500 dark:text-gray-400">
-                        {summary}
-                      </div>
-                    </div>
-                  </div>
-                </Link>
+            <Link key={title} href={`/work/${slug}`} className="cardStyle">
+              <Image
+                className="relative flex-shrink-0 border-b"
+                alt={title + ' Cover Photo'}
+                src={image}
+                width={800}
+                height={600}
+              />
+              <div className="w-full p-4">
+                <p className="font-bold leading-8">{title}</p>
+                <p className="flex flex-wrap text-sm text-muted-foreground">
+                  {summary}
+                </p>
               </div>
-            </div>
+            </Link>
           )
         )
       })}

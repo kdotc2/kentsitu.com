@@ -1,6 +1,6 @@
 'use client'
 
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -13,6 +13,7 @@ import { Separator } from '@/components/ui/separator'
 import { SidebarTrigger } from '@/components/ui/sidebar'
 import { Clock } from '@/components/nav/Clock'
 import { cn } from '@/lib/utils'
+import Link from 'next/link'
 
 // Special title mappings for known paths
 const titleMappings: Record<string, string> = {
@@ -40,22 +41,11 @@ const formatTitle = (text: string) => {
 
 export const Header = () => {
   const pathname = usePathname()
-  const router = useRouter()
 
-  const pathParts = pathname.split('/').filter(Boolean)
-  const activeContent = pathParts.length > 0 ? formatTitle(pathParts[0]) : ''
+  const slugPath = pathname.split('/').filter(Boolean)
+  const activeContent = slugPath.length > 0 ? formatTitle(slugPath[0]) : ''
   const activeTitle =
-    pathParts.length > 1 ? pathParts.slice(1).map(formatTitle).join(' > ') : ''
-
-  const handleTitleClick = (e: React.MouseEvent) => {
-    e.preventDefault()
-    router.push(`/${activeContent.toLowerCase()}`)
-  }
-
-  const handleHomeClick = (e: React.MouseEvent) => {
-    e.preventDefault()
-    router.push('/')
-  }
+    slugPath.length > 1 ? slugPath.slice(1).map(formatTitle).join(' > ') : ''
 
   return (
     <div className="flex h-16 shrink-0 items-center gap-2 border-b px-4 sticky top-0 bg-sidebar z-50">
@@ -68,27 +58,35 @@ export const Header = () => {
               className={cn(
                 !activeContent && !activeTitle
                   ? 'text-primary'
-                  : 'text-sidebar-foreground/50',
+                  : 'text-muted-foreground/50',
                 'cursor-pointer'
               )}
             >
-              <BreadcrumbLink onClick={handleHomeClick}>Home</BreadcrumbLink>
+              <BreadcrumbLink as={Link} href={'/'}>
+                Home
+              </BreadcrumbLink>
             </BreadcrumbItem>
-            {activeContent && <BreadcrumbSeparator />}
+            <BreadcrumbSeparator className={cn(!activeContent && 'hidden')} />
             <BreadcrumbItem
               className={cn(
                 activeContent && !activeTitle
                   ? 'text-primary'
-                  : 'text-sidebar-foreground/50',
+                  : 'text-muted-foreground/50',
                 'cursor-pointer'
               )}
             >
-              <BreadcrumbLink onClick={handleTitleClick}>
+              <BreadcrumbLink
+                className={cn(!activeContent && 'hidden')}
+                as={Link}
+                href={`/${slugPath[0]}`}
+              >
                 {activeContent}
               </BreadcrumbLink>
             </BreadcrumbItem>
-            {activeTitle && <BreadcrumbSeparator />}
-            <BreadcrumbItem className="truncate flex-1">
+            <BreadcrumbSeparator className={cn(!activeTitle && 'hidden')} />
+            <BreadcrumbItem
+              className={cn(!activeTitle && 'hidden', 'truncate flex-1')}
+            >
               <BreadcrumbPage className="truncate">
                 {activeTitle}
               </BreadcrumbPage>

@@ -9,7 +9,7 @@ import { useIsMobile } from '@/hooks/use-mobile'
 
 export const ThemeSwitch = ({ className }: { className?: string }) => {
   const { theme, setTheme } = useTheme()
-  const mounted = useMounted() // Use the custom hook to track mounted state
+  const mounted = useMounted()
   const isMobile = useIsMobile()
 
   const handleThemeChange = (newTheme: 'light' | 'dark' | 'system') => {
@@ -34,12 +34,12 @@ export const ThemeSwitch = ({ className }: { className?: string }) => {
             size="icon"
             variant="transparent"
             aria-label="Toggle Dark Mode"
-            className={`rounded-full p-2 transition-none text-gray-500 dark:text-gray-400 ${
+            className={`rounded-full p-2 transition-none  ${
               !mounted
                 ? ''
                 : theme === 'dark'
-                ? 'bg-gray-100 hover:text-current dark:bg-gray-800'
-                : 'text-gray-500 dark:text-gray-400'
+                ? 'bg-sidebar-accent hover:text-current dark:bg-gray-800'
+                : ''
             }`}
             onClick={() => handleThemeChange('dark')}
           >
@@ -49,12 +49,12 @@ export const ThemeSwitch = ({ className }: { className?: string }) => {
             size="icon"
             variant="transparent"
             aria-label="Toggle Light Mode"
-            className={`rounded-full p-2 transition-none text-gray-500 dark:text-gray-400 ${
+            className={`rounded-full p-2 transition-none  ${
               !mounted
                 ? ''
                 : theme === 'light'
-                ? 'bg-gray-100 hover:text-current dark:bg-gray-800'
-                : 'text-gray-500 dark:text-gray-400'
+                ? 'bg-sidebar-accent hover:text-current dark:bg-gray-800'
+                : ''
             }`}
             onClick={() => handleThemeChange('light')}
           >
@@ -64,12 +64,12 @@ export const ThemeSwitch = ({ className }: { className?: string }) => {
             size="icon"
             variant="transparent"
             aria-label="Toggle System Mode"
-            className={`rounded-full p-2 transition-none text-gray-500 dark:text-gray-400 ${
+            className={`rounded-full p-2 transition-none  ${
               !mounted
                 ? ''
                 : theme === 'system'
-                ? 'bg-gray-100 hover:text-current dark:bg-gray-800'
-                : 'text-gray-500 dark:text-gray-400'
+                ? 'bg-sidebar-accent hover:text-current dark:bg-gray-800'
+                : ''
             }`}
             onClick={() => handleThemeChange('system')}
           >

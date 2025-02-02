@@ -104,7 +104,7 @@ export function NavigationLink({ link, className }: NavProps) {
           <link.icon />
           <span>{link.title}</span>
           {(link.title === 'Resume' || link.title === 'Contact') && (
-            <ArrowUpRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90 text-muted-foreground" />
+            <ArrowUpRight className="ml-auto duration-200 group-data-[state=open]/collapsible:rotate-90 text-muted-foreground" />
           )}
         </SidebarMenuButton>
       )}

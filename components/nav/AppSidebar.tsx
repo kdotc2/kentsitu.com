@@ -26,12 +26,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <SidebarMenuButton
           size="lg"
           variant="none"
-          className="w-fit"
+          className="w-fit group-data-[state=collapsed]:mx-2 text-primary"
           as={Link}
           href={'/'}
         >
           {/* Logo Container */}
-          <div className="aspect-square size-8 flex items-center justify-center group-data-[state=expanded]:hidden max-md:hidden mx-2">
+          <div className="aspect-square size-8 flex items-center justify-center group-data-[state=expanded]:hidden max-md:hidden">
             <svg
               width="20"
               height="20"

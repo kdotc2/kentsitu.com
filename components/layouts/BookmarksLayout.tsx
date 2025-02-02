@@ -3,7 +3,6 @@
 import bookmarkItems from '@/content/bookmarkItems'
 import Link from 'next/link'
 import { useEffect, useMemo, useRef, useState } from 'react'
-// import Masonry from 'react-masonry-css'
 
 type MetaData = {
   title: string
@@ -32,10 +31,10 @@ export default function Bookmarks() {
   const [bookmarks, setBookmarks] = useState<MetaData[]>([])
   const lastBookmarkRef = useRef<HTMLDivElement>(null)
   const [loading, setLoading] = useState(true)
+  const [imageError, setImageError] = useState<{ [key: string]: boolean }>({})
 
   const randomList = useMemo(() => {
-    const sortedItems = bookmarkItems.sort(() => 0.5 - Math.random())
-    return sortedItems
+    return bookmarkItems
   }, [])
 
   useEffect(() => {
@@ -70,51 +69,53 @@ export default function Bookmarks() {
     fetchBookmarks()
   }, [page, randomList])
 
+  const handleImageError = (title: string) => {
+    setImageError((prev) => ({ ...prev, [title]: true }))
+  }
+
   return (
     <>
-      {/* <Masonry
-        breakpointCols={breakpointColumnsObj}
-        className="my-masonry-grid"
-        columnClassName="my-masonry-grid_column"
-      > */}
-      {bookmarks.map((bookmark) => (
-        <div key={bookmark.url} className="inline-block">
+      <div className="max-sm:columns-1 max-md:columns-2 columns-2 xl:columns-3">
+        {bookmarks.map((bookmark) => (
           <Link
+            key={bookmark.title}
             href={bookmark.url}
-            className="space-y-3 rounded-[10px] focus:-outline-offset-1"
+            className="cardStyle mb-4"
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`Link to ${bookmark.title}`}
           >
-            <div className="cardStyle">
+            {imageError[bookmark.title] ? (
+              <div className="w-full h-48 flex items-center justify-center border-b">
+                No Image Found
+              </div>
+            ) : (
               <img
-                className="relative flex-shrink-0 rounded-xl"
+                className="relative flex-grow-0 border-b w-full"
                 src={bookmark.image}
-                alt={bookmark.title}
-                width={800}
-                height={600}
+                alt={`${bookmark.title} Cover photo`}
                 loading="lazy"
+                onError={() => handleImageError(bookmark.title)}
               />
-              <div className="w-full space-y-1.5 px-2 text-sm">
-                <div className="flex items-center gap-2 font-bold ">
-                  <div className="line-clamp-2">{bookmark.title}</div>
-                </div>
-                <div className="flex flex-wrap text-gray-500 dark:text-gray-400">
-                  <p className="line-clamp-2">{bookmark.description}</p>
-                </div>
+            )}
+            <div className="w-full space-y-1.5 p-4 text-sm">
+              <div className="flex items-center gap-2 font-bold">
+                <div className="line-clamp-2">{bookmark.title}</div>
+              </div>
+              <div className="flex flex-wrap text-muted-foreground">
+                <p className="line-clamp-3">{bookmark.description}</p>
               </div>
             </div>
           </Link>
-        </div>
-      ))}
-      {/* </Masonry> */}
+        ))}
+      </div>
       <div ref={lastBookmarkRef}>
         {loading && (
           <div className="flex items-center justify-center">
             <div role="status">
               <svg
                 aria-hidden="true"
-                className="mr-2 h-8 w-8 animate-spin fill-gray-800 text-gray-200 dark:fill-gray-200 dark:text-gray-600"
+                className="mr-2 h-8 w-8 animate-spin fill-muted-foreground text-muted-foreground"
                 viewBox="0 0 100 101"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"

@@ -30,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} antialiased min-h-screen`}>
+      <body className={`${inter.variable} antialiased`}>
         <ThemeProvider>
           {/* Wrap the client-side providers in Suspense */}
           <Suspense fallback={<div>Loading...</div>}>

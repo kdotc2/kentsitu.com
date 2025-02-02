@@ -14,7 +14,6 @@ const bookmarkItems = [
   'essays.uxdesign.cc/case-study-factory',
   'blog.tubikstudio.com/color-in-design-influence-on-users-actions',
   'free-for.dev',
-  'invisionapp.com/enterprise/design-genome',
   'uxdesign.cc/ux-design-methods-deliverables-657f54ce3c7d',
   'cantunsee.space',
   // 'sprungstudios.com/2021/10/04/ui-ux-designer-skills-games/',
@@ -29,11 +28,12 @@ const bookmarkItems = [
   'github.com/aniftyco/awesome-tailwindcss',
   'roadmap.sh',
   'keynotopia.com/how-to-create-animated-whiteboard-explainer-videos-for-free-using-apple-keynote',
-  'getwaitlist.com/blog/solo-dev-startup-stack',
+  // 'getwaitlist.com/blog/solo-dev-startup-stack',
   'seungmee-lee.com',
   'nevflynn.com',
   'anarodrigues.design',
   'mattrothenberg.com',
+  'blush.design',
 ]
 
 export default bookmarkItems

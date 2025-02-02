@@ -22,38 +22,31 @@ export default async function Projects() {
     <PageLayout
       title={metainfo.title}
       description={metainfo.description}
-      className="-mx-6 grid grid-cols-1 gap-4 lg:grid-cols-2"
+      className="grid grid-cols-1 gap-4 lg:grid-cols-2"
     >
       {posts.map((post) => {
         const { slug, title, summary, image, tags } = post
         return (
-          <div key={title}>
-            <Link
-              href={`/projects/${slug}`}
-              className="rounded-[10px] focus:-outline-offset-1"
-            >
-              <div className="cardStyle">
-                <Image
-                  className="relative flex-shrink-0 rounded-xl"
-                  alt={title + ' Cover Photo'}
-                  src={image}
-                  width={800}
-                  height={600}
-                />
-                <div className="w-full px-2">
-                  <div className="font-bold leading-8">{title}</div>
-                  <div className="flex flex-wrap text-sm text-gray-500 dark:text-gray-400">
-                    {summary}
-                  </div>
-                  <div className="flex items-center gap-x-3 truncate py-2 text-xs uppercase text-gray-500 dark:text-gray-400">
-                    {tags?.map((tag: string) => (
-                      <div key={tag}>{tag}</div>
-                    ))}
-                  </div>
-                </div>
+          <Link key={title} href={`/projects/${slug}`} className="cardStyle">
+            <Image
+              className="relative flex-shrink-0 border-b"
+              alt={title + ' Cover Photo'}
+              src={image}
+              width={800}
+              height={600}
+            />
+            <div className="w-full p-4">
+              <p className="font-bold leading-8">{title}</p>
+              <p className="flex flex-wrap text-sm text-muted-foreground">
+                {summary}
+              </p>
+              <div className="flex items-center gap-x-3 truncate py-2 text-xs uppercase text-muted-foreground">
+                {tags?.map((tag: string) => (
+                  <p key={tag}>{tag}</p>
+                ))}
               </div>
-            </Link>
-          </div>
+            </div>
+          </Link>
         )
       })}
     </PageLayout>

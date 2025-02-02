@@ -36,8 +36,8 @@ export function TableOfContents({ toc }: TocProps) {
   return (
     <div
       className={cn(
-        `${tocShow ? ' ml-[104px]' : 'flex absolute'}`,
-        'ml-5 pt-4'
+        'ml-5 pt-4',
+        `${tocShow ? ' ml-[104px]' : 'flex absolute'}`
       )}
     >
       <div className="relative flex items-center gap-4">
@@ -132,17 +132,15 @@ function Tree({ tree, level = 1, activeItem }: TreeProps) {
           <li key={index}>
             <a
               href={item.url}
-              className={cn(
-                'text-sidebar-foreground/50 hover:text-primary',
-                item.url === activeItem && 'text-primary'
-              )}
+              className={cn('text-muted-foreground/50 hover:text-primary')}
             >
               <div
                 className={cn(
                   level === 1
                     ? 'py-1'
-                    : 'ml-1 border-l border-sidebar-border py-1 pl-4 text-sidebar-foreground/50 hover:text-primary hover:border-l-primary',
-                  item.url === activeItem && 'text-primary border-l-primary'
+                    : 'ml-1 border-l border-sidebar-border py-1 pl-4 text-muted-foreground/50 hover:text-primary hover:border-l-primary',
+                  item.url === `#${activeItem}` &&
+                    'text-primary border-l-primary'
                 )}
               >
                 {item.title}

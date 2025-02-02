@@ -19,7 +19,7 @@ interface MDXLayout {
 const headerClass =
   (Component: React.ElementType) =>
   ({ className, ...props }: { className: string }) =>
-    <Component className={cn('scroll-mt-20', className)} {...props} />
+    <Component className={cn('scroll-mt-8', className)} {...props} />
 
 export const MDXComponents: object = {
   h1: headerClass('h1'),
