@@ -6,7 +6,7 @@ import { Inter } from 'next/font/google'
 import { ThemeProvider } from '@/context/ThemeProvider'
 import { SidebarProvider } from '@/components/ui/sidebar'
 import { Suspense } from 'react'
-import NotFound from '@/app/not-found'
+import { Loader } from '@/components/ui/skeleton'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -34,7 +34,13 @@ export default function RootLayout({
       <body className={`${inter.variable} antialiased`}>
         <ThemeProvider>
           {/* Wrap the client-side providers in Suspense */}
-          <Suspense fallback={<NotFound />}>
+          <Suspense
+            fallback={
+              <div className="h-screen flex items-center justify-center w-full">
+                <Loader />
+              </div>
+            }
+          >
             <SidebarProvider>{children}</SidebarProvider>
           </Suspense>
         </ThemeProvider>

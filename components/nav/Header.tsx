@@ -48,7 +48,7 @@ export const Header = () => {
     slugPath.length > 1 ? slugPath.slice(1).map(formatTitle).join(' > ') : ''
 
   return (
-    <div className="flex h-16 shrink-0 items-center gap-2 border-b px-4 sticky top-0 bg-sidebar z-50">
+    <div className="flex h-16 shrink-0 items-center gap-2 border-b md:px-4 px-5 sticky top-0 bg-sidebar z-50">
       <SidebarTrigger className="-ml-1" />
       <Separator orientation="vertical" className="mr-2 h-4" />
       <div className="flex items-center justify-between w-full">
@@ -76,9 +76,9 @@ export const Header = () => {
               )}
             >
               <BreadcrumbLink
-                className={cn(!activeContent && 'hidden')}
                 as={Link}
                 href={`/${slugPath[0]}`}
+                className={cn(!activeContent && 'hidden')}
               >
                 {activeContent}
               </BreadcrumbLink>

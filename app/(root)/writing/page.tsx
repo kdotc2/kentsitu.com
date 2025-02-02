@@ -33,7 +33,7 @@ export default async function Writing() {
     <PageLayout
       title={metainfo.title}
       description={metainfo.description}
-      className="grid gap-4"
+      className="grid md:gap-4 gap-5"
     >
       {posts.map((post) => {
         const { slug, title, summary, date, draft } = post

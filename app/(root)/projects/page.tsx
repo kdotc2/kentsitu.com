@@ -22,7 +22,7 @@ export default async function Projects() {
     <PageLayout
       title={metainfo.title}
       description={metainfo.description}
-      className="grid grid-cols-1 gap-4 lg:grid-cols-2"
+      className="grid grid-cols-1 md:gap-4 gap-5 lg:grid-cols-2"
     >
       {posts.map((post) => {
         const { slug, title, summary, image, tags } = post
