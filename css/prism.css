@@ -7,7 +7,7 @@
 
 /* Code title styles */
 .remark-code-title {
-  @apply rounded-t-lg border border-b-0 border-gray-200 bg-[#f2f2f2] px-5 py-3 text-xs dark:border-gray-700 dark:bg-[#121212];
+  @apply rounded-t-lg border border-b-0 bg-muted px-5 py-3 text-xs;
 }
 
 .remark-code-title + div > pre {
@@ -28,28 +28,28 @@
 }
 
 .code-line.deleted {
-  @apply bg-red-500 bg-opacity-20;
+  @apply bg-destructive bg-opacity-20;
 }
 
 .highlight-line {
-  @apply -mx-4 border-gray-500 bg-[#fff8c5] dark:bg-[#2f2a1e];
+  @apply -mx-4 bg-[#fff8c5] dark:bg-[#2f2a1e];
 }
 
 .line-number::before {
-  @apply mr-8 inline-block w-4 text-right text-gray-400;
+  @apply mr-8 inline-block w-4 text-right text-muted-foreground/70;
   content: attr(line);
 }
 
 code[class*='language-'] {
-  @apply text-gray-900 dark:text-gray-100;
+  @apply text-primary;
 }
 
 pre[class*='language-'],
 code[class*='language-'] {
   font-size: 12px;
   text-shadow: none;
-  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono',
-    monospace;
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas,
+    'Liberation Mono', monospace;
   direction: ltr;
   text-align: left;
   white-space: pre;
@@ -78,7 +78,7 @@ code[class*='language-']::mozselection {
   }
 }
 pre[class*='language-'] {
-  @apply my-[0.5em] overflow-auto bg-gray-50 p-[1em] dark:bg-gray-950;
+  @apply my-[0.5em] overflow-auto bg-card p-[1em];
 }
 
 :not(pre) > code[class*='language-'] {
@@ -136,9 +136,7 @@ pre[class*='language-'] > code[class*='language-'] {
   @apply text-[#0550ae] dark:text-[#79c0ff];
 }
 .token.selector,
-.token.script {
-  @apply text-gray-900 dark:text-gray-100;
-}
+.token.script,
 .token.string {
   @apply dark:text-[#a5d6ff];
 }

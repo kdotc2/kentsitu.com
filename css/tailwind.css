@@ -2,46 +2,111 @@
 @tailwind components;
 @tailwind utilities;
 
-/* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */
-input:-webkit-autofill,
-input:-webkit-autofill:focus {
-  transition:
-    background-color 600000s 0s,
-    color 600000s 0s;
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 224 71.4% 4.1%;
+    --card: 0 0% 98%;
+    --card-foreground: 224 71.4% 4.1%;
+    --primary: 220.9 39.3% 11%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 217.2 91.2% 59.8%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 92.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+  .dark {
+    --background: 224 71.4% 0%;
+    --foreground: 210 20% 98%;
+    --card: 240 5.9% 10%;
+    --card-foreground: 210 20% 98%;
+    --primary: 210 20% 98%;
+    --primary-foreground: 220.9 39.3% 11%;
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 92.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 92.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  * {
+    @apply border-border;
+  }
+
+  a {
+    @apply ring-ring focus-visible:ring-2 outline-none rounded-sm;
+  }
+
+  button {
+    @apply ring-sidebar-ring focus-visible:ring-2 outline-none rounded-sm;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
 }
 
 .projectImageGrid {
   @apply grid grid-cols-2 gap-3 pb-4 sm:grid-cols-4;
 }
 
-.keyTakeaways {
-  @apply text-[#171717] dark:text-[#f5f5f5];
+.cardStyle {
+  @apply cursor-pointer inline-block border rounded-xl overflow-clip w-full bg-card hover:bg-sidebar-accent;
 }
 
 .metricHeader {
   @apply text-4xl font-semibold md:text-5xl;
 }
 
-.buttonStyle {
-  @apply h-9 rounded-md border border-gray-200 bg-[#f2f2f2] px-3 text-[13px] font-medium text-gray-900 active:border-gray-300 active:bg-[#ebebeb] dark:border-gray-700 dark:bg-[#121212] dark:text-gray-100 active:dark:border-gray-600 active:dark:bg-[#191919] md:hover:border-gray-300 md:hover:bg-[#ebebeb] md:hover:dark:border-gray-600 md:hover:dark:bg-[#191919];
-}
-
-.linkStyle {
-  @apply flex items-center justify-center rounded-md border border-gray-200 bg-[#f2f2f2] px-3 py-[10px] text-[13px] font-medium leading-none text-gray-900 active:border-gray-300 active:bg-[#ebebeb] dark:border-gray-700 dark:bg-[#121212] dark:text-gray-100 active:dark:border-gray-600 active:dark:bg-[#191919] md:hover:border-gray-300 md:hover:bg-[#ebebeb] md:hover:dark:border-gray-600 md:hover:dark:bg-[#191919];
-}
-
-.cardStyle {
-  @apply flex cursor-pointer flex-col items-center gap-y-4 rounded-xl p-6 dark:text-gray-100 md:hover:rounded-xl md:hover:bg-[#f2f2f2] md:hover:dark:bg-[#121212];
-}
-
 /* to see list of all values, go to the React Masonry CSS link above */
 .my-masonry-grid {
   display: flex;
   width: auto;
-  margin: -10px; /* gutter size offset */
+  margin: -8px; /* gutter size offset */
 }
 .my-masonry-grid_column {
-  padding: 10px; /* gutter size */
+  padding: 8px; /* gutter size */
   background-clip: padding-box;
 }
 
