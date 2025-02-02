@@ -4,6 +4,13 @@ import { Loader } from '@/components/ui/skeleton'
 import bookmarkItems from '@/content/bookmarkItems'
 import Link from 'next/link'
 import { useEffect, useMemo, useRef, useState } from 'react'
+import Masonry from 'react-masonry-css'
+
+const breakpointColumnsObj = {
+  default: 3,
+  1280: 2,
+  640: 1,
+}
 
 type MetaData = {
   title: string
@@ -76,7 +83,11 @@ export default function Bookmarks() {
 
   return (
     <>
-      <div className="max-sm:columns-1 max-md:columns-2 columns-2 xl:columns-3">
+      <Masonry
+        breakpointCols={breakpointColumnsObj}
+        className="my-masonry-grid"
+        columnClassName="my-masonry-grid_column"
+      >
         {bookmarks.map((bookmark) => (
           <Link
             key={bookmark.title}
@@ -109,7 +120,7 @@ export default function Bookmarks() {
             </div>
           </Link>
         ))}
-      </div>
+      </Masonry>
       <div ref={lastBookmarkRef}>{loading && <Loader />}</div>
     </>
   )

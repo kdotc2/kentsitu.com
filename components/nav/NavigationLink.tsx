@@ -1,7 +1,12 @@
 'use client'
 
 import Link from 'next/link'
-import { ArrowUpRight, LucideIcon, ChevronDown } from 'lucide-react'
+import {
+  ArrowUpRight,
+  LucideIcon,
+  ChevronDown,
+  LucideProps,
+} from 'lucide-react'
 import {
   Collapsible,
   CollapsibleContent,
@@ -15,12 +20,13 @@ import {
 import { cn } from '@/lib/utils'
 import { usePathname } from 'next/navigation'
 import NavigationItems from '@/components/nav/NavigationItems'
+import { ComponentType } from 'react'
 
 export type NavProps = {
   link: {
     href: string
     title: string
-    icon: LucideIcon
+    icon: LucideIcon | ComponentType<LucideProps> // Allow both LucideIcon and custom components
     isActive?: boolean
   }
   className?: string
@@ -94,7 +100,7 @@ export function NavigationLink({ link, className }: NavProps) {
           as={Link}
           href={link.href}
           target={
-            link.title === 'Resume' || link.title === 'Contact'
+            link.title === 'Read.cv' || link.title === 'Contact'
               ? '_blank'
               : '_self'
           }
@@ -103,7 +109,7 @@ export function NavigationLink({ link, className }: NavProps) {
         >
           <link.icon />
           <span>{link.title}</span>
-          {(link.title === 'Resume' || link.title === 'Contact') && (
+          {(link.title === 'Read.cv' || link.title === 'Contact') && (
             <ArrowUpRight className="ml-auto duration-200 group-data-[state=open]/collapsible:rotate-90 text-muted-foreground" />
           )}
         </SidebarMenuButton>

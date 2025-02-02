@@ -98,3 +98,20 @@ body {
 .metricHeader {
   @apply text-4xl font-semibold md:text-5xl;
 }
+
+/* to see list of all values, go to the React Masonry CSS link above */
+.my-masonry-grid {
+  display: flex;
+  width: auto;
+  margin: -8px; /* gutter size offset */
+}
+.my-masonry-grid_column {
+  padding: 8px; /* gutter size */
+  background-clip: padding-box;
+}
+
+/* style items */
+.my-masonry-grid_column > div {
+  /* change div to reference elements in <Masonry> */
+  margin-bottom: 20px;
+}

@@ -47,7 +47,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           </div>
 
           {/* Text */}
-          <span className="truncate font-semibold opacity-100 group-data-[state=collapsed]:opacity-0 group-data-[state=collapsed]:w-0">
+          <span className="truncate text-base font-semibold opacity-100 group-data-[state=collapsed]:opacity-0 group-data-[state=collapsed]:w-0">
             Kent Situ
           </span>
         </SidebarMenuButton>
