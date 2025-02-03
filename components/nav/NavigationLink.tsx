@@ -73,14 +73,7 @@ export function NavigationLink({ link, className }: NavProps) {
                 >
                   <Link
                     href={`${basePath}/${post.slug}`}
-                    className={cn(
-                      'block px-2 py-1'
-                      // `${
-                      //   pathname.endsWith(`${post.slug}`)
-                      //     ? ''
-                      //     : 'text-gray-400  dark:text-gray-600 sm:hover:text-gray-800 sm:hover:dark:text-gray-200'
-                      // }`
-                    )}
+                    className={cn('block px-2 py-1')}
                     onClick={() => setOpenMobile(false)}
                   >
                     {post.title}

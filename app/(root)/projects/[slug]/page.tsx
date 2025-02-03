@@ -1,5 +1,4 @@
 import { allProjects, Projects } from 'contentlayer/generated'
-import { getTableOfContents } from '@/lib/toc'
 import { notFound } from 'next/navigation'
 import {
   generateStaticParamsForContent,
@@ -35,11 +34,11 @@ export default async function ProjectLayout({
     notFound()
   }
 
-  const toc = await getTableOfContents(post.body.raw)
+  // const toc = await getTableOfContents(post.body.raw)
 
   return (
     <div className="relative flex">
-      <SlugContentLayout post={post} toc={toc} titleLink />
+      <SlugContentLayout post={post} titleLink />
     </div>
   )
 }

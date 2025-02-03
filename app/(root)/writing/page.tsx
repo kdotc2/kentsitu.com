@@ -27,8 +27,6 @@ export const metadata: Metadata = {
 export default async function Writing() {
   const posts = sortedWritingPost(allWritings)
 
-  console.log(posts)
-
   return (
     <PageLayout
       title={metainfo.title}
