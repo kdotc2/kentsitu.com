@@ -1,25 +1,44 @@
-'use client'
+import { allSlides } from 'contentlayer/generated'
+import { notFound } from 'next/navigation'
+import {
+  generateStaticParamsForContent,
+  getContentBySlug,
+} from '@/lib/utils/contentUtils'
+import { SlugContentLayout } from '@/components/layouts/PageLayout'
 
-import { useState, useEffect } from 'react'
-import { useParams } from 'next/navigation'
+export const generateStaticParams = async () =>
+  generateStaticParamsForContent(allSlides)
 
-export default function SlidesPage() {
-  const { slug } = useParams() // Get the dynamic parameter from the URL (now named 'slug')
-  const [loading, setLoading] = useState(true)
-  const [Content, setContent] = useState<React.ComponentType | null>(null)
-
-  useEffect(() => {
-    if (slug) {
-      const loadContent = async () => {
-        const LoadedContent = await import(`@/content/slides/${slug}.mdx`)
-        setContent(() => LoadedContent.default)
-        setLoading(false)
-      }
-      loadContent()
-    }
-  }, [slug])
-
-  if (loading || !Content) return <p>Loading...</p>
-
-  return <Content />
+export function splitSlides(content: string): string[] {
+  return content.split(/\n\s*---\s*\n/g) // Split at horizontal rules (---)
 }
+
+export default async function SlidesLayout({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
+  const { slug } = await params
+  const post = getContentBySlug(slug, allSlides)
+
+  if (!post || post.draft) {
+    notFound()
+  }
+
+  const slides = splitSlides(post.body.raw) // Split the slides
+  console.log(slides)
+
+  return <SlugContentLayout post={post} showHeader={false} className="p-0" />
+}
+
+// const SlideDeck = ({ slides }: { slides: string[] }) => {
+//   return (
+//     <div className="w-full max-w-3xl mx-auto">
+//       {slides.map((slide, index) => (
+//         <div key={index} className="slide">
+//           <SlugContentLayout post={slide} />
+//         </div>
+//       ))}
+//     </div>
+//   )
+// }

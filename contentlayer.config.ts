@@ -87,9 +87,25 @@ export const Misc = defineDocumentType(() => ({
   computedFields,
 }))
 
+export const Slides = defineDocumentType(() => ({
+  name: 'Slides',
+  filePathPattern: 'slides/**/*.mdx',
+  contentType: 'mdx',
+  fields: {
+    title: { type: 'string', required: true },
+    date: { type: 'date', required: true },
+    lastmod: { type: 'date' },
+    draft: { type: 'boolean' },
+    summary: { type: 'string' },
+    image: { type: 'string' },
+    description: { type: 'string' },
+  },
+  computedFields,
+}))
+
 export default makeSource({
   contentDirPath: 'content',
-  documentTypes: [Writing, Work, Misc, Projects],
+  documentTypes: [Writing, Work, Misc, Projects, Slides],
   mdx: {
     remarkPlugins: [remarkGfm, remarkImgToJsx, remarkCodeTitles],
     rehypePlugins: [
@@ -98,5 +114,5 @@ export default makeSource({
       [rehypePrismPlus, { ignoreMissing: true, showLineNumbers: true }],
     ],
   },
-  contentDirExclude: ['slides'], // Exclude the 'slides' folder from processing
+  // contentDirExclude: ['slides'], // Exclude the 'slides' folder from processing
 })

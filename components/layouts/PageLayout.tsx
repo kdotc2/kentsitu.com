@@ -1,4 +1,4 @@
-import { Projects, Work, Writing } from '@/.contentlayer/generated'
+import { Projects, Slides, Work, Writing } from '@/.contentlayer/generated'
 import { Mdx, MDXComponents } from '@/components/mdx/MDXComponents'
 import { TableOfContents, TocProps } from '@/components/mdx/Toc'
 import { cn } from '@/lib/utils'
@@ -60,27 +60,35 @@ export const PageLayout = ({
 
 export const SlugContentLayout = ({
   className,
+  contentClassName,
   post,
   toc,
   titleLink,
+  showHeader = true,
 }: {
   className?: string
-  post: Work | Writing | Projects
+  contentClassName?: string
+  post: Work | Writing | Projects | Slides
   toc?: TocProps['toc']
   titleLink?: boolean
+  showHeader?: boolean
 }) => {
   const url = 'url' in post ? post.url : undefined
 
   return (
     <>
-      <div className="pb-14 space-y-14">
-        <Header
-          title={post.title}
-          description={post.summary}
-          titleLink={titleLink}
-          url={url}
-        />
-        <div className={cn('prose max-w-none dark:prose-invert', className)}>
+      <div className={cn('pb-14 space-y-14', className)}>
+        {showHeader && (
+          <Header
+            title={post.title}
+            description={post.summary}
+            titleLink={titleLink}
+            url={url}
+          />
+        )}
+        <div
+          className={cn('prose max-w-none dark:prose-invert', contentClassName)}
+        >
           <Mdx content={post} MDXComponents={MDXComponents} />
         </div>
       </div>

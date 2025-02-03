@@ -2,12 +2,12 @@
 
 import React, { ReactNode, useEffect, isValidElement, Children } from 'react'
 import { useRouter, useSearchParams, usePathname } from 'next/navigation'
-import { Slide } from '@/components/slide-deck/Slide'
-import { PresentationMode } from '@/components/slide-deck/PresentationMode'
-import Swipeable from '@/components/slide-deck/Swipeable'
+import { Slide } from '@/components/mdx/slide-deck/Slide'
+import { PresentationMode } from '@/components/mdx/slide-deck/PresentationMode'
+import Swipeable from '@/components/mdx/slide-deck/Swipeable'
 import { useKeyboardNavigation } from '@/hooks/useKeyboardNavigation'
 import { cn } from '@/lib/utils'
-import SpeakerNotes from '@/components/slide-deck/SpeakerNotes'
+import SpeakerNotes from '@/components/mdx/slide-deck/SpeakerNotes'
 
 type NotesContent = Record<number, ReactNode[]>
 
@@ -62,6 +62,7 @@ export default function SlidePage({ children }: SlidePageProps) {
     return { slideNotes: notes, slides: slidesArr }
   }, [children])
 
+  console.log(slides)
   const { currentSlide, mode, setSlide } = useKeyboardNavigation({
     slideCount: slides.length - 1,
   })
@@ -89,7 +90,7 @@ export default function SlidePage({ children }: SlidePageProps) {
         <div
           id="slide"
           className={cn(
-            'flex items-center justify-center p-8',
+            'flex items-center justify-center',
             mode === 'speaker' ? 'h-20' : 'min-h-screen'
           )}
         >

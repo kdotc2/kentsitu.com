@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import MODES from '@/lib/utils/mode'
-import Timer from '@/components/slide-deck/Timer'
+import Timer from '@/components/mdx/slide-deck/Timer'
 
 export interface Notes {
   [key: number]: ReactNode // Change to ReactNode to allow more flexible content (not just strings)
