@@ -19,6 +19,7 @@ import Link from 'next/link'
 const titleMappings: Record<string, string> = {
   ylli: 'YLLI',
   'portfolio-update-2': 'Portfolio Update 2.0',
+  'portfolio-update-3': 'Portfolio Update 3.0',
   // Add more mappings here
 }
 

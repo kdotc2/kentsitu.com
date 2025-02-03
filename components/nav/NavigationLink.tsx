@@ -4,7 +4,7 @@ import Link from 'next/link'
 import {
   ArrowUpRight,
   LucideIcon,
-  ChevronDown,
+  ChevronRight,
   LucideProps,
 } from 'lucide-react'
 import {
@@ -60,7 +60,7 @@ export function NavigationLink({ link, className }: NavProps) {
               >
                 <link.icon />
                 <span>{link.title}</span>
-                <ChevronDown className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-180 text-muted-foreground" />
+                <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90 text-muted-foreground" />
               </SidebarMenuButton>
             </CollapsibleTrigger>
 
