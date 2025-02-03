@@ -1,6 +1,5 @@
 import { Projects, Work, Writing } from '@/.contentlayer/generated'
 import { Mdx, MDXComponents } from '@/components/mdx/MDXComponents'
-import { TableOfContents, TocProps } from '@/components/mdx/Toc'
 import { cn } from '@/lib/utils'
 import { ArrowUpRight } from 'lucide-react'
 import React from 'react'
@@ -61,12 +60,12 @@ export const PageLayout = ({
 export const SlugContentLayout = ({
   className,
   post,
-  toc,
+  // toc,
   titleLink,
 }: {
   className?: string
   post: Work | Writing | Projects
-  toc?: TocProps['toc']
+  // toc?: TocProps['toc']
   titleLink?: boolean
 }) => {
   const url = 'url' in post ? post.url : undefined
@@ -84,13 +83,13 @@ export const SlugContentLayout = ({
           <Mdx content={post} MDXComponents={MDXComponents} />
         </div>
       </div>
-      {toc && (
+      {/* {toc && (
         <div className="hidden max-w-[200px] text-sm 2xl:block">
           <div className="sticky top-14 flex">
             <TableOfContents toc={toc} />
           </div>
         </div>
-      )}
+      )} */}
     </>
   )
 }

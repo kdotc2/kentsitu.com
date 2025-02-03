@@ -38,7 +38,7 @@ export const ThemeSwitch = ({ className }: { className?: string }) => {
               !mounted
                 ? ''
                 : theme === 'dark'
-                ? 'bg-sidebar-accent hover:text-current dark:bg-gray-800'
+                ? 'bg-sidebar-accent hover:text-current'
                 : ''
             }`}
             onClick={() => handleThemeChange('dark')}
@@ -53,7 +53,7 @@ export const ThemeSwitch = ({ className }: { className?: string }) => {
               !mounted
                 ? ''
                 : theme === 'light'
-                ? 'bg-sidebar-accent hover:text-current dark:bg-gray-800'
+                ? 'bg-sidebar-accent hover:text-current'
                 : ''
             }`}
             onClick={() => handleThemeChange('light')}
@@ -68,7 +68,7 @@ export const ThemeSwitch = ({ className }: { className?: string }) => {
               !mounted
                 ? ''
                 : theme === 'system'
-                ? 'bg-sidebar-accent hover:text-current dark:bg-gray-800'
+                ? 'bg-sidebar-accent hover:text-current'
                 : ''
             }`}
             onClick={() => handleThemeChange('system')}
