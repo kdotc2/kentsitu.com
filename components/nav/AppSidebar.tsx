@@ -54,7 +54,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
 
       {/* Sidebar Content */}
-      <SidebarContent className="text-sm mt-2">
+      <SidebarContent className="text-sm pt-2">
         {sections.map((section) => (
           <SidebarGroup key={section.label}>
             {/* Section Label */}
@@ -71,7 +71,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarContent>
 
       {/* Sidebar Footer */}
-      <SidebarFooter className="m-2">
+      <SidebarFooter>
         <ThemeSwitch />
       </SidebarFooter>
 

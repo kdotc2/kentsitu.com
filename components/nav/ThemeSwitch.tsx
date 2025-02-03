@@ -21,7 +21,7 @@ export const ThemeSwitch = ({ className }: { className?: string }) => {
   return (
     <div
       className={cn(
-        'flex items-center rounded-full w-fit',
+        'flex items-center rounded-full w-fit m-1',
         'group-data-[state=expanded]:p-1 group-data-[state=expanded]:border',
         isMobile && 'p-1 border',
         className
