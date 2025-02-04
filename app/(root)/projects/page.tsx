@@ -40,7 +40,7 @@ export default async function Projects() {
               <p className="flex flex-wrap text-sm text-muted-foreground">
                 {summary}
               </p>
-              <div className="flex items-center gap-x-3 truncate py-2 text-xs uppercase text-muted-foreground">
+              <div className="flex items-center gap-x-3 truncate pt-2 text-xs uppercase text-muted-foreground">
                 {tags?.map((tag: string) => (
                   <p key={tag}>{tag}</p>
                 ))}

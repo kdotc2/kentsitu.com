@@ -5,12 +5,10 @@ import { Button } from '@/components/ui/button'
 import { Monitor, Moon, Sun } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useMounted } from '@/hooks/useMounted' // Import the custom hook
-import { useIsMobile } from '@/hooks/use-mobile'
 
 export const ThemeSwitch = ({ className }: { className?: string }) => {
   const { theme, setTheme } = useTheme()
   const mounted = useMounted()
-  const isMobile = useIsMobile()
 
   const handleThemeChange = (newTheme: 'light' | 'dark' | 'system') => {
     if (theme !== newTheme) {
@@ -21,9 +19,8 @@ export const ThemeSwitch = ({ className }: { className?: string }) => {
   return (
     <div
       className={cn(
-        'flex items-center rounded-full w-fit m-1',
-        'group-data-[state=expanded]:p-1 group-data-[state=expanded]:border',
-        isMobile && 'p-1 border',
+        'flex items-center rounded-full w-fit m-1 p-1 border',
+        'group-data-[state=collapsed]:border-none',
         className
       )}
     >

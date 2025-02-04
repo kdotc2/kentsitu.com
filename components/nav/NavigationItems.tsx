@@ -2,12 +2,12 @@
 
 import {
   FolderClosed,
-  TvMinimal,
   Pencil,
   Bookmark,
   FileIcon,
   Code,
   Send,
+  BriefcaseBusiness,
 } from 'lucide-react'
 import { allProjects, allWorks, allWritings } from 'contentlayer/generated'
 import {
@@ -72,13 +72,13 @@ const NavigationItems = () => {
         {
           href: '/work',
           title: 'Work',
-          icon: FolderClosed,
+          icon: BriefcaseBusiness,
           isActive: pathname.startsWith('/work'),
         },
         {
           href: '/projects',
           title: 'Projects',
-          icon: TvMinimal,
+          icon: FolderClosed,
           isActive: pathname.startsWith('/projects'),
         },
         {
