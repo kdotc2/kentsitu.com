@@ -62,7 +62,6 @@ export default function SlidePage({ children }: SlidePageProps) {
     return { slideNotes: notes, slides: slidesArr }
   }, [children])
 
-  console.log(slides)
   const { currentSlide, mode, setSlide } = useKeyboardNavigation({
     slideCount: slides.length - 1,
   })
@@ -91,7 +90,7 @@ export default function SlidePage({ children }: SlidePageProps) {
           id="slide"
           className={cn(
             'flex items-center justify-center',
-            mode === 'speaker' ? 'h-20' : 'min-h-screen'
+            mode === 'speaker' ? '' : 'min-h-screen'
           )}
         >
           <Slide>{slides[currentSlide]}</Slide>

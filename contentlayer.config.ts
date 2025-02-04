@@ -100,7 +100,32 @@ export const Slides = defineDocumentType(() => ({
     image: { type: 'string' },
     description: { type: 'string' },
   },
-  computedFields,
+  computedFields: {
+    slug: {
+      type: 'string',
+      resolve: (doc) => doc._raw.flattenedPath.replace(/^.+?(\/)/, ''),
+    },
+    slides: {
+      type: 'list',
+      of: { type: 'string' },
+      resolve: (doc) =>
+        doc.body.raw.split(/\n\s*---\s*\n/g).map((s) => s.trim()),
+    },
+    speakerNotes: {
+      type: 'list',
+      of: { type: 'string' },
+      resolve: (doc) =>
+        doc.body.raw
+          .split(/\n\s*---\s*\n/g)
+          .map(
+            (s) =>
+              s
+                .split('<SpeakerNotes>')[1]
+                ?.split('</SpeakerNotes>')[0]
+                ?.trim() || ''
+          ),
+    },
+  },
 }))
 
 export default makeSource({
