@@ -92,7 +92,7 @@ body {
 }
 
 .cardStyle {
-  @apply cursor-pointer inline-block border rounded-xl overflow-clip w-full bg-card hover:bg-sidebar-accent;
+  @apply cursor-pointer inline-block border rounded-xl overflow-clip w-full bg-card hover:bg-sidebar-accent/75;
 }
 
 .metricHeader {

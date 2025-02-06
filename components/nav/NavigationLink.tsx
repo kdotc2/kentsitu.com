@@ -26,7 +26,7 @@ export type NavProps = {
   link: {
     href: string
     title: string
-    icon: LucideIcon | ComponentType<LucideProps> // Allow both LucideIcon and custom components
+    icon: LucideIcon | ComponentType<LucideProps>
     isActive?: boolean
   }
   className?: string
@@ -65,7 +65,7 @@ export function NavigationLink({ link, className }: NavProps) {
             </CollapsibleTrigger>
 
             {/* Collapsible Content */}
-            <CollapsibleContent className="pl-1 overflow-hidden transition-[height] duration-300 ease-in-out data-[state=open]:animate-expand data-[state=closed]:animate-collapse">
+            <CollapsibleContent className="pl-1 overflow-hidden transition-[height] duration-300 ease-in-out data-[state=open]:animate-expand data-[state=closed]:animate-collapse data-[state=open]:truncate">
               {posts.map((post) => (
                 <SidebarMenuSub
                   key={post.slug}
