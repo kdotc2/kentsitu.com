@@ -20,12 +20,10 @@ const titleMappings: Record<string, string> = {
   ylli: 'YLLI',
   'portfolio-update-2': 'Portfolio Update 2.0',
   'portfolio-update-3': 'Portfolio Update 3.0',
-  // Add more mappings here
 }
 
 // Utility function to format titles
 const formatTitle = (text: string) => {
-  // Return pre-defined title if it exists
   if (titleMappings[text]) {
     return titleMappings[text]
   }
