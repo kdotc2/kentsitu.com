@@ -31,13 +31,13 @@ export const Clock = () => {
   // Only render the clock once mounted
   if (!mounted)
     return (
-      <div className="text-sm font-medium tabular-nums text-muted-foreground max-md:hidden whitespace-nowrap">
+      <div className="text-sm tabular-nums text-muted-foreground max-md:hidden whitespace-nowrap">
         Hello!
       </div>
     )
 
   return (
-    <div className="text-sm font-medium tabular-nums text-muted-foreground max-md:hidden whitespace-nowrap">
+    <div className="text-sm tabular-nums text-muted-foreground max-md:hidden whitespace-nowrap">
       {formattedTime.split('').map((char, index) => (
         <span
           key={index}

@@ -1,4 +1,5 @@
-/* eslint-disable react/display-name */
+'use client'
+
 import React from 'react'
 import { useMDXComponent } from 'next-contentlayer2/hooks'
 import { coreContent } from 'lib/utils/contentlayer'
@@ -8,25 +9,29 @@ import CustomLink from './Link'
 import Pre from './Pre'
 import VideoPlayer from './VideoPlayer'
 import Bookmarks from '@/components/layouts/BookmarksLayout'
-import { cn } from '@/lib/utils'
 
 interface MDXLayout {
   content: Writing | Work | Misc | Projects
   [key: string]: unknown
 }
 
-const headerClass =
-  (Component: React.ElementType) =>
-  ({ className, ...props }: { className: string }) =>
-    <Component className={cn('scroll-mt-8', className)} {...props} />
+// const headerClass = (Component: React.ElementType) => {
+//   const WrappedComponent = ({ className, ...props }: { className: string }) => (
+//     <Component className={cn('scroll-mt-8', className)} {...props} />
+//   )
+
+//   WrappedComponent.displayName = `Header(${Component})` // Add a display name
+
+//   return WrappedComponent
+// }
 
 export const MDXComponents: object = {
-  h1: headerClass('h1'),
-  h2: headerClass('h2'),
-  h3: headerClass('h3'),
-  h4: headerClass('h4'),
-  h5: headerClass('h5'),
-  h6: headerClass('h6'),
+  // h1: headerClass('h1'),
+  // h2: headerClass('h2'),
+  // h3: headerClass('h3'),
+  // h4: headerClass('h4'),
+  // h5: headerClass('h5'),
+  // h6: headerClass('h6'),
   Image,
   a: CustomLink,
   pre: Pre,
