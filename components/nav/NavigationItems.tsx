@@ -6,8 +6,8 @@ import {
   Bookmark,
   FileIcon,
   Code,
-  Send,
   BriefcaseBusiness,
+  Mail,
 } from 'lucide-react'
 import { allProjects, allWorks, allWritings } from 'contentlayer/generated'
 import {
@@ -123,7 +123,7 @@ const NavigationItems = () => {
         {
           href: 'mailto:hello@kentsitu.com',
           title: 'Contact',
-          icon: Send,
+          icon: Mail,
         },
       ],
     },
