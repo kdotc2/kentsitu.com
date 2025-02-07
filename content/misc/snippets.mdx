@@ -18,6 +18,8 @@ git commit -m "Message"
 git push origin -u feature-branch
 ```
 
+---
+
 ## Filtering in SwiftUI
 
 A way to filter a list with any kind of filter key and any kind of entity from CoreData. Snippet from [100 Days of SwiftUI](https://www.hackingwithswift.com/books/ios-swiftui/dynamically-filtering-fetchrequest-with-swiftui).
@@ -44,6 +46,8 @@ struct FilteredList<T: NSManagedObject, Content: View>: View {
     }
 }
 ```
+
+---
 
 ## Masonry Layout
 
@@ -90,27 +94,6 @@ const breakpointColumnsObj = {
 >
 ...
 </Masonry>
-```
-
----
-
-## Media Inside Photo
-
-In my previous website, I could just create a video with the same background as the website to blend it in. This wouldn't work for this website iteration, because of light/dark mode. I had to record the video and then put it into an iPhone mockup.
-
-```tsx
-<div className="group block object-scale-down py-4">
-  <div className="relative flex flex-col items-center justify-center">
-    // places iPhone screen over video
-    <div className="absolute z-10">
-      // adjust width and height to fit over video
-      <Image alt="iPhone screen" src={iPhone.png} width={x1} height={y1} />
-    </div>
-    <div>
-      <video />
-    </div>
-  </div>
-</div>
 ```
 
 ---

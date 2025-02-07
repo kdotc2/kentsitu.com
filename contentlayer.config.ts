@@ -98,5 +98,4 @@ export default makeSource({
       [rehypePrismPlus, { ignoreMissing: true, showLineNumbers: true }],
     ],
   },
-  contentDirExclude: ['slides'], // Exclude the 'slides' folder from processing
 })

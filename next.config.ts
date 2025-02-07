@@ -22,13 +22,6 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-  experimental: {
-    turbo: {
-      rules: {
-        '*.mdx': ['@mdx-js/loader'],
-      },
-    },
-  },
   async headers() {
     return [
       {
