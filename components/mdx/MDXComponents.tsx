@@ -5,10 +5,10 @@ import { useMDXComponent } from 'next-contentlayer2/hooks'
 import { coreContent } from 'lib/utils/contentlayer'
 import type { Writing, Work, Misc, Projects } from 'contentlayer/generated'
 import Image from './Image'
-import CustomLink from './Link'
 import Pre from './Pre'
 import VideoPlayer from './VideoPlayer'
 import Bookmarks from '@/components/layouts/BookmarksLayout'
+import Link from 'next/link'
 
 interface MDXLayout {
   content: Writing | Work | Misc | Projects
@@ -33,10 +33,10 @@ export const MDXComponents: object = {
   // h5: headerClass('h5'),
   // h6: headerClass('h6'),
   Image,
-  a: CustomLink,
   pre: Pre,
   VideoPlayer,
   Bookmarks,
+  Link,
 }
 
 export const Mdx = ({ content, ...rest }: MDXLayout) => {
