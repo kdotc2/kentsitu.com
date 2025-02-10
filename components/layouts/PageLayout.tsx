@@ -50,7 +50,7 @@ export const PageLayout = ({
   className?: string
 }) => {
   return (
-    <div className="relative pb-14 space-y-14">
+    <div className="relative py-10 md:py-14 space-y-14">
       {/* layout header */}
       <Header title={title} description={description} />
       <div className={className}>{children}</div>
@@ -73,7 +73,7 @@ export const SlugContentLayout = ({
 
   return (
     <>
-      <div className="pb-14 space-y-14">
+      <div className="py-10 md:py-14 space-y-14">
         <Header
           title={post.title}
           description={post.summary}
