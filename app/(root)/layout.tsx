@@ -13,9 +13,7 @@ export default function RootLayout({
       <SidebarInset>
         <Header />
         <div className="relative overflow-y-auto overflow-x-hidden">
-          <div className="mx-auto max-w-5xl px-5 pt-10 md:px-10 md:pt-14">
-            {children}
-          </div>
+          <div className="mx-auto max-w-5xl px-5 md:px-10">{children}</div>
         </div>
       </SidebarInset>
     </>
