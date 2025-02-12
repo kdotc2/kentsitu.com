@@ -13,8 +13,7 @@ export default function Page() {
 
         <p>
           I have 7+ years of experience in design. I help early-stage startups
-          turn their concepts into great product experiences. I previously
-          worked in ecommerce and digital marketing.
+          turn their concepts into great product experiences.
         </p>
 
         <p>
