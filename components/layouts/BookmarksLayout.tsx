@@ -43,9 +43,15 @@ export default function Bookmarks() {
 
   useEffect(() => {
     setLoading(true)
-    const newBookmarks = randomList.slice(0, page * 6)
-    setBookmarks(newBookmarks)
-    setLoading(false)
+
+    // add a delay for loading
+    const delay = setTimeout(() => {
+      const newBookmarks = randomList.slice(0, page * 6)
+      setBookmarks(newBookmarks)
+      setLoading(false)
+    }, 300)
+
+    return () => clearTimeout(delay)
   }, [page, randomList])
 
   return (
