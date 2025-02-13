@@ -50,7 +50,12 @@ async function generateBookmarks() {
     }
 
     // Save the metadata to a JSON file
-    const outputPath = path.join(process.cwd(), 'content', 'bookmarks.json')
+    const outputPath = path.join(
+      process.cwd(),
+      'content',
+      'bookmarks',
+      'bookmarks.json'
+    )
     fs.writeFileSync(outputPath, JSON.stringify(validMetadata, null, 2))
 
     console.warn('Bookmarks metadata generated successfully!')
