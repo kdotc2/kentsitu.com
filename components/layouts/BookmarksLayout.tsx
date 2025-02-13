@@ -1,6 +1,6 @@
 'use client'
 import { Loader } from '@/components/ui/skeleton'
-import bookmarkItems from '@/content/bookmarkItems'
+import bookmarksData from '@/content/bookmarks/bookmarks.json'
 import { ArrowUpRight } from 'lucide-react'
 import Link from 'next/link'
 import { useEffect, useMemo, useRef, useState } from 'react'
@@ -11,21 +11,6 @@ type MetaData = {
   url: string
 }
 
-const metascraperUrl = process.env.NEXT_PUBLIC_API_URL
-
-async function getMetadata(link: string): Promise<MetaData | null> {
-  try {
-    const res = await fetch(`${metascraperUrl}/api?url=https://${link}`)
-    if (!res.ok) {
-      throw new Error('Failed to fetch data')
-    }
-    return res.json()
-  } catch (error) {
-    console.error(`Failed to fetch metadata for ${link}:`, error)
-    return null
-  }
-}
-
 export default function Bookmarks() {
   const [page, setPage] = useState(1)
   const [bookmarks, setBookmarks] = useState<MetaData[]>([])
@@ -33,7 +18,7 @@ export default function Bookmarks() {
   const [loading, setLoading] = useState(true)
 
   const randomList = useMemo(() => {
-    const shuffledItems = [...bookmarkItems].sort(() => 0.5 - Math.random())
+    const shuffledItems = [...bookmarksData].sort(() => 0.5 - Math.random())
     return shuffledItems
   }, [])
 
@@ -57,16 +42,16 @@ export default function Bookmarks() {
   }, [])
 
   useEffect(() => {
-    async function fetchBookmarks() {
-      setLoading(true)
-      const data = await Promise.all(
-        randomList.slice(0, page * 6).map((url) => getMetadata(url))
-      )
-      setBookmarks(data.filter((bookmark) => bookmark !== null) as MetaData[])
-      setLoading(false)
-    }
+    setLoading(true)
 
-    fetchBookmarks()
+    // add a delay for loading
+    const delay = setTimeout(() => {
+      const newBookmarks = randomList.slice(0, page * 6)
+      setBookmarks(newBookmarks)
+      setLoading(false)
+    }, 300)
+
+    return () => clearTimeout(delay)
   }, [page, randomList])
 
   return (

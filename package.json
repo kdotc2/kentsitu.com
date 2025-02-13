@@ -7,7 +7,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "build:content": "contentlayer2 build"
+    "build:content": "contentlayer2 build",
+    "generate-bookmarks": "npx tsx scripts/generateBookmarks.ts"
+  },
+  "lint-staged": {
+    "content/bookmarks/bookmarkItems.ts": [
+      "pnpm run generate-bookmarks",
+      "git add content/bookmarks/bookmarks.json"
+    ]
   },
   "type": "module",
   "dependencies": {
@@ -50,8 +57,11 @@
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "@types/unist": "^3.0.3",
+    "dotenv": "^16.4.7",
     "eslint": "^9.20.1",
     "eslint-config-next": "15.1.7",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
     "postcss": "^8.5.2",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.3"
