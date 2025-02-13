@@ -22,7 +22,7 @@ const metascraperUrl = process.env.NEXT_PUBLIC_API_URL
 
 async function getMetadata(link: string): Promise<MetaData | null> {
   try {
-    const res = await fetch(`${metascraperUrl}${link}`)
+    const res = await fetch(`${metascraperUrl}/api?url=https://${link}`)
     if (!res.ok) {
       throw new Error('Failed to fetch data')
     }
