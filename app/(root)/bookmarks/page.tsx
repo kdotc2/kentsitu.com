@@ -1,8 +1,6 @@
 import { PageLayout } from '@/components/layouts/PageLayout'
 import { Metadata } from 'next'
-import { allMiscs } from 'contentlayer/generated'
-import { notFound } from 'next/navigation'
-import { MDXComponents, Mdx } from '@/components/mdx/MDXComponents'
+import Bookmarks from '@/components/layouts/BookmarksLayout'
 
 const metainfo = {
   title: 'Bookmarks',
@@ -15,15 +13,9 @@ export const metadata: Metadata = {
 }
 
 export default async function BookmarksLayout() {
-  const post = allMiscs.find((post) => post.slug === 'bookmarks')
-
-  if (!post) {
-    notFound()
-  }
-
   return (
     <PageLayout title={metainfo.title} description={metainfo.description}>
-      <Mdx content={post} MDXComponents={MDXComponents} />
+      <Bookmarks />
     </PageLayout>
   )
 }

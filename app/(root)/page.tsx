@@ -6,7 +6,7 @@ export default function Page() {
       <div className="prose max-w-[475px] dark:prose-invert">
         <p>
           Hello, my name is Kent. Welcome to my space on the internet. A place
-          to share my <Link href={'/work'}>designs</Link>,{' '}
+          to share my <Link href={'/work'}>work</Link>,{' '}
           <Link href={'/writing'}>thoughts</Link>, and{' '}
           <Link href={'/changelog'}>progress</Link>.
         </p>

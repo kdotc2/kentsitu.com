@@ -1,0 +1,188 @@
+[
+  {
+    "description": "Product designer, podcaster, and writer, living in San Francisco.",
+    "image": "https://brianlovin.com/static/og/default.png",
+    "title": "Brian Lovin",
+    "url": "https://brianlovin.com/"
+  },
+  {
+    "description": "Devouring details. Nourishing novelty. Deploying excellence.",
+    "image": "https://rauno.me/og2.png",
+    "title": "Rauno Freiberg",
+    "url": "https://rauno.me/"
+  },
+  {
+    "description": "The index of Chia Amisola’s art & design practice, working across the internet, browser, and ambience",
+    "image": "https://chia.design/chia-window.png",
+    "title": "Chia Amisola",
+    "url": "https://chia.design"
+  },
+  {
+    "description": "Thoughts from a wandering mind",
+    "image": "https://www.timlrx.com/static/img/twitter-card.png",
+    "title": "Quasilinear Musings",
+    "url": "https://www.timlrx.com/"
+  },
+  {
+    "description": "I’m Karina Sirqueira, a Brazilian designer at Work&Co in Brooklyn.",
+    "image": "https://images.prismic.io/karina-sirqueira/58ff0832-15aa-41d6-b5e7-f0901a3fb253_Open+Graph.png?auto=compress,format",
+    "title": "Karina Sirqueira",
+    "url": "https://karinasirqueira.com"
+  },
+  {
+    "description": "A detailed explanation for designers on how to use grids for responsive design, and how things will scale in between breakpoints.",
+    "image": "https://miro.medium.com/v2/resize:fit:1200/1*Pk2VauRO-tQJnpHXiOFpbA.png",
+    "title": "Responsive grids and how to actually use them",
+    "url": "https://uxdesign.cc/responsive-grids-and-how-to-actually-use-them-970de4c16e01"
+  },
+  {
+    "description": "Is the formulaic approach to case studies endangering young designers’ capacity for critical thinking?",
+    "image": "https://c-p.rmcdn1.net/528fb627433f83c03700080c/upload-5f476ae3-c0bc-438f-947b-45d2acc906be.jpg",
+    "title": "The case study factory",
+    "url": "https://essays.uxdesign.cc/1439646/"
+  },
+  {
+    "description": "The article is devoted to the issue of using various colors in user interfaces and branding design, associations and the influence of color choice on user behavior.",
+    "image": "https://blog.tubikstudio.com/wp-content/uploads/2017/02/night-in-berlin-event-list-ui-tubik-1024x768.jpg",
+    "title": "Color in Design: Influence on Users’ Actions",
+    "url": "https://blog.tubikstudio.com/color-in-design-influence-on-users-actions/"
+  },
+  {
+    "description": "Developers and Open Source authors now have a massive amount of services offering free tiers, but it can be hard to find them all to make informed decisions.",
+    "image": "https://raw.githubusercontent.com/ripienaar/free-for-dev/master/logo.webp",
+    "title": "Free for Developers",
+    "url": "https://free-for.dev/"
+  },
+  {
+    "description": "What does a User Experience Designer do from 9 to 5? Well, a lot of stuff. The list below aggregates most common methods and deliverables…",
+    "image": "https://miro.medium.com/v2/resize:fit:800/1*hMGWyRGDAe_2TmE48MuvTw.jpeg",
+    "title": "UX Design Methods & Deliverables",
+    "url": "https://uxdesign.cc/ux-design-methods-deliverables-657f54ce3c7d"
+  },
+  {
+    "description": "A game where you need to pick the design that is most correct. Test your attention to details!",
+    "image": "https://cantunsee.space/og-image.png",
+    "title": "Can’t Unsee",
+    "url": "https://cantunsee.space"
+  },
+  {
+    "description": "20 user-research methods: where they fit in the design process, whether they are attitudinal or behavioral, qualitative or quantitative, and their context of use.",
+    "image": "https://media.nngroup.com/media/articles/opengraph_images/WhenWhichResearchMethods_Social-Media-Posts_2021-30.png",
+    "title": "When to Use Which User-Experience Research Methods",
+    "url": "https://www.nngroup.com/articles/which-ux-research-methods/"
+  },
+  {
+    "description": "Learn about the Dan Harmon Story Circle: an approach to storytelling used by the Rick and Morty creator, which can help you write better books.",
+    "image": "https://blog-cdn.reedsy.com/directories/admin/featured_image/163/dan-harmon-story-circle-header-92cadb.webp",
+    "title": "Dan Harmon Story Circle: The 8-Step Storytelling Shortcut",
+    "url": "https://blog.reedsy.com/guide/story-structure/dan-harmon-story-circle/"
+  },
+  {
+    "description": "A complete guide to Framer Motion layout animations showcasing every concept, from the layout prop, shared layout animations and LayoutGroup, to complex drag-to-reorder interactions.",
+    "image": "https://blog.maximeheckel.com/static/og/c55a4bad0e5fdadd9f3a050e38dcd930.png?v1",
+    "title": "Everything about Framer Motion layout animations - Maxime Heckel’s Blog",
+    "url": "https://blog.maximeheckel.com/posts/framer-motion-layout-animations/"
+  },
+  {
+    "description": "I’ve reviewed thousands of product portfolios and interviewed hundreds of designers. This is everything I know about design portfolios.",
+    "image": "https://miro.medium.com/v2/da:true/resize:fit:1200/0*L19PMOubGvJ4igiy",
+    "title": "How to create a compelling design portfolio companies will notice",
+    "url": "https://medium.com/design-bootcamp/how-to-create-a-compelling-design-portfolio-companies-will-notice-b0629fe84ca"
+  },
+  {
+    "description": "A beginner’s guide to digital accessibility.",
+    "image": "https://a11yproject.com/img/social/og-image-checklist.png",
+    "title": "Checklist - The A11Y Project",
+    "url": "https://a11yproject.com/checklist/"
+  },
+  {
+    "description": "All the resources you need to give yourself a world class computer science education",
+    "image": "https://teachyourselfcs.com/bilotta-tweet.png",
+    "title": "Teach Yourself Computer Science",
+    "url": "https://teachyourselfcs.com"
+  },
+  {
+    "description": "A collection of public APIs for developers, categorized and crowdsourced. Animals, books, cryptocurrencies, development, music, weather and much more.",
+    "image": "https://res.cloudinary.com/dev-resources/image/upload/q_auto,w_1200/v1655460684/media/thumbnail-pa_xxz0uy.png",
+    "title": "A Collaborative List Of 1400+ Public APIs For Developers",
+    "url": "https://publicapis.dev/"
+  },
+  {
+    "description": "😎 Awesome things related to Tailwind CSS. Contribute to aniftyco/awesome-tailwindcss development by creating an account on GitHub.",
+    "image": "https://opengraph.githubassets.com/c2d024d92af1dd88bd08824c567c974f82b7ca007c0b8614c72de5459f510c5a/aniftyco/awesome-tailwindcss",
+    "title": "GitHub - aniftyco/awesome-tailwindcss: 😎 Awesome things related to Tailwind CSS",
+    "url": "https://github.com/aniftyco/awesome-tailwindcss"
+  },
+  {
+    "description": "Community driven roadmaps, articles and guides for developers to grow in their career.",
+    "image": "https://roadmap.sh/images/og-img.png",
+    "title": "Developer Roadmaps - roadmap.sh",
+    "url": "https://roadmap.sh/"
+  },
+  {
+    "description": "iOS, Android and Web Prototyping UI Kits for Keynote and PowerPoint",
+    "image": "https://keynotopia.com/wp-content/uploads/Untitled-7.png",
+    "title": "How to Create Animated Whiteboard Explainer Videos For Free Using Apple Keynote | Keynotopia",
+    "url": "https://keynotopia.com/how-to-create-animated-whiteboard-explainer-videos-for-free-using-apple-keynote/"
+  },
+  {
+    "description": "Interaction designer, making ideas alive and crafting a delight beyond a solution.",
+    "image": "https://seungmee-lee.com/og.jpg",
+    "title": "Seungmee Lee",
+    "url": "https://seungmee-lee.com"
+  },
+  {
+    "description": "Developer and Product Designer from Ireland.",
+    "image": "https://nev21-media.s3-eu-west-1.amazonaws.com/og-image.png",
+    "title": "Nev Flynn — Developer, Designer",
+    "url": "https://nevflynn.com/"
+  },
+  {
+    "description": "I’m a senior product designer and team leader, specialising in fintech and e-commerce. Proficient in crafting robust design functions for early-stage startups, I thrive when nurturing high-performing teams that drive innovation, foster collaboration, and consistently deliver impactful product experiences that fuel business growth and create market differentiation.",
+    "image": "https://site-assets.plasmic.app/24fd9eab73e0ecb775ad6ffce921dbed.png",
+    "title": "Ana Fernandes Rodrigues, Product Designer",
+    "url": "https://www.anarodrigues.design/"
+  },
+  {
+    "description": "Matt Rothenberg is a Designer and Front-End Developer based in New York",
+    "image": "https://mattrothenberg.com/_astro/og.DLaGKxg1.png",
+    "title": "Matt Rothenberg is a Designer and Front-End Developer based in New York",
+    "url": "https://mattrothenberg.com/"
+  },
+  {
+    "description": "Blush makes it easy to add free illustrations to your designs. Play with fully customizable graphics made by artists across the globe.",
+    "image": "https://blush.design/og-image.png",
+    "title": "Blush: Illustrations for everyone",
+    "url": "https://blush.design/"
+  },
+  {
+    "description": "Connect with developers sharing the strategies and revenue numbers behind their companies and side projects.",
+    "image": "https://www.indiehackers.com/images/shareables/home.jpg",
+    "title": "Indie Hackers: Work Together to Build Profitable Online Businesses",
+    "url": "https://www.indiehackers.com/"
+  },
+  {
+    "description": "Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.",
+    "image": "https://ui.shadcn.com/og.jpg",
+    "title": "shadcn/ui",
+    "url": "https://ui.shadcn.com/"
+  },
+  {
+    "description": "A collection of beautiful websites built with Tailwind CSS.",
+    "image": "https://tailwindcss.com/api/og?path=/showcase",
+    "title": "Showcase - Build anything",
+    "url": "https://tailwindcss.com/showcase"
+  },
+  {
+    "description": "Turns a folder into a website",
+    "image": null,
+    "title": "Blot",
+    "url": "https://blot.im"
+  },
+  {
+    "description": "The #1 Job Search Engine. Discover exciting jobs and track your applications in one place. Let recruiters apply to you.",
+    "image": "https://hiring.cafe/static/images/wfh.jpg",
+    "title": "HiringCafe - Job Search Engine",
+    "url": "https://hiring.cafe/"
+  }
+]
