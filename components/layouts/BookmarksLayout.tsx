@@ -1,35 +1,28 @@
 'use client'
 import { Loader } from '@/components/ui/skeleton'
 import bookmarkItems from '@/content/bookmarkItems'
+import { ArrowUpRight } from 'lucide-react'
 import Link from 'next/link'
 import { useEffect, useMemo, useRef, useState } from 'react'
-import Masonry from 'react-masonry-css'
-
-const breakpointColumnsObj = {
-  default: 3,
-  1280: 2,
-  640: 1,
-}
 
 type MetaData = {
   title: string
   description: string
-  image: string
   url: string
 }
 
+const metascraperUrl = process.env.NEXT_PUBLIC_API_URL
+
 async function getMetadata(link: string): Promise<MetaData | null> {
   try {
-    const res = await fetch(
-      `https://metainfo.vercel.app/api?url=https://${link}`
-    )
+    const res = await fetch(`${metascraperUrl}/api?url=https://${link}`)
     if (!res.ok) {
       throw new Error('Failed to fetch data')
     }
     return res.json()
   } catch (error) {
     console.error(`Failed to fetch metadata for ${link}:`, error)
-    return null // Return null on error to signify failure
+    return null
   }
 }
 
@@ -38,10 +31,10 @@ export default function Bookmarks() {
   const [bookmarks, setBookmarks] = useState<MetaData[]>([])
   const lastBookmarkRef = useRef<HTMLDivElement>(null)
   const [loading, setLoading] = useState(true)
-  const [imageError, setImageError] = useState<{ [key: string]: boolean }>({})
 
   const randomList = useMemo(() => {
-    return bookmarkItems
+    const shuffledItems = [...bookmarkItems].sort(() => 0.5 - Math.random())
+    return shuffledItems
   }, [])
 
   useEffect(() => {
@@ -76,50 +69,31 @@ export default function Bookmarks() {
     fetchBookmarks()
   }, [page, randomList])
 
-  const handleImageError = (title: string) => {
-    setImageError((prev) => ({ ...prev, [title]: true }))
-  }
-
   return (
     <>
-      <Masonry
-        breakpointCols={breakpointColumnsObj}
-        className="my-masonry-grid"
-        columnClassName="my-masonry-grid_column"
-      >
-        {bookmarks.map((bookmark) => (
-          <Link
-            key={bookmark.title}
-            href={bookmark.url}
-            className="cardStyle mb-4"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`Link to ${bookmark.title}`}
-          >
-            {imageError[bookmark.title] ? (
-              <div className="w-full h-48 flex items-center justify-center border-b">
-                No Image Found
-              </div>
-            ) : (
-              <img
-                className="relative flex-grow-0 border-b w-full"
-                src={bookmark.image}
-                alt={`${bookmark.title} Cover photo`}
-                loading="lazy"
-                onError={() => handleImageError(bookmark.title)}
-              />
-            )}
-            <div className="w-full space-y-1.5 p-4 text-sm">
-              <div className="flex items-center gap-2 font-bold">
-                <div className="line-clamp-2">{bookmark.title}</div>
-              </div>
-              <div className="flex flex-wrap text-muted-foreground">
-                <p className="line-clamp-3">{bookmark.description}</p>
+      {bookmarks.map((bookmark) => (
+        <Link
+          key={bookmark.title}
+          href={bookmark.url}
+          className="cardStyle mb-4"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Link to ${bookmark.title}`}
+        >
+          <div className="w-full space-y-1.5 p-4 text-sm">
+            <div className="flex items-center gap-2 font-bold">
+              <div className="line-clamp-2 flex items-center justify-between w-full gap-2">
+                {bookmark.title}{' '}
+                <ArrowUpRight className="h-5 w-5 text-muted-foreground flex-shrink-0 self-start" />
               </div>
             </div>
-          </Link>
-        ))}
-      </Masonry>
+            <div className="flex flex-wrap text-muted-foreground">
+              <p className="line-clamp-3">{bookmark.description}</p>
+            </div>
+          </div>
+        </Link>
+      ))}
+
       <div ref={lastBookmarkRef}>{loading && <Loader />}</div>
     </>
   )
