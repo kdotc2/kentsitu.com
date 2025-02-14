@@ -44,6 +44,7 @@ export function TableOfContents({ toc }: TocProps) {
             variant="outline"
             onClick={onToggleToc}
             className="rounded-full"
+            showTooltip
           >
             <List className="h-5 w-5" />
           </SidebarMenuButton>
