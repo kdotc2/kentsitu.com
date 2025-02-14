@@ -6,6 +6,7 @@ import {
   getMetadataBySlug,
 } from '@/lib/utils/contentUtils'
 import { SlugContentLayout } from '@/components/layouts/PageLayout'
+import { getTableOfContents } from '@/lib/toc'
 
 export const generateStaticParams = async () =>
   generateStaticParamsForContent(allWorks)
@@ -34,11 +35,11 @@ export default async function WorkLayout({
     notFound()
   }
 
-  // const toc = await getTableOfContents(post.body.raw)
+  const toc = await getTableOfContents(post.body.raw)
 
   return (
     <div className="relative flex">
-      <SlugContentLayout post={post} />
+      <SlugContentLayout post={post} toc={toc} />
     </div>
   )
 }
