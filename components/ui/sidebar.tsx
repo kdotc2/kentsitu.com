@@ -552,6 +552,7 @@ const SidebarMenuButton = React.forwardRef<
     isActive?: boolean
     tooltip?: string | React.ComponentProps<typeof TooltipContent>
     showTooltip?: boolean
+    side?: 'top' | 'right' | 'bottom' | 'left' | undefined
     as?: React.ElementType
     href?: string // Add href prop
     target?: string // Add target prop
@@ -565,6 +566,7 @@ const SidebarMenuButton = React.forwardRef<
       size = 'default',
       tooltip,
       showTooltip,
+      side = 'right',
       className,
       as: Comp = asChild ? Slot : 'button', // Default to 'button', but can be overridden
       href,
@@ -606,7 +608,7 @@ const SidebarMenuButton = React.forwardRef<
         <TooltipTrigger asChild>{button}</TooltipTrigger>
         <TooltipContent
           key={key}
-          side={showTooltip === false ? 'right' : 'left'}
+          side={side}
           align="center"
           hidden={
             showTooltip === false || // Hide if showTooltip is explicitly false

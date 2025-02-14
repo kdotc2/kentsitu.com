@@ -10,7 +10,7 @@ export interface TocProps {
 }
 
 export function TableOfContents({ toc }: TocProps) {
-  const [tocShow, setTocShow] = useState(false)
+  const [tocShow, setTocShow] = useState(true)
 
   const onToggleToc = () => {
     setTocShow((status) => !status)
@@ -39,12 +39,12 @@ export function TableOfContents({ toc }: TocProps) {
         {tocShow && <p className="w-[100px] font-semibold">On This Page</p>}
         <div className="group">
           <SidebarMenuButton
-            tooltip={'Table of Contents'}
+            tooltip={tocShow ? 'Hide ToC' : 'Table of Contents'}
             size="icon"
             variant="outline"
             onClick={onToggleToc}
             className="rounded-full"
-            showTooltip={!tocShow}
+            showTooltip
           >
             <List className="h-5 w-5" />
           </SidebarMenuButton>
@@ -54,14 +54,14 @@ export function TableOfContents({ toc }: TocProps) {
       <div
         className={cn(
           'transition-all duration-300 ease-in-out',
-          'overflow-hidden w-[200px] space-y-4',
+          'overflow-hidden w-[220px] space-y-4',
           tocShow
             ? 'opacity-100 translate-y-0' // On open, fully visible and in place
             : 'opacity-0 translate-y-[-16px]' // On close, fading out and sliding up
         )}
       >
         {tocShow && ( // Ensure this is only rendered when tocShow is true
-          <div>
+          <div className="max-h-[calc(80vh-64px)] overflow-y-auto pr-4 mt-2">
             <Tree tree={toc} activeItem={activeHeading} />
           </div>
         )}
