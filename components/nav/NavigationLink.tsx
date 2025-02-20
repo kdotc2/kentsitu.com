@@ -107,7 +107,7 @@ export function NavigationLink({ link, className }: NavProps) {
           {(link.title === 'Read.cv' ||
             link.title === 'Contact' ||
             link.title === 'Github') && (
-            <ArrowUpRight className="ml-auto duration-200 group-data-[state=open]/collapsible:rotate-90 text-muted-foreground" />
+            <ArrowUpRight className="ml-auto text-muted-foreground" />
           )}
         </SidebarMenuButton>
       )}
