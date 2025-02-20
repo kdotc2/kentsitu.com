@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation'
 
 export default function NotFound() {
   const router = useRouter()
-  const previousPath = router.back
+
   return (
     <div className="flex items-center justify-center h-screen w-full">
       <div className="item-start flex flex-col items-center">
@@ -14,7 +14,7 @@ export default function NotFound() {
         </div>
         <div className="py-8">
           <Button
-            onClick={previousPath}
+            onClick={() => router.push('/')}
             variant="transparent"
             className="border text-[13px] px-3 py-[10px]"
           >
