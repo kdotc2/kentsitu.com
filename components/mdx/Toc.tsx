@@ -123,19 +123,21 @@ function Tree({ tree, level = 1, activeItem }: TreeProps) {
   return tree?.items?.length && level < 3 ? (
     <ul>
       {tree.items.map((item, index) => {
+        const isActive = item.url === `#${activeItem}`
         return (
-          <li key={index}>
+          <li
+            key={index}
+            className={cn(
+              isActive ? 'border-l-primary' : 'hover:border-l-primary',
+              level !== 1 &&
+                'pl-4 border-l ml-1 rounded-none focus:rounded-sm active:rounded-none'
+            )}
+          >
             <a
               href={item.url}
               className={cn(
-                'inline-block hover:text-primary py-1 hover:border-l-primary',
-                {
-                  'pl-4 border-l ml-1 py-1 rounded-none focus:rounded-sm active:rounded-none':
-                    level !== 1,
-                },
-                item.url === `#${activeItem}`
-                  ? 'text-primary border-l-primary'
-                  : 'text-muted-foreground/50'
+                'inline-block hover:text-primary py-1',
+                isActive ? 'text-primary' : 'text-muted-foreground/50'
               )}
             >
               {item.title}
