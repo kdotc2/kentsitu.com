@@ -35,7 +35,7 @@ export function TableOfContents({ toc }: TocProps) {
 
   return (
     <div className={cn('ml-5', `${tocShow ? ' ml-[104px]' : 'flex absolute'}`)}>
-      <div className="relative flex items-center gap-4">
+      <div className="relative flex items-center gap-4 px-0.5">
         {tocShow && <p className="w-[100px] font-semibold">On This Page</p>}
         <div className="group">
           <SidebarMenuButton
@@ -61,7 +61,7 @@ export function TableOfContents({ toc }: TocProps) {
         )}
       >
         {tocShow && ( // Ensure this is only rendered when tocShow is true
-          <div className="max-h-[calc(80vh-64px)] overflow-y-auto pr-4 mt-2">
+          <div className="max-h-[calc(80vh-64px)] overflow-y-auto pr-4 mt-1 p-0.5">
             <Tree tree={toc} activeItem={activeHeading} />
           </div>
         )}
@@ -127,19 +127,18 @@ function Tree({ tree, level = 1, activeItem }: TreeProps) {
           <li key={index}>
             <a
               href={item.url}
-              className={cn('text-muted-foreground/50 hover:text-primary')}
+              className={cn(
+                'inline-block hover:text-primary py-1 hover:border-l-primary',
+                {
+                  'pl-4 border-l ml-1 py-1 rounded-none focus:rounded-sm active:rounded-none':
+                    level !== 1,
+                },
+                item.url === `#${activeItem}`
+                  ? 'text-primary border-l-primary'
+                  : 'text-muted-foreground/50'
+              )}
             >
-              <div
-                className={cn(
-                  level === 1
-                    ? 'py-1'
-                    : 'ml-1 border-l border-sidebar-border py-1 pl-4 text-muted-foreground/50 hover:text-primary hover:border-l-primary',
-                  item.url === `#${activeItem}` &&
-                    'text-primary border-l-primary'
-                )}
-              >
-                {item.title}
-              </div>
+              {item.title}
             </a>
             {item.items?.length ? (
               <Tree tree={item} level={level + 1} activeItem={activeItem} />
