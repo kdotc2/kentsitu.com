@@ -76,7 +76,7 @@ export const SlugContentLayout = ({
       <div className="py-10 md:py-14 space-y-14">
         <Header
           title={post.title}
-          description={post.summary}
+          description={post.description}
           titleLink={titleLink}
           url={url}
         />
