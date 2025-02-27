@@ -128,16 +128,17 @@ function Tree({ tree, level = 1, activeItem }: TreeProps) {
           <li
             key={index}
             className={cn(
-              isActive ? 'border-l-primary' : 'hover:border-l-primary',
-              level !== 1 &&
-                'pl-4 border-l ml-1 rounded-none focus:rounded-sm active:rounded-none'
+              isActive && 'border-l-primary',
+              level !== 1 && 'pl-4 border-l ml-1 group hover:border-l-primary'
             )}
           >
             <a
               href={item.url}
               className={cn(
                 'inline-block hover:text-primary py-1',
-                isActive ? 'text-primary' : 'text-muted-foreground/50'
+                isActive
+                  ? 'text-primary'
+                  : 'text-muted-foreground/50 group-hover:text-primary'
               )}
             >
               {item.title}
