@@ -109,7 +109,7 @@
   },
   {
     "description": "😎 Awesome things related to Tailwind CSS. Contribute to aniftyco/awesome-tailwindcss development by creating an account on GitHub.",
-    "image": "https://opengraph.githubassets.com/c2d024d92af1dd88bd08824c567c974f82b7ca007c0b8614c72de5459f510c5a/aniftyco/awesome-tailwindcss",
+    "image": "https://opengraph.githubassets.com/37b6d105c3bc51653dc7410b256a31bc33de982a3a6a63382bd1eb958821cfe0/aniftyco/awesome-tailwindcss",
     "title": "GitHub - aniftyco/awesome-tailwindcss: 😎 Awesome things related to Tailwind CSS",
     "url": "https://github.com/aniftyco/awesome-tailwindcss"
   },
@@ -162,10 +162,10 @@
     "url": "https://www.indiehackers.com/"
   },
   {
-    "description": "Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.",
-    "image": "https://ui.shadcn.com/og.jpg",
-    "title": "shadcn/ui",
-    "url": "https://ui.shadcn.com/"
+    "description": "A set of beautifully-designed, accessible components and a code distribution platform. Works with your favorite frameworks. Open Source. Open Code.",
+    "image": "https://ui-git-shadcn-open-in-v0-docs-shadcn-pro.vercel.app/og?title=Build%20your%20component%20library&description=A%20set%20of%20beautifully-designed%2C%20accessible%20components%20and%20a%20code%20distribution%20platform.%20Works%20with%20your%20favorite%20frameworks.%20Open%20Source.%20Open%20Code.",
+    "title": "Build your component library - shadcn/ui",
+    "url": "https://ui.shadcn.com"
   },
   {
     "description": "A collection of beautiful websites built with Tailwind CSS.",
@@ -180,9 +180,9 @@
     "url": "https://blot.im"
   },
   {
-    "description": "The #1 Job Search Engine. Discover exciting jobs and track your applications in one place. Let recruiters apply to you.",
-    "image": "https://hiring.cafe/static/images/wfh.jpg",
-    "title": "HiringCafe - Job Search Engine",
-    "url": "https://hiring.cafe/"
+    "description": "McMaster-Carr is the complete source for your plant with over 595,000 products. 98% of products ordered ship from stock and deliver same or next day.",
+    "image": "https://images1.mcmaster.com/init/gfx/favicon/192x192.png?ver=1622796110",
+    "title": "McMaster-Carr",
+    "url": "https://www.mcmaster.com/"
   }
 ]
