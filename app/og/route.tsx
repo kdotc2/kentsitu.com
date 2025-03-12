@@ -1,6 +1,4 @@
 import { ImageResponse } from 'next/og'
-// App router includes @vercel/og.
-// No need to install it.
 
 export const runtime = 'edge'
 
@@ -16,7 +14,6 @@ export async function GET(request: Request) {
 
   return new ImageResponse(
     (
-      // Modified based on https://tailwindui.com/components/marketing/sections/cta-sections
       <div
         style={{
           height: '100%',
@@ -32,7 +29,7 @@ export async function GET(request: Request) {
           <div tw="flex">
             <img
               alt={'og icon'}
-              src="https://kentsitu.com/icon.svg"
+              src="https://kentsitu.com/favicon.ico"
               width={50}
               height={50}
             />

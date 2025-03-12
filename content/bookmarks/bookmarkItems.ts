@@ -30,6 +30,7 @@ const bookmarkItems = [
   'tailwindcss.com/showcase',
   'blot.im',
   'hiring.cafe',
+  'mcmaster.com',
 ]
 
 export default bookmarkItems
