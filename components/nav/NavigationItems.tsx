@@ -137,7 +137,7 @@ const NavigationItems = () => {
           icon: Github,
         },
         {
-          href: 'mailto:hello@kentsitu.com',
+          href: 'hello@kentsitu.com',
           title: 'Contact',
           icon: Mail,
         },

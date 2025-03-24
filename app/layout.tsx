@@ -9,6 +9,7 @@ import { Suspense } from 'react'
 import { Loader } from '@/components/ui/skeleton'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Toaster } from '@/components/ui/toaster'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -44,6 +45,7 @@ export default function RootLayout({
             }
           >
             <SidebarProvider>{children}</SidebarProvider>
+            <Toaster />
           </Suspense>
         </ThemeProvider>
         <Analytics />
