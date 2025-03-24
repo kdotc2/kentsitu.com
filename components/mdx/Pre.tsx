@@ -1,34 +1,30 @@
 'use client'
 
-import { Clipboard, ClipboardCheck } from 'lucide-react'
+import { useToast } from '@/hooks/use-toast'
+import { Copy } from 'lucide-react'
 import React from 'react'
 
 type PreProps = React.HTMLProps<HTMLPreElement> // This includes all props for <pre> element
 
 const Pre = (props: PreProps) => {
   const { children, ...rest } = props
-
+  const { toast } = useToast()
   const textInput = React.useRef<HTMLPreElement>(null)
-  const [isCopied, setCopied] = React.useState(false)
 
   const onCopy = async () => {
     if (textInput.current) {
       await navigator.clipboard.writeText(textInput.current.textContent || '')
-      setCopied(true)
     }
+
+    toast({
+      title: 'Snippet copied to clipboard',
+      description: (
+        <pre ref={textInput} {...rest}>
+          {children}
+        </pre>
+      ),
+    })
   }
-
-  React.useEffect(() => {
-    if (!isCopied) return
-
-    const timerId = setTimeout(() => {
-      setCopied(false)
-    }, 2000)
-
-    return () => {
-      clearTimeout(timerId)
-    }
-  }, [isCopied])
 
   return (
     <div className="relative">
@@ -39,11 +35,7 @@ const Pre = (props: PreProps) => {
         aria-label="Copy to clipboard"
         title="Copy to clipboard"
       >
-        {isCopied ? (
-          <ClipboardCheck className="h-5 w-5" />
-        ) : (
-          <Clipboard className="h-5 w-5" />
-        )}
+        <Copy className="h-5 w-5" />
       </button>
       <pre className="overflow-x-scroll" ref={textInput} {...rest}>
         {children}
