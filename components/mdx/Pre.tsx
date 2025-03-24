@@ -12,7 +12,10 @@ const Pre = (props: PreProps) => {
   const [isCopied, setCopied] = React.useState(false)
 
   const onCopy = async () => {
-    setCopied(true)
+    if (textInput.current) {
+      await navigator.clipboard.writeText(textInput.current.textContent || '')
+      setCopied(true)
+    }
   }
 
   React.useEffect(() => {

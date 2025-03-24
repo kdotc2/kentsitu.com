@@ -6,6 +6,7 @@ import {
   LucideIcon,
   ChevronRight,
   LucideProps,
+  Copy,
 } from 'lucide-react'
 import {
   Collapsible,
@@ -21,6 +22,7 @@ import { cn } from '@/lib/utils'
 import { usePathname } from 'next/navigation'
 import NavigationItems from '@/components/nav/NavigationItems'
 import { ComponentType } from 'react'
+import { useToast } from '@/hooks/use-toast'
 
 export type NavProps = {
   link: {
@@ -33,11 +35,25 @@ export type NavProps = {
 }
 
 export function NavigationLink({ link, className }: NavProps) {
+  const { toast } = useToast()
   const { setOpenMobile } = useSidebar()
   // const Icon = link.icon
   const pathname = usePathname()
 
   const { collapsibleSections } = NavigationItems()
+
+  const onCopy = async () => {
+    if (link.title === 'Contact') {
+      const contactInfo = link.href
+      await navigator.clipboard.writeText(contactInfo)
+
+      // Show the toast notification after copying
+      toast({
+        title: 'Email copied to clipboard',
+        description: link.href,
+      })
+    }
+  }
 
   return (
     <div className={className}>
@@ -84,31 +100,30 @@ export function NavigationLink({ link, className }: NavProps) {
           </Collapsible>
         ) : null
       )}
-
       {/* Regular Navigation Links */}
       {!collapsibleSections.some(({ label }) => link.title === label) && (
         <SidebarMenuButton
           tooltip={link.title}
           isActive={link.isActive}
-          as={Link}
-          href={link.href}
+          as={link.title === 'Contact' ? 'button' : Link}
+          href={link.title === 'Contact' ? undefined : link.href}
           target={
-            link.title === 'Read.cv' ||
-            link.title === 'Contact' ||
-            link.title === 'Github'
+            link.title === 'Read.cv' || link.title === 'Github'
               ? '_blank'
               : '_self'
           }
           className="group-data-[state=collapsed]:mx-2"
-          onClick={() => setOpenMobile(false)}
+          onClick={
+            link.title === 'Contact' ? onCopy : () => setOpenMobile(false)
+          }
         >
           <link.icon />
           <span>{link.title}</span>
-          {(link.title === 'Read.cv' ||
-            link.title === 'Contact' ||
-            link.title === 'Github') && (
+          {link.title === 'Contact' ? (
+            <Copy className="ml-auto text-muted-foreground" />
+          ) : link.title === 'Read.cv' || link.title === 'Github' ? (
             <ArrowUpRight className="ml-auto text-muted-foreground" />
-          )}
+          ) : null}
         </SidebarMenuButton>
       )}
     </div>
