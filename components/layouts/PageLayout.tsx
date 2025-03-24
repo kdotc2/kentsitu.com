@@ -2,7 +2,7 @@ import { Projects, Work, Writing } from '@/.contentlayer/generated'
 import { Mdx, MDXComponents } from '@/components/mdx/MDXComponents'
 import { TableOfContents, TocProps } from '@/components/mdx/Toc'
 import { cn } from '@/lib/utils'
-import { ArrowUpRight } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
 import React from 'react'
 
 const Header = ({
@@ -27,7 +27,7 @@ const Header = ({
         >
           <span className="flex items-center gap-2 text-2xl font-bold">
             {title}
-            <ArrowUpRight className="h-5 w-5" />
+            <ExternalLink className="h-5 w-5" />
           </span>
         </a>
       ) : (

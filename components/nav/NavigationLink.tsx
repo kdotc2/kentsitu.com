@@ -2,11 +2,11 @@
 
 import Link from 'next/link'
 import {
-  ArrowUpRight,
   LucideIcon,
   ChevronRight,
   LucideProps,
   Copy,
+  ExternalLink,
 } from 'lucide-react'
 import {
   Collapsible,
@@ -122,7 +122,7 @@ export function NavigationLink({ link, className }: NavProps) {
           {link.title === 'Contact' ? (
             <Copy className="ml-auto text-muted-foreground" />
           ) : link.title === 'Read.cv' || link.title === 'Github' ? (
-            <ArrowUpRight className="ml-auto text-muted-foreground" />
+            <ExternalLink className="ml-auto text-muted-foreground" />
           ) : null}
         </SidebarMenuButton>
       )}
