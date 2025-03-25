@@ -1,6 +1,6 @@
 'use client'
 
-import { useToast } from '@/hooks/use-toast'
+import { toast } from 'sonner'
 import { Copy } from 'lucide-react'
 import React from 'react'
 
@@ -8,7 +8,6 @@ type PreProps = React.HTMLProps<HTMLPreElement> // This includes all props for <
 
 const Pre = (props: PreProps) => {
   const { children, ...rest } = props
-  const { toast } = useToast()
   const textInput = React.useRef<HTMLPreElement>(null)
 
   const onCopy = async () => {
@@ -16,14 +15,7 @@ const Pre = (props: PreProps) => {
       await navigator.clipboard.writeText(textInput.current.textContent || '')
     }
 
-    toast({
-      title: 'Snippet copied to clipboard',
-      description: (
-        <pre ref={textInput} {...rest}>
-          {children}
-        </pre>
-      ),
-    })
+    toast('Snippet copied to clipboard')
   }
 
   return (

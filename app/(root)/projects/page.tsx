@@ -29,7 +29,7 @@ export default async function Projects() {
         return (
           <Link key={title} href={`/projects/${slug}`} className="cardStyle">
             <Image
-              className="relative flex-shrink-0 border-b"
+              className="relative shrink-0 border-b"
               alt={title + ' Cover Photo'}
               src={image}
               width={800}
