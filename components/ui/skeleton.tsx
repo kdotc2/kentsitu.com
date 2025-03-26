@@ -1,11 +1,9 @@
 import { cn } from '@/lib/utils'
 
-function Skeleton({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
+function Skeleton({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
+      data-slot="skeleton"
       className={cn('animate-pulse rounded-md bg-primary/10', className)}
       {...props}
     />
@@ -18,7 +16,7 @@ function Loader() {
       <div role="status">
         <svg
           aria-hidden="true"
-          className="mr-2 h-8 w-8 animate-spin fill-muted-foreground text-muted"
+          className="mr-2 size-8 animate-spin fill-muted-foreground text-muted"
           viewBox="0 0 100 101"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

@@ -31,7 +31,7 @@ export default async function Work() {
           !draft && (
             <Link key={title} href={`/work/${slug}`} className="cardStyle">
               <Image
-                className="relative flex-shrink-0 border-b"
+                className="relative shrink-0 border-b"
                 alt={title + ' Cover Photo'}
                 src={image}
                 width={800}

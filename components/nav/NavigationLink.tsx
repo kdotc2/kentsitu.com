@@ -22,7 +22,7 @@ import { cn } from '@/lib/utils'
 import { usePathname } from 'next/navigation'
 import NavigationItems from '@/components/nav/NavigationItems'
 import { ComponentType } from 'react'
-import { useToast } from '@/hooks/use-toast'
+import { toast } from 'sonner'
 
 export type NavProps = {
   link: {
@@ -35,7 +35,6 @@ export type NavProps = {
 }
 
 export function NavigationLink({ link, className }: NavProps) {
-  const { toast } = useToast()
   const { setOpenMobile } = useSidebar()
   // const Icon = link.icon
   const pathname = usePathname()
@@ -48,8 +47,7 @@ export function NavigationLink({ link, className }: NavProps) {
       await navigator.clipboard.writeText(contactInfo)
 
       // Show the toast notification after copying
-      toast({
-        title: 'Email copied to clipboard',
+      toast('Email copied to clipboard', {
         description: link.href,
       })
     }

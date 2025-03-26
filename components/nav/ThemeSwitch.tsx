@@ -1,10 +1,10 @@
 'use client'
 
 import { useTheme } from 'next-themes'
-import { Button } from '@/components/ui/button'
 import { Monitor, Moon, Sun } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useMounted } from '@/hooks/useMounted' // Import the custom hook
+import { SidebarMenuButton } from '@/components/ui/sidebar'
 
 export const ThemeSwitch = ({ className }: { className?: string }) => {
   const { theme, setTheme } = useTheme()
@@ -24,55 +24,50 @@ export const ThemeSwitch = ({ className }: { className?: string }) => {
         className
       )}
     >
-      <div className="sidebar-menu-button">
-        {/* Buttons */}
-        <div className="button-container flex group-data-[state=collapsed]:flex-col group-data-[state=collapsed]:gap-1">
-          <Button
-            size="icon"
-            variant="transparent"
-            aria-label="Toggle Dark Mode"
-            className={`rounded-full p-2 transition-none  ${
-              !mounted
-                ? ''
-                : theme === 'dark'
-                ? 'bg-sidebar-accent hover:text-current'
-                : ''
-            }`}
-            onClick={() => handleThemeChange('dark')}
-          >
-            <Moon />
-          </Button>
-          <Button
-            size="icon"
-            variant="transparent"
-            aria-label="Toggle Light Mode"
-            className={`rounded-full p-2 transition-none  ${
-              !mounted
-                ? ''
-                : theme === 'light'
-                ? 'bg-sidebar-accent hover:text-current'
-                : ''
-            }`}
-            onClick={() => handleThemeChange('light')}
-          >
-            <Sun />
-          </Button>
-          <Button
-            size="icon"
-            variant="transparent"
-            aria-label="Toggle System Mode"
-            className={`rounded-full p-2 transition-none  ${
-              !mounted
-                ? ''
-                : theme === 'system'
-                ? 'bg-sidebar-accent hover:text-current'
-                : ''
-            }`}
-            onClick={() => handleThemeChange('system')}
-          >
-            <Monitor />
-          </Button>
-        </div>
+      {/* Buttons */}
+      <div className="button-container flex group-data-[state=collapsed]:flex-col group-data-[state=collapsed]:gap-1">
+        <SidebarMenuButton
+          size="icon"
+          onClick={() => handleThemeChange('light')}
+          className={`rounded-full p-2 transition-none  ${
+            !mounted
+              ? ''
+              : theme === 'light'
+              ? 'bg-sidebar-accent hover:text-current'
+              : ''
+          }`}
+          showTooltip
+        >
+          <Sun />
+        </SidebarMenuButton>
+        <SidebarMenuButton
+          size="icon"
+          onClick={() => handleThemeChange('dark')}
+          className={`rounded-full p-2 transition-none  ${
+            !mounted
+              ? ''
+              : theme === 'dark'
+              ? 'bg-sidebar-accent hover:text-current'
+              : ''
+          }`}
+          showTooltip
+        >
+          <Moon />
+        </SidebarMenuButton>
+        <SidebarMenuButton
+          size="icon"
+          onClick={() => handleThemeChange('system')}
+          className={`rounded-full p-2 transition-none  ${
+            !mounted
+              ? ''
+              : theme === 'system'
+              ? 'bg-sidebar-accent hover:text-current'
+              : ''
+          }`}
+          showTooltip
+        >
+          <Monitor />
+        </SidebarMenuButton>
       </div>
     </div>
   )

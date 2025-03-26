@@ -1,3 +1,4 @@
+@reference "./tailwind.css";
 /**
  * CSS Styles for code highlighting.
  * Feel free to customize token styles 
@@ -24,11 +25,11 @@
 }
 
 .code-line.inserted {
-  @apply bg-green-500 bg-opacity-20;
+  @apply bg-green-500 opacity-20;
 }
 
 .code-line.deleted {
-  @apply bg-destructive bg-opacity-20;
+  @apply bg-destructive opacity-20;
 }
 
 .highlight-line {

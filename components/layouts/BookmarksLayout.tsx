@@ -69,7 +69,7 @@ export default function Bookmarks() {
             <div className="flex items-center gap-2 font-bold">
               <div className="line-clamp-2 flex items-center justify-between w-full gap-2">
                 {bookmark.title}{' '}
-                <ExternalLink className="h-5 w-5 text-muted-foreground flex-shrink-0 self-start" />
+                <ExternalLink className="h-5 w-5 text-muted-foreground shrink-0 self-start" />
               </div>
             </div>
             <div className="flex flex-wrap text-muted-foreground">
