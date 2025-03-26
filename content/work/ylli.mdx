@@ -273,67 +273,26 @@ There was a lot of back and forth between the teams on what and how to proceed. 
 
 The receipt scan flow needed some updates. Users had trouble scanning their receipts. They couldn't add missing items from the scan. And the error alerts needed a copy update.
 
-<div className="space-y-2.5 pb-1">
-  <div className="flex items-center">
-    <span>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
-        className="mx-1 mr-2 h-5 w-5"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"
-        />
-      </svg>
-    </span>
-    <span className="tabular-nums">71% of photos were duplicates of the same receipt.</span>
-  </div>
-
-  <div className="flex items-center">
-    <span>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
-        className="mx-1 mr-2 h-5 w-5"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125"
-        />
-      </svg>
-    </span>
-    <span className="tabular-nums">14% of analyzed receipts in photo storage.</span>
-  </div>
-
-  <div className="flex items-center">
-    <span>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
-        className="mx-1 mr-2 h-5 w-5"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-        />
-      </svg>
-    </span>
-    <span className="tabular-nums">18% of users completed their receipt scan.</span>
-  </div>
-</div>
+<MetricsList
+  items={[
+    {
+      icon: 'Files',
+      percentages: { new: '71%' },
+      description: 'of photos were duplicates of the same receipt.',
+    },
+    {
+      icon: 'Database',
+      percentages: { new: '14%' },
+      description: 'of analyzed receipts in photo storage.',
+    },
+    {
+      icon: 'CircleCheck',
+      percentages: { new: '18%' },
+      description: 'of users completed their receipt scan.',
+    },
+  ]}
+  iconClassName="text-[#FFD968]"
+/>
 
 ### Identify Opportunities
 
@@ -435,77 +394,60 @@ We tested the live error handling in-house. We wanted to account for as many edg
 
 After about a month of the updates, we saw improvements in our metrics. The new error alerts and disabled capture button prevented unnecessary photos. The updated UI and indicators also helped more users complete their receipt scan. We also reduced future cost by getting rid of unnecessary photos in storage.
 
-<div className="space-y-2.5">
-  <div className="flex items-center">
-    <span>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
-        className="mx-1 mr-2 h-5 w-5"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"
-        />
-      </svg>
-    </span>
-    <span className="tabular-nums"><span className="line-through">71%</span><span className="font-bold"> 19%</span> of photos were duplicates of the same receipt.</span>
-  </div>
-
-  <div className="flex items-center">
-    <span>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
-        className="mx-1 mr-2 h-5 w-5"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125"
-        />
-      </svg>
-    </span>
-    <span className="tabular-nums"><span className="line-through">14%</span><span className="font-bold"> 85%</span> of analyzed receipts in photo storage.</span>
-  </div>
-
-  <div className="flex items-center">
-    <span>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
-        className="mx-1 mr-2 h-5 w-5"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-        />
-      </svg>
-    </span>
-    <span className="tabular-nums"><span className="line-through">18%</span><span className="font-bold"> 70%</span> of users completed their receipt scan.</span>
-  </div>
-</div>
+<MetricsList
+  items={[
+    {
+      icon: 'Files',
+      percentages: { old: '71%', new: "19%" },
+      description: 'of photos were duplicates of the same receipt.',
+    },
+    {
+      icon: 'Database',
+      percentages: { old: '14%', new: "85%" },
+      description: 'of analyzed receipts in photo storage.',
+    },
+    {
+      icon: 'CircleCheck',
+      percentages: { old: '18%', new: "70%" },
+      description: 'of users completed their receipt scan.',
+    },
+  ]}
+  iconClassName="text-[#FFD968]"
+/>
 
 ---
 
 ## Item Card Iteration
 
-Users were struggling with the swipe feature. The card design didn't provide us with enough flexibility. It wasn't designed wide enough for us to implement future features on our roadmap. About 28% of users were moving items to the expense report. A lot of them had no clue that this feature existed.
+Users were struggling with the swipe feature. The card design didn't provide us with enough flexibility. It wasn't designed wide enough for us to implement future features on our roadmap. A lot of them had no clue that this feature existed.
+
+<MetricsList
+  items={[
+    {
+      icon: 'ArrowLeftRight',
+      percentages: { new: "28%" },
+      description: 'of users were moving items to the expense report.',
+    },
+  ]}
+  iconClassName="text-[#59A4F5]"
+/>
 
 ### Short-Term Tutorial Fix
 
-The current item card didn't offer a swipe experience that users expected. The short-term fix was effective in that it increased the 28% number to about 53%. But there were still some complaints about the experience not being ideal.
+The current item card didn't offer a swipe experience that users expected. The short-term fix was effective in that it almost doubled. 
+
+<MetricsList
+  items={[
+    {
+      icon: 'ArrowLeftRight',
+      percentages: { old: "28%" ,new: "53%" },
+      description: 'of users were moving items to the expense report after short-term fix.',
+    },
+  ]}
+  iconClassName="text-[#59A4F5]"
+/>
+
+But there were still some complaints about the experience not being ideal.
 
 > The tutorial helped explain the feature better, but it's still hard to get the swipe options opened.
 
@@ -638,29 +580,24 @@ The team decided not to implement all the changes.
 
 ### Conclusion
 
-We weren't able to implement all the changes.
+The redesign and adding the tutorial helped guide users and we saw an increase in engagement.
+
+<MetricsList
+  items={[
+    {
+      icon: 'ArrowLeftRight',
+      percentages: { old: "28%" ,new: "73%" },
+      description: 'of users were moving items to the expense report after new tutorial.',
+    },
+  ]}
+  iconClassName="text-[#59A4F5]"
+/>
+
+However, we weren't able to implement all the changes.
 
 - Instead of having users go through each step of the tutorial, we created a video to speed up some of the process. 
 - Due to timing, we didn't update the undo button and left it as it was in the previous design. 
 - The delete button wasn't implemented in this iteration.
-
-But we did see a jump from 28% to 72%. While the redesign looks successful early on, we still need to continue monitoring.
-
-<div className="text-center py-4 font-bold text-lg">Users moving items to expense report</div>
-<div className="grid grid-cols-3 text-center gap-x-3">
-  <div className="py-4">
-    <div className="metricHeader text-[#59A4F5]">28%</div>
-    <p className="text-xs sm:text-base">Old design <br />without tutorial</p>
-  </div>
-  <div className="py-4">
-    <div className="metricHeader text-[#59A4F5]">53%</div>
-    <p className="text-xs sm:text-base">Old design with <br />short-term tutorial</p>
-  </div>
-  <div className="py-4">
-    <div className="metricHeader text-[#59A4F5]">72%</div>
-    <p className="text-xs sm:text-base">New design with <br />updated tutorial</p>
-  </div>
-</div>
 
 ---
 
