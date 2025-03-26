@@ -9,6 +9,7 @@ import Pre from './Pre'
 import VideoPlayer from './VideoPlayer'
 import Bookmarks from '@/components/layouts/BookmarksLayout'
 import Link from 'next/link'
+import { MetricsList } from '@/components/mdx/MetricsList'
 import { cn } from '@/lib/utils'
 
 interface MDXLayout {
@@ -38,6 +39,7 @@ export const MDXComponents: object = {
   VideoPlayer,
   Bookmarks,
   Link,
+  MetricsList,
 }
 
 export const Mdx = ({ content, ...rest }: MDXLayout) => {
