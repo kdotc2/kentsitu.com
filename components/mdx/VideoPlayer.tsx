@@ -29,7 +29,7 @@ const VideoPlayer = ({
   }
   return (
     <div className="group block object-scale-down py-4">
-      <div className="group relative flex flex-col items-center justify-center">
+      <div className="group relative flex flex-col items-center justify-center min-h-[503px]">
         <div className="group absolute z-10">
           <Image
             alt="iPhone layout"
@@ -49,6 +49,7 @@ const VideoPlayer = ({
             loop
             muted
             playsInline
+            preload="metadata"
           />
         </div>
       </div>
