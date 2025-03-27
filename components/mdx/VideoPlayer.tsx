@@ -9,19 +9,11 @@ const VideoPlayer = ({
   poster,
   phone,
   width,
-  className,
-  videoClassName,
-  playButtonClassName,
-  hideLayout,
 }: {
   link: string
   poster: string
   phone?: string
   width: string
-  className?: string
-  videoClassName?: string
-  playButtonClassName?: string
-  hideLayout?: true
 }) => {
   const [isPlaying, setIsPlaying] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -37,10 +29,15 @@ const VideoPlayer = ({
     })
   }
   return (
-    <div className={cn('group block object-scale-down py-4', className)}>
-      <div className="group relative flex flex-col items-center justify-center">
-        {!hideLayout && (
-          <div className="group absolute z-10 min-h-[503px]">
+    <div className={cn('group block object-scale-down', phone && 'py-4')}>
+      <div
+        className={cn(
+          'group relative flex flex-col items-center justify-center',
+          phone && 'min-h-[503px]'
+        )}
+      >
+        {phone && (
+          <div className="group absolute z-10">
             <Image
               alt="iPhone layout"
               src={`/videos/${phone ? phone : 'iPhoneXS'}.png`}
@@ -51,7 +48,7 @@ const VideoPlayer = ({
         )}
         <div className="group">
           <video
-            className={cn('rounded-[20px]', videoClassName)}
+            className={cn('border', phone && 'rounded-[20px] border-none')}
             src={link}
             poster={poster}
             ref={videoRef}
@@ -67,8 +64,8 @@ const VideoPlayer = ({
 
       <div
         className={cn(
-          'mt-8 flex justify-center font-medium text-blue-500',
-          playButtonClassName
+          'mt-4 flex justify-center font-medium text-blue-500',
+          phone && 'mt-8'
         )}
       >
         <button onClick={playVideo} className="rounded">
