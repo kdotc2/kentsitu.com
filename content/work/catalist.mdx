@@ -49,7 +49,7 @@ After speaking to users and exploring competitor apps, we identified pain points
     - Filter the discover feed.
     - Check notifications and start a chat.
   </div>
-  <VideoPlayer link="/videos/catalist.mp4" poster="/videos/catalist-poster.png" />
+  <VideoPlayer link="/videos/catalist.mp4" poster="/videos/catalist-poster.png" width="224" phone />
 </div>
 
 ## Process
@@ -263,31 +263,35 @@ While launching, we had several hiccups. The main one being our app getting reje
 
 After about two months of launching our MVP in the App Store, we got decent usage. We used Google Analytics to track usage, which helped us early validate our MVP.
 
-<MetricsList
-  items={[
-    {
-      icon: 'UserRound',
-      percentages: { new: '43%' },
-      description: 'DAU/WAU ratio.',
-    },
-    {
-      icon: 'FileText',
-      percentages: { new: '41%' },
-      description: 'of users created at least one list.',
-    },
-    {
-      icon: 'UserRoundPlus',
-      percentages: { new: '33%' },
-      description: 'of users followed at least one list.',
-    },
-    {
-      icon: 'FileCheck',
-      percentages: { new: '29%' },
-      description: 'of users completed at least one item.',
-    },
-  ]}
-  iconClassName="text-[#FF8300]"
-/>
+<div className="space-y-2.5 pb-1">
+  <div className="flex items-center">
+    <span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF8300" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mx-1 mr-2 h-5 w-5"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+    </span>
+    <span className="tabular-nums"><span className="font-bold">43%</span> DAU/WAU ratio.</span>
+  </div>
+
+  <div className="flex items-center">
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF8300" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mx-1 mr-2 h-5 w-5"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+    </span>
+    <span className="tabular-nums"><span className="font-bold">41%</span> of users created at least one list.</span>
+  </div>
+
+  <div className="flex items-center">
+    <span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF8300" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mx-1 mr-2 h-5 w-5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg>
+    </span>
+    <span className="tabular-nums"><span className="font-bold">33%</span> of users followed at least one list.</span>
+  </div>
+
+    <div className="flex items-center">
+    <span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF8300" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mx-1 mr-2 h-5 w-5"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m9 15 2 2 4-4"/></svg>
+    </span>
+    <span className="tabular-nums"><span className="font-bold">29%</span> of users completed at least one item.</span>
+  </div>
+</div>
 
 From our early research data, users usually looked for something to do every 2-3 days. This aligned with the DAU/WAU ratio we got from our MVP. Users were also spending an average of 6 minutes on the app versus 15 mins on the individual category apps. This meant that they were spending less time researching for content to consume.
 

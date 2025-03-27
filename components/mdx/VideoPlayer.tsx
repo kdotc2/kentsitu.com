@@ -8,12 +8,12 @@ const VideoPlayer = ({
   link,
   poster,
   phone,
-  width,
+  width = '100%',
 }: {
   link: string
-  poster: string
-  phone?: string
-  width: string
+  poster?: string
+  phone?: boolean
+  width?: string
 }) => {
   const [isPlaying, setIsPlaying] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -40,7 +40,7 @@ const VideoPlayer = ({
           <div className="group absolute z-10">
             <Image
               alt="iPhone layout"
-              src={`/videos/${phone ? phone : 'iPhoneXS'}.png`}
+              src={`/videos/iPhone13Pro.png`}
               width={250}
               height={503}
             />
@@ -52,7 +52,7 @@ const VideoPlayer = ({
             src={link}
             poster={poster}
             ref={videoRef}
-            width={width ? width : '220'}
+            width={width}
             height={'auto'}
             loop
             muted
