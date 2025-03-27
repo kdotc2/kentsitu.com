@@ -40,7 +40,7 @@ const VideoPlayer = ({
     <div className={cn('group block object-scale-down py-4', className)}>
       <div className="group relative flex flex-col items-center justify-center">
         {!hideLayout && (
-          <div className="group absolute z-10">
+          <div className="group absolute z-10 min-h-[503px]">
             <Image
               alt="iPhone layout"
               src={`/videos/${phone ? phone : 'iPhoneXS'}.png`}
