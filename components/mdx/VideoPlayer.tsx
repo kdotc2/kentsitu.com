@@ -2,17 +2,26 @@
 import Image from './Image'
 import { useRef, useState } from 'react'
 import { CirclePlay, PauseCircle } from 'lucide-react'
+import { cn } from '@/lib/utils'
 
 const VideoPlayer = ({
   link,
   poster,
   phone,
   width,
+  className,
+  videoClassName,
+  playButtonClassName,
+  hideLayout,
 }: {
   link: string
   poster: string
-  phone: string
+  phone?: string
   width: string
+  className?: string
+  videoClassName?: string
+  playButtonClassName?: string
+  hideLayout?: true
 }) => {
   const [isPlaying, setIsPlaying] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -28,19 +37,21 @@ const VideoPlayer = ({
     })
   }
   return (
-    <div className="group block object-scale-down py-4">
-      <div className="group relative flex flex-col items-center justify-center min-h-[503px]">
-        <div className="group absolute z-10">
-          <Image
-            alt="iPhone layout"
-            src={`/videos/${phone ? phone : 'iPhoneXS'}.png`}
-            width={250}
-            height={503}
-          />
-        </div>
+    <div className={cn('group block object-scale-down py-4', className)}>
+      <div className="group relative flex flex-col items-center justify-center">
+        {!hideLayout && (
+          <div className="group absolute z-10">
+            <Image
+              alt="iPhone layout"
+              src={`/videos/${phone ? phone : 'iPhoneXS'}.png`}
+              width={250}
+              height={503}
+            />
+          </div>
+        )}
         <div className="group">
           <video
-            className="rounded-[20px]"
+            className={cn('rounded-[20px]', videoClassName)}
             src={link}
             poster={poster}
             ref={videoRef}
@@ -54,7 +65,12 @@ const VideoPlayer = ({
         </div>
       </div>
 
-      <div className="mt-8 flex justify-center font-medium text-blue-500">
+      <div
+        className={cn(
+          'mt-8 flex justify-center font-medium text-blue-500',
+          playButtonClassName
+        )}
+      >
         <button onClick={playVideo} className="rounded">
           {isPlaying ? (
             <span className="flex items-center justify-between gap-1">
