@@ -2,17 +2,18 @@
 import Image from './Image'
 import { useRef, useState } from 'react'
 import { CirclePlay, PauseCircle } from 'lucide-react'
+import { cn } from '@/lib/utils'
 
 const VideoPlayer = ({
   link,
   poster,
   phone,
-  width,
+  width = '100%',
 }: {
   link: string
-  poster: string
-  phone: string
-  width: string
+  poster?: string
+  phone?: boolean
+  width?: string
 }) => {
   const [isPlaying, setIsPlaying] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -28,23 +29,30 @@ const VideoPlayer = ({
     })
   }
   return (
-    <div className="group block object-scale-down py-4">
-      <div className="group relative flex flex-col items-center justify-center min-h-[503px]">
-        <div className="group absolute z-10">
-          <Image
-            alt="iPhone layout"
-            src={`/videos/${phone ? phone : 'iPhoneXS'}.png`}
-            width={250}
-            height={503}
-          />
-        </div>
+    <div className={cn('group block object-scale-down', phone && 'py-4')}>
+      <div
+        className={cn(
+          'group relative flex flex-col items-center justify-center',
+          phone && 'min-h-[503px]'
+        )}
+      >
+        {phone && (
+          <div className="group absolute z-10">
+            <Image
+              alt="iPhone layout"
+              src={`/videos/iPhone13Pro.png`}
+              width={250}
+              height={503}
+            />
+          </div>
+        )}
         <div className="group">
           <video
-            className="rounded-[20px]"
+            className={cn('border', phone && 'rounded-[20px] border-none')}
             src={link}
             poster={poster}
             ref={videoRef}
-            width={width ? width : '220'}
+            width={width}
             height={'auto'}
             loop
             muted
@@ -54,7 +62,12 @@ const VideoPlayer = ({
         </div>
       </div>
 
-      <div className="mt-8 flex justify-center font-medium text-blue-500">
+      <div
+        className={cn(
+          'mt-4 flex justify-center font-medium text-blue-500',
+          phone && 'mt-8'
+        )}
+      >
         <button onClick={playVideo} className="rounded">
           {isPlaying ? (
             <span className="flex items-center justify-between gap-1">
