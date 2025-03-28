@@ -36,7 +36,11 @@ export function TableOfContents({ toc }: TocProps) {
   return (
     <div className={cn('ml-5', `${tocShow ? ' ml-[104px]' : 'flex absolute'}`)}>
       <div className="relative flex items-center gap-4 px-0.5">
-        {tocShow && <p className="w-[100px] font-semibold">On This Page</p>}
+        {tocShow && (
+          <p className="w-[100px] text-xs font-medium text-sidebar-foreground/70">
+            On This Page
+          </p>
+        )}
         <div className="group">
           <SidebarMenuButton
             tooltip={tocShow ? 'Hide ToC' : 'Table of Contents'}

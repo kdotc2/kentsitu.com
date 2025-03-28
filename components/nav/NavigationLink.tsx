@@ -35,7 +35,7 @@ export type NavProps = {
 }
 
 export function NavigationLink({ link, className }: NavProps) {
-  const { setOpenMobile } = useSidebar()
+  const { setOpenMobile, isMobile } = useSidebar()
   // const Icon = link.icon
   const pathname = usePathname()
 
@@ -60,7 +60,7 @@ export function NavigationLink({ link, className }: NavProps) {
         link.title === label ? (
           <Collapsible
             key={label}
-            // open={link.isActive}
+            open={isMobile ? link.isActive : undefined}
             className="group/collapsible"
           >
             {/* Link as the Collapsible Trigger */}

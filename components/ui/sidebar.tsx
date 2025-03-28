@@ -495,7 +495,7 @@ const sidebarMenuButtonVariants = cva(
         default: 'h-8 text-[13px]',
         sm: 'h-7 text-xs',
         lg: 'h-12 text-sm group-data-[collapsible=icon]:p-0!',
-        icon: 'p-3',
+        icon: 'size-9 p-2',
       },
     },
     defaultVariants: {
