@@ -42,7 +42,8 @@ const VideoPlayer = ({
               alt="iPhone layout"
               src={`/videos/iPhone13Pro.png`}
               width={250}
-              height={503}
+              height={506}
+              style={{ width: 250, height: 506 }} // Use style to manage height
             />
           </div>
         )}
