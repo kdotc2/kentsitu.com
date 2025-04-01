@@ -29,13 +29,13 @@ export const ThemeSwitch = ({ className }: { className?: string }) => {
         <SidebarMenuButton
           size="icon"
           onClick={() => handleThemeChange('light')}
-          className={`rounded-full p-2 transition-none  ${
+          className={
             !mounted
               ? ''
               : theme === 'light'
               ? 'bg-sidebar-accent hover:text-current'
               : ''
-          }`}
+          }
           showTooltip
         >
           <Sun />
@@ -43,13 +43,13 @@ export const ThemeSwitch = ({ className }: { className?: string }) => {
         <SidebarMenuButton
           size="icon"
           onClick={() => handleThemeChange('dark')}
-          className={`rounded-full p-2 transition-none  ${
+          className={
             !mounted
               ? ''
               : theme === 'dark'
               ? 'bg-sidebar-accent hover:text-current'
               : ''
-          }`}
+          }
           showTooltip
         >
           <Moon />
@@ -57,13 +57,13 @@ export const ThemeSwitch = ({ className }: { className?: string }) => {
         <SidebarMenuButton
           size="icon"
           onClick={() => handleThemeChange('system')}
-          className={`rounded-full p-2 transition-none  ${
+          className={
             !mounted
               ? ''
               : theme === 'system'
               ? 'bg-sidebar-accent hover:text-current'
               : ''
-          }`}
+          }
           showTooltip
         >
           <Monitor />

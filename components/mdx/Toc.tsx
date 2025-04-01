@@ -41,18 +41,16 @@ export function TableOfContents({ toc }: TocProps) {
             On This Page
           </p>
         )}
-        <div className="group">
-          <SidebarMenuButton
-            tooltip={tocShow ? 'Hide ToC' : 'Table of Contents'}
-            size="icon"
-            variant="outline"
-            onClick={onToggleToc}
-            className="rounded-full"
-            showTooltip
-          >
-            <List className="h-5 w-5" />
-          </SidebarMenuButton>
-        </div>
+        <SidebarMenuButton
+          tooltip={tocShow ? 'Hide ToC' : 'Table of Contents'}
+          size="icon"
+          variant="outline"
+          onClick={onToggleToc}
+          className="size-9"
+          showTooltip
+        >
+          <List />
+        </SidebarMenuButton>
       </div>
 
       <div
