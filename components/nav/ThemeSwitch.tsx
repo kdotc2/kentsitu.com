@@ -6,6 +6,17 @@ import { cn } from '@/lib/utils'
 import { useMounted } from '@/hooks/useMounted' // Import the custom hook
 import { SidebarMenuButton } from '@/components/ui/sidebar'
 
+interface Theme {
+  value: 'light' | 'dark' | 'system'
+  icon: React.ReactNode
+}
+
+const themes: Theme[] = [
+  { value: 'light', icon: <Sun /> },
+  { value: 'dark', icon: <Moon /> },
+  { value: 'system', icon: <Monitor /> },
+]
+
 export const ThemeSwitch = ({ className }: { className?: string }) => {
   const { theme, setTheme } = useTheme()
   const mounted = useMounted()
@@ -24,50 +35,24 @@ export const ThemeSwitch = ({ className }: { className?: string }) => {
         className
       )}
     >
-      {/* Buttons */}
       <div className="button-container flex group-data-[state=collapsed]:flex-col group-data-[state=collapsed]:gap-1">
-        <SidebarMenuButton
-          size="icon"
-          onClick={() => handleThemeChange('light')}
-          className={`rounded-full p-2 transition-none  ${
-            !mounted
-              ? ''
-              : theme === 'light'
-              ? 'bg-sidebar-accent hover:text-current'
-              : ''
-          }`}
-          showTooltip
-        >
-          <Sun />
-        </SidebarMenuButton>
-        <SidebarMenuButton
-          size="icon"
-          onClick={() => handleThemeChange('dark')}
-          className={`rounded-full p-2 transition-none  ${
-            !mounted
-              ? ''
-              : theme === 'dark'
-              ? 'bg-sidebar-accent hover:text-current'
-              : ''
-          }`}
-          showTooltip
-        >
-          <Moon />
-        </SidebarMenuButton>
-        <SidebarMenuButton
-          size="icon"
-          onClick={() => handleThemeChange('system')}
-          className={`rounded-full p-2 transition-none  ${
-            !mounted
-              ? ''
-              : theme === 'system'
-              ? 'bg-sidebar-accent hover:text-current'
-              : ''
-          }`}
-          showTooltip
-        >
-          <Monitor />
-        </SidebarMenuButton>
+        {themes.map(({ value, icon }) => (
+          <SidebarMenuButton
+            key={value}
+            size="icon"
+            onClick={() => handleThemeChange(value)}
+            className={
+              !mounted
+                ? ''
+                : theme === value
+                ? 'bg-sidebar-accent hover:text-current'
+                : ''
+            }
+            showTooltip
+          >
+            {icon}
+          </SidebarMenuButton>
+        ))}
       </div>
     </div>
   )
