@@ -713,14 +713,14 @@ const SidebarMenuSubButton = ({
       data-size={size}
       data-active={isActive}
       className={cn(
-        'flex h-7.5 min-w-0 -translate-x-px items-center gap-2 overflow-hidden px-2 text-muted-foreground/50 outline-hidden ring-sidebar-ring hover:text-sidebar-accent-foreground focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 [&>svg]:text-sidebar-accent-foreground',
+        'flex h-7.5 min-w-0 -translate-x-px items-center gap-2 overflow-hidden px-2 text-muted-foreground/50 outline-hidden ring-sidebar-ring hover:text-sidebar-accent-foreground focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 [&>svg]:text-sidebar-accent-foreground rounded-none focus-visible:rounded-sm',
         'data-[active=true]:text-sidebar-accent-foreground',
         size === 'sm' && 'text-xs',
         size === 'md' && 'text-[13px]',
         'group-data-[collapsible=icon]:hidden',
-        'border-l hover:border-l-primary pl-5 hover:rounded-none',
+        'border-l hover:border-l-primary pl-5',
         isActive &&
-          ' data-[active=true]:text-sidebar-accent-foreground border-l-primary text-primary rounded-none',
+          ' data-[active=true]:text-sidebar-accent-foreground border-l-primary text-primary',
         className
       )}
       {...props}
