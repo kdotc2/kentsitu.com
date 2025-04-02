@@ -42,6 +42,8 @@ export function TableOfContents({ toc }: TocProps) {
           </p>
         )}
         <SidebarMenuButton
+          data-slot="toc-button"
+          data-sidebar="toc-button"
           tooltip={tocShow ? 'Hide ToC' : 'Table of Contents'}
           size="icon"
           variant="outline"

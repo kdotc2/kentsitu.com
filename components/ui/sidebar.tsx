@@ -664,20 +664,15 @@ const SidebarMenuSkeleton = ({
 }
 
 const SidebarMenuSub = ({
-  isActive = false,
   className,
   ...props
-}: React.ComponentProps<'ul'> & {
-  isActive?: boolean
-}) => (
+}: React.ComponentProps<'ul'> & {}) => (
   <ul
     data-slot="sidebar-menu-sub"
     data-sidebar="menu-sub"
     className={cn(
-      'mx-3.5 flex min-w-0 translate-x-px flex-col gap-1 border-l border-sidebar-border pl-3.5 py-0.5 text-sidebar-accent',
-      'group-data-[collapsible=icon]:hidden text-muted-foreground/50 hover:border-primary hover:text-primary text-[13px]',
-      isActive &&
-        'data-[active=true]:bg-sidebar-accent data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground border-l-primary text-primary',
+      'mx-3.5 flex min-w-0 translate-x-px flex-col border-l border-sidebar-border py-0.5 text-sidebar-accent',
+      'group-data-[collapsible=icon]:hidden text-muted-foreground/50 hover:text-primary text-[13px]',
       className
     )}
     {...props}
@@ -701,13 +696,15 @@ const SidebarMenuSubButton = ({
   size = 'md',
   isActive,
   className,
+  as: Component = 'a', // Default to 'a' tag if no 'as' is provided
   ...props
 }: React.ComponentProps<'a'> & {
   asChild?: boolean
   size?: 'sm' | 'md'
   isActive?: boolean
+  as?: React.ElementType
 }) => {
-  const Comp = asChild ? Slot : 'a'
+  const Comp = asChild ? Slot : Component
 
   return (
     <Comp
@@ -716,11 +713,14 @@ const SidebarMenuSubButton = ({
       data-size={size}
       data-active={isActive}
       className={cn(
-        'flex h-7 min-w-0 -translate-x-px items-center gap-2 overflow-hidden rounded-md px-2 text-sidebar-foreground outline-hidden ring-sidebar-ring hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 [&>svg]:text-sidebar-accent-foreground',
-        'data-[active=true]:bg-sidebar-accent data-[active=true]:text-sidebar-accent-foreground',
+        'flex h-7.5 min-w-0 -translate-x-px items-center gap-2 overflow-hidden px-2 text-muted-foreground/50 outline-hidden ring-sidebar-ring hover:text-sidebar-accent-foreground focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 [&>svg]:text-sidebar-accent-foreground rounded-none focus-visible:rounded-sm',
+        'data-[active=true]:text-sidebar-accent-foreground',
         size === 'sm' && 'text-xs',
-        size === 'md' && 'text-sm',
+        size === 'md' && 'text-[13px]',
         'group-data-[collapsible=icon]:hidden',
+        'border-l hover:border-l-primary pl-5',
+        isActive &&
+          ' data-[active=true]:text-sidebar-accent-foreground border-l-primary text-primary',
         className
       )}
       {...props}
