@@ -24,7 +24,7 @@ import {
 } from '@/components/ui/sidebar'
 import { usePathname } from 'next/navigation'
 import NavigationItems from '@/components/nav/NavigationItems'
-import { ComponentType, useCallback, useState } from 'react'
+import { ComponentType, useCallback } from 'react'
 import { toast } from 'sonner'
 
 export type NavProps = {
@@ -38,12 +38,9 @@ export type NavProps = {
 }
 
 export function NavigationLink({ link, className }: NavProps) {
-  const { setOpenMobile } = useSidebar()
+  const { setOpenMobile, isMobile } = useSidebar()
   const pathname = usePathname()
   const { collapsibleSections } = NavigationItems()
-  const [isOpen, setIsOpen] = useState(
-    collapsibleSections.some(({ basePath }) => pathname.startsWith(basePath))
-  )
 
   const isCollapsibleSection = collapsibleSections.some(
     ({ label }) => link.title === label
@@ -63,8 +60,7 @@ export function NavigationLink({ link, className }: NavProps) {
         link.title === label ? (
           <SidebarMenuItem key={label}>
             <Collapsible
-              open={isOpen}
-              onOpenChange={setIsOpen}
+              open={isMobile ? link.isActive : undefined}
               className="group/collapsible"
             >
               {/* Link as the Collapsible Trigger */}
@@ -91,7 +87,11 @@ export function NavigationLink({ link, className }: NavProps) {
                         as={Link}
                         href={`${basePath}/${post.slug}`}
                         isActive={pathname.endsWith(`${post.slug}`)}
-                        onClick={() => setOpenMobile(false)}
+                        onClick={() =>
+                          setTimeout(() => {
+                            setOpenMobile(false)
+                          }, 300)
+                        }
                       >
                         {post.title}
                       </SidebarMenuSubButton>
