@@ -44,10 +44,7 @@ const BreadcrumbLink = ({
 }) => (
   <Comp
     data-slot="breadcrumb-link"
-    className={cn(
-      'transition-colors hover:text-foreground focus-visible:ring-2',
-      className
-    )}
+    className={cn(' hover:text-foreground focus-visible:ring-2', className)}
     {...props}
   />
 )

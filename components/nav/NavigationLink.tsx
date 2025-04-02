@@ -14,14 +14,17 @@ import {
   CollapsibleTrigger,
 } from '@/components/ui/collapsible'
 import {
+  SidebarMenu,
   SidebarMenuButton,
+  SidebarMenuItem,
   SidebarMenuSub,
+  SidebarMenuSubButton,
+  SidebarMenuSubItem,
   useSidebar,
 } from '@/components/ui/sidebar'
-import { cn } from '@/lib/utils'
 import { usePathname } from 'next/navigation'
 import NavigationItems from '@/components/nav/NavigationItems'
-import { ComponentType } from 'react'
+import { ComponentType, useCallback, useState } from 'react'
 import { toast } from 'sonner'
 
 export type NavProps = {
@@ -35,95 +38,104 @@ export type NavProps = {
 }
 
 export function NavigationLink({ link, className }: NavProps) {
-  const { setOpenMobile, isMobile } = useSidebar()
-  // const Icon = link.icon
+  const { setOpenMobile } = useSidebar()
   const pathname = usePathname()
-
   const { collapsibleSections } = NavigationItems()
+  const [isOpen, setIsOpen] = useState(
+    collapsibleSections.some(({ basePath }) => pathname.startsWith(basePath))
+  )
 
-  const onCopy = async () => {
+  const isCollapsibleSection = collapsibleSections.some(
+    ({ label }) => link.title === label
+  )
+
+  const onCopy = useCallback(async () => {
     if (link.title === 'Contact') {
-      const contactInfo = link.href
-      await navigator.clipboard.writeText(contactInfo)
-
-      // Show the toast notification after copying
-      toast('Email copied to clipboard', {
-        description: link.href,
-      })
+      await navigator.clipboard.writeText(link.href)
+      toast('Email copied to clipboard', { description: link.href })
     }
-  }
+  }, [link.href])
 
   return (
-    <div className={className}>
+    <SidebarMenu className={className}>
       {/* Collapsible Sections */}
       {collapsibleSections.map(({ label, posts, basePath }) =>
         link.title === label ? (
-          <Collapsible
-            key={label}
-            open={isMobile ? link.isActive : undefined}
-            className="group/collapsible"
-          >
-            {/* Link as the Collapsible Trigger */}
-            <CollapsibleTrigger asChild>
-              <SidebarMenuButton
-                tooltip={link.title}
-                isActive={link.isActive}
-                as={Link}
-                href={link.href}
-                className="group-data-[state=collapsed]:mx-2"
-              >
-                <link.icon />
-                <span>{link.title}</span>
-                <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90 text-muted-foreground" />
-              </SidebarMenuButton>
-            </CollapsibleTrigger>
-
-            {/* Collapsible Content */}
-            <CollapsibleContent className="pl-1 overflow-hidden transition-[height] duration-300 ease-in-out data-[state=open]:animate-expand data-[state=closed]:animate-collapse data-[state=open]:truncate">
-              {posts.map((post) => (
-                <SidebarMenuSub
-                  key={post.slug}
-                  isActive={pathname.endsWith(`${post.slug}`)}
+          <SidebarMenuItem key={label}>
+            <Collapsible
+              open={isOpen}
+              onOpenChange={setIsOpen}
+              className="group/collapsible"
+            >
+              {/* Link as the Collapsible Trigger */}
+              <CollapsibleTrigger asChild>
+                <SidebarMenuButton
+                  tooltip={link.title}
+                  isActive={link.isActive}
+                  as={Link}
+                  href={link.href}
+                  className="group-data-[state=collapsed]:mx-2"
                 >
-                  <Link
-                    href={`${basePath}/${post.slug}`}
-                    className={cn('block px-2 py-1')}
-                    onClick={() => setOpenMobile(false)}
-                  >
-                    {post.title}
-                  </Link>
+                  <link.icon />
+                  <span>{link.title}</span>
+                  <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90 text-muted-foreground" />
+                </SidebarMenuButton>
+              </CollapsibleTrigger>
+
+              {/* Collapsible Content */}
+              <CollapsibleContent className="pl-1 overflow-hidden transition-[height] duration-300 ease-in-out data-[state=open]:animate-expand data-[state=closed]:animate-collapse data-[state=open]:truncate">
+                <SidebarMenuSub>
+                  {posts.map((post) => (
+                    <SidebarMenuSubItem key={post.slug}>
+                      <SidebarMenuSubButton
+                        as={Link}
+                        href={`${basePath}/${post.slug}`}
+                        isActive={pathname.endsWith(`${post.slug}`)}
+                        onClick={() => setOpenMobile(false)}
+                      >
+                        {post.title}
+                      </SidebarMenuSubButton>
+                    </SidebarMenuSubItem>
+                  ))}
                 </SidebarMenuSub>
-              ))}
-            </CollapsibleContent>
-          </Collapsible>
+              </CollapsibleContent>
+            </Collapsible>
+          </SidebarMenuItem>
         ) : null
       )}
+
       {/* Regular Navigation Links */}
-      {!collapsibleSections.some(({ label }) => link.title === label) && (
-        <SidebarMenuButton
-          tooltip={link.title}
-          isActive={link.isActive}
-          as={link.title === 'Contact' ? 'button' : Link}
-          href={link.title === 'Contact' ? undefined : link.href}
-          target={
-            link.title === 'Read.cv' || link.title === 'Github'
-              ? '_blank'
-              : '_self'
-          }
-          className="group-data-[state=collapsed]:mx-2"
-          onClick={
-            link.title === 'Contact' ? onCopy : () => setOpenMobile(false)
-          }
-        >
-          <link.icon />
-          <span>{link.title}</span>
-          {link.title === 'Contact' ? (
-            <Copy className="ml-auto text-muted-foreground" />
-          ) : link.title === 'Read.cv' || link.title === 'Github' ? (
-            <ExternalLink className="ml-auto text-muted-foreground" />
-          ) : null}
-        </SidebarMenuButton>
+      {!isCollapsibleSection && (
+        <SidebarMenuItem>
+          <SidebarMenuButton
+            tooltip={link.title}
+            isActive={link.isActive}
+            as={link.title === 'Contact' ? 'button' : Link}
+            href={link.title === 'Contact' ? undefined : link.href}
+            target={
+              link.title === 'Read.cv' || link.title === 'Github'
+                ? '_blank'
+                : '_self'
+            }
+            className="group-data-[state=collapsed]:mx-2"
+            onClick={
+              link.title === 'Contact'
+                ? onCopy
+                : link.title === 'Read.cv' || link.title === 'Github'
+                ? undefined
+                : () => setOpenMobile(false)
+            }
+          >
+            <link.icon />
+            <span>{link.title}</span>
+            {link.title === 'Contact' ? (
+              <Copy className="ml-auto text-muted-foreground" />
+            ) : link.title === 'Read.cv' || link.title === 'Github' ? (
+              <ExternalLink className="ml-auto text-muted-foreground" />
+            ) : null}
+          </SidebarMenuButton>
+        </SidebarMenuItem>
       )}
-    </div>
+    </SidebarMenu>
   )
 }
