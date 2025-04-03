@@ -12,9 +12,9 @@ export default function Page() {
         </p>
 
         <p>
-          I am a Product Designer with experience crafting intuitive,
-          user-centered products. I have helped companies drive revenue growth
-          through A/B testing and iterative design.
+          I am a Product Designer with experience crafting product experiences
+          from 0 {`->`} 1. I have helped companies drive revenue growth through
+          A/B testing and iterative design.
         </p>
 
         <p>
