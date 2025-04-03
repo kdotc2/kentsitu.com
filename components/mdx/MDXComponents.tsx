@@ -1,5 +1,3 @@
-'use client'
-
 import React from 'react'
 import { useMDXComponent } from 'next-contentlayer2/hooks'
 import { coreContent } from 'lib/utils/contentlayer'
