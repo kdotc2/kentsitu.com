@@ -6,7 +6,7 @@ const Image = ({ alt, ...rest }: ImageProps) => (
     {...rest}
     alt={alt}
     className={cn(
-      alt.includes('page') && 'rounded-lg border',
+      alt.includes('page') && 'rounded-xl border',
       (alt.includes('screen') || alt.includes('animation')) && 'border'
     )}
   />
