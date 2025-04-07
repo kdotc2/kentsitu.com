@@ -14,7 +14,6 @@ import {
   CollapsibleTrigger,
 } from '@/components/ui/collapsible'
 import {
-  SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarMenuSub,
@@ -34,10 +33,9 @@ export type NavProps = {
     icon: LucideIcon | ComponentType<LucideProps>
     isActive?: boolean
   }
-  className?: string
 }
 
-export function NavigationLink({ link, className }: NavProps) {
+export function NavigationLink({ link }: NavProps) {
   const { setOpenMobile, isMobile } = useSidebar()
   const pathname = usePathname()
   const { collapsibleSections } = NavigationItems()
@@ -51,10 +49,10 @@ export function NavigationLink({ link, className }: NavProps) {
       await navigator.clipboard.writeText(link.href)
       toast('Email copied to clipboard', { description: link.href })
     }
-  }, [link.href])
+  }, [link.href, link.title])
 
   return (
-    <SidebarMenu className={className}>
+    <>
       {/* Collapsible Sections */}
       {collapsibleSections.map(({ label, posts, basePath }) =>
         link.title === label ? (
@@ -136,6 +134,6 @@ export function NavigationLink({ link, className }: NavProps) {
           </SidebarMenuButton>
         </SidebarMenuItem>
       )}
-    </SidebarMenu>
+    </>
   )
 }
