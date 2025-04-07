@@ -45,6 +45,8 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
+  --color-link: var(--link);
+
   /* --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px); */
@@ -113,6 +115,8 @@
   --sidebar-accent-foreground: hsl(0 0% 10%);
   --sidebar-border: hsl(220 13% 91%);
   --sidebar-ring: hsl(217.2 91.2% 59.8%);
+
+  --link: hsl(240 98% 59%);
 }
 .dark {
   --background: hsl(0 0% 2%);
@@ -142,6 +146,8 @@
   --sidebar-accent-foreground: hsl(240 4.8% 92.9%);
   --sidebar-border: hsl(240 3.7% 15.9%);
   --sidebar-ring: hsl(217.2 91.2% 59.8%);
+
+  --link: hsl(216 98% 66%);
 }
 
 @layer base {
