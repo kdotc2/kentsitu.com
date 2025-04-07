@@ -9,7 +9,7 @@
 }
 
 .prose a {
-  @apply font-normal text-ring/80 hover:text-ring no-underline;
+  @apply font-normal text-link no-underline hover:underline;
 }
 
 .prose img {

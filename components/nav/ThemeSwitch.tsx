@@ -38,6 +38,7 @@ export const ThemeSwitch = ({ className }: { className?: string }) => {
       <div className="button-container flex group-data-[state=collapsed]:flex-col group-data-[state=collapsed]:gap-1">
         {themes.map(({ value, icon }) => (
           <SidebarMenuButton
+            aria-label={`Toggle ${value} mode`}
             key={value}
             size="icon"
             onClick={() => handleThemeChange(value)}
