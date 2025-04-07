@@ -14,7 +14,6 @@ import {
   CollapsibleTrigger,
 } from '@/components/ui/collapsible'
 import {
-  SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarMenuSub,
@@ -50,7 +49,7 @@ export function NavigationLink({ link }: NavProps) {
       await navigator.clipboard.writeText(link.href)
       toast('Email copied to clipboard', { description: link.href })
     }
-  }, [link.href])
+  }, [link.href, link.title])
 
   return (
     <>
