@@ -34,10 +34,9 @@ export type NavProps = {
     icon: LucideIcon | ComponentType<LucideProps>
     isActive?: boolean
   }
-  className?: string
 }
 
-export function NavigationLink({ link, className }: NavProps) {
+export function NavigationLink({ link }: NavProps) {
   const { setOpenMobile, isMobile } = useSidebar()
   const pathname = usePathname()
   const { collapsibleSections } = NavigationItems()
@@ -54,7 +53,7 @@ export function NavigationLink({ link, className }: NavProps) {
   }, [link.href])
 
   return (
-    <SidebarMenu className={className}>
+    <>
       {/* Collapsible Sections */}
       {collapsibleSections.map(({ label, posts, basePath }) =>
         link.title === label ? (
@@ -136,6 +135,6 @@ export function NavigationLink({ link, className }: NavProps) {
           </SidebarMenuButton>
         </SidebarMenuItem>
       )}
-    </SidebarMenu>
+    </>
   )
 }

@@ -9,6 +9,7 @@ import {
   SidebarGroup,
   SidebarGroupLabel,
   SidebarHeader,
+  SidebarMenu,
   SidebarMenuButton,
 } from '@/components/ui/sidebar'
 import { ThemeSwitch } from '@/components/nav/ThemeSwitch'
@@ -59,9 +60,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             {/* Section Label */}
             <SidebarGroupLabel>{section.label}</SidebarGroupLabel>
 
-            {section.items.map((item) => (
-              <NavigationLink key={item.title} link={item} />
-            ))}
+            {/* Sidebar Menu for Group Items */}
+            <SidebarMenu>
+              {section.items.map((item) => (
+                <NavigationLink key={item.title} link={item} />
+              ))}
+            </SidebarMenu>
           </SidebarGroup>
         ))}
       </SidebarContent>
