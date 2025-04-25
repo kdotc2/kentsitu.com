@@ -108,7 +108,7 @@ export function NavigationLink({ link }: NavProps) {
           <SidebarMenuButton
             tooltip={link.title}
             isActive={link.isActive}
-            as={link.title === 'Contact' ? 'button' : Link}
+            as={link.title === 'Contact' ? 'button' : 'a'}
             href={link.title === 'Contact' ? undefined : link.href}
             target={
               link.title === 'Resume' || link.title === 'Github'
