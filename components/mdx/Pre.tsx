@@ -3,6 +3,7 @@
 import { toast } from 'sonner'
 import { Copy } from 'lucide-react'
 import React from 'react'
+import { Button } from '@/components/ui/button'
 
 type PreProps = React.HTMLProps<HTMLPreElement> // This includes all props for <pre> element
 
@@ -20,15 +21,16 @@ const Pre = (props: PreProps) => {
 
   return (
     <div className="relative">
-      <button
-        className="absolute right-4 top-4 z-10 hidden opacity-0 transition md:flex [div:hover>&]:opacity-100"
+      <Button
+        variant="icon"
+        size="icon"
+        className="absolute right-4 top-4 z-10 hidden opacity-0 transition md:flex [div:hover>&]:opacity-100 size-5"
         onClick={onCopy}
-        type="button"
         aria-label="Copy to clipboard"
         title="Copy to clipboard"
       >
         <Copy className="h-5 w-5" />
-      </button>
+      </Button>
       <pre className="overflow-x-scroll" ref={textInput} {...rest}>
         {children}
       </pre>
