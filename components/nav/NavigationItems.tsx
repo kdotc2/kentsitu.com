@@ -102,7 +102,7 @@ const NavigationItems = () => {
       label: 'Me',
       items: [
         {
-          href: 'Kent_Situ_Resume.pdf',
+          href: '/Kent_Situ_Resume.pdf',
           title: 'Resume',
           icon: FileText,
         },
