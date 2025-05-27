@@ -2,7 +2,6 @@
 import { Loader } from '@/components/ui/skeleton'
 import bookmarksData from '@/content/bookmarks/bookmarks.json'
 import { ExternalLink } from 'lucide-react'
-import Link from 'next/link'
 import { useEffect, useMemo, useRef, useState } from 'react'
 
 type MetaData = {
@@ -57,7 +56,7 @@ export default function Bookmarks() {
   return (
     <>
       {bookmarks.map((bookmark) => (
-        <Link
+        <a
           key={bookmark.title}
           href={bookmark.url}
           className="cardStyle mb-4"
@@ -76,7 +75,7 @@ export default function Bookmarks() {
               <p className="line-clamp-3">{bookmark.description}</p>
             </div>
           </div>
-        </Link>
+        </a>
       ))}
 
       <div ref={lastBookmarkRef}>{loading && <Loader />}</div>
