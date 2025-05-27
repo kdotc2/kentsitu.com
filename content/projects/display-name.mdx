@@ -1,0 +1,76 @@
+---
+title: 'Display Name'
+date: '2025-05-27'
+summary: Designing and building a portfolio curation platform where users can submit/edit entries. Includes an admin panel for approvals.
+description: A platform for submitting and editing a curated collection of design portfolios.
+image: /images/projects/display-name/cover-photo.webp
+url: https://displayname.co
+tags: ['Next.js', 'Tailwind CSS', 'Typescript', 'Supabase', 'Cloudflare R2']
+---
+
+
+## Overview
+
+Display Name is a side project born out of my curiosity while redesigning my portfolio for the third time. I started wondering how other designers tackled theirs and realized I had already bookmarked several inspiring examples. To take it a step further, I expanded the collection using reddit and other design communities. I pulled metadata from each site, and organized everything into a browsable gallery of portfolio cards.
+
+## Build
+
+The project is built with Next.js, Tailwind CSS, TypeScript, Supabase, and Cloudflare R2. I used Supabase's Postgres database in combination with Prisma ORM to streamline both local and production development. For image storage, I chose Cloudflare R2 due to its generous free tier and ease of integration.
+
+This project also gave me a chance to dive deeper into backend development. While I'm still growing my frontend skills, I realized my backend knowledge needed strengthening too. Much of the backend logic was developed with the help of AI and insights from past projects. Using Postgres and Prisma, I was able to design and implement a working database schema that supports the app's functionality.
+
+## Design
+
+The design is simple and functional, consisting of two main sections: the Home page with portfolio cards, and an Admin Panel for reviewing submissions and edits.
+
+## Home
+
+The Home page allows users to search portfolios, filter by years of experience (YOE), or browse by tags. A button to add new portfolios is located in the top right corner, alongside links to the About page and the Admin panel (visible only to admins). Portfolio cards are displayed in a masonry layout with infinite scrolling for smooth navigation. To edit, users can hover over the card and click an edit button.
+
+![Home page](/images/projects/display-name/home.webp)
+
+## Portfolio Entry
+
+There are two types of submissions: adding a new entry or editing an existing one. Both require admin approval before any changes appear on the Home page.
+
+In the Add Entry form, users are asked to provide portfolio details—name, description, and URL are required fields.
+
+![Add entry page](/images/projects/display-name/add-entry.webp)
+
+The Edit Entry form pre-populates existing data, allowing users to update fields as needed.
+
+![Edit entry page](/images/projects/display-name/edit-entry.webp)
+
+## Search & Filters
+
+In the stickied header, users can refine their search using keywords and filters. Keyword search checks against the name, description, and tags fields. The YOE input specifically targets the years of experience tag, while toggle buttons allow users to filter by different tags.
+
+![Search and filters page](/images/projects/display-name/applied-filters.webp)
+
+## Admin Panel
+
+The Admin Panel is where new and edited entry submissions are reviewed. Submissions can be approved, rejected, or deleted using a bulk selection process for efficiency. When an entry is deleted, its associated images are also removed from storage to keep things clean.
+
+![Admin panel page](/images/projects/display-name/admin-panel.webp)
+
+Pending edits appear in a dedicated view that displays both the current and proposed versions side by side. Visual highlights and color cues make it easy to spot what’s changed.
+
+![Pending edits page](/images/projects/display-name/pending-edits.webp)
+
+
+## Mobile
+
+The design is fully responsive. On smaller screens, filters and the YOE input are tucked into a sliding sheet for better usability. The entry form expands to full screen for a focused input experience, and the Admin Panel is optimized for mobile, making it easy to manage submissions on the go.
+
+
+<div className="projectImageGrid pt-4">
+
+![Home screen](/images/projects/display-name/mobile-home.webp)
+
+![Filters screen](/images/projects/display-name/mobile-filters.webp)
+
+![Edit entry screen](/images/projects/display-name/mobile-edit-entry.webp)
+
+![Admin panel screen](/images/projects/display-name/mobile-admin-panel.webp)
+
+</div>
