@@ -5,21 +5,23 @@ import { CirclePlay, PauseCircle } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useMounted } from '@/hooks/useMounted'
 import { Button } from '@/components/ui/button'
+import { getPublicUrl } from '@/lib/utils/env'
 
 const VideoPlayer = ({
-  link,
+  title,
   poster,
   phone,
-  width = '100%',
+  width,
 }: {
-  link: string
+  title: string
   poster?: string
   phone?: boolean
-  width?: string
+  width?: number | string
 }) => {
   const [isPlaying, setIsPlaying] = useState(false)
   const mounted = useMounted()
   const videoRef = useRef<HTMLVideoElement>(null)
+  const publicUrl = getPublicUrl()
 
   const playVideo = () => {
     setIsPlaying(() => {
@@ -83,7 +85,7 @@ const VideoPlayer = ({
           <div className="group absolute z-10">
             <Image
               alt="iPhone layout"
-              src={`/videos/iPhone13Pro.png`}
+              src={`/images/iPhone13Pro.png`}
               width={250}
               height={506}
               style={{ width: 250, height: 506 }}
@@ -93,7 +95,7 @@ const VideoPlayer = ({
         <div className="group">
           <video
             className={cn('border', phone && 'rounded-[20px] border-none')}
-            src={link}
+            src={`${publicUrl}/videos/${title}.mp4`}
             poster={poster}
             ref={videoRef}
             width={width}
