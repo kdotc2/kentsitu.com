@@ -103,7 +103,7 @@ const VideoPlayer = ({
             loop
             muted
             playsInline
-            preload="metadata"
+            preload="auto"
           />
         </div>
       </div>
