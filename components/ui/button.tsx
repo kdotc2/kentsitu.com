@@ -21,7 +21,7 @@ const buttonVariants = cva(
         link: 'flex items-center justify-center rounded-md border border-gray-200 bg-[#f2f2f2] px-3 py-[10px] text-[13px] font-medium leading-none text-gray-900 active:border-gray-300 active:bg-[#ebebeb] dark:border-gray-700 dark:bg-[#121212] dark:text-gray-100 dark:active:border-gray-600 dark:active:bg-[#191919] md:hover:border-gray-300 md:hover:bg-[#ebebeb] md:dark:hover:border-gray-600 md:dark:hover:bg-[#191919]',
         transparent:
           'bg-none hover:bg-sidebar-accent hover:text-sidebar-accent-foreground',
-        icon: '[&_svg]:size-5',
+        icon: '[&_svg]:size-4',
       },
       size: {
         default: 'h-9 px-4 py-2',
