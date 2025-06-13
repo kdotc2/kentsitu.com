@@ -1,9 +1,6 @@
 import createMDX from '@next/mdx'
 import { withContentlayer } from 'next-contentlayer2'
 import type { NextConfig } from 'next'
-import { getPublicUrl } from '@/lib/utils/env'
-
-const publicUrl = getPublicUrl()
 
 const scriptSrc = [
   "'self'",
@@ -12,7 +9,10 @@ const scriptSrc = [
   'https://va.vercel-scripts.com',
 ]
 
-const mediaSrc = ["'self'", publicUrl]
+const mediaSrc = [
+  "'self'",
+  process.env.NEXT_PUBLIC_CDN_URL ?? process.env.NEXT_PUBLIC_R2_PUBLIC_URL,
+]
 
 // You might need to insert additional domains in script-src if you are using external services
 const ContentSecurityPolicy = `
