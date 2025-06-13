@@ -5,7 +5,6 @@ import { PlayIcon, PauseIcon, RotateCwIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useMounted } from '@/hooks/useMounted'
 import { Button } from '@/components/ui/button'
-import { getPublicUrl } from '@/lib/utils/env'
 
 const VideoPlayer = ({
   title,
@@ -22,7 +21,12 @@ const VideoPlayer = ({
   const [hasEnded, setHasEnded] = useState(false)
   const mounted = useMounted()
   const videoRef = useRef<HTMLVideoElement>(null)
-  const publicUrl = getPublicUrl()
+
+  const publicUrl =
+    process.env.NEXT_PUBLIC_CDN_URL ??
+    process.env.NEXT_PUBLIC_R2_PUBLIC_URL ??
+    'http://localhost:3000'
+  const videoUrl = `${publicUrl}/videos/${title}.mp4`
 
   const playVideo = () => {
     if (!videoRef.current) return
@@ -114,7 +118,7 @@ const VideoPlayer = ({
         <div className="group">
           <video
             className={cn('border', phone && 'rounded-[20px] border-none')}
-            src={`${publicUrl}/videos/${title}.mp4`}
+            src={videoUrl}
             poster={poster}
             ref={videoRef}
             width={width}
