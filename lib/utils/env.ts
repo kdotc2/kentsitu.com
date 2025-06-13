@@ -1,7 +1,5 @@
 const isPreview = process.env.VERCEL_ENV === 'preview'
-export const isProduction = process.env.VERCEL_ENV === 'production'
-
-export const env = process.env.VERCEL_ENV || process.env.NODE_ENV
+const isProduction = process.env.VERCEL_ENV === 'production'
 
 export function getPublicUrl() {
   if (isProduction) {
