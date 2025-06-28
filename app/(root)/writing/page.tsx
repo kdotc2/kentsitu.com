@@ -1,7 +1,7 @@
 import { allWritings } from 'contentlayer/generated'
 import { sortedWritingPost } from '@/lib/utils/contentlayer'
 import type { Writing } from 'contentlayer/generated'
-import Link from 'next/link'
+import Link from '@/components/nav/Link'
 import { formatDate } from '@/lib/utils/formatDate'
 import { PageLayout } from '@/components/layouts/PageLayout'
 import { Metadata } from 'next'
