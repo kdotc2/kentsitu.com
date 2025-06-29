@@ -7,6 +7,7 @@ const scriptSrc = [
   "'unsafe-inline'",
   "'unsafe-eval'",
   'https://va.vercel-scripts.com',
+  'https://vercel.live',
 ]
 
 const mediaSrc = [

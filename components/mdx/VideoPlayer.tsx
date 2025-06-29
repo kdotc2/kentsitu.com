@@ -15,7 +15,7 @@ const VideoPlayer = ({
   title: string
   poster?: string
   phone?: boolean
-  width?: number | string
+  width?: number
 }) => {
   const [isPlaying, setIsPlaying] = useState(false)
   const [hasEnded, setHasEnded] = useState(false)
@@ -68,11 +68,12 @@ const VideoPlayer = ({
         >
           {/* Placeholder content that matches the eventual size */}
           {poster && (
-            <img
+            <Image
               src={poster}
               alt="Video poster"
               className={cn('border', phone && 'rounded-[20px] border-none')}
-              style={{ width }}
+              width={width}
+              height={503}
             />
           )}
         </div>
@@ -119,7 +120,7 @@ const VideoPlayer = ({
           <video
             className={cn('border', phone && 'rounded-[20px] border-none')}
             src={videoUrl}
-            poster={poster}
+            poster={`${publicUrl}${poster}`}
             ref={videoRef}
             width={width}
             height="auto"
