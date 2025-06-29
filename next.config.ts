@@ -65,6 +65,15 @@ const securityHeaders = [
 ]
 const nextConfig: NextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  images: {
+    domains: [
+      new URL(
+        process.env.NEXT_PUBLIC_CDN_URL ??
+          process.env.NEXT_PUBLIC_R2_PUBLIC_URL ??
+          ''
+      ).hostname,
+    ],
+  },
   async headers() {
     return [
       {
