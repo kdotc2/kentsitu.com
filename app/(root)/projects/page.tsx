@@ -1,6 +1,6 @@
 import { allProjects } from 'contentlayer/generated'
 import { sortedProjectsPost } from '@/lib/utils/contentlayer'
-import Image from 'next/image'
+import Image from '@/components/mdx/Image'
 import Link from '@/components/nav/Link'
 import { PageLayout } from '@/components/layouts/PageLayout'
 import { Metadata } from 'next'

@@ -1,7 +1,7 @@
 import { allWorks } from 'contentlayer/generated'
 import { sortedWorkPost } from '@/lib/utils/contentlayer'
 import type { Work } from 'contentlayer/generated'
-import Image from 'next/image'
+import Image from '@/components/mdx/Image'
 import Link from '@/components/nav/Link'
 import { PageLayout } from '@/components/layouts/PageLayout'
 import { Metadata } from 'next'
