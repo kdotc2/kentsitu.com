@@ -7,6 +7,7 @@ import {
   LucideProps,
   Copy,
   ExternalLink,
+  Check,
 } from 'lucide-react'
 import {
   Collapsible,
@@ -23,8 +24,7 @@ import {
 } from '@/components/ui/sidebar'
 import { usePathname } from 'next/navigation'
 import NavigationItems from '@/components/nav/NavigationItems'
-import { ComponentType, useCallback } from 'react'
-import { toast } from 'sonner'
+import { ComponentType, useCallback, useState } from 'react'
 
 export type NavProps = {
   link: {
@@ -36,9 +36,10 @@ export type NavProps = {
 }
 
 export function NavigationLink({ link }: NavProps) {
-  const { setOpenMobile, isMobile } = useSidebar()
+  const { setOpenMobile, isMobile, state } = useSidebar()
   const pathname = usePathname()
   const { collapsibleSections } = NavigationItems()
+  const [copied, setCopied] = useState(false)
 
   const isCollapsibleSection = collapsibleSections.some(
     ({ label }) => link.title === label
@@ -47,7 +48,11 @@ export function NavigationLink({ link }: NavProps) {
   const onCopy = useCallback(async () => {
     if (link.title === 'Contact') {
       await navigator.clipboard.writeText(link.href)
-      toast('Email copied to clipboard', { description: link.href })
+      setCopied(true)
+
+      setTimeout(() => {
+        setCopied(false)
+      }, 2000)
     }
   }, [link.href, link.title])
 
@@ -124,10 +129,19 @@ export function NavigationLink({ link }: NavProps) {
                 : () => setOpenMobile(false)
             }
           >
-            <link.icon />
+            {/* In collapsed state and contact clicked, show Check as main icon */}
+            {link.title === 'Contact' && state === 'collapsed' && copied ? (
+              <Check />
+            ) : (
+              <link.icon />
+            )}
             <span>{link.title}</span>
             {link.title === 'Contact' ? (
-              <Copy className="ml-auto text-muted-foreground" />
+              copied ? (
+                <Check className="ml-auto text-muted-foreground" />
+              ) : (
+                <Copy className="ml-auto text-muted-foreground" />
+              )
             ) : link.title === 'Resume' || link.title === 'Github' ? (
               <ExternalLink className="ml-auto text-muted-foreground" />
             ) : null}
