@@ -18,8 +18,9 @@ export default function Page() {
         </p>
 
         <p>
-          I enjoy tinkering and learning new technologies. Currently learning
-          and improving my frontend engineering skills.
+          Currently building <a href="https://displayname.co">Display Name</a>,
+          a side project where designers find portfolio inspiration and design
+          jobs.
         </p>
       </div>
     </div>

@@ -1,8 +1,7 @@
 'use client'
 
-import { toast } from 'sonner'
-import { Copy } from 'lucide-react'
-import React from 'react'
+import { Check, Copy } from 'lucide-react'
+import React, { useState } from 'react'
 import { Button } from '@/components/ui/button'
 
 type PreProps = React.HTMLProps<HTMLPreElement> // This includes all props for <pre> element
@@ -10,13 +9,14 @@ type PreProps = React.HTMLProps<HTMLPreElement> // This includes all props for <
 const Pre = (props: PreProps) => {
   const { children, ...rest } = props
   const textInput = React.useRef<HTMLPreElement>(null)
+  const [copied, setCopied] = useState(false)
 
   const onCopy = async () => {
     if (textInput.current) {
       await navigator.clipboard.writeText(textInput.current.textContent || '')
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
     }
-
-    toast('Snippet copied to clipboard')
   }
 
   return (
@@ -29,7 +29,7 @@ const Pre = (props: PreProps) => {
         aria-label="Copy to clipboard"
         title="Copy to clipboard"
       >
-        <Copy className="h-5 w-5" />
+        {copied ? <Check className="size-5" /> : <Copy className="size-5" />}
       </Button>
       <pre className="overflow-x-scroll" ref={textInput} {...rest}>
         {children}
