@@ -8,7 +8,6 @@ import {
   Code,
   BriefcaseBusiness,
   Mail,
-  FileText,
 } from 'lucide-react'
 import { allProjects, allWorks, allWritings } from 'contentlayer/generated'
 import {
@@ -101,11 +100,6 @@ const NavigationItems = () => {
     {
       label: 'Me',
       items: [
-        {
-          href: '/Kent_Situ_Resume.pdf',
-          title: 'Resume',
-          icon: FileText,
-        },
         {
           href: 'https://github.com/kdotc2',
           title: 'Github',

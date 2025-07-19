@@ -18,9 +18,9 @@ export default function Page() {
         </p>
 
         <p>
-          Currently building <a href="https://displayname.co">Display Name</a>,
-          a side project where designers find portfolio inspiration and design
-          jobs.
+          Building <a href="https://displayname.co">Display Name</a>, a space
+          where designers can find portfolio ideas and discover job
+          opportunities.
         </p>
       </div>
     </div>
