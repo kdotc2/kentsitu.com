@@ -115,16 +115,12 @@ export function NavigationLink({ link }: NavProps) {
             isActive={link.isActive}
             as={link.title === 'Contact' ? 'button' : 'a'}
             href={link.title === 'Contact' ? undefined : link.href}
-            target={
-              link.title === 'Resume' || link.title === 'Github'
-                ? '_blank'
-                : '_self'
-            }
+            target={link.title === 'Github' ? '_blank' : '_self'}
             className="group-data-[state=collapsed]:mx-2"
             onClick={
               link.title === 'Contact'
                 ? onCopy
-                : link.title === 'Resume' || link.title === 'Github'
+                : link.title === 'Github'
                 ? undefined
                 : () => setOpenMobile(false)
             }
@@ -142,7 +138,7 @@ export function NavigationLink({ link }: NavProps) {
               ) : (
                 <Copy className="ml-auto text-muted-foreground" />
               )
-            ) : link.title === 'Resume' || link.title === 'Github' ? (
+            ) : link.title === 'Github' ? (
               <ExternalLink className="ml-auto text-muted-foreground" />
             ) : null}
           </SidebarMenuButton>
