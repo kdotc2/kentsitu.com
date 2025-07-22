@@ -5,7 +5,6 @@ import {
   Pencil,
   Bookmark,
   FileIcon,
-  Code,
   BriefcaseBusiness,
   Mail,
 } from 'lucide-react'
@@ -88,12 +87,6 @@ const NavigationItems = () => {
           title: 'Changelog',
           icon: FileIcon,
           isActive: pathname.startsWith('/changelog'),
-        },
-        {
-          href: '/snippets',
-          title: 'Snippets',
-          icon: Code,
-          isActive: pathname.startsWith('/snippets'),
         },
       ],
     },
