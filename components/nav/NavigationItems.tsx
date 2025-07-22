@@ -5,7 +5,6 @@ import {
   Pencil,
   Bookmark,
   FileIcon,
-  Code,
   BriefcaseBusiness,
   Mail,
 } from 'lucide-react'
