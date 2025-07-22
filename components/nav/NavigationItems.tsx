@@ -89,12 +89,6 @@ const NavigationItems = () => {
           icon: FileIcon,
           isActive: pathname.startsWith('/changelog'),
         },
-        {
-          href: '/snippets',
-          title: 'Snippets',
-          icon: Code,
-          isActive: pathname.startsWith('/snippets'),
-        },
       ],
     },
     {

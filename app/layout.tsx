@@ -5,8 +5,6 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ThemeProvider } from '@/context/ThemeProvider'
 import { SidebarProvider } from '@/components/ui/sidebar'
-import { Suspense } from 'react'
-import { Loader } from '@/components/ui/skeleton'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
@@ -35,16 +33,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} antialiased`}>
         <ThemeProvider>
-          {/* Wrap the client-side providers in Suspense */}
-          <Suspense
-            fallback={
-              <div className="h-screen flex items-center justify-center w-full">
-                <Loader />
-              </div>
-            }
-          >
-            <SidebarProvider>{children}</SidebarProvider>
-          </Suspense>
+          <SidebarProvider>{children}</SidebarProvider>
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />
