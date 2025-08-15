@@ -270,154 +270,6 @@ There was a lot of back and forth between the teams on what and how to proceed. 
 
 ---
 
-## Receipt Scan Iteration
-
-The receipt scan flow needed some updates. Users had trouble scanning their receipts. They couldn't add missing items from the scan. And the error alerts needed a copy update.
-
-<MetricsList
-  items={[
-    {
-      icon: 'Files',
-      percentages: { new: '71%' },
-      description: 'of photos were duplicates of the same receipt.',
-    },
-    {
-      icon: 'Database',
-      percentages: { new: '14%' },
-      description: 'of analyzed receipts in photo storage.',
-    },
-    {
-      icon: 'CircleCheck',
-      percentages: { new: '18%' },
-      description: 'of users completed their receipt scan.',
-    },
-  ]}
-  iconClassName="text-[#FFD968]"
-/>
-
-### Identify Opportunities
-
-I went through our current scan flow and identified some areas where we could improve.
-- Scan won't work until OCR (optical character recognition) recognizes receipt.
-- Present error alert before photo capture.
-- Let users know which items need required information.
-
-<div className="projectImageGrid pt-4">
-
-    <Image src="/images/work/ylli-receipt-scan/screen1.webp" alt="Camera scan screen" width='375' height='812' />
-
-    <Image src="/images/work/ylli-receipt-scan/screen2.webp" alt="Review photos screen" width='375' height='812' />
-
-    <Image src="/images/work/ylli-receipt-scan/screen3.webp" alt="Scan error screen" width='375' height='812' />
-
-    <Image src="/images/work/ylli-receipt-scan/screen4.webp" alt="Items found screen" width='375' height='812' />
-
-</div>
-
-I put together an updated user flow with two new error breakpoints. The first breakpoint prevents the user from capturing the photo if there's an error. This should prevent capturing unnecessary photos. The second breakpoint will let users know which items still need required information. This should signal to the user on the items that need updating.
-
-<Image src="/images/work/ylli-receipt-scan/user-flow.webp" alt="User flow" width='1724' height='883' />
-
-### Partner With Engineers On Ideation
-
-The engineers and I discussed how the accuracy threshold for the scan was around 80-90%. And the two main analysis errors were brightness and blurriness. I came up with some different copies and decided on the two versions below. After some internal feedback, we decided on the short form error messages. It was easy to scan and straight to the point.
-
-- Got rid of the "SAMPLE TEXT SIZE", as it was misleading. 
-- Updated the capture box to accommodate for smaller device types. 
-- Moved the alert to the center of the screen. Capture button disappears when error is active.
-
-<div className="projectImageGrid pt-4">
-
-    <Image src="/images/work/ylli-receipt-scan/screen5.webp" alt="Brightness error screen" width='375' height='812' />
-
-    <Image src="/images/work/ylli-receipt-scan/screen6.webp" alt="Adjust receipt error screen" width='375' height='812' />
-
-    <Image src="/images/work/ylli-receipt-scan/screen7.webp" alt="Updated brightness error screen" width='375' height='812' />
-
-    <Image src="/images/work/ylli-receipt-scan/screen8.webp" alt="Updated adjust receipt error screen" width='375' height='812' />
-
-</div>
-
-I also made some updates to the second part of the scan flow. These features were missing in the first launch. And it made the scan difficult for users to complete. The item card got <a href={'/work/ylli-item-card'} target="_blank">redesigned</a> from a previous project.
-
-- Added "Required information missing" alert, along with red dot indicators.
-- Option to change Purchase Date for all items at once.
-- Can now add missing items from the scan without having to wait or go back.
-
-<div className="projectImageGrid pt-4">
-
-    <Image src="/images/work/ylli-receipt-scan/screen9.webp" alt="Updated items found screen" width='375' height='812' />
-
-    <Image src="/images/work/ylli-receipt-scan/screen10.webp" alt="Select purchase date screen" width='375' height='812' />
-
-    <Image src="/images/work/ylli-receipt-scan/screen11.webp" alt="Add item screen" width='375' height='812' />
-
-    <Image src="/images/work/ylli-receipt-scan/screen12.webp" alt="Completed items found screen" width='375' height='812' />
-
-</div>
-
-### Design New Receipt Scan
-
-After getting the screens and the copy down, I put together a prototype for testing. In this phase of testing, we didn't include the real-time errors. We decided it was better to do it in-house with different edge cases.
-
-{/* <div className="flex justify-center py-6">
-  <Button link="https://xd.adobe.com/view/054c2c94-149a-45e6-a131-18987683f5db-501f/" text="Prototype" />
-</div> */}
-
-
-<div className="grid grid-cols-1 sm:grid-cols-2 py-4 gap-4">
-  <div className="m-auto pb-0 sm:pb-4">
-    <div className="text-lg text-[#FFD968] font-semibold">Receipt Scan Updates</div>
-    - Wider capture box for scan.
-    - New error alerts and indicators.
-    - Globally change purchase date.
-    - Add missing item after scan.
-    - Option to delete card and undo action.
-  </div>
-  <VideoPlayer title="ylli-receipt-scan" poster="/images/ylli-receipt-scan-poster.webp" width={224} phone />
-</div>
-
-### Test Error Handling
-
-We tested the live error handling in-house. We wanted to account for as many edge cases as we could. These included faded, wrinkled, and marked receipts. Also wanted to make sure the 80-90% threshold accuracy remained the same with the new changes. The decision was to stick with the two error alerts, and add more when needed.
-
-<div className="grid grid-cols-1 sm:grid-cols-2 py-4 gap-4">
-  <div className="m-auto pb-0 sm:pb-4">
-    <div className="text-lg text-[#FFD968] font-semibold">Error Handling Alerts</div>
-    - Capture button disappears on errors.
-    - Brightness error on dark background.
-    - Adjust error when receipt is not recognized.
-  </div>
-  <VideoPlayer title="ylli-receipt-error-handling" poster="/images/ylli-receipt-error-handling-poster.webp" width={224} phone/>
-</div>
-
-### Conclusion
-
-After about a month of the updates, we saw improvements in our metrics. The new error alerts and disabled capture button prevented unnecessary photos. The updated UI and indicators also helped more users complete their receipt scan. We also reduced future cost by getting rid of unnecessary photos in storage.
-
-<MetricsList
-  items={[
-    {
-      icon: 'Files',
-      percentages: { old: '71%', new: "19%" },
-      description: 'of photos were duplicates of the same receipt.',
-    },
-    {
-      icon: 'Database',
-      percentages: { old: '14%', new: "85%" },
-      description: 'of analyzed receipts in photo storage.',
-    },
-    {
-      icon: 'CircleCheck',
-      percentages: { old: '18%', new: "70%" },
-      description: 'of users completed their receipt scan.',
-    },
-  ]}
-  iconClassName="text-[#FFD968]"
-/>
-
----
-
 ## Item Card Iteration
 
 Users were struggling with the swipe feature. The card design didn't provide us with enough flexibility. It wasn't designed wide enough for us to implement future features on our roadmap. A lot of them had no clue that this feature existed.
@@ -596,6 +448,154 @@ However, we weren't able to implement all the changes.
 - Instead of having users go through each step of the tutorial, we created a video to speed up some of the process. 
 - Due to timing, we didn't update the undo button and left it as it was in the previous design. 
 - The delete button wasn't implemented in this iteration.
+
+---
+
+## Receipt Scan Iteration
+
+The receipt scan flow needed some updates. Users had trouble scanning their receipts. They couldn't add missing items from the scan. And the error alerts needed a copy update.
+
+<MetricsList
+  items={[
+    {
+      icon: 'Files',
+      percentages: { new: '71%' },
+      description: 'of photos were duplicates of the same receipt.',
+    },
+    {
+      icon: 'Database',
+      percentages: { new: '14%' },
+      description: 'of analyzed receipts in photo storage.',
+    },
+    {
+      icon: 'CircleCheck',
+      percentages: { new: '18%' },
+      description: 'of users completed their receipt scan.',
+    },
+  ]}
+  iconClassName="text-[#FFD968]"
+/>
+
+### Identify Opportunities
+
+I went through our current scan flow and identified some areas where we could improve.
+- Scan won't work until OCR (optical character recognition) recognizes receipt.
+- Present error alert before photo capture.
+- Let users know which items need required information.
+
+<div className="projectImageGrid pt-4">
+
+    <Image src="/images/work/ylli-receipt-scan/screen1.webp" alt="Camera scan screen" width='375' height='812' />
+
+    <Image src="/images/work/ylli-receipt-scan/screen2.webp" alt="Review photos screen" width='375' height='812' />
+
+    <Image src="/images/work/ylli-receipt-scan/screen3.webp" alt="Scan error screen" width='375' height='812' />
+
+    <Image src="/images/work/ylli-receipt-scan/screen4.webp" alt="Items found screen" width='375' height='812' />
+
+</div>
+
+I put together an updated user flow with two new error breakpoints. The first breakpoint prevents the user from capturing the photo if there's an error. This should prevent capturing unnecessary photos. The second breakpoint will let users know which items still need required information. This should signal to the user on the items that need updating.
+
+<Image src="/images/work/ylli-receipt-scan/user-flow.webp" alt="User flow" width='1724' height='883' />
+
+### Partner With Engineers On Ideation
+
+The engineers and I discussed how the accuracy threshold for the scan was around 80-90%. And the two main analysis errors were brightness and blurriness. I came up with some different copies and decided on the two versions below. After some internal feedback, we decided on the short form error messages. It was easy to scan and straight to the point.
+
+- Got rid of the "SAMPLE TEXT SIZE", as it was misleading. 
+- Updated the capture box to accommodate for smaller device types. 
+- Moved the alert to the center of the screen. Capture button disappears when error is active.
+
+<div className="projectImageGrid pt-4">
+
+    <Image src="/images/work/ylli-receipt-scan/screen5.webp" alt="Brightness error screen" width='375' height='812' />
+
+    <Image src="/images/work/ylli-receipt-scan/screen6.webp" alt="Adjust receipt error screen" width='375' height='812' />
+
+    <Image src="/images/work/ylli-receipt-scan/screen7.webp" alt="Updated brightness error screen" width='375' height='812' />
+
+    <Image src="/images/work/ylli-receipt-scan/screen8.webp" alt="Updated adjust receipt error screen" width='375' height='812' />
+
+</div>
+
+I also made some updates to the second part of the scan flow. These features were missing in the first launch. And it made the scan difficult for users to complete. The item card was redesigned from the project above.
+
+- Added "Required information missing" alert, along with red dot indicators.
+- Option to change Purchase Date for all items at once.
+- Can now add missing items from the scan without having to wait or go back.
+
+<div className="projectImageGrid pt-4">
+
+    <Image src="/images/work/ylli-receipt-scan/screen9.webp" alt="Updated items found screen" width='375' height='812' />
+
+    <Image src="/images/work/ylli-receipt-scan/screen10.webp" alt="Select purchase date screen" width='375' height='812' />
+
+    <Image src="/images/work/ylli-receipt-scan/screen11.webp" alt="Add item screen" width='375' height='812' />
+
+    <Image src="/images/work/ylli-receipt-scan/screen12.webp" alt="Completed items found screen" width='375' height='812' />
+
+</div>
+
+### Design New Receipt Scan
+
+After getting the screens and the copy down, I put together a prototype for testing. In this phase of testing, we didn't include the real-time errors. We decided it was better to do it in-house with different edge cases.
+
+{/* <div className="flex justify-center py-6">
+  <Button link="https://xd.adobe.com/view/054c2c94-149a-45e6-a131-18987683f5db-501f/" text="Prototype" />
+</div> */}
+
+
+<div className="grid grid-cols-1 sm:grid-cols-2 py-4 gap-4">
+  <div className="m-auto pb-0 sm:pb-4">
+    <div className="text-lg text-[#FFD968] font-semibold">Receipt Scan Updates</div>
+    - Wider capture box for scan.
+    - New error alerts and indicators.
+    - Globally change purchase date.
+    - Add missing item after scan.
+    - Option to delete card and undo action.
+  </div>
+  <VideoPlayer title="ylli-receipt-scan" poster="/images/ylli-receipt-scan-poster.webp" width={224} phone />
+</div>
+
+### Test Error Handling
+
+We tested the live error handling in-house. We wanted to account for as many edge cases as we could. These included faded, wrinkled, and marked receipts. Also wanted to make sure the 80-90% threshold accuracy remained the same with the new changes. The decision was to stick with the two error alerts, and add more when needed.
+
+<div className="grid grid-cols-1 sm:grid-cols-2 py-4 gap-4">
+  <div className="m-auto pb-0 sm:pb-4">
+    <div className="text-lg text-[#FFD968] font-semibold">Error Handling Alerts</div>
+    - Capture button disappears on errors.
+    - Brightness error on dark background.
+    - Adjust error when receipt is not recognized.
+  </div>
+  <VideoPlayer title="ylli-receipt-error-handling" poster="/images/ylli-receipt-error-handling-poster.webp" width={224} phone/>
+</div>
+
+### Conclusion
+
+After about a month of the updates, we saw improvements in our metrics. The new error alerts and disabled capture button prevented unnecessary photos. The updated UI and indicators also helped more users complete their receipt scan. We also reduced future cost by getting rid of unnecessary photos in storage.
+
+<MetricsList
+  items={[
+    {
+      icon: 'Files',
+      percentages: { old: '71%', new: "19%" },
+      description: 'of photos were duplicates of the same receipt.',
+    },
+    {
+      icon: 'Database',
+      percentages: { old: '14%', new: "85%" },
+      description: 'of analyzed receipts in photo storage.',
+    },
+    {
+      icon: 'CircleCheck',
+      percentages: { old: '18%', new: "70%" },
+      description: 'of users completed their receipt scan.',
+    },
+  ]}
+  iconClassName="text-[#FFD968]"
+/>
 
 ---
 

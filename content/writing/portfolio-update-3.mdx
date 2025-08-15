@@ -9,7 +9,7 @@ I decided to do another iteration of my portfolio after learning more about fron
 
 It's also a lot easier to update the color scheme of the website with css variables. I can update the light and dark mode colors in my css file. I don't have to use the `dark` variant anymore, but rather I can do it in the tailwind css file. And then use `text-primary` and it'll have both light and dark modes ready to go.
 
-For this iteration, I added a navigation bar at the top so it was easier to navigate the website on mobile. I used the `usePathname` hook to grab the url to help me display the titles. I went this route because there's no delay when grabbing the pathnam. Whereas, if I waited for the content to load to grab the title, it creates a slight loading delay. This isn't as scalable, but for now the use case is perfect for what I need it for.
+For this iteration, I added a navigation bar at the top so it was easier to navigate the website on mobile. I used the `usePathname` hook to grab the url to help me display the titles. I went this route because there's no delay when grabbing the pathname. Whereas, if I waited for the content to load to grab the title, it creates a slight loading delay. This isn't as scalable, but for now the use case is perfect for what I need it for.
 
 The sidebar can now collapse to icons and also expand to show the full text. This is possible because of the [sidebar](https://ui.shadcn.com/docs/components/sidebar) component from shadcn. It took some time to get the styling correct because of expanded/collapsed states. I had to make sure they matched the UI and the focus rings aligned with the clickable elements.
 
