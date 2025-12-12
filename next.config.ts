@@ -64,17 +64,25 @@ const securityHeaders = [
     value: 'camera=(), microphone=(), geolocation=()',
   },
 ]
+
 const nextConfig: NextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+
   images: {
-    domains: [
-      new URL(
-        process.env.NEXT_PUBLIC_CDN_URL ??
-          process.env.NEXT_PUBLIC_R2_PUBLIC_URL ??
-          ''
-      ).hostname,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: new URL(
+          process.env.NEXT_PUBLIC_CDN_URL ??
+            process.env.NEXT_PUBLIC_R2_PUBLIC_URL ??
+            ''
+        ).hostname,
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
+
   async headers() {
     return [
       {
