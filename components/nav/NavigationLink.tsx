@@ -82,7 +82,7 @@ export function NavigationLink({ link }: NavProps) {
               </CollapsibleTrigger>
 
               {/* Collapsible Content */}
-              <CollapsibleContent className="pl-1 overflow-hidden transition-[height] duration-300 ease-in-out data-[state=open]:animate-expand data-[state=closed]:animate-collapse data-[state=open]:truncate">
+              <CollapsibleContent className="pl-1 overflow-hidden transition-[height] duration-300 ease-in-out data-[state=open]:animate-expand data-[state=closed]:animate-collapse data-[state=open]:truncate w-full">
                 <SidebarMenuSub>
                   {posts.map((post) => (
                     <SidebarMenuSubItem key={post.slug}>
@@ -96,7 +96,9 @@ export function NavigationLink({ link }: NavProps) {
                           }, 300)
                         }
                       >
-                        {post.title}
+                        <span className="truncate max-w-full">
+                          {post.title}
+                        </span>
                       </SidebarMenuSubButton>
                     </SidebarMenuSubItem>
                   ))}
