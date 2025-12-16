@@ -3,7 +3,6 @@
 import {
   FolderClosed,
   Pencil,
-  Bookmark,
   FileIcon,
   BriefcaseBusiness,
   Mail,
