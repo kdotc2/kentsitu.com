@@ -7,14 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "build:content": "contentlayer2 build",
-    "generate-bookmarks": "npx tsx scripts/generateBookmarks.ts"
-  },
-  "lint-staged": {
-    "content/bookmarks/bookmarkItems.ts": [
-      "pnpm run generate-bookmarks",
-      "git add content/bookmarks/bookmarks.json"
-    ]
+    "build:content": "contentlayer2 build"
   },
   "type": "module",
   "dependencies": {

@@ -77,23 +77,6 @@ const NavigationItems = () => {
       label: 'Miscellaneous',
       items: [
         {
-          href: '/bookmarks',
-          title: 'Bookmarks',
-          icon: Bookmark,
-          isActive: pathname.startsWith('/bookmarks'),
-        },
-        {
-          href: '/changelog',
-          title: 'Changelog',
-          icon: FileIcon,
-          isActive: pathname.startsWith('/changelog'),
-        },
-      ],
-    },
-    {
-      label: 'Me',
-      items: [
-        {
           href: 'https://github.com/kdotc2',
           title: 'Github',
           icon: Github,
@@ -102,6 +85,12 @@ const NavigationItems = () => {
           href: 'hello@kentsitu.com',
           title: 'Contact',
           icon: Mail,
+        },
+        {
+          href: '/changelog',
+          title: 'Changelog',
+          icon: FileIcon,
+          isActive: pathname.startsWith('/changelog'),
         },
       ],
     },

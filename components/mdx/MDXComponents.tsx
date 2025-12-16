@@ -5,7 +5,6 @@ import type { Writing, Work, Misc, Projects } from 'contentlayer/generated'
 import Image from './Image'
 import Pre from './Pre'
 import VideoPlayer from './VideoPlayer'
-import Bookmarks from '@/components/layouts/BookmarksLayout'
 import Link from 'next/link'
 import { MetricsList } from '@/components/mdx/MetricsList'
 import { cn } from '@/lib/utils'
@@ -35,7 +34,6 @@ export const MDXComponents: object = {
   Image,
   pre: Pre,
   VideoPlayer,
-  Bookmarks,
   Link,
   MetricsList,
 }
