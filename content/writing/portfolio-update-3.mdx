@@ -5,14 +5,15 @@ lastmod: '2025-02-02'
 summary: Updating to Next.js 15.1.6, use shadcn components, and UI changes.
 ---
 
-I decided to do another iteration of my portfolio after learning more about frontend. Instead of building the UI from scratch, I went with a component library called [shadcn](https://ui.shadcn.com/). It was a library that was also used to help build some of the UI components for <Link href={'/work/workmaps'}>Workmaps</Link>. It made the design iteration and state a lot easier to manage.
+I decided to do another iteration of my portfolio after learning more about frontend. Instead of building the UI from scratch, I went with a component library called <a href="https://ui.shadcn.com/" target="_blank">shadcn</a>. It was a library that was also used to help build some of the UI components for <Link href={'/work/workmaps'}>Workmaps</Link>. It made the design iteration and state a lot easier to manage.
 
 It's also a lot easier to update the color scheme of the website with css variables. I can update the light and dark mode colors in my css file. I don't have to use the `dark` variant anymore, but rather I can do it in the tailwind css file. And then use `text-primary` and it'll have both light and dark modes ready to go.
 
 For this iteration, I added a navigation bar at the top so it was easier to navigate the website on mobile. I used the `usePathname` hook to grab the url to help me display the titles. I went this route because there's no delay when grabbing the pathname. Whereas, if I waited for the content to load to grab the title, it creates a slight loading delay. This isn't as scalable, but for now the use case is perfect for what I need it for.
 
-The sidebar can now collapse to icons and also expand to show the full text. This is possible because of the [sidebar](https://ui.shadcn.com/docs/components/sidebar) component from shadcn. It took some time to get the styling correct because of expanded/collapsed states. I had to make sure they matched the UI and the focus rings aligned with the clickable elements.
+The sidebar can now collapse to icons and also expand to show the full text. This is possible because of the <a href="https://ui.shadcn.com/docs/components/sidebar/" target="_blank">sidebar</a>
+ component from shadcn. It took some time to get the styling correct because of expanded/collapsed states. I had to make sure they matched the UI and the focus rings aligned with the clickable elements.
 
-The last big change was updating the `Bookmarks` page. Instead of refetching the data for every user. I created a script (with the help of AI) to create a `bookmarks.json` file to store the data. And with the help of [husky](https://typicode.github.io/husky/), every time a new bookmark gets added, the script reruns and adds the new data to the json file. It's pretty neat for my current use case.
+The last big change was updating the `Bookmarks` page. Instead of refetching the data for every user. I created a script (with the help of AI) to create a `bookmarks.json` file to store the data. And with the help of <a href="https://typicode.github.io/husky/" target="_blank">husky</a>, every time a new bookmark gets added, the script reruns and adds the new data to the json file. It's pretty neat for my current use case.
 
 Seeing the progress from version 1 to version 3 was pretty awesome. There's still a lot to learn, but I've come a long way. I am starting to follow the DRY (Don't repeat yourself) principle a lot more. Remove unnecessary code, and also refactor repetitive code.
