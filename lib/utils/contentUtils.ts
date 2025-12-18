@@ -1,6 +1,6 @@
-import { Work, Projects, Writing } from 'contentlayer/generated'
+import { Work, Project, Writing } from 'content-collections'
 
-type Post = Work | Projects | Writing
+type Post = Work | Project | Writing
 
 const generateStaticParamsForContent = (
   allContent: Post[]

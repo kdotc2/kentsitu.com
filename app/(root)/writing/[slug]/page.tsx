@@ -1,4 +1,4 @@
-import { allWritings } from 'contentlayer/generated'
+import { allWritings } from 'content-collections'
 import { notFound } from 'next/navigation'
 import {
   generateStaticParamsForContent,

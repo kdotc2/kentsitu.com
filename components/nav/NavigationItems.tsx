@@ -7,12 +7,12 @@ import {
   BriefcaseBusiness,
   Mail,
 } from 'lucide-react'
-import { allProjects, allWorks, allWritings } from 'contentlayer/generated'
+import { allProjects, allWorks, allWritings } from 'content-collections'
 import {
   sortedProjectsPost,
   sortedWorkPost,
   sortedWritingPost,
-} from '@/lib/utils/contentlayer'
+} from '@/lib/utils/contentCollections'
 import { usePathname } from 'next/navigation'
 
 const Github = () => (

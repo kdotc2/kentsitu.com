@@ -1,4 +1,4 @@
-import { allWorks } from 'contentlayer/generated'
+import { allWorks } from 'content-collections'
 import { notFound } from 'next/navigation'
 import {
   generateStaticParamsForContent,
@@ -35,7 +35,7 @@ export default async function WorkLayout({
     notFound()
   }
 
-  const toc = await getTableOfContents(post.body.raw)
+  const toc = await getTableOfContents(post.content)
 
   return (
     <div className="relative flex">

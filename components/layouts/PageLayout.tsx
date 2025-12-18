@@ -1,4 +1,4 @@
-import { Projects, Work, Writing } from '@/.contentlayer/generated'
+import { Work, Project, Writing } from 'content-collections'
 import { Mdx, MDXComponents } from '@/components/mdx/MDXComponents'
 import { TableOfContents, TocProps } from '@/components/mdx/Toc'
 import { cn } from '@/lib/utils'
@@ -65,7 +65,7 @@ export const SlugContentLayout = ({
   titleLink,
 }: {
   className?: string
-  post: Work | Writing | Projects
+  post: Work | Writing | Project
   toc?: TocProps['toc']
   titleLink?: boolean
 }) => {

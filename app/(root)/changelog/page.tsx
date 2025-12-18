@@ -1,4 +1,4 @@
-import { allMiscs } from 'contentlayer/generated'
+import { allMiscs } from 'content-collections'
 import { MDXComponents, Mdx } from '@/components/mdx/MDXComponents'
 import { notFound } from 'next/navigation'
 import { PageLayout } from '@/components/layouts/PageLayout'

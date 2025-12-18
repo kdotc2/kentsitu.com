@@ -1,8 +1,11 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
+// 1. Update imports to the new generated location
+import type { Writing, Work, Project, Misc } from 'content-collections'
 
-import type { Work, Writing, Projects, DocumentTypes } from 'contentlayer/generated'
+// Define a union type for all document types
+export type DocumentTypes = Writing | Work | Project | Misc
 
-export function dateSortDesc(a: string, b: string) {
+export function dateSortDesc(a: string | Date, b: string | Date) {
   if (a > b) return -1
   if (a < b) return 1
   return 0
@@ -11,10 +14,13 @@ export function dateSortDesc(a: string, b: string) {
 export function sortedWritingPost(allWritings: Writing[]) {
   return allWritings.sort((a, b) => dateSortDesc(a.date, b.date))
 }
+
 export function sortedWorkPost(allWorks: Work[]) {
   return allWorks.sort((a, b) => dateSortDesc(a.date, b.date))
 }
-export function sortedProjectsPost(allProjects: Projects[]) {
+
+// 2. Note: Use 'Project' (singular) as defined in your index.d.ts
+export function sortedProjectsPost(allProjects: Project[]) {
   return allProjects.sort((a, b) => dateSortDesc(a.date, b.date))
 }
 
@@ -27,32 +33,37 @@ type PickRequired<T> = {
 }
 type ConvertPick<T> = ConvertUndefined<T> & PickRequired<T>
 
-/**
- *
- * https://github.com/contentlayerdev/contentlayer/issues/24
- */
 export const pick = <Obj, Keys extends keyof Obj>(
   obj: Obj,
   keys: Keys[]
 ): ConvertPick<{ [K in Keys]: Obj[K] }> => {
   return keys.reduce((acc, key) => {
-    acc[key] = obj[key] ?? null
+    acc[key] = (obj as any)[key] ?? null
     return acc
   }, {} as any)
 }
 
-export const omit = <Obj, Keys extends keyof Obj>(obj: Obj, keys: Keys[]): Omit<Obj, Keys> => {
+export const omit = <Obj, Keys extends keyof Obj>(
+  obj: Obj,
+  keys: Keys[]
+): Omit<Obj, Keys> => {
   const result = Object.assign({}, obj)
   keys.forEach((key) => {
-    delete result[key]
+    delete (result as any)[key]
   })
   return result
 }
 
-export type CoreContent<T> = Omit<T, 'body' | '_raw' | '_id'>
+/**
+ * 3. Updated CoreContent logic
+ * Content Collections uses '_meta' for internal data.
+ * If you used the 'transform' function from the previous step, your MDX
+ * is stored in 'mdx' instead of 'body'.
+ */
+export type CoreContent<T> = Omit<T, 'mdx' | '_meta'>
 
 export function coreContent<T extends DocumentTypes>(content: T) {
-  return omit(content, ['body', '_raw', '_id'])
+  return omit(content, ['mdx', '_meta'] as any) as CoreContent<T>
 }
 
 export function allCoreContent<T extends DocumentTypes>(contents: T[]) {

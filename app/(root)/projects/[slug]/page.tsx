@@ -1,4 +1,4 @@
-import { allProjects, Projects } from 'contentlayer/generated'
+import { allProjects, Project } from 'content-collections'
 import { notFound } from 'next/navigation'
 import {
   generateStaticParamsForContent,
@@ -28,7 +28,7 @@ export default async function ProjectLayout({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const post = getContentBySlug(slug, allProjects) as Projects
+  const post = getContentBySlug(slug, allProjects) as Project
 
   if (!post || post.draft) {
     notFound()
