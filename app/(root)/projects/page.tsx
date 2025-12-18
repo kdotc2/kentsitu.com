@@ -1,5 +1,5 @@
-import { allProjects } from 'contentlayer/generated'
-import { sortedProjectsPost } from '@/lib/utils/contentlayer'
+import { allProjects } from 'content-collections'
+import { sortedProjectsPost } from '@/lib/utils/contentCollections'
 import Image from '@/components/mdx/Image'
 import Link from '@/components/nav/Link'
 import { PageLayout } from '@/components/layouts/PageLayout'

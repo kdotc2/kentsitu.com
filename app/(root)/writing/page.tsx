@@ -1,6 +1,6 @@
-import { allWritings } from 'contentlayer/generated'
-import { sortedWritingPost } from '@/lib/utils/contentlayer'
-import type { Writing } from 'contentlayer/generated'
+import { allWritings } from 'content-collections'
+
+import { sortedWritingPost } from '@/lib/utils/contentCollections'
 import Link from '@/components/nav/Link'
 import { formatDate } from '@/lib/utils/formatDate'
 import { PageLayout } from '@/components/layouts/PageLayout'
