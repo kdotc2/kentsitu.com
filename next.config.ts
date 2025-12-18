@@ -1,5 +1,5 @@
 import createMDX from '@next/mdx'
-import { withContentlayer } from 'next-contentlayer2'
+import { withContentCollections } from '@content-collections/next'
 import type { NextConfig } from 'next'
 
 const scriptSrc = [
@@ -102,5 +102,5 @@ const withMDX = createMDX({
   },
 })
 
-// Combine both withMDX and withContentlayer
-export default withContentlayer(withMDX(nextConfig))
+// Combine both withMDX and withContentCollections
+export default withContentCollections(withMDX(nextConfig))

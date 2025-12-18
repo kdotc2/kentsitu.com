@@ -35,5 +35,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Contentlayer
-.contentlayer
+# Content Collections
+.content-collections
