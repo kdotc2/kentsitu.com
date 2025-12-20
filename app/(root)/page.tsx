@@ -7,8 +7,8 @@ export default function Page() {
         <p>
           Hello, my name is Kent. Welcome to my space on the web. A place to
           share my <Link href={'/work'}>work</Link>,{' '}
-          <Link href={'/writing'}>thoughts</Link>, and{' '}
-          <Link href={'/changelog'}>progress</Link>.
+          <Link href={'/projects'}>projects</Link>, and{' '}
+          <Link href={'/writing'}>thoughts</Link>.
         </p>
 
         <p>
