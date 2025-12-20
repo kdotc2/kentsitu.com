@@ -1,12 +1,6 @@
 'use client'
 
-import {
-  FolderClosed,
-  Pencil,
-  FileIcon,
-  BriefcaseBusiness,
-  Mail,
-} from 'lucide-react'
+import { FolderClosed, Pencil, BriefcaseBusiness, Mail } from 'lucide-react'
 import { allProjects, allWorks, allWritings } from 'content-collections'
 import {
   sortedProjectsPost,
@@ -73,7 +67,7 @@ const NavigationItems = () => {
       ],
     },
     {
-      label: 'Miscellaneous',
+      label: 'Me',
       items: [
         {
           href: 'https://github.com/kdotc2',
@@ -84,12 +78,6 @@ const NavigationItems = () => {
           href: 'hello@kentsitu.com',
           title: 'Contact',
           icon: Mail,
-        },
-        {
-          href: '/changelog',
-          title: 'Changelog',
-          icon: FileIcon,
-          isActive: pathname.startsWith('/changelog'),
         },
       ],
     },

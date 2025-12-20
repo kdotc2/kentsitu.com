@@ -2,7 +2,7 @@ import React from 'react'
 // 1. Use hook from MDXContent component
 import { MDXContent } from '@content-collections/mdx/react'
 // 2. Import types from the new generated location
-import type { Writing, Work, Misc, Project } from 'content-collections'
+import type { Writing, Work, Project } from 'content-collections'
 import Image from './Image'
 import Pre from './Pre'
 import VideoPlayer from './VideoPlayer'
@@ -11,7 +11,7 @@ import { MetricsList } from '@/components/mdx/MetricsList'
 import { cn } from '@/lib/utils'
 
 // Types for the supported collections
-type ContentType = Writing | Work | Misc | Project
+type ContentType = Writing | Work | Project
 
 interface MDXLayoutProps {
   content: ContentType

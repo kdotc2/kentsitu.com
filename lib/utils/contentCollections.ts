@@ -1,9 +1,9 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 // 1. Update imports to the new generated location
-import type { Writing, Work, Project, Misc } from 'content-collections'
+import type { Writing, Work, Project } from 'content-collections'
 
 // Define a union type for all document types
-export type DocumentTypes = Writing | Work | Project | Misc
+export type DocumentTypes = Writing | Work | Project
 
 export function dateSortDesc(a: string | Date, b: string | Date) {
   if (a > b) return -1

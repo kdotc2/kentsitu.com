@@ -22,21 +22,26 @@ const titleMappings: Record<string, string> = {
   'portfolio-update-3': 'Portfolio Update 3.0',
 }
 
-// Utility function to format titles
-const formatTitle = (text: string) => {
-  if (titleMappings[text]) {
-    return titleMappings[text]
-  }
+const ACRONYMS = new Set(['ai'])
 
-  return text
+// Utility function to format titles
+const formatTitle = (text: string) =>
+  text
     .split('-')
-    .map((word) =>
-      word.length <= 3
-        ? word.toLowerCase()
-        : word.charAt(0).toUpperCase() + word.slice(1)
-    )
+    .map((word, index) => {
+      const lower = word.toLowerCase()
+
+      if (ACRONYMS.has(lower)) {
+        return lower.toUpperCase()
+      }
+
+      if (index !== 0 && word.length <= 2) {
+        return lower
+      }
+
+      return word.charAt(0).toUpperCase() + word.slice(1)
+    })
     .join(' ')
-}
 
 export const Header = () => {
   const pathname = usePathname()
