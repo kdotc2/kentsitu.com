@@ -105,37 +105,6 @@ const Projects = defineCollection({
   },
 })
 
-const Misc = defineCollection({
-  name: 'Misc',
-  directory: 'content/misc',
-  include: '*.mdx',
-  schema: z.object({
-    title: z.string(),
-    date: z.string(),
-    lastmod: z.string().optional(),
-    draft: z.boolean().optional(),
-    summary: z.string().optional(),
-    description: z.string().optional(),
-    image: z.string().optional(),
-  }),
-  transform: async (document, context) => {
-    const mdx = await compileMDX(context, document, {
-      remarkPlugins: [remarkGfm, remarkImgToJsx, remarkCodeTitles],
-      rehypePlugins: [
-        rehypeSlug,
-        rehypeAutolinkHeadings,
-        [rehypePrismPlus, { ignoreMissing: true, showLineNumbers: true }],
-      ],
-    })
-
-    return {
-      ...document,
-      mdx,
-      slug: document._meta.path,
-    }
-  },
-})
-
 export default defineConfig({
-  collections: [Writing, Work, Projects, Misc],
+  collections: [Writing, Work, Projects],
 })
